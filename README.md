@@ -1,2 +1,1 @@
-# dotfiles
-# Here are where configurations are?
+# dotfiles for Arch Linux
