@@ -85,6 +85,7 @@ usbutils
 util-linux
 vi
 vim
+vim-latexsuite
 which
 wpa_actiond
 wpa_supplicant
