@@ -1,4 +1,5 @@
-#
+
+
 # ~/.bashrc
 #
 
@@ -12,4 +13,6 @@ alias vi='vim'
 alias webz='chromium &'
 alias fontz='fc-list | cut -f2 -d: | sort -u'
 archey3 -c red
-export PATH=$PATH:/usr/share/vim/vimfiles
+alias emacs='emacs &'
+# Only needed if using vim-latex
+# export PATH=$PATH:/usr/share/vim/vimfiles
