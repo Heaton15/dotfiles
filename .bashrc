@@ -16,3 +16,6 @@ archey3 -c red
 alias emacs='emacs &'
 # Only needed if using vim-latex
 # export PATH=$PATH:/usr/share/vim/vimfiles
+#export WINEARCH=win32 export WINEPREFIX=~/win32 winecfg
+#export WINEPREFIX=~/win64 winecfg
+export WINEPREFIX=~/.win64

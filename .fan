@@ -2,7 +2,11 @@
 
 ARG=$1
 
-if   [ $1 -eq 7 ]; then
+if [ $1 == auto ]; then
+ echo Setting fan to auto
+ echo level auto | sudo tee /proc/acpi/ibm/fan
+
+elif [ $1 -eq 7 ]; then
  echo Setting fan to speed 7 
  echo level 7 | sudo tee /proc/acpi/ibm/fan 
 
@@ -33,10 +37,6 @@ elif [ $1 -eq 1 ]; then
 elif [ $1 -eq 0 ]; then
  echo Setting fan to speed 0
  echo level 0 | sudo tee /proc/acpi/ibm/fan 
-
-elif [ $1 == auto ]; then
- echo Setting fan to  speed
- echo level auto | sudo tee /proc/acpi/ibm/fan 
 
 else 
  echo No changes to fan
