@@ -1,0 +1,1 @@
+1) Be sure to change the GRUB kernel parameters on fresh install to be "reboot=pci" instead of "reboot=bios." Known to cause reboot hang ups
