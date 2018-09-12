@@ -18,4 +18,7 @@ alias emacs='emacs &'
 # export PATH=$PATH:/usr/share/vim/vimfiles
 #export WINEARCH=win32 export WINEPREFIX=~/win32 winecfg
 #export WINEPREFIX=~/win64 winecfg
-export WINEPREFIX=~/.win64
+#export WINEPREFIX=~/.win64
+eval $(dircolors ~/.dir_colors)
+
+
