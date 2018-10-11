@@ -6,7 +6,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 alias ls='ls --color=auto'
-alias web='i3-msg workspace web'
+#alias web='i3-msg workspace web'
 PS1='[\u@\h \W]\$ '
 alias ll='ls -la'
 alias vi='vim'
@@ -20,5 +20,6 @@ alias emacs='emacs &'
 #export WINEPREFIX=~/win64 winecfg
 #export WINEPREFIX=~/.win64
 eval $(dircolors ~/.dir_colors)
-
-
+source ~/.colors
+alias school='sudo openconnect --juniper vpn.coeit.osu.edu'
+alias esl0555_vm='ssh -L 3389:esl0555:3389 esl0575'

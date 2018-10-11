@@ -1,35 +1,57 @@
-# Urxvt controls
+!rxvt controls
 URxvt*termName:  screen-256color
-URxvt*geometry:  207:47
-URxvt*fading:  30
-URxvt*background:  Black
-URxvt*foreground:  #FF0000
-#URxvt*colorUL:  yellow
-#URxvt*underlineColor:  yellow
-URxvt.font: xft:Inconsolata:pixelsize=20"
+URxvt*geometry:  210:46
+URxvt*foreground:  #afafaf
+URxvt*background:  #121212
+!urxvt*foreground: white
+!urxvt*background: black
+
+! 0-8 are the normal color schemes
+!black, red, green, yellow, blue, magenta, cyan, white
+
+!black
+!*color0:  #FF0000
+!*color8:  #FF0000
+
+!red
+!*color1:  #FF0000
+*color9:  #FF0000
+
+!green
+*color2:  #D700D7
+*color10: #FF00FF
+
+!yellow
+!*color3:  #FF0000
+!*color11: #FF0000
+
+!blue
+*color4:  #9E9E9E
+!*color12: #FF0000
+
+!magenta
+!*color5:  #FF0000
+!*color13: #FF0000
+
+!cyan
+!*color6:  #FF0000
+*color14: #ff5faf
+
+!white
+!*color7:  #FF0000
+!*color15: #FF0000
+
+URxvt*colorUL:  yellow
+URxvt*underlineColor:  yellow
+URxvt.font: xft:Inconsolata:pixelsize=20
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
-#xvt.borderColor:      #0AA030
+!URxvt.borderColor:      #0AA030
 URxvt.internalBorder:   1
-#URxvt*depth: 32
-#URxvt*background: rgba:0000/0000/0000/cccc
+!URxvt*depth: 32
+!URxvt*background: rgba:0000/0000/0000/cccc
+URxvt*fading:  15
 URxvt*transparent: true
-URxvt*shading: 100
+URxvt*shading: 10
 
-#xvt.color0:             #3f3f3f
-#URxvt.color1:           #705050
-#URxvt.color2:           #00b45a
-#URxvt.color3:           #dfcf8f
-#URxvt.color4:           #506070
-#URxvt.color5:           #dc8cc3
-#URxvt.color6:           #8cd0d3
-#URxvt.color7:           #dcdccc
-#URxvt.color8:           #709080
-#URxvt.color9:           #cc5454
-#URxvt.color10:          #4d9f4d
-#URxvt.color11:          #f0dfaf
-#URxvt.color12:          #4186be
-#URxvt.color13:          #ec93d3
-#URxvt.color14:          #93e0e3
-#URxvt.color15:          #ffffx
 
