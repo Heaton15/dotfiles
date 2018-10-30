@@ -21,5 +21,3 @@ alias emacs='emacs &'
 #export WINEPREFIX=~/.win64
 eval $(dircolors ~/.dir_colors)
 source ~/.colors
-alias school='sudo openconnect --juniper vpn.coeit.osu.edu'
-alias esl0555_vm='ssh -L 3389:esl0555:3389 esl0575'
