@@ -12,12 +12,12 @@ alias ll='ls -la'
 alias vi='vim'
 alias webz='chromium &'
 alias fontz='fc-list | cut -f2 -d: | sort -u'
+alias dirs='dirs -v'
 archey3 -c red
 alias emacs='emacs &'
-# Only needed if using vim-latex
-# export PATH=$PATH:/usr/share/vim/vimfiles
-#export WINEARCH=win32 export WINEPREFIX=~/win32 winecfg
-#export WINEPREFIX=~/win64 winecfg
-#export WINEPREFIX=~/.win64
 eval $(dircolors ~/.dir_colors)
 source ~/.colors
+
+
+# Setting local terminal variables 
+export EDITOR="/usr/bin/vim"

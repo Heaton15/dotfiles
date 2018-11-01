@@ -29,12 +29,17 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set relativenumber
+set formatoptions=cro
+" Disables comment continuation in vim environment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "NERDtree configuration
 "autocmd vimenter * NERDTree
 nmap <S-l> :NERDTreeToggle<CR>
 "End NERDtree configuration
 
+"Enabling vim for .muttrc
+au BufRead /tmp/mutt-* set tw=72
 
 
 
