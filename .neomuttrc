@@ -1,37 +1,36 @@
 # General configuration
 set editor = `echo \$EDITOR`
-set header_cache = "~/.mutt/cache"
-set imap_check_subscribed
+#set header_cache = "~/.mutt/cache"
+#set imap_check_subscribed
+#set imap_list_subscribed
 set imap_keepalive = 300
 unset imap_passive
 set mail_check = 60
 set mbox_type = Maildir
+set send_charset="us-ascii:utf-8"
 
 
 
 
 #######################
-
-# Buckeyemail Setup
-source "~/.mutt/buckeyemail"
-folder-hook $folder 'source ~/.mutt/buckeyemail'
-
-
 # Gmail setup
 source "~/.mutt/gmail"
 folder-hook $folder 'source ~/.mutt/gmail'
 
-
+# Buckeyemail Setup
+source "~/.mutt/buckeyemail"
+folder-hook $folder 'source ~/.mutt/buckeyemail'
+unmailboxes *
 
 # TDKC Setup
 #source "~/.mutt/tdkc"
-#folder-hook $folder 'source ~/.mutt/gmail'
+#folder-hook $folder 'source ~/.mutt/tdkc'
 
 ########################
 
 # Open Mail Shortcuts
-#macro index,pager gh '<sync-mailbox><enter-command>source ~/.mutt/buckeyemail<enter><change-folder>!<enter>'
-#macro index,pager gj '<sync-mailbox><enter-command>source ~/.mutt/gmail<enter><change-folder>!<enter>'
+macro index,pager !  ':unmailboxes *<enter><sync-mailbox><enter-command>source ~/.mutt/buckeyemail<enter><change-folder>!<enter>'
+macro index,pager @ ':unmailboxes *<enter><sync-mailbox><enter-command>source ~/.mutt/gmail<enter><change-folder>!<enter>'
 #macro index,pager # '<sync-mailbox><enter-command>source ~/.mutt/tdkc<enter><change-folder>!<enter>'
 # Keybinds
 
@@ -44,7 +43,7 @@ set sidebar_visible = yes
 # How wide should the Sidebar be in screen columns?
 
 # Note: Some characters, e.g. Chinese, take up two columns each.
-set sidebar_width = 20
+set sidebar_width = 60
 # Should the mailbox paths be abbreviated?
 set sidebar_short_path = no
 # Number of top-level mailbox path subdirectories to truncate for display
@@ -107,23 +106,22 @@ bind index,pager <F6> sidebar-next-new
 # Toggle the visibility of the Sidebar.
 bind index,pager B sidebar-toggle-visible
 # --------------------------------------------------------------------------
-# COLORS – some unpleasant examples are given
-# --------------------------------------------------------------------------
-# Note: All color operations are of the form:
-#       color OBJECT FOREGROUND BACKGROUND
-# Color of the current, open, mailbox
 # Note: This is a general NeoMutt option which colors all selected items.
 color indicator red black
-# Color of the highlighted, but not open, mailbox.
+# This is the color of the current, open mailbox
+color sidebar_indicator black red
+# Color of the highlighted, but not open, mailbox.  color sidebar_highlight red white
 color sidebar_highlight red white
 # Color of the divider separating the Sidebar from NeoMutt panels
 color sidebar_divider black red
 # Color to give mailboxes containing flagged mail
-color sidebar_flagged red white
+#color sidebar_flagged red white
 # Color to give mailboxes containing new mail
-color sidebar_new white cyan
+color sidebar_new red white
 # Color to give mailboxes containing no new/flagged mail, etc.
 color sidebar_ordinary red black
+# Spoolfile
+#color sidebar_spoolfile red red
 # --------------------------------------------------------------------------
 
 # vim: syntax=neomuttrc

@@ -1,48 +1,57 @@
 !rxvt controls
-URxvt*termName:  screen-256color
+!URxvt*termName:  screen-256color
+
+URxvt*termName: rxvt-unicode-256color
 URxvt*geometry:  210:46
-URxvt*foreground:  #afafaf
+
+URxvt*foreground:  #FF0000
 URxvt*background:  #121212
+
 !urxvt*foreground: white
 !urxvt*background: black
 
 ! 0-8 are the normal color schemes
 !black, red, green, yellow, blue, magenta, cyan, white
 
+
+!URxvt*dynamicColors: on
+
 !black
 !*color0:  #FF0000
 !*color8:  #FF0000
 
 !red
-!*color1:  #FF0000
+*color1:  #FF0000
 *color9:  #FF0000
 
 !green
-*color2:  #D700D7
+!*color2:  #FF0000
 *color10: #FF00FF
 
+
 !yellow
-!*color3:  #FF0000
-!*color11: #FF0000
+*color3:  #00FFFF
+*color11: #FF00FF
 
 !blue
-*color4:  #9E9E9E
-!*color12: #FF0000
+*color4:  #afafaf
+*color12: #FF0000
+
 
 !magenta
-!*color5:  #FF0000
-!*color13: #FF0000
+*color5:  #ff5faf
+!*color13: #ff5faf
 
 !cyan
-!*color6:  #FF0000
+*color6:  #FFFFFF
 *color14: #ff5faf
 
 !white
-!*color7:  #FF0000
-!*color15: #FF0000
+!*color7:  #FFFF00
+!*color15: #FFFF00
 
-URxvt*colorUL:  yellow
-URxvt*underlineColor:  yellow
+URxvt*colorUL:  red
+URxvt*underlineColor:  red
 URxvt.font: xft:Inconsolata:pixelsize=20
 !URxvt.font: xft:Siji:pixelsize=20
 URxvt.letterSpace: -1

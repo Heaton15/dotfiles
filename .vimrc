@@ -13,11 +13,12 @@ call vundle#end()
 
 filetype plugin indent on
 syntax on " Turns on syntax highlighting
+" Change line numbers to red
+highlight LineNr ctermfg=red
 set modelines =0
 set wrap
 set backspace=indent,eol,start
 set ttyfast
-"set laststatus=2
 set matchpairs+=<:>
 set number
 set encoding=utf-8
@@ -30,6 +31,10 @@ set softtabstop=4
 set shiftwidth=4
 set relativenumber
 set formatoptions=cro
+
+colorscheme peachpuff
+set t_Co=256
+
 " Disables comment continuation in vim environment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
