@@ -14,7 +14,8 @@ archey3 -c red
 alias emacs='emacs &'
 eval $(dircolors ~/.dir_colors)
 source ~/.colors
-
+# Sets it so that creating more terminals in i3 down not cause text to weirdly rap around the window
+shopt -s checkwinsize
 
 # Setting local terminal variables used by neomutt
 export EDITOR="/usr/bin/vim"
