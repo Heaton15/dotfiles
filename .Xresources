@@ -25,7 +25,7 @@ URxvt*background:  #121212
 *color9:  #FF0000
 
 !green
-!*color2:  #FF0000
+!*color2:  255
 *color10: #FF00FF
 
 
