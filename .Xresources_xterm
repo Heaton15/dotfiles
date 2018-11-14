@@ -1,0 +1,51 @@
+XTerm.termName: xterm-256color
+URxvt*geometry:  210:46
+
+XTerm*background: Black
+XTerm*foreground: White
+
+! 0-8 are the normal color schemes
+!black, red, green, yellow, blue, magenta, cyan, white
+
+!black
+!*color0:  #FFFF00
+!*color8:  #FFFF00
+
+!red
+!*color1:  #FF0000
+*color9:  #FF0000
+
+!green
+*color2:  #D700D7
+*color10: #FF00FF
+
+!yellow
+!*color3:  #FF0000
+!*color11: #FF0000
+
+!blue
+*color4:  #9E9E9E
+*color12: #FF0000
+
+!magenta
+!*color5:  #FF0000
+!*color13: #FF0000
+
+!cyan
+!*color6:  #FF5FAF
+*color14: #ff5faf
+
+!white
+!*color7:  #FF0000
+!*color15: #FF0000
+
+!Xft.dpi: 96
+!Xft.rgba: rgb
+!Xft: antialias: true
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt.internalBorder:   1
+!XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false
+XTerm.vt100.faceName: xft:Inconsolata:pixelsize=14
+XTerm.vt100.scrollBar: false
+

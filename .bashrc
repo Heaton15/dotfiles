@@ -7,6 +7,7 @@
 [[ $- != *i* ]] && return
 alias ls='ls --color=auto'
 alias ll='ls -la'
+alias la='ls -a'
 alias vi='vim'
 alias webz='chromium &'
 alias dirs='dirs -v'

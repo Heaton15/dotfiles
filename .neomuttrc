@@ -9,9 +9,6 @@ set mail_check = 60
 set mbox_type = Maildir
 set send_charset="us-ascii:utf-8"
 
-
-
-
 #######################
 # Gmail setup
 source "~/.mutt/gmail"
@@ -21,10 +18,6 @@ folder-hook $folder 'source ~/.mutt/gmail'
 source "~/.mutt/buckeyemail"
 folder-hook $folder 'source ~/.mutt/buckeyemail'
 unmailboxes *
-
-# TDKC Setup
-#source "~/.mutt/tdkc"
-#folder-hook $folder 'source ~/.mutt/tdkc'
 
 ########################
 
