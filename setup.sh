@@ -103,12 +103,16 @@ sh $HOME/.fehbg 2> /dev/null
 ########################################################
 # Create .i3 file symlink. If exists, backup and replace
 ########################################################
-if [ -e $HOME/.config/i3/config ]
+if [ -d $HOME/.config/i3 ]
 then 
-    mv $HOME/.config/i3/config $HOME/$BACKUP/.i3_config_bak
+    cp -RL $HOME/.config/i3/config $HOME/$BACKUP/.i3_config_bak
     ln -s $HOME/dotfiles/.i3_config $HOME/.config/i3/config
 else
-    ln -s $HOME/dotfiles/.i3_config $HOME/.config/i3/config
+
+    echo " "
+    echo "Warning: i3 not Installed. "
+    echo "Please Install i3 and Run"
+    echo "Again for i3 Config"
 fi
 ##############################################################
 # Create .inputrc file symlink. If exists, backup and replace. 
