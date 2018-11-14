@@ -97,6 +97,8 @@ then
 else
     ln -s $HOME/dotfiles/.fehbg $HOME/.fehbg
 fi
+# Sets background to default red_wave
+
 ########################################################
 # Create .i3 file symlink. If exists, backup and replace
 ########################################################
@@ -163,7 +165,8 @@ elif [ $term_config -eq '2' ]
 then
     ln -s $HOME/dotfiles/.Xresources_urxvt $HOME/.Xresources
 fi
-
+# Merges updated .Xresources file for terminal
+xrdb $HOME/.Xresources
 
 
 
