@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-max '${HOME}/dotfiles/backgrounds/red_wave.jpg' 
+feh --bg-max ${HOME}/dotfiles/backgrounds/red_wave.jpg

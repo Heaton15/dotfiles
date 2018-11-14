@@ -85,18 +85,19 @@ then
 else
     ln -s $HOME/dotfiles/.fan $HOME/.fan
 fi
-#####################################################################################
-# Create .fehbh symlink for setting background. If already exists, backup and replace
-# Note that a background path is inside of the file. This must be set. 
-#####################################################################################
+################################################################################
+# Do not set .fehbg as symlink. Sourcing .sh overwrites relative paths (feh bug) 
+#If already exists, backup and replace
+# Note that a background path is inside of the file. 
+################################################################################
 if [ -e $HOME/.fehbg ]
-    echo "Background File Generated! (.fehbg). Remember to set a background path!"
 then 
     mv $HOME/.fehbg $HOME/$BACKUP/.fehbg_bak
-    ln -s $HOME/dotfiles/.fehbg $HOME/.fehbg
+    cp $HOME/dotfiles/.fehbg $HOME
 else
-    ln -s $HOME/dotfiles/.fehbg $HOME/.fehbg
+    cp $HOME/dotfiles/.fehbg $HOME
 fi
+sh $HOME/.fehbg 2> /dev/null
 # Sets background to default red_wave
 
 ########################################################
