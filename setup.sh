@@ -117,6 +117,26 @@ then
 else
     ln -s $HOME/dotfiles/.inputrc $HOME/.inputrc
 fi
+##############################################################
+# Add ranger symlinks. If exists, backup and replace. 
+# Check to see if ranger directories first exist. 
+# If they do not, tell the user that they need to install 
+# ranger first before proceeding. 
+# Assume that installed means there is a ranger directory in 
+# the .config file of $HOME
+##############################################################
+
+if [ -d $HOME/.config/ranger ]
+then 
+    mv $HOME/.config/ranger $HOME/$BACKUP/ranger_bak
+    ln -s $HOME/dotfiles/ranger $HOME/.config/ranger
+else
+    echo " "
+    echo "Warning: Ranger not Installed. "
+    echo "Please Install Ranger and Run"
+    echo "Again for Ranger Config"
+fi
+
 
 #################################################
 # Requests user for either Xterm or URxvt config. 
