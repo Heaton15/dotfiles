@@ -26,3 +26,6 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 # Changes colors for the use@machinename in bash
 
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+
+# Source hidden bash functionality
+source ~/.functions
