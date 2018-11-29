@@ -166,13 +166,22 @@ fi
 if [ $term_config -eq '1' ]
 then
     ln -s $HOME/dotfiles/.Xresources_xterm $HOME/.Xresources
+    xrdb $HOME/.Xresources
 elif [ $term_config -eq '2' ] 
 then
     ln -s $HOME/dotfiles/.Xresources_urxvt $HOME/.Xresources
+    xrdb $HOME/.Xresources
 fi
-# Merges updated .Xresources file for terminal
-xrdb $HOME/.Xresources
 
+##################################################################
+#Install Vundle Plugin if not installed ##########################
+##################################################################
+if [ ! -d $HOME/.vim/bundle ]
+then 
+ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ echo "Vundle not Detected. Installing"
+ echo " "
+fi
 
 
 
