@@ -53,6 +53,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "NERDtree configuration
 "autocmd vimenter * NERDTree
 nmap <S-l> :NERDTreeToggle<CR>
+:let g:NERDTreeWinSize=45
 "End NERDtree configuration
 
 "Enabling vim for .muttrc
