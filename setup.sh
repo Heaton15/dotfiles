@@ -189,7 +189,7 @@ fi
 ##################################################################
 if [ -d $HOME/.terminfo ]
 then 
-    cp -R $HOME/dotfiles/.termino /$HOME
+    cp -R $HOME/dotfiles/.terminfo $HOME
 fi
 
 
