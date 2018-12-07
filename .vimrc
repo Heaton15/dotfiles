@@ -14,6 +14,16 @@ call vundle#end()
 
 filetype plugin indent on
 syntax on " Turns on syntax highlighting
+" Keybinds for vim
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+"Search color selection
+
+"hi Search ctermbg=White
+"hi Search ctermfg=Red
+
 " Change line numbers to red
 highlight LineNr ctermfg=red
 set modelines =0
@@ -33,16 +43,9 @@ set shiftwidth=4
 set relativenumber
 set formatoptions=cro
 
-
-
 colorscheme peachpuff
 set t_Co=256
 
-" Keybinds for vim
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 " Disables comment continuation in vim environment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
