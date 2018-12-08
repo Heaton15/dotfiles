@@ -31,6 +31,8 @@ red = #FF0000
 grey = #AFAFAF
 black = #121212
 purple = #D700D7
+green = #00875F
+
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -42,13 +44,13 @@ radius = 6.0
 fixed-center = false
 
 background = ${colors.black}
-foreground = ${colors.red}
+foreground = ${colors.green}
 
 line-size = 3
 line-color = #f00
 
 border-size = 2
-border-color = #FF0000
+border-color = #00875F
 
 padding-left = 0
 padding-right = 2

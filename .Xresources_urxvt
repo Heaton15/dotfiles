@@ -4,15 +4,11 @@
 URxvt*termName: rxvt-unicode-256color
 URxvt*geometry:  210:46
 
-URxvt*foreground:  #FF0000
+URxvt*foreground:  #00875F
 URxvt*background:  #121212
-
-!urxvt*foreground: white
-!urxvt*background: black
 
 ! 0-8 are the normal color schemes
 !black, red, green, yellow, blue, magenta, cyan, white
-
 
 !URxvt*dynamicColors: on
 
@@ -21,34 +17,39 @@ URxvt*background:  #121212
 !*color8:  #FF0000
 
 !red
-*color1:  #FF0000
-*color9:  #FF0000
+!!*color1:  #FF0000
+!!*color9:  #FF0000
 
 !green
 !*color2:  255
-*color10: #FF00FF
+*color10: #00FF00
 
 
 !yellow
-*color3:  #00FFFF
-*color11: #FF00FF
+!!*color3:  #00FFFF
+!!*color11: #FF00FF
 
 !blue
-*color4:  #afafaf
-*color12: #FF0000
+!!*color4:  #afafaf
+*color12: #00AFFF
 
 
 !magenta
-*color5:  #ff5faf
+!!*color5:  #ff5faf
 !*color13: #ff5faf
 
 !cyan
-*color6:  #FFFFFF
-*color14: #ff5faf
+!!*color6:  #FFFFFF
+*color14: #00d7af
 
 !white
 !*color7:  #FFFF00
 !*color15: #FFFF00
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!
+!URxvt*cursorColor: #d0d0d0
+!URxvt*cursorColor2: #3a3a3a
+!URxvt*colorBD: #e4e4e4
 
 URxvt*colorUL:  red
 URxvt*underlineColor:  red
@@ -62,6 +63,6 @@ URxvt.internalBorder:   1
 !URxvt*background: rgba:0000/0000/0000/cccc
 URxvt*fading:  15
 URxvt*transparent: true
-URxvt*shading: 10
+URxvt*shading: 5
 
 

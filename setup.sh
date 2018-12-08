@@ -187,7 +187,7 @@ fi
 ##################################################################
 #Create URxvt/Xterm Color Files for 256 ##########################
 ##################################################################
-if [ -d $HOME/.terminfo ]
+if [ ! -d $HOME/.terminfo ]
 then 
     cp -R $HOME/dotfiles/.terminfo $HOME
 fi

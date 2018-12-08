@@ -11,7 +11,7 @@ alias la='ls -a'
 alias vi='vim'
 alias webz='chromium &'
 alias dirs='dirs -v'
-archey3 -c red
+archey3 -c cyan
 alias emacs='emacs &'
 eval $(dircolors ~/.dir_colors)
 source ~/.colors
@@ -29,3 +29,9 @@ export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0
 
 # Source hidden bash functionality
 source ~/.functions
+
+# Base16 Shell
+#BASE16_SHELL="$HOME/.config/base16-shell/"
+#[ -n "$PS1" ] && \
+#    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#        eval "$("$BASE16_SHELL/profile_helper.sh")"

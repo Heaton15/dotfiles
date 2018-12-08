@@ -178,4 +178,4 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #        status_command i3status
 #}
 
-client.focused #555555 #555555 #ffffff #ff0000 #ff0000
+client.focused #555555 #555555 #ffffff #00875F #00875F

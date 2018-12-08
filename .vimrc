@@ -9,6 +9,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'noah/vim256-color'
 call vundle#end()
 """"""" End configuration for Vundle
 
@@ -20,10 +22,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 "Search color selection
-
-"hi Search ctermbg=White
-"hi Search ctermfg=Red
-
 " Change line numbers to red
 highlight LineNr ctermfg=red
 set modelines =0
@@ -43,7 +41,11 @@ set shiftwidth=4
 set relativenumber
 set formatoptions=cro
 
-colorscheme peachpuff
+"let g:seoul256_background = 233
+"let g:seoul256_srgb = 1
+"colorscheme seoul256
+
+colorscheme elda
 set t_Co=256
 
 
