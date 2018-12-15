@@ -12,8 +12,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'noah/vim256-color'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
-Plugin 'godlygeek/tabular' " Enables user to line up code accordingly
-" :Tab /:\zs,    :Tab /:   (examples for tabular calls)
+Plugin 'godlygeek/tabular'              " Enables user to line up code accordingly
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 """"""" End configuration for Vundle
 
@@ -26,7 +26,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 "Search color selection
 " Change line numbers to red
-highlight LineNr ctermfg=red
+"highlight LineNr ctermfg=red
 set modelines =0
 set wrap
 set backspace=indent,eol,start
@@ -64,11 +64,87 @@ nmap <S-l> :NERDTreeToggle<CR>
 "Enabling vim for .muttrc
 au BufRead /tmp/mutt-* set tw=72
 
+" Tagbar Keybind Updates
+nmap <S-M> :TagbarToggle<CR>
 
+"VHDL Ctags enabling
+let g:tagbar_type_vhdl = {
+    \ 'ctagstype': 'vhdl',
+    \ 'kinds' : [
+        \'d:prototypes',
+        \'b:package bodies',
+        \'e:entities',
+        \'a:architectures',
+        \'t:types',
+        \'p:processes',
+        \'f:functions',
+        \'r:procedures',
+        \'c:constants',
+        \'T:subtypes',
+        \'r:records',
+        \'C:components',
+        \'P:packages',
+        \'l:locals'
+    \]
+\}
+
+let g:tagbar_type_systemverilog = {
+    \ 'ctagstype': 'systemverilog',
+    \ 'kinds' : [
+         \'A:assertions',
+         \'C:classes',
+         \'E:enumerators',
+         \'I:interfaces',
+         \'K:packages',
+         \'M:modports',
+         \'P:programs',
+         \'Q:prototypes',
+         \'R:properties',
+         \'S:structs and unions',
+         \'T:type declarations',
+         \'V:covergroups',
+         \'b:blocks',
+         \'c:constants',
+         \'e:events',
+         \'f:functions',
+         \'m:modules',
+         \'n:net data types',
+         \'p:ports',
+         \'r:register data types',
+         \'t:tasks',
+     \],
+     \ 'sro': '.',
+     \ 'kind2scope' : {
+        \ 'K' : 'package',
+        \ 'C' : 'class',
+        \ 'm' : 'module',
+        \ 'P' : 'program',
+        \ 'I' : 'interface',
+        \ 'M' : 'modport',
+        \ 'f' : 'function',
+        \ 't' : 'task',
+     \},
+     \ 'scope2kind' : {
+        \ 'package'   : 'K',
+        \ 'class'     : 'C',
+        \ 'module'    : 'm',
+        \ 'program'   : 'P',
+        \ 'interface' : 'I',
+        \ 'modport'   : 'M',
+        \ 'function'  : 'f',
+        \ 'task'      : 't',
+     \ },
+     \}
+
+" Sets up Ctags config
+"let Tlist_Ctags_Cmd="/usr/bin/ctags"
+"let Tlist_WinWidth=50
+"map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 
 " vim-latexsuite config. Weird highlighting issues" 
 "autocmd FileType tex setlocal spell spelllang=en_us 
+"let g:tex_flavor ="LaTex"
 
 "Set the following lines in your ~/.vimrc or the systemwide /etc/vimrc:
 "set grepprg = grep\ -nH\ $*
