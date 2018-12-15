@@ -11,6 +11,9 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'noah/vim256-color'
+Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
+Plugin 'godlygeek/tabular' " Enables user to line up code accordingly
+" :Tab /:\zs,    :Tab /:   (examples for tabular calls)
 call vundle#end()
 """"""" End configuration for Vundle
 
