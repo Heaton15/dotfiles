@@ -14,19 +14,25 @@ Plugin 'noah/vim256-color'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
 Plugin 'godlygeek/tabular'              " Enables user to line up code accordingly
 Plugin 'majutsushi/tagbar'
+Plugin 'jimmysitu/vtags'
+Plugin 'BufOnly.vim' " Use :BufOnly command to kill all buffers but active one
+Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>ww
+Plugin 'ervandew/supertab'
 call vundle#end()
 """"""" End configuration for Vundle
 
+"""""""""""""""""""""""""""""""""""""
+" Keybind Changes
+let mapleader ="\<Space>" " Change spacebar to leader key
+nnoremap <C-h> <C-w>h 
+nnoremap <C-j> <C-w>j 
+nnoremap <C-k> <C-w>k 
+nnoremap <C-l> <C-w>l
+"""""""""""""""""""""""""""""""""""""
+
+
 filetype plugin indent on
 syntax on " Turns on syntax highlighting
-" Keybinds for vim
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-"Search color selection
-" Change line numbers to red
-"highlight LineNr ctermfg=red
 set modelines =0
 set wrap
 set backspace=indent,eol,start
@@ -43,98 +49,59 @@ set softtabstop=4
 set shiftwidth=4
 set relativenumber
 set formatoptions=cro
-
+colorscheme elda
+set t_Co=256
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+highlight search ctermbg = red
 "let g:seoul256_background = 233
 "let g:seoul256_srgb = 1
 "colorscheme seoul256
 
-colorscheme elda
-set t_Co=256
+"""""""Vim-windowswap Config"""""""""
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
+"""""""""""""""""""""""""""""""""""""
 
+""""""" Vtags Configuration""""""""""
+" vtags config
+source ~/.vim/bundle/vtags/plugin/vtags_vim_api.vim
+"nmap <S-a> 30<C-W>< <CR>
+"nmap <S-a> 30<C-W>< <CR>
+"""""""""""""""""""""""""""""""""""""
 
-" Disables comment continuation in vim environment
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+""""""" superbar Configuration"""""""
+let g:SuperTabDefaultCompletionType = 'context'
+"""""""""""""""""""""""""""""""""""""
 
+"""""""NERDTree Config"""""""""""""""
 "NERDtree configuration
 "autocmd vimenter * NERDTree
 nmap <S-l> :NERDTreeToggle<CR>
-:let g:NERDTreeWinSize=45
+:let g:NERDTreeWinSize=40
 "End NERDtree configuration
+"""""""""""""""""""""""""""""""""""""
 
+""""""""Neomutt Config"""""""""""""""
 "Enabling vim for .muttrc
 au BufRead /tmp/mutt-* set tw=72
+"""""""""""""""""""""""""""""""""""""
 
-" Tagbar Keybind Updates
+
+"""""""Tagbar Keybinds"""""""""""""""
 nmap <S-M> :TagbarToggle<CR>
+let g:tagbar_iconchars = ['▸', '▾']
+set foldmethod=syntax
+"""""""""""""""""""""""""""""""""""""
 
-"VHDL Ctags enabling
-let g:tagbar_type_vhdl = {
-    \ 'ctagstype': 'vhdl',
-    \ 'kinds' : [
-        \'d:prototypes',
-        \'b:package bodies',
-        \'e:entities',
-        \'a:architectures',
-        \'t:types',
-        \'p:processes',
-        \'f:functions',
-        \'r:procedures',
-        \'c:constants',
-        \'T:subtypes',
-        \'r:records',
-        \'C:components',
-        \'P:packages',
-        \'l:locals'
-    \]
-\}
+"""""""Verilog/Systemverilog Vim"""""
+nnoremap <leader>i :VerilogFollowInstance<CR>
+nnoremap <leader>I :VerilogReturnInstance<CR>
+nnoremap <leader>u :VerilogFollowPort<CR>
 
-let g:tagbar_type_systemverilog = {
-    \ 'ctagstype': 'systemverilog',
-    \ 'kinds' : [
-         \'A:assertions',
-         \'C:classes',
-         \'E:enumerators',
-         \'I:interfaces',
-         \'K:packages',
-         \'M:modports',
-         \'P:programs',
-         \'Q:prototypes',
-         \'R:properties',
-         \'S:structs and unions',
-         \'T:type declarations',
-         \'V:covergroups',
-         \'b:blocks',
-         \'c:constants',
-         \'e:events',
-         \'f:functions',
-         \'m:modules',
-         \'n:net data types',
-         \'p:ports',
-         \'r:register data types',
-         \'t:tasks',
-     \],
-     \ 'sro': '.',
-     \ 'kind2scope' : {
-        \ 'K' : 'package',
-        \ 'C' : 'class',
-        \ 'm' : 'module',
-        \ 'P' : 'program',
-        \ 'I' : 'interface',
-        \ 'M' : 'modport',
-        \ 'f' : 'function',
-        \ 't' : 'task',
-     \},
-     \ 'scope2kind' : {
-        \ 'package'   : 'K',
-        \ 'class'     : 'C',
-        \ 'module'    : 'm',
-        \ 'program'   : 'P',
-        \ 'interface' : 'I',
-        \ 'modport'   : 'M',
-        \ 'function'  : 'f',
-        \ 'task'      : 't',
-     \ },
-     \}
+
+
 
 " Sets up Ctags config
 "let Tlist_Ctags_Cmd="/usr/bin/ctags"

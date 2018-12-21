@@ -9,7 +9,6 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 alias la='ls -a'
 alias vi='vim'
-alias webz='chromium &'
 alias dirs='dirs -v'
 archey3 -c cyan
 alias emacs='emacs &'
@@ -17,6 +16,9 @@ eval $(dircolors ~/.dir_colors)
 source ~/.colors
 # Sets it so that creating more terminals in i3 down not cause text to weirdly rap around the window
 shopt -s checkwinsize
+
+# Set vtags creation
+alias vtags='python ~/.vim/bundle/vtags/plugin/vtags.py'
 
 # Setting local terminal variables used by neomutt
 export EDITOR="/usr/bin/vim"
