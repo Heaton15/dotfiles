@@ -14,10 +14,10 @@ Plugin 'noah/vim256-color'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
 Plugin 'godlygeek/tabular'              " Enables user to line up code accordingly
 Plugin 'majutsushi/tagbar'
-Plugin 'jimmysitu/vtags'
 Plugin 'BufOnly.vim' " Use :BufOnly command to kill all buffers but active one
-Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>ww
+Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
 Plugin 'ervandew/supertab'
+Plugin 'jeetsukumaran/vim-buffergator'
 call vundle#end()
 """"""" End configuration for Vundle
 
@@ -28,6 +28,19 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j 
 nnoremap <C-k> <C-w>k 
 nnoremap <C-l> <C-w>l
+" Easy way to move between vim tabs
+nnoremap tn :tabnew <CR>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+"set mouse=n
+"set ttymouse=urxvt
 """""""""""""""""""""""""""""""""""""
 
 
@@ -66,7 +79,7 @@ nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 
 """"""" Vtags Configuration""""""""""
 " vtags config
-source ~/.vim/bundle/vtags/plugin/vtags_vim_api.vim
+"source ~/.vim/bundle/vtags/plugin/vtags_vim_api.vim
 "nmap <S-a> 30<C-W>< <CR>
 "nmap <S-a> 30<C-W>< <CR>
 """""""""""""""""""""""""""""""""""""
@@ -88,7 +101,6 @@ nmap <S-l> :NERDTreeToggle<CR>
 au BufRead /tmp/mutt-* set tw=72
 """""""""""""""""""""""""""""""""""""
 
-
 """""""Tagbar Keybinds"""""""""""""""
 nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
@@ -99,15 +111,10 @@ set foldmethod=syntax
 nnoremap <leader>i :VerilogFollowInstance<CR>
 nnoremap <leader>I :VerilogReturnInstance<CR>
 nnoremap <leader>u :VerilogFollowPort<CR>
-
-
-
-
 " Sets up Ctags config
 "let Tlist_Ctags_Cmd="/usr/bin/ctags"
 "let Tlist_WinWidth=50
 "map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
 
 " vim-latexsuite config. Weird highlighting issues" 
 "autocmd FileType tex setlocal spell spelllang=en_us 
