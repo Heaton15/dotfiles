@@ -24,10 +24,19 @@ call vundle#end()
 """""""""""""""""""""""""""""""""""""
 " Keybind Changes
 let mapleader ="\<Space>" " Change spacebar to leader key
-nnoremap <C-h> <C-w>h 
-nnoremap <C-j> <C-w>j 
-nnoremap <C-k> <C-w>k 
-nnoremap <C-l> <C-w>l
+"nnoremap <C-h> <C-w>h 
+"nnoremap <C-j> <C-w>j 
+"nnoremap <C-k> <C-w>k 
+"nnoremap <C-l> <C-w>l
+nnoremap <leader>h <C-w>h 
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+" Moving buffer windows
+nnoremap <leader>wh <C-w>H
+nnoremap <leader>wj <C-w>J
+nnoremap <leader>wk <C-w>K
+nnoremap <leader>wl <C-w>L
 " Easy way to move between vim tabs
 nnoremap tn :tabnew <CR>
 noremap <leader>1 1gt
