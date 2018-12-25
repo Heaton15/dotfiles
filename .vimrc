@@ -18,6 +18,7 @@ Plugin 'BufOnly.vim' " Use :BufOnly command to kill all buffers but active one
 Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
 Plugin 'ervandew/supertab'
 Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'tagexplorer.vim'
 call vundle#end()
 """"""" End configuration for Vundle
 
@@ -28,15 +29,15 @@ let mapleader ="\<Space>" " Change spacebar to leader key
 "nnoremap <C-j> <C-w>j 
 "nnoremap <C-k> <C-w>k 
 "nnoremap <C-l> <C-w>l
-nnoremap <leader>h <C-w>h 
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+nnoremap <leader>wh <C-w>h 
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
 " Moving buffer windows
-nnoremap <leader>wh <C-w>H
-nnoremap <leader>wj <C-w>J
-nnoremap <leader>wk <C-w>K
-nnoremap <leader>wl <C-w>L
+nnoremap <leader>wH <C-w>H
+nnoremap <leader>wJ <C-w>J
+nnoremap <leader>wK <C-w>K
+nnoremap <leader>wL <C-w>L
 " Easy way to move between vim tabs
 nnoremap tn :tabnew <CR>
 noremap <leader>1 1gt
@@ -48,8 +49,8 @@ noremap <leader>6 6gt
 noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
-"set mouse=n
-"set ttymouse=urxvt
+set mouse=n
+set ttymouse=urxvt
 """""""""""""""""""""""""""""""""""""
 
 
@@ -115,6 +116,7 @@ nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
 set foldmethod=syntax
 """""""""""""""""""""""""""""""""""""
+
 
 """""""Verilog/Systemverilog Vim"""""
 nnoremap <leader>i :VerilogFollowInstance<CR>
