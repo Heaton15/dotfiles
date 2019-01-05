@@ -33,6 +33,8 @@ nnoremap <leader>wh <C-w>h
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
+nnoremap <leader>ws <C-w>s
+nnoremap <leader>wv <C-w>v
 " Easy way to move between vim tabs
 nnoremap tn :tabnew <CR>
 noremap <leader>1 1gt

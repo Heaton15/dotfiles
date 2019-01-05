@@ -10,6 +10,7 @@ alias ll='ls -la'
 alias la='ls -a'
 alias vi='vim'
 alias dirs='dirs -v'
+alias top='htop'
 archey3 -c cyan
 alias emacs='emacs &'
 eval $(dircolors ~/.dir_colors)
