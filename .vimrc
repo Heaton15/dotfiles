@@ -49,6 +49,11 @@ noremap <leader>9 9gt
 set mouse=n
 set ttymouse=urxvt
 """""""""""""""""""""""""""""""""""""
+"""" Filetype For Cadence Tools """"
+au BufRead,BufNewFile *.scs set filetype=spectre
+au BufRead,BufNewFile *.il set filetype=skill
+au BufRead,BufNewFile *.ils set filetype=skill
+au BufRead,BufNewFile *.cdsinit set filetype=skil
 
 
 filetype plugin indent on
