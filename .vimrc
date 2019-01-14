@@ -11,6 +11,7 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'noah/vim256-color'
+Plugin 'antoinemadec/vim-verilog-instance'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
 Plugin 'godlygeek/tabular'              " Enables user to line up code accordingly
 Plugin 'majutsushi/tagbar'
@@ -19,6 +20,7 @@ Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
 Plugin 'ervandew/supertab'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tagexplorer.vim'
+Plugin 'jimmysitu/vtags'
 call vundle#end()
 """"""" End configuration for Vundle
 
@@ -48,6 +50,7 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 set mouse=n
 set ttymouse=urxvt
+set noea "set equalalways
 """""""""""""""""""""""""""""""""""""
 """" Filetype For Cadence Tools """"
 au BufRead,BufNewFile *.scs set filetype=spectre
@@ -140,3 +143,51 @@ nnoremap <leader>u :VerilogFollowPort<CR>
 "your runtime path (RTP). Be sure to add it too, e.g:
 "set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 
+
+let g:tagbar_type_systemverilog = {
+    \ 'ctagstype': 'systemverilog',
+    \ 'kinds' : [
+         \'A:assertions',
+         \'C:classes',
+         \'E:enumerators',
+         \'I:interfaces',
+         \'K:packages',
+         \'M:modports',
+         \'P:programs',
+         \'Q:prototypes',
+         \'R:properties',
+         \'S:structs and unions',
+         \'T:type declarations',
+         \'V:covergroups',
+         \'b:blocks',
+         \'c:constants',
+         \'e:events',
+         \'f:functions',
+         \'m:modules',
+         \'n:net data types',
+         \'p:ports',
+         \'r:register data types',
+         \'t:tasks',
+     \],
+     \ 'sro': '.',
+     \ 'kind2scope' : {
+        \ 'K' : 'package',
+        \ 'C' : 'class',
+        \ 'm' : 'module',
+        \ 'P' : 'program',
+        \ 'I' : 'interface',
+        \ 'M' : 'modport',
+        \ 'f' : 'function',
+        \ 't' : 'task',
+     \},
+     \ 'scope2kind' : {
+        \ 'package'   : 'K',
+        \ 'class'     : 'C',
+        \ 'module'    : 'm',
+        \ 'program'   : 'P',
+        \ 'interface' : 'I',
+        \ 'modport'   : 'M',
+        \ 'function'  : 'f',
+        \ 'task'      : 't',
+     \ },
+     \}
