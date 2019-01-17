@@ -2,14 +2,14 @@
 
 """"""" Configuration for Vundle (Vim-Plugin Installer)
 set nocompatible
-filetype off " required
+"filetype off " required
+filetype plugin indent on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/seoul256.vim'
 Plugin 'noah/vim256-color'
 Plugin 'antoinemadec/vim-verilog-instance'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
@@ -21,6 +21,7 @@ Plugin 'ervandew/supertab'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tagexplorer.vim'
 Plugin 'jimmysitu/vtags'
+Plugin 'vim-scripts/verilog_emacsauto.vim'
 call vundle#end()
 """"""" End configuration for Vundle
 
@@ -52,6 +53,8 @@ set mouse=n
 set ttymouse=urxvt
 set noea "set equalalways
 """""""""""""""""""""""""""""""""""""
+
+filetype plugin indent on
 """" Filetype For Cadence Tools """"
 au BufRead,BufNewFile *.scs set filetype=spectre
 au BufRead,BufNewFile *.il set filetype=skill
@@ -59,7 +62,6 @@ au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skil
 
 
-filetype plugin indent on
 syntax on " Turns on syntax highlighting
 set modelines =0
 set wrap

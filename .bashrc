@@ -12,7 +12,7 @@ alias vi='vim'
 alias dirs='dirs -v'
 alias top='htop'
 archey3 -c cyan
-alias emacs='emacs &'
+
 eval $(dircolors ~/.dir_colors)
 source ~/.colors
 # Sets it so that creating more terminals in i3 down not cause text to weirdly rap around the window
@@ -31,7 +31,7 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 # Source hidden bash functionality
-source ~/.functions
+source ~/.functions.sh
 
 # Base16 Shell
 #BASE16_SHELL="$HOME/.config/base16-shell/"

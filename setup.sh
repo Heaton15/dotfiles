@@ -173,6 +173,18 @@ then
     xrdb $HOME/.Xresources
 fi
 
+
+##################################################################
+# Create .elisp file to hold verilog-auto.el file   
+##################################################################
+if [ -e $HOME/.elisp ]
+then 
+    mv $HOME/.elisp $HOME/$BACKUP/.elisp_bak
+    ln -s $HOME/dotfiles/.elisr $HOME/.elisp
+else
+    ln -s $HOME/dotfiles/.elisp $HOME/.elisp
+fi
+
 ##################################################################
 #Install Vundle Plugin if not installed ##########################
 ##################################################################
