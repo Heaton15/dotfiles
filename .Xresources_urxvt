@@ -53,7 +53,7 @@ URxvt*background:  #121212
 
 URxvt*colorUL:  red
 URxvt*underlineColor:  red
-URxvt.font: xft:Inconsolata:pixelsize=20
+URxvt.font: xft:Inconsolata:pixelsize=19
 !URxvt.font: xft:Siji:pixelsize=20
 URxvt.letterSpace: -1
 URxvt.scrollBar: false

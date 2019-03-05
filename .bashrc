@@ -5,13 +5,20 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+archey3 -c cyan
+
+################Aliasing##################
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias la='ls -a'
 alias vi='vim'
 alias dirs='dirs -v'
 alias top='htop'
-archey3 -c cyan
+alias vtags='python ~/.vim/bundle/vtags/plugin/vtags.py'
+alias matlab='matlab -nosplash -nodesktop'
+#################PATH Updates##############
+export PATH="$HOME/AUR/matlab/bin:$PATH"
+
 
 eval $(dircolors ~/.dir_colors)
 source ~/.colors
@@ -19,7 +26,6 @@ source ~/.colors
 shopt -s checkwinsize
 
 # Set vtags creation
-alias vtags='python ~/.vim/bundle/vtags/plugin/vtags.py'
 
 # Setting local terminal variables used by neomutt
 export EDITOR="/usr/bin/vim"

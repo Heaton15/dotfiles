@@ -11,7 +11,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'noah/vim256-color'
-Plugin 'antoinemadec/vim-verilog-instance'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
 Plugin 'godlygeek/tabular'              " Enables user to line up code accordingly
 Plugin 'majutsushi/tagbar'
@@ -22,9 +21,10 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tagexplorer.vim'
 Plugin 'jimmysitu/vtags'
 Plugin 'vim-scripts/verilog_emacsauto.vim'
+Plugin 'antoinemadec/vim-verilog-instance'
+Plugin 'raingo/vim-matlab'
 call vundle#end()
 """"""" End configuration for Vundle
-
 """""""""""""""""""""""""""""""""""""
 " Keybind Changes
 let mapleader ="\<Space>" " Change spacebar to leader key
