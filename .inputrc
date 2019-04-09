@@ -1,1 +1,3 @@
 set show-all-if-ambiguous on
+set colored-stats on
+#set completion-display-width 1

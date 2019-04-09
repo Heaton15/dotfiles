@@ -19,7 +19,7 @@ Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
 Plugin 'ervandew/supertab'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tagexplorer.vim'
-Plugin 'jimmysitu/vtags'
+"Plugin 'jimmysitu/vtags'
 Plugin 'vim-scripts/verilog_emacsauto.vim'
 Plugin 'antoinemadec/vim-verilog-instance'
 Plugin 'raingo/vim-matlab'
@@ -50,7 +50,12 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 set mouse=n
-set ttymouse=urxvt
+
+" Only active if not using neovim
+if !has('nvim')
+ set ttymouse=urxvt
+endif
+
 set noea "set equalalways
 """""""""""""""""""""""""""""""""""""
 
