@@ -19,13 +19,19 @@ Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
 Plugin 'ervandew/supertab'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tagexplorer.vim'
-"Plugin 'jimmysitu/vtags'
 Plugin 'vim-scripts/verilog_emacsauto.vim'
-Plugin 'antoinemadec/vim-verilog-instance'
 Plugin 'raingo/vim-matlab'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
+set foldmethod=manual
+au BufWinLeave *.v mkview
+au BufWinEnter *.v silent loadview
+
+
+
 " Keybind Changes
 let mapleader ="\<Space>" " Change spacebar to leader key
 "nnoremap <C-h> <C-w>h 
@@ -49,6 +55,11 @@ noremap <leader>6 6gt
 noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
+
+nnoremap <silent> <leader>we :exe "vertical resize " . (winheight(0) * 16/4)<CR>
+nnoremap <silent> <leader>wq :exe "vertical resize " . (winheight(0) * 12/16)<CR>
+
+
 set mouse=n
 
 " Only active if not using neovim
@@ -97,104 +108,27 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
-"""""""""""""""""""""""""""""""""""""
-
-""""""" Vtags Configuration""""""""""
-" vtags config
-"source ~/.vim/bundle/vtags/plugin/vtags_vim_api.vim
-"nmap <S-a> 30<C-W>< <CR>
-"nmap <S-a> 30<C-W>< <CR>
-"""""""""""""""""""""""""""""""""""""
 
 """"""" superbar Configuration"""""""
 let g:SuperTabDefaultCompletionType = 'context'
-"""""""""""""""""""""""""""""""""""""
 
 """""""NERDTree Config"""""""""""""""
-"NERDtree configuration
-"autocmd vimenter * NERDTree
 nmap <S-l> :NERDTreeToggle<CR>
 :let g:NERDTreeWinSize=40
-"End NERDtree configuration
-"""""""""""""""""""""""""""""""""""""
 
 """"""""Neomutt Config"""""""""""""""
 "Enabling vim for .muttrc
 au BufRead /tmp/mutt-* set tw=72
-"""""""""""""""""""""""""""""""""""""
 
 """""""Tagbar Keybinds"""""""""""""""
 nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
-set foldmethod=syntax
-"""""""""""""""""""""""""""""""""""""
 
 
 """""""Verilog/Systemverilog Vim"""""
 nnoremap <leader>i :VerilogFollowInstance<CR>
 nnoremap <leader>I :VerilogReturnInstance<CR>
 nnoremap <leader>u :VerilogFollowPort<CR>
-" Sets up Ctags config
-"let Tlist_Ctags_Cmd="/usr/bin/ctags"
-"let Tlist_WinWidth=50
-"map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-" vim-latexsuite config. Weird highlighting issues" 
-"autocmd FileType tex setlocal spell spelllang=en_us 
-"let g:tex_flavor ="LaTex"
-
-"Set the following lines in your ~/.vimrc or the systemwide /etc/vimrc:
-"set grepprg = grep\ -nH\ $*
- 
-"Also, this installs to /usr/share/vim/vimfiles, which may not be in
-"your runtime path (RTP). Be sure to add it too, e.g:
-"set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
-
-
-let g:tagbar_type_systemverilog = {
-    \ 'ctagstype': 'systemverilog',
-    \ 'kinds' : [
-         \'A:assertions',
-         \'C:classes',
-         \'E:enumerators',
-         \'I:interfaces',
-         \'K:packages',
-         \'M:modports',
-         \'P:programs',
-         \'Q:prototypes',
-         \'R:properties',
-         \'S:structs and unions',
-         \'T:type declarations',
-         \'V:covergroups',
-         \'b:blocks',
-         \'c:constants',
-         \'e:events',
-         \'f:functions',
-         \'m:modules',
-         \'n:net data types',
-         \'p:ports',
-         \'r:register data types',
-         \'t:tasks',
-     \],
-     \ 'sro': '.',
-     \ 'kind2scope' : {
-        \ 'K' : 'package',
-        \ 'C' : 'class',
-        \ 'm' : 'module',
-        \ 'P' : 'program',
-        \ 'I' : 'interface',
-        \ 'M' : 'modport',
-        \ 'f' : 'function',
-        \ 't' : 'task',
-     \},
-     \ 'scope2kind' : {
-        \ 'package'   : 'K',
-        \ 'class'     : 'C',
-        \ 'module'    : 'm',
-        \ 'program'   : 'P',
-        \ 'interface' : 'I',
-        \ 'modport'   : 'M',
-        \ 'function'  : 'f',
-        \ 'task'      : 't',
-     \ },
-     \}
+"""""""CtrlP File Finder"""""
+nmap <leader>ff :CtrlP <CR>
