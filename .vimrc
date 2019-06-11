@@ -23,6 +23,7 @@ Plugin 'vim-scripts/verilog_emacsauto.vim'
 Plugin 'raingo/vim-matlab'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/vim-easy-align'
 call vundle#end()
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
@@ -98,7 +99,7 @@ set formatoptions=cro
 colorscheme elda
 set t_Co=256
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-highlight search ctermbg = red
+highlight search ctermbg = green
 "let g:seoul256_background = 233
 "let g:seoul256_srgb = 1
 "colorscheme seoul256
@@ -132,3 +133,13 @@ nnoremap <leader>u :VerilogFollowPort<CR>
 
 """""""CtrlP File Finder"""""
 nmap <leader>ff :CtrlP <CR>
+nmap <leader>bb :CtrlPBuffer <CR>
+"""""""EasyAlign File Finder"""""
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+vmap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR> 
+nmap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
+vmap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
+nmap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
+
+
