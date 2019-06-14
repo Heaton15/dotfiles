@@ -173,6 +173,16 @@ then
     xrdb $HOME/.Xresources
 fi
 
+######################################################################
+# Create .tmux.conf TMUX configuration file
+######################################################################
+if [ -e $HOME/.tmux.conf ]
+then 
+    mv $HOME/.tmux.conf $HOME/$BACKUP/.tmux.conf_bak
+    ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf 
+else
+    ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+fi
 
 ##################################################################
 # Create .elisp file to hold verilog-auto.el file   

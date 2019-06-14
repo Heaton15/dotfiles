@@ -18,6 +18,8 @@ alias vtags='python ~/.vim/bundle/vtags/plugin/vtags.py'
 alias matlab='matlab -nosplash -nodesktop'
 #################PATH Updates##############
 export PATH="$HOME/AUR/matlab/bin:$PATH"
+#export PATH="/$HOME/Tim_Project_Temporary/local/usr/local/bin:$PATH"
+#export PERL5LIB=$HOME/Tim_Project_Temporary/local/usr/local/lib64/perl5/
 
 
 eval $(dircolors ~/.dir_colors)

@@ -24,6 +24,8 @@ Plugin 'raingo/vim-matlab'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'benmills/vimux'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
@@ -57,15 +59,15 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 
-nnoremap <silent> <leader>we :exe "vertical resize " . (winheight(0) * 16/4)<CR>
+nnoremap <silent> <leader>we :exe "vertical resize " . (winheight(0) * 17/4)<CR>
 nnoremap <silent> <leader>wq :exe "vertical resize " . (winheight(0) * 12/16)<CR>
-
+nnoremap <silent> <leader>ww <C-w>= <CR>
 
 set mouse=n
 
 " Only active if not using neovim
 if !has('nvim')
- set ttymouse=urxvt
+ set ttymouse=xterm2
 endif
 
 set noea "set equalalways
