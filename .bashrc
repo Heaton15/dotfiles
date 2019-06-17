@@ -16,9 +16,15 @@ alias dirs='dirs -v'
 alias top='htop'
 alias vtags='python ~/.vim/bundle/vtags/plugin/vtags.py'
 alias matlab='matlab -nosplash -nodesktop'
+alias ..="cd ../"
+alias ....="../../"
+alias ......="../../../"
 #################PATH Updates##############
 export PATH="$HOME/AUR/matlab/bin:$PATH"
-#export PATH="/$HOME/Tim_Project_Temporary/local/usr/local/bin:$PATH"
+
+#Uncomment for TSS
+#export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin/bin:PATH"
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/local/lib
 #export PERL5LIB=$HOME/Tim_Project_Temporary/local/usr/local/lib64/perl5/
 
 
