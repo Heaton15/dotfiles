@@ -201,7 +201,17 @@ fi
 if [ ! -d $HOME/.vim/bundle ]
 then 
  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
- echo "Vundle not Detected. Installing"
+ echo "Vundle not Detected: Installing"
+ echo " "
+fi
+
+##################################################################
+#Install Tmux Theme Pack If Not Installed ########################
+##################################################################
+if [ ! -d $HOME/.tmux-themepack ]
+then 
+ git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+ echo "Tmux Themepack Not Installed: Installing"
  echo " "
 fi
 

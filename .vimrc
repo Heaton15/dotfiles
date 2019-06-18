@@ -1,5 +1,3 @@
- " Add changes to this file for vim customization "
-
 """"""" Configuration for Vundle (Vim-Plugin Installer)
 set nocompatible
 "filetype off " required
@@ -102,9 +100,22 @@ colorscheme elda
 set t_Co=256
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
-"let g:seoul256_background = 233
-"let g:seoul256_srgb = 1
-"colorscheme seoul256
+
+" Make something full screen "
+nnoremap <leader>wm :ZoomWin<CR>
+
+"""""""Tmux / Vimux Configuration"""""""""
+map <leader>vp :VimuxPromptCommand<CR>
+map <leader>vl :VimuxRunLastCommand<CR>
+map <leader>vi :VimuxInspectRunner<CR>
+map <leader>vz :VimuxZoomRunner<CR>
+
+"""""""vim-navigation-keybinds"""""""""
+nnoremap <silent> <leader>wh :TmuxNavigateLeft <CR>
+nnoremap <silent> <leader>wj :TmuxNavigateDown <CR>
+nnoremap <silent> <leader>wk :TmuxNavigateUp <CR>
+nnoremap <silent> <leader>wl :TmuxNavigateRight <CR>
+
 
 """""""Vim-windowswap Config"""""""""
 let g:windowswap_map_keys = 0 "prevent default bindings
@@ -139,9 +150,7 @@ nmap <leader>bb :CtrlPBuffer <CR>
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-vmap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR> 
-nmap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
-vmap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
-nmap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
+nnoremap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
+nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
 
 
