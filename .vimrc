@@ -24,6 +24,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'szw/vim-g'
 call vundle#end()
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
@@ -61,6 +62,7 @@ nnoremap <silent> <leader>we :exe "vertical resize " . (winheight(0) * 17/4)<CR>
 nnoremap <silent> <leader>wq :exe "vertical resize " . (winheight(0) * 12/16)<CR>
 nnoremap <silent> <leader>ww <C-w>= <CR>
 
+set virtualedit=all
 set mouse=n
 
 " Only active if not using neovim
@@ -144,13 +146,20 @@ nnoremap <leader>i :VerilogFollowInstance<CR>
 nnoremap <leader>I :VerilogReturnInstance<CR>
 nnoremap <leader>u :VerilogFollowPort<CR>
 
-"""""""CtrlP File Finder"""""
-nmap <leader>ff :CtrlP <CR>
-nmap <leader>bb :CtrlPBuffer <CR>
+"""""""File Finder Commands"""""
+nmap <leader>ff :FZF <CR>
+nmap <leader>bb :Buffers <CR>
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 nnoremap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
 nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
+
+"""""""Google"""""
+nnoremap <leader>gg :Google 
+
+
+
+
 
 

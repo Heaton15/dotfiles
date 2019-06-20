@@ -1,11 +1,11 @@
 !rxvt controls
-!URxvt*termName:  screen-256color
 
 URxvt*termName: rxvt-unicode-256color
 URxvt*geometry:  210:46
 
 URxvt*foreground:  #00875F
-URxvt*background:  #121212
+!URxvt*background:  #121212
+URxvt*background:   #121212
 
 ! 0-8 are the normal color schemes
 !black, red, green, yellow, blue, magenta, cyan, white
@@ -61,8 +61,9 @@ URxvt.scrollBar: false
 URxvt.internalBorder:   1
 !URxvt*depth: 32
 !URxvt*background: rgba:0000/0000/0000/cccc
+
 URxvt*fading:  15
-URxvt*transparent: true
+URxvt*transparent: false
 URxvt*shading: 5
 
 

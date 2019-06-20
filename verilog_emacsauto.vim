@@ -17,11 +17,11 @@ let loaded_verilog_emacsauto = 1
 " map \a, \d pair to Add and Delete functions, assuming \ is the leader
 " alternatively, map C-A, C-D to Add and Delete functions
 if !hasmapto('<Plug>VerilogEmacsAutoAdd')
-   map <unique> <leader>a <Plug>VerilogEmacsAutoAdd <C-l>
+   map <unique> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
    map <unique> <leader><leader>a <Plug>VerilogEmacsAutoAdd
 endif
 if !hasmapto('<Plug>VerilogEmacsAutoDelete')
-   map <unique> <leader>d <Plug>VerilogEmacsAutoDelete <C-l>
+   map <unique> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
    map <unique> <leader><leader>d <Plug>VerilogEmacsAutoDelete
 endif
 

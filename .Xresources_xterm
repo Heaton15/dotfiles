@@ -1,8 +1,8 @@
 XTerm.termName: xterm-256color
 URxvt*geometry:  210:46
 
-XTerm*background: Black
 XTerm*foreground: #00875F
+XTerm*background: #121212
 
 ! 0-8 are the normal color schemes
 !black, red, green, yellow, blue, magenta, cyan, white

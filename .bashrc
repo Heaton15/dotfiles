@@ -1,5 +1,3 @@
-
-
 # ~/.bashrc
 #
 
@@ -22,15 +20,20 @@ alias ......="../../../"
 #################PATH Updates##############
 export PATH="$HOME/AUR/matlab/bin:$PATH"
 
+# Configures fuzzy finder 
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
 #Uncomment for TSS
-#export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin/bin:PATH"
+#export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin/bin:$PATH"
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/local/lib
+#export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin:$PATH"
+#export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/fzf/bin:$PATH"
 #export PERL5LIB=$HOME/Tim_Project_Temporary/local/usr/local/lib64/perl5/
 
 
 eval $(dircolors ~/.dir_colors)
 source ~/.colors
-# Sets it so that creating more terminals in i3 down not cause text to weirdly rap around the window
+# Sets it so that creating more terminals in i3 does not cause text to weirdly rap around the window
 shopt -s checkwinsize
 
 # Set vtags creation
@@ -47,8 +50,3 @@ export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0
 # Source hidden bash functionality
 source ~/.functions.sh
 
-# Base16 Shell
-#BASE16_SHELL="$HOME/.config/base16-shell/"
-#[ -n "$PS1" ] && \
-#    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#        eval "$("$BASE16_SHELL/profile_helper.sh")"
