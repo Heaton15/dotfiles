@@ -15,7 +15,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'BufOnly.vim' " Use :BufOnly command to kill all buffers but active one
 Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
 Plugin 'ervandew/supertab'
-Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tagexplorer.vim'
 Plugin 'vim-scripts/verilog_emacsauto.vim'
 Plugin 'raingo/vim-matlab'
@@ -25,14 +24,13 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'szw/vim-g'
+"Plugin 'jimmysitu/vtags.git'
 call vundle#end()
+source ~/.vim/bundle/vtags-3.00/vtags_vim_api.vim
+"source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
 set foldmethod=manual
-au BufWinLeave *.v mkview
-au BufWinEnter *.v silent loadview
-
-
 
 " Keybind Changes
 let mapleader ="\<Space>" " Change spacebar to leader key
@@ -140,12 +138,6 @@ au BufRead /tmp/mutt-* set tw=72
 nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
 
-
-"""""""Verilog/Systemverilog Vim"""""
-nnoremap <leader>i :VerilogFollowInstance<CR>
-nnoremap <leader>I :VerilogReturnInstance<CR>
-nnoremap <leader>u :VerilogFollowPort<CR>
-
 """""""File Finder Commands"""""
 nmap <leader>ff :FZF <CR>
 nmap <leader>bb :Buffers <CR>
@@ -158,8 +150,15 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Ta
 """""""Google"""""
 nnoremap <leader>gg :Google 
 
+" vtags keybinds "
+nnoremap <leader>i  :py try_go_into_submodule()           <CR> :py try_show_frame() <CR>
+nnoremap <leader>u  :py try_go_upper_module()             <CR> :py try_show_frame() <CR>
+nnoremap <leader>mt :py try_print_module_trace()          <CR>
+nnoremap <leader>ct :py clear_trace()                     <CR>
+nnoremap <leader>v  :py try_show_frame()                  <CR>
+nnoremap <leader>q  :py try_close_all_windows()           <CR>
 
-
-
-
-
+                              
+                              
+                              
+                              

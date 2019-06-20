@@ -12,13 +12,16 @@ alias la='ls -a'
 alias vi='vim'
 alias dirs='dirs -v'
 alias top='htop'
-alias vtags='python ~/.vim/bundle/vtags/plugin/vtags.py'
 alias matlab='matlab -nosplash -nodesktop'
 alias ..="cd ../"
 alias ....="../../"
 alias ......="../../../"
 #################PATH Updates##############
 export PATH="$HOME/AUR/matlab/bin:$PATH"
+
+# Configure vtags path
+alias vtags='python ~/.vim/bundle/vtags-3.00/vtags.py'
+#alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
 
 # Configures fuzzy finder 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
