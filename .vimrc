@@ -1,4 +1,4 @@
-""""""" Configuration for Vundle (Vim-Plugin Installer)
+" """"" Configuration for Vundle (Vim-Plugin Installer)
 set nocompatible
 "filetype off " required
 filetype plugin indent on
@@ -6,7 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'noah/vim256-color'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
@@ -23,10 +22,11 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'szw/vim-g'
+Plugin 'RRethy/vim-illuminate'
+"Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
-source ~/.vim/bundle/vtags-3.00/vtags_vim_api.vim
+source ~/.vim/vtags-3.00/vtags_vim_api.vim
 "source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
@@ -138,6 +138,10 @@ au BufRead /tmp/mutt-* set tw=72
 nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
 
+"""""""vim-illuminate"""""""""""""""
+highlight illuminatedWord cterm=underline ctermfg=46
+let g:Illuminate_delay = 25
+
 """""""File Finder Commands"""""
 nmap <leader>ff :FZF <CR>
 nmap <leader>bb :Buffers <CR>
@@ -151,13 +155,14 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Ta
 nnoremap <leader>gg :Google 
 
 " vtags keybinds "
-nnoremap <leader>i  :py try_go_into_submodule()           <CR> :py try_show_frame() <CR>
-nnoremap <leader>u  :py try_go_upper_module()             <CR> :py try_show_frame() <CR>
-nnoremap <leader>mt :py try_print_module_trace()          <CR>
-nnoremap <leader>ct :py clear_trace()                     <CR>
-nnoremap <leader>v  :py try_show_frame()                  <CR>
-nnoremap <leader>q  :py try_close_all_windows()           <CR>
-
+nnoremap <leader>i       :py try_go_into_submodule()         <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
+nnoremap <leader>u       :py try_go_upper_module()           <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
+nnoremap <leader>mt      :py try_print_module_trace()        <CR>
+nnoremap <leader>ct      :py clear_trace()                   <CR>
+nnoremap <leader>v       :py try_show_frame()                <CR>
+nnoremap <leader>q       :py try_close_all_windows()         <CR>
+nnoremap <leader><Left>  :py try_trace_signal_sources()      <CR>
+nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
                               
                               
                               

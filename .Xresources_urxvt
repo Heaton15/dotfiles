@@ -51,8 +51,8 @@ URxvt*background:   #121212
 !URxvt*cursorColor2: #3a3a3a
 !URxvt*colorBD: #e4e4e4
 
-URxvt*colorUL:  red
-URxvt*underlineColor:  red
+!URxvt*colorUL:  red
+!URxvt*underlineColor:  red
 URxvt.font: xft:Inconsolata:pixelsize=19
 !URxvt.font: xft:Siji:pixelsize=20
 URxvt.letterSpace: -1
