@@ -50,7 +50,6 @@ if [ ${USER} == "tim.heaton" ]
   export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
   export PERL5LIB=$HOME/Tim_Project_Temporary/local/usr/local/lib64/perl5/
   source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
-
   export LESSOPEN="| $HOME/Tim_Project_Temporary/packages/rouge/bin/rougify %s 2> /dev/null"                        
   export LESS="-R"
 fi

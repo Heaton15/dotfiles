@@ -85,7 +85,8 @@ function! s:hi(item, fg, bg, style)
 endfunction
 
 
-let s:bg = 233 "|234
+"let s:bg = 233 "|234
+let s:bg = "NONE" "|234
 let s:fg = 38
 let s:const = 35
 let s:func = 33

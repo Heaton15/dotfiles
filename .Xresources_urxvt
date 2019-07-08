@@ -62,8 +62,8 @@ URxvt.internalBorder:   1
 !URxvt*depth: 32
 !URxvt*background: rgba:0000/0000/0000/cccc
 
-URxvt*fading:  15
-URxvt*transparent: false
-URxvt*shading: 5
+URxvt*fading:  5
+URxvt*transparent: true
+URxvt*shading: 7
 
 

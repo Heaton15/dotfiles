@@ -1,4 +1,4 @@
-" """"" Configuration for Vundle (Vim-Plugin Installer)
+"""""" Configuration for Vundle (Vim-Plugin Installer)
 set nocompatible
 "filetype off " required
 filetype plugin indent on
@@ -163,7 +163,4 @@ nnoremap <leader>v       :py try_show_frame()                <CR>
 nnoremap <leader>q       :py try_close_all_windows()         <CR>
 nnoremap <leader><Left>  :py try_trace_signal_sources()      <CR>
 nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
-                              
-                              
-                              
-                              
+
