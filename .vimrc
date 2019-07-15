@@ -28,6 +28,7 @@ Plugin 'RRethy/vim-illuminate'
 call vundle#end()
 source ~/.vim/vtags-3.00/vtags_vim_api.vim
 "source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
+set rtp+=~/dotfiles/myhelp/
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
 set foldmethod=manual
@@ -76,7 +77,7 @@ filetype plugin indent on
 au BufRead,BufNewFile *.scs set filetype=spectre
 au BufRead,BufNewFile *.il set filetype=skill
 au BufRead,BufNewFile *.ils set filetype=skill
-au BufRead,BufNewFile *.cdsinit set filetype=skil
+au BufRead,BufNewFile *.cdsinit set filetype=skill
 
 
 syntax on " Turns on syntax highlighting
@@ -143,7 +144,7 @@ highlight illuminatedWord cterm=underline ctermfg=46
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""
-nmap <leader>ff :FZF <CR>
+nmap <leader>ff :Files 
 nmap <leader>bb :Buffers <CR>
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)

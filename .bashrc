@@ -14,8 +14,8 @@ alias dirs='dirs -v'
 alias top='htop'
 alias matlab='matlab -nosplash -nodesktop'
 alias ..="cd ../"
-alias ....="../../"
-alias ......="../../../"
+alias ....="cd ../../"
+alias ......="cd ../../../"
 #################PATH Updates##############
 
 # Configures fuzzy finder 
@@ -24,6 +24,7 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "
                                                                    echo {} is a binary file ||
                                                                   (rougify highlight {} ||
                                                                     cat {}) 2> /dev/null | head -500"'
+
 set -o vi
 
 if [ ${USER} == "tim" ]

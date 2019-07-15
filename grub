@@ -1,9 +1,10 @@
-# GRUB boot loader configuration
+#
+GRUB boot loader configuration
 
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet fan_control=1"
+GRUB_CMDLINE_LINUX_DEFAULT="fan_control=1"
 GRUB_CMDLINE_LINUX="reboot=pci"
 
 # Preload both GPT and MBR modules so that they are not missed
