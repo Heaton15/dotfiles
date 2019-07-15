@@ -23,6 +23,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
+Plugin 'amal-khailtash/vim-xdc-syntax'
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
@@ -78,6 +79,8 @@ au BufRead,BufNewFile *.scs set filetype=spectre
 au BufRead,BufNewFile *.il set filetype=skill
 au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skill
+au BufRead,BufNewFile *.v set filetype=verilog_systemverilog
+au BufRead,BufNewFile *.xdc set filetype=xdc
 
 
 syntax on " Turns on syntax highlighting
