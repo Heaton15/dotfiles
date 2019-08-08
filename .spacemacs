@@ -6,6 +6,7 @@
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
 values."
+
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
@@ -308,7 +309,7 @@ values."
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
-It is called immediately after `dotspacemacs/init', before layer configuration
+It is called immediately after `dotspacemacs/init', before layer configu/Teration
 executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
@@ -317,6 +318,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
 (defun dotspacemacs/user-config ()
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
 (setq auto-mode-alist (append '(("\\.sdc$" . tcl-mode))
                               auto-mode-alist))
 "Configuration function for user code.

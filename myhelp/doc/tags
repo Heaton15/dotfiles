@@ -1,3 +1,6 @@
+conferences	myhelp.txt	/*conferences*
 myhelp-contents	myhelp.txt	/*myhelp-contents*
 myhelp.txt	myhelp.txt	/*myhelp.txt*
 myhelpAbout	myhelp.txt	/*myhelpAbout*
+vim-notes	myhelp.txt	/*vim-notes*
+xrandr-help	myhelp.txt	/*xrandr-help*

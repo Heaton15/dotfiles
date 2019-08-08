@@ -23,8 +23,8 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+primary = #00AFFF
+secondary = #00AFFF
 alert = #bd2c40
 
 red = #FF0000
@@ -32,10 +32,11 @@ grey = #AFAFAF
 black = #121212
 purple = #D700D7
 green = #00875F
+blue = #00AFFF
 
 
 [bar/example]
-monitor = ${env:MONITOR:eDP-1}
+monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -64,7 +65,8 @@ font-2 = "Wuncon Siji:pixelsize=10;1"
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem xbacklight alsa pulseaudio memory cpu wlan eth battery battery2 temperature date powermenu
+;modules-right = filesystem xbacklight alsa pulseaudio memory cpu wlan eth battery battery2 temperature date powermenu
+modules-right = filesystem xbacklight pulseaudio memory cpu wlan eth battery battery2 temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -215,7 +217,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.purple}
+format-underline = ${colors.blue}
 label = %percentage:2%%
 
 [module/memory]
@@ -223,7 +225,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.purple}
+format-underline = ${colors.blue}
 label = %percentage_used%%
 
 [module/wlan]
@@ -232,7 +234,7 @@ interface = wlp4s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.blue}
 label-connected = %essid%
 
 format-disconnected =
@@ -276,7 +278,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.purple}
+format-underline = ${colors.blue}
 
 label = %date% %time%
 
@@ -343,13 +345,13 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.purple}
+format-charging-underline = ${colors.blue}
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${colors.purple}
+format-discharging-underline = ${colors.blue}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${colors.purple}
+format-full-underline = ${colors.blue}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -375,14 +377,14 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.purple}
+format-charging-underline = ${colors.blue}
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${colors.purple}
+format-discharging-underline = ${colors.blue}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${colors.purple}
+format-full-underline = ${colors.blue}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -407,7 +409,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = ${colors.purple}
+format-underline = ${colors.blue}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 

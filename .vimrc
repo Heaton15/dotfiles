@@ -13,7 +13,7 @@ Plugin 'godlygeek/tabular'              " Enables user to line up code according
 Plugin 'majutsushi/tagbar'
 Plugin 'BufOnly.vim' " Use :BufOnly command to kill all buffers but active one
 Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'tagexplorer.vim'
 Plugin 'vim-scripts/verilog_emacsauto.vim'
 Plugin 'raingo/vim-matlab'
@@ -24,6 +24,9 @@ Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
+Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
+Plugin 'Valloric/YouCompleteMe' "Autocomplete
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
@@ -81,6 +84,7 @@ au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.v set filetype=verilog_systemverilog
 au BufRead,BufNewFile *.xdc set filetype=xdc
+au BufRead,BufNewFile *.txt set filetype=notes
 
 
 syntax on " Turns on syntax highlighting
@@ -143,7 +147,9 @@ nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
 
 """""""vim-illuminate"""""""""""""""
-highlight illuminatedWord cterm=underline ctermfg=46
+au BufRead,BufNewFile *.v,*.sv hi illuminatedWord cterm=underline ctermfg=46
+let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults']
+let g:Illuminate_highlightUnderCursor = 0
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""
@@ -152,11 +158,8 @@ nmap <leader>bb :Buffers <CR>
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-nnoremap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
-nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tab /=<CR> vip :Tab /;<CR>
-
-"""""""Google"""""
-nnoremap <leader>gg :Google 
+nnoremap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>
+nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>
 
 " vtags keybinds "
 nnoremap <leader>i       :py try_go_into_submodule()         <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
@@ -168,3 +171,7 @@ nnoremap <leader>q       :py try_close_all_windows()         <CR>
 nnoremap <leader><Left>  :py try_trace_signal_sources()      <CR>
 nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
 
+" vim-notes keybinds "
+let g:notes_suffix = '.txt'
+highlight notesTextURL cterm=underline ctermfg=46 
+highlight notesRealURL cterm=underline ctermfg=46 

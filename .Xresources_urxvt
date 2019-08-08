@@ -24,7 +24,6 @@ URxvt*background:   #121212
 !*color2:  255
 *color10: #00FF00
 
-
 !yellow
 !!*color3:  #00FFFF
 !!*color11: #FF00FF
@@ -32,7 +31,6 @@ URxvt*background:   #121212
 !blue
 !!*color4:  #afafaf
 *color12: #00AFFF
-
 
 !magenta
 !!*color5:  #ff5faf

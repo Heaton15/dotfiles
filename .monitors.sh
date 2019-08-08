@@ -1,1 +1,2 @@
-xrandr --output HDMI-2 --auto --right-of eDP-1
+xrandr --auto --output HDMI-2 --mode 2560x1440 --rate 75 --left-of eDP-1
+xrandr --auto --output DP-1-2 --mode 2560x1440 --rate 75 --left-of HDMI-2

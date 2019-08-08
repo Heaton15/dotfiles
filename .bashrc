@@ -7,9 +7,9 @@ archey3 -c cyan
 
 ################Aliasing##################
 alias ls='ls --color=auto'
+alias vi='vim'
 alias ll='ls -la'
 alias la='ls -a'
-alias vi='vim'
 alias dirs='dirs -v'
 alias top='htop'
 alias matlab='matlab -nosplash -nodesktop'
