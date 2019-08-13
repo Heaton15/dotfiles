@@ -319,6 +319,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
 (defun dotspacemacs/user-config ()
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+(set-frame-parameter (selected-frame) `alpha
+                     (cons dotspacemacs-active-transparency
+                           dotspacemacs-inactive-transparency))
+
 (setq auto-mode-alist (append '(("\\.sdc$" . tcl-mode))
                               auto-mode-alist))
 "Configuration function for user code.

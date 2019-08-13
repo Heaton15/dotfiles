@@ -3,7 +3,8 @@
 URxvt*termName: rxvt-unicode-256color
 URxvt*geometry:  210:46
 
-URxvt*foreground:  #00875F
+!URxvt*foreground:  #00875F
+URxvt*foreground:   #008700
 !URxvt*background:  #121212
 URxvt*background:   #121212
 
@@ -62,6 +63,6 @@ URxvt.internalBorder:   1
 
 URxvt*fading:  5
 URxvt*transparent: true
-URxvt*shading: 7
+URxvt*shading: 75
 
 

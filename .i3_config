@@ -184,6 +184,7 @@ workspace 9 output eDP-1
 workspace 10 output eDP-1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always compton
 
 #bar{
 #        status_command i3status

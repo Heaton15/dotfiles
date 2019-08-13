@@ -149,7 +149,6 @@ let g:tagbar_iconchars = ['▸', '▾']
 """""""vim-illuminate"""""""""""""""
 au BufRead,BufNewFile *.v,*.sv hi illuminatedWord cterm=underline ctermfg=46
 let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults']
-let g:Illuminate_highlightUnderCursor = 0
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""

@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-max ${HOME}/dotfiles/backgrounds/red_wave.jpg
+feh --no-fehbg --bg-max '/home/tim/dotfiles/backgrounds/cosmic_blue.png' 
