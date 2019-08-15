@@ -15,14 +15,18 @@ bumblebee
 bzip2
 calc
 chromium
+compton
 coreutils
 cryptsetup
+cups
+cups-pdf
 device-mapper
 dhcpcd
 dialog
 diffutils
 discord
 dmenu
+dolphin
 dunst
 e2fsprogs
 efibootmgr
@@ -106,6 +110,7 @@ pciutils
 pepper-flash
 perl
 pkgconf
+plasma-desktop
 primus
 procps-ng
 psmisc
@@ -117,6 +122,7 @@ python-pip
 ranger
 reiserfsprogs
 remmina
+rofi
 rsync
 rxvt-unicode
 s-nail
@@ -154,6 +160,7 @@ virtualbox
 vulkan-icd-loader
 which
 wine-staging
+wmctrl
 wpa_supplicant
 xbindkeys
 xclip

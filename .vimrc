@@ -24,8 +24,6 @@ Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
-Plugin 'xolox/vim-notes'
-Plugin 'xolox/vim-misc'
 Plugin 'Valloric/YouCompleteMe' "Autocomplete
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
@@ -148,7 +146,8 @@ let g:tagbar_iconchars = ['▸', '▾']
 
 """""""vim-illuminate"""""""""""""""
 au BufRead,BufNewFile *.v,*.sv hi illuminatedWord cterm=underline ctermfg=46
-let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults']
+let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
+                               \'tex']
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""

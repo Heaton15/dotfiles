@@ -4,7 +4,7 @@ URxvt*termName: rxvt-unicode-256color
 URxvt*geometry:  210:46
 
 !URxvt*foreground:  #00875F
-URxvt*foreground:   #008700
+URxvt*foreground:   #00AFAF
 !URxvt*background:  #121212
 URxvt*background:   #121212
 
@@ -65,4 +65,9 @@ URxvt*fading:  5
 URxvt*transparent: true
 URxvt*shading: 75
 
-
+## Rofi Theming
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844

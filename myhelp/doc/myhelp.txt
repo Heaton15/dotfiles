@@ -18,6 +18,7 @@ myHelp -- Self defined help tags file
 IMS    — International Microwave Symposium
 BCICTS — BiCMOS and Compound Semiconductor Integrated Circuits and Technology Symposium
 ISSCS  — International Symposium on Signals, Circuits, & Systems
+GOMAC  — Government Microcircuit Applications & Critical Technology Conference
 
 
 ==============================================================================
