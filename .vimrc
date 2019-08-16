@@ -5,7 +5,6 @@ filetype plugin indent on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf.vim'
 Plugin 'noah/vim256-color'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
@@ -28,9 +27,17 @@ Plugin 'Valloric/YouCompleteMe' "Autocomplete
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
-source ~/.vim/vtags-3.00/vtags_vim_api.vim
-"source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
 set rtp+=~/dotfiles/myhelp/
+
+if $USER == "tim" 
+ source ~/.vim/vtags-3.00/vtags_vim_api.vim
+endif
+
+if $USER == "tim.heaton"
+ source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
+ set rtp+=~/Tim_Project_Temporary/packages/fzf
+endif
+
 """"""" End configuration for Vundle
 """""""""""""""""""""""""""""""""""""
 set foldmethod=manual
