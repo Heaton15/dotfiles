@@ -66,6 +66,7 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 
+nnoremap <silent> <leader>l :redraw! <CR>
 nnoremap <silent> <leader>we :exe "vertical resize " . (winheight(0) * 17/4)<CR>
 nnoremap <silent> <leader>wq :exe "vertical resize " . (winheight(0) * 12/16)<CR>
 nnoremap <silent> <leader>ww <C-w>= <CR>

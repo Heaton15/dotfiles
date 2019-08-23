@@ -62,6 +62,10 @@
     m:0x0 + c:233
     XF86MonBrightnessUp
 
+# Lock Screen
+"betterlockscreen -l dim"
+     m:0x40 + c:46
+    Mod4 + l
 ##################################
 # End of xbindkeys configuration #
 ##################################
