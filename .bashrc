@@ -26,7 +26,7 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "
                                                                     cat {}) 2> /dev/null | head -500"'
 
 set -o vi
-
+export TERM=xterm-256color
 if [ ${USER} == "tim" ]
  then
   export PATH="$HOME/AUR/matlab/bin:$PATH"

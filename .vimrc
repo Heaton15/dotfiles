@@ -1,7 +1,6 @@
 """""" Configuration for Vundle (Vim-Plugin Installer)
 set nocompatible
 "filetype off " required
-filetype plugin indent on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -24,10 +23,19 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
 Plugin 'Valloric/YouCompleteMe' "Autocomplete
+"" Functions below are all for org mode
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
+Plugin 'mattn/calendar-vim'
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
+"""""""""""""""""""""""""""""""""""""
 set rtp+=~/dotfiles/myhelp/
+
+colorscheme elda
+syntax on
+filetype plugin indent on
 
 if $USER == "tim" 
  source ~/.vim/vtags-3.00/vtags_vim_api.vim
@@ -38,16 +46,11 @@ if $USER == "tim.heaton"
  set rtp+=~/Tim_Project_Temporary/packages/fzf
 endif
 
-""""""" End configuration for Vundle
-"""""""""""""""""""""""""""""""""""""
-set foldmethod=manual
+set foldmethod=indent
 
 " Keybind Changes
 let mapleader ="\<Space>" " Change spacebar to leader key
-"nnoremap <C-h> <C-w>h 
-"nnoremap <C-j> <C-w>j 
-"nnoremap <C-k> <C-w>k 
-"nnoremap <C-l> <C-w>l
+let maplocalleader =","
 nnoremap <leader>wh <C-w>h 
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
@@ -70,6 +73,8 @@ nnoremap <silent> <leader>l :redraw! <CR>
 nnoremap <silent> <leader>we :exe "vertical resize " . (winheight(0) * 17/4)<CR>
 nnoremap <silent> <leader>wq :exe "vertical resize " . (winheight(0) * 12/16)<CR>
 nnoremap <silent> <leader>ww <C-w>= <CR>
+nnoremap <silent> <leader>w- :sp <CR>
+nnoremap <silent> <leader>w/ :vsp <CR>
 
 set virtualedit=all
 set mouse=n
@@ -82,7 +87,6 @@ endif
 set noea "set equalalways
 """""""""""""""""""""""""""""""""""""
 
-filetype plugin indent on
 """" Filetype For Cadence Tools """"
 au BufRead,BufNewFile *.scs set filetype=spectre
 au BufRead,BufNewFile *.il set filetype=skill
@@ -91,17 +95,14 @@ au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.v set filetype=verilog_systemverilog
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
-
-
-syntax on " Turns on syntax highlighting
 set modelines =0
 set wrap
 set backspace=indent,eol,start
 set ttyfast
 set matchpairs+=<:>
 set number
-set encoding=utf-8
-set fileencoding=utf-8
+"set encoding=utf-8
+"set fileencoding=utf-8
 set hlsearch
 set incsearch
 set expandtab
@@ -110,7 +111,6 @@ set softtabstop=4
 set shiftwidth=4
 set relativenumber
 set formatoptions=cro
-colorscheme elda
 set t_Co=256
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
@@ -130,7 +130,6 @@ nnoremap <silent> <leader>wj :TmuxNavigateDown <CR>
 nnoremap <silent> <leader>wk :TmuxNavigateUp <CR>
 nnoremap <silent> <leader>wl :TmuxNavigateRight <CR>
 
-
 """""""Vim-windowswap Config"""""""""
 let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
@@ -139,10 +138,6 @@ nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 
 """"""" superbar Configuration"""""""
 let g:SuperTabDefaultCompletionType = 'context'
-
-"""""""NERDTree Config"""""""""""""""
-nmap <S-l> :NERDTreeToggle<CR>
-:let g:NERDTreeWinSize=40
 
 """"""""Neomutt Config"""""""""""""""
 "Enabling vim for .muttrc
@@ -153,9 +148,9 @@ nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
 
 """""""vim-illuminate"""""""""""""""
-au BufRead,BufNewFile *.v,*.sv hi illuminatedWord cterm=underline ctermfg=46
+au BufRead,BufNewFile *.v,*.sv,*.py hi illuminatedWord cterm=underline ctermfg=46
 let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
-                               \'tex', '']
+                               \'tex', 'org', '']
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""
@@ -176,8 +171,3 @@ nnoremap <leader>v       :py try_show_frame()                <CR>
 nnoremap <leader>q       :py try_close_all_windows()         <CR>
 nnoremap <leader><Left>  :py try_trace_signal_sources()      <CR>
 nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
-
-" vim-notes keybinds "
-let g:notes_suffix = '.txt'
-highlight notesTextURL cterm=underline ctermfg=46 
-highlight notesRealURL cterm=underline ctermfg=46 
