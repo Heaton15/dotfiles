@@ -185,6 +185,7 @@ workspace 10 output eDP-1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always compton
+new_window pixel
 exec_always --no-startup-id "feh --no-fehbg --bg-max '/home/tim/dotfiles/backgrounds/cosmic_blue.png'"
 
 #exec --no-startup-id wmctrl -c Plasma

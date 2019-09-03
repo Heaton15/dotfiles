@@ -12,11 +12,16 @@ alias ll='ls -la'
 alias la='ls -a'
 alias dirs='dirs -v'
 alias matlab='matlab -nosplash -nodesktop'
-alias todo='todotxt-machine'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
 #################PATH Updates##############
+
+
+# Environment Variable Configuration
+export SCALA_VERSION='2.12.8'
+export ALMOND_VERSION='0.6.0'
+
 
 # Configures fuzzy finder 
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "
@@ -38,6 +43,7 @@ if [ ${USER} == "tim" ]
   source ~/.functions.sh
   export LESSOPEN="| $HOME/.local/rouge/bin/rougify %s 2> /dev/null"                        
   export LESS="-R"
+  alias todo='vim $HOME/ESL_AFRL_TDKC/TDKC/weekly_meetings/tasks/tapeout_tasks.org'
 fi
 
 # TSS Only
@@ -58,16 +64,12 @@ fi
 
 # Sets it so that creating more terminals in i3 does not cause text to weirdly rap around the window
 shopt -s checkwinsize
-
-# Set vtags creation
-
-# Setting local terminal variables used by neomutt
 export EDITOR="/usr/bin/vim"
 
 # Setting ranger environment variables
 export RANGER_LOAD_DEFAULT_RC="FALSE"
-# Changes colors for the use@machinename in bash
 
+# Changes colors for the use@machinename in bash
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 

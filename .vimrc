@@ -27,6 +27,7 @@ Plugin 'Valloric/YouCompleteMe' "Autocomplete
 Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 Plugin 'mattn/calendar-vim'
+Plugin 'derekwyatt/vim-scala'
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
@@ -101,8 +102,8 @@ set backspace=indent,eol,start
 set ttyfast
 set matchpairs+=<:>
 set number
-"set encoding=utf-8
-"set fileencoding=utf-8
+set encoding=utf-8
+set fileencoding=utf-8
 set hlsearch
 set incsearch
 set expandtab
@@ -112,6 +113,10 @@ set shiftwidth=4
 set relativenumber
 set formatoptions=cro
 set t_Co=256
+
+let g:scala_scaladoc_indent = 1
+
+
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
@@ -148,9 +153,9 @@ nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
 
 """""""vim-illuminate"""""""""""""""
-au BufRead,BufNewFile *.v,*.sv,*.py hi illuminatedWord cterm=underline ctermfg=46
+au BufRead,BufNewFile *.v,*.sv,*.py,*.m,*.c,*.sh,*.scala hi illuminatedWord cterm=underline ctermfg=46
 let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
-                               \'tex', 'org', '']
+                               \'tex', 'org', 'help', '']
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""
