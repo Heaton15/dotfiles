@@ -11,29 +11,26 @@ Plugin 'godlygeek/tabular'              " Enables user to line up code according
 Plugin 'majutsushi/tagbar'
 Plugin 'BufOnly.vim' " Use :BufOnly command to kill all buffers but active one
 Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
-"Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 Plugin 'tagexplorer.vim'
 Plugin 'vim-scripts/verilog_emacsauto.vim'
 Plugin 'raingo/vim-matlab'
 Plugin 'vim-scripts/ZoomWin'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
-Plugin 'Valloric/YouCompleteMe' "Autocomplete
 "" Functions below are all for org mode
-Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 Plugin 'mattn/calendar-vim'
-Plugin 'derekwyatt/vim-scala'
+Plugin 'gillyb/stable-windows'
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
 set rtp+=~/dotfiles/myhelp/
-
+"let g:fzf_layout = {'window': 'enew'}
 colorscheme elda
 syntax on
 filetype plugin indent on
@@ -81,9 +78,6 @@ set virtualedit=all
 set mouse=n
 
 " Only active if not using neovim
-if !has('nvim')
- set ttymouse=xterm2
-endif
 
 set noea "set equalalways
 """""""""""""""""""""""""""""""""""""
@@ -93,7 +87,7 @@ au BufRead,BufNewFile *.scs set filetype=spectre
 au BufRead,BufNewFile *.il set filetype=skill
 au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skill
-au BufRead,BufNewFile *.v set filetype=verilog_systemverilog
+au BufRead,BufNewFile *.v,*.vg set filetype=verilog_systemverilog
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
 set modelines =0
@@ -102,8 +96,8 @@ set backspace=indent,eol,start
 set ttyfast
 set matchpairs+=<:>
 set number
-set encoding=utf-8
-set fileencoding=utf-8
+"set encoding=utf-8
+"set fileencoding=utf-8
 set hlsearch
 set incsearch
 set expandtab
@@ -113,10 +107,6 @@ set shiftwidth=4
 set relativenumber
 set formatoptions=cro
 set t_Co=256
-
-let g:scala_scaladoc_indent = 1
-
-
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
@@ -153,9 +143,9 @@ nmap <S-M> :TagbarToggle<CR>
 let g:tagbar_iconchars = ['▸', '▾']
 
 """""""vim-illuminate"""""""""""""""
-au BufRead,BufNewFile *.v,*.sv,*.py,*.m,*.c,*.sh,*.scala hi illuminatedWord cterm=underline ctermfg=46
+au BufRead,BufNewFile *.v,*.sv,*.py,*.c hi illuminatedWord cterm=underline ctermfg=46
 let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
-                               \'tex', 'org', 'help', '']
+                               \'tex', 'org', 'make', '']
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""
@@ -176,3 +166,7 @@ nnoremap <leader>v       :py try_show_frame()                <CR>
 nnoremap <leader>q       :py try_close_all_windows()         <CR>
 nnoremap <leader><Left>  :py try_trace_signal_sources()      <CR>
 nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
+
+" binary read and write "
+nmap <leader>hr :%!xxd<CR> :set filetype=xxd<CR>
+nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>

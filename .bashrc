@@ -3,7 +3,6 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-archey3 -c cyan
 
 ################Aliasing##################
 alias ls='ls --color=auto'
@@ -12,16 +11,11 @@ alias ll='ls -la'
 alias la='ls -a'
 alias dirs='dirs -v'
 alias matlab='matlab -nosplash -nodesktop'
+alias todo='todotxt-machine'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
 #################PATH Updates##############
-
-
-# Environment Variable Configuration
-export SCALA_VERSION='2.12.8'
-export ALMOND_VERSION='0.6.0'
-
 
 # Configures fuzzy finder 
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "
@@ -43,33 +37,41 @@ if [ ${USER} == "tim" ]
   source ~/.functions.sh
   export LESSOPEN="| $HOME/.local/rouge/bin/rougify %s 2> /dev/null"                        
   export LESS="-R"
-  alias todo='vim $HOME/ESL_AFRL_TDKC/TDKC/weekly_meetings/tasks/tapeout_tasks.org'
 fi
 
 # TSS Only
 if [ ${USER} == "tim.heaton" ]
  then
   alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
-  export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin/bin:$PATH"
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/local/lib
-  export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin:$PATH"
-  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/fzf/bin:$PATH"
-  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
-  export PERL5LIB=$HOME/Tim_Project_Temporary/local/usr/local/lib64/perl5/
-  source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
-  export LESSOPEN="| $HOME/Tim_Project_Temporary/packages/rouge/bin/rougify %s 2> /dev/null"                        
-  export LESS="-R"
+  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/Verilog-Perl-3.468:$PATH"
+  #export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin/bin:$PATH"
+  #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/local/lib
+  #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/source_file/brew_install/local/lib
+  #export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin:$PATH"
+  #export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/fzf/bin:$PATH"
+  #export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
+  #export PERL5LIB=$HOME/Tim_Project_Temporary/local/usr/local/lib64/perl5/
+  #source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
+  #export LESSOPEN="| $HOME/Tim_Project_Temporary/packages/rouge/bin/rougify %s 2> /dev/null"
+  #export LESS="-R"
+export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools/bin"
+source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
+source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
 fi
 
 
 # Sets it so that creating more terminals in i3 does not cause text to weirdly rap around the window
 shopt -s checkwinsize
+
+# Set vtags creation
+
+# Setting local terminal variables used by neomutt
 export EDITOR="/usr/bin/vim"
 
 # Setting ranger environment variables
 export RANGER_LOAD_DEFAULT_RC="FALSE"
-
 # Changes colors for the use@machinename in bash
+
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 
