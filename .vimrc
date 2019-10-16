@@ -47,7 +47,7 @@ if $USER == "tim.heaton"
  set rtp+=~/Tim_Project_Temporary/packages/fzf
 endif
 
-set foldmethod=indent
+set foldmethod=manual
 
 " Keybind Changes
 let mapleader ="\<Space>" " Change spacebar to leader key
