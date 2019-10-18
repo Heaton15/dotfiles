@@ -1,4 +1,5 @@
 conferences	myhelp.txt	/*conferences*
+makefile-help	myhelp.txt	/*makefile-help*
 myhelp-contents	myhelp.txt	/*myhelp-contents*
 myhelp.txt	myhelp.txt	/*myhelp.txt*
 myhelpAbout	myhelp.txt	/*myhelpAbout*
