@@ -54,7 +54,7 @@ if [ ${USER} == "tim.heaton" ]
   #source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
   #export LESSOPEN="| $HOME/Tim_Project_Temporary/packages/rouge/bin/rougify %s 2> /dev/null"
   #export LESS="-R"
-export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools/bin"
+export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools"
 source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
 source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
 fi
