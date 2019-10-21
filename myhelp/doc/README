@@ -1,0 +1,5 @@
+Run helpt /dest/to/dir to generate a tags file and include it in the rtp in your vimrc
+
+:helpt ../doc/ 
+will generate the tags file
+
