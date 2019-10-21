@@ -30,11 +30,11 @@ if [ ${USER} == "tim" ]
  then
   export PATH="$HOME/AUR/matlab/bin:$PATH"
   export PATH="$HOME/.local/rouge/bin/:$PATH"
-  source /usr/share/fzf/completion.bash 
-  alias vtags='python ~/.vim/vtags-3.00/vtags.py'
+#  source /usr/share/fzf/completion.bash 
+#  alias vtags='python ~/.vim/vtags-3.00/vtags.py'
   eval $(dircolors ~/.dir_colors)
-  source ~/.colors
-  source ~/.functions.sh
+  #source ~/.colors
+  #source ~/.functions.sh
   export LESSOPEN="| $HOME/.local/rouge/bin/rougify %s 2> /dev/null"                        
   export LESS="-R"
 fi

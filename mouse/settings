@@ -1,0 +1,2 @@
+xinput -set-prop 13 'libinput Accel Speed' 0.7
+xinput list-props 13

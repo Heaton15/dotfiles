@@ -22,9 +22,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
 "" Functions below are all for org mode
-Plugin 'tpope/vim-speeddating'
-Plugin 'mattn/calendar-vim'
-Plugin 'gillyb/stable-windows'
+"Plugin 'tpope/vim-speeddating'
+"Plugin 'mattn/calendar-vim'
+"Plugin 'gillyb/stable-windows'
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
@@ -36,7 +36,7 @@ syntax on
 filetype plugin indent on
 
 if $USER == "tim" 
- source ~/.vim/vtags-3.00/vtags_vim_api.vim
+" source ~/.vim/vtags-3.00/vtags_vim_api.vim
 endif
 
 if $USER == "tim.heaton"
@@ -75,7 +75,7 @@ nnoremap <silent> <leader>w- :sp <CR>
 nnoremap <silent> <leader>w/ :vsp <CR>
 
 set virtualedit=all
-set mouse=n
+set mouse=a
 
 " Only active if not using neovim
 
