@@ -28,9 +28,10 @@ set -o vi
 export TERM=xterm-256color
 if [ ${USER} == "tim" ]
  then
+  archey3 --color=cyan
   export PATH="$HOME/AUR/matlab/bin:$PATH"
   export PATH="$HOME/.local/rouge/bin/:$PATH"
-#  source /usr/share/fzf/completion.bash 
+  source /usr/share/fzf/completion.bash 
 #  alias vtags='python ~/.vim/vtags-3.00/vtags.py'
   eval $(dircolors ~/.dir_colors)
   #source ~/.colors
