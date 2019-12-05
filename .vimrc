@@ -21,6 +21,7 @@ Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
+Plugin 'psliwka/vim-smoothie'
 "" Functions below are all for org mode
 "Plugin 'tpope/vim-speeddating'
 "Plugin 'mattn/calendar-vim'
@@ -49,6 +50,7 @@ set foldmethod=manual
 " Keybind Changes
 let mapleader ="\<Space>" " Change spacebar to leader key
 let maplocalleader =","
+nnoremap <leader>q :qa! <CR>
 nnoremap <leader>wh <C-w>h 
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
@@ -145,7 +147,7 @@ let g:tagbar_iconchars = ['▸', '▾']
 """""""vim-illuminate"""""""""""""""
 au BufRead,BufNewFile *.v,*.sv,*.py,*.c hi illuminatedWord cterm=underline ctermfg=46
 let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
-                               \'tex', 'org', 'make', '']
+                               \'tex', 'org', 'make', 'taskreport', '']
 let g:Illuminate_delay = 25
 
 """""""File Finder Commands"""""
@@ -163,7 +165,6 @@ nnoremap <leader>u       :py try_go_upper_module()           <CR> :py try_show_f
 nnoremap <leader>mt      :py try_print_module_trace()        <CR>
 nnoremap <leader>ct      :py clear_trace()                   <CR>
 nnoremap <leader>v       :py try_show_frame()                <CR>
-nnoremap <leader>q       :py try_close_all_windows()         <CR>
 nnoremap <leader><Left>  :py try_trace_signal_sources()      <CR>
 nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
 

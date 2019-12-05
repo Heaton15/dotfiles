@@ -15,6 +15,7 @@ alias todo='todotxt-machine'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
+taskvim='vim -c "TW" -c "Calendar -view=year -split=horizontal -position=below -height=26"'
 #################PATH Updates##############
 
 # Configures fuzzy finder 
