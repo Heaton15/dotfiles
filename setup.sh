@@ -235,13 +235,3 @@ else
     ln -s $HOME/dotfiles/.xbindkeysrc $HOME/.xbindkeysrc
 fi
 
-##############################################################
-# Create todotxt-machine configuration file
-##############################################################
-if [ -e $HOME/.todotxt-machinerc ]
-then 
-    mv $HOME/.todotxt-machinerc $HOME/$BACKUP/.todotxt-machinerc
-    ln -s $HOME/dotfiles/.todotxt-machinerc $HOME/.todotxt-machinerc
-else
-    ln -s $HOME/dotfiles/.todotxt-machinerc $HOME/.todotxt-machinerc
-fi
