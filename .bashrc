@@ -46,6 +46,9 @@ if [ ${USER} == "tim.heaton" ]
  then
   alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
   export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/Verilog-Perl-3.468:$PATH"
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export PATH="$HOME/.linuxbrew/sbin:$PATH"
+  source ~/.linuxbrew/opt/fzf/shell/completion.bash
   #export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin/bin:$PATH"
   #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/local/lib
   #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/source_file/brew_install/local/lib
