@@ -42,7 +42,7 @@ endif
 
 if $USER == "tim.heaton"
  source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
- set rtp+=~/Tim_Project_Temporary/packages/fzf
+ set rtp+=~/.linuxbrew/Cellar/fzf/0.18.0
 endif
 
 set foldmethod=manual

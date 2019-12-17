@@ -45,7 +45,7 @@ fi
 if [ ${USER} == "tim.heaton" ]
  then
   alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
-  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/Verilog-Perl-3.468:$PATH"
+  export PATH="/home/tim.heaton/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
   source ~/.linuxbrew/opt/fzf/shell/completion.bash
