@@ -1,0 +1,32 @@
+/* Classic Menu Bar (windows only?) */
+#toolbar-menubar .menubar-text,
+#toolbar-menubar menuitem, 
+#toolbar-menubar menu {
+  font-size: 14px !important;
+}
+
+/* Tab bar */
+#TabsToolbar {
+  font-size: 14px !important;
+}
+
+/* Main Toolbar */
+#nav-bar {
+  font-size: 14px !important;
+}
+
+/* Bookmarks Toolbar */
+#PersonalToolbar, 
+#PersonalToolbar menuitem,
+#PersonalToolbar menu {
+  font-size: 16px !important;
+}
+
+/* Context menus (this is not all of them) */
+menupopup[id*="ContextMenu"] menuitem,
+menupopup[id*="ContextMenu"] menu, 
+#placesContext menuitem, 
+#placesContext menu, 
+#backForwardMenu menuitem {
+  font-size: 14px !important;
+}
