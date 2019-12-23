@@ -31,7 +31,6 @@ Plugin 'psliwka/vim-smoothie'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
 set rtp+=~/dotfiles/myhelp/
-"let g:fzf_layout = {'window': 'enew'}
 colorscheme elda
 syntax on
 filetype plugin indent on
@@ -132,6 +131,7 @@ let g:windowswap_map_keys = 0 "prevent default bindings
 nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
+
 
 """"""" superbar Configuration"""""""
 let g:SuperTabDefaultCompletionType = 'context'
