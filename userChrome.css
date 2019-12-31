@@ -1,5 +1,10 @@
 /* Classic Menu Bar (windows only?) */
+/* global font */
+* {
+    font-size: 14pt !important;
+    font-family: Verdana !important;
 
+}
 #toolbar-menubar .menubar-text,
 #toolbar-menubar menuitem, 
 #toolbar-menubar menu {
@@ -126,12 +131,6 @@ window#main-window {
 	--color-fg   : #00875F; /* light green */
 	--color-bg   : #000000; /* black */
 	--color-0    : #00D7AF;
-    /*--color-1    : #00D7AF;
-    --color-2    : #00D7AF; 
-    --color-3    : #00D7AF;
-    --color-4    : #00D7AF;
-    --color-5    : #00D7AF;*/
-
 	--color-1    : #d0d01e;
 	--color-2    : #fc6b89;
 	--color-3    : #bc6ccc;
@@ -280,4 +279,3 @@ hbox#urlbar[focused=true] {
 	border-radius: 0 8px 8px !important;
 	box-shadow: 0px 0px 40px rgba(0, 0, 0, 25%) !important;
 }*/ /*uncomment to shorten the drop down box in firefox */
-
