@@ -36,7 +36,7 @@ if [ ${USER} == "tim" ]
 #  alias vtags='python ~/.vim/vtags-3.00/vtags.py'
   eval $(dircolors ~/.dir_colors)
   #source ~/.colors
-  #source ~/.functions.sh
+  source ~/.functions.sh
   export LESSOPEN="| $HOME/.local/rouge/bin/rougify %s 2> /dev/null"                        
   export LESS="-R"
 fi
@@ -49,16 +49,6 @@ if [ ${USER} == "tim.heaton" ]
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
   source ~/.linuxbrew/opt/fzf/shell/completion.bash
-  #export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin/bin:$PATH"
-  #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/local/lib
-  #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tim.heaton/Tim_Project_Temporary/source_file/brew_install/local/lib
-  #export PATH="/home/tim.heaton/Tim_Project_Temporary/local/bin:$PATH"
-  #export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/fzf/bin:$PATH"
-  #export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
-  #export PERL5LIB=$HOME/Tim_Project_Temporary/local/usr/local/lib64/perl5/
-  #source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
-  #export LESSOPEN="| $HOME/Tim_Project_Temporary/packages/rouge/bin/rougify %s 2> /dev/null"
-  #export LESS="-R"
 export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools"
 source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
 source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
@@ -79,10 +69,3 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
-
-
-PATH="/home/tim/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/tim/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/tim/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/tim/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/tim/perl5"; export PERL_MM_OPT;

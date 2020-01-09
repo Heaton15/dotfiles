@@ -22,10 +22,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
 Plugin 'psliwka/vim-smoothie'
-"" Functions below are all for org mode
-"Plugin 'tpope/vim-speeddating'
-"Plugin 'mattn/calendar-vim'
-"Plugin 'gillyb/stable-windows'
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
