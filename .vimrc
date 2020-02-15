@@ -22,6 +22,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
 Plugin 'psliwka/vim-smoothie'
+Plugin 'justinmk/vim-syntax-extra' " c highlighting
 "Plugin 'w0rp/ale' " Transition to LSPs instead?
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
@@ -32,12 +33,12 @@ syntax on
 filetype plugin indent on
 
 if $USER == "tim" 
-" source ~/.vim/vtags-3.00/vtags_vim_api.vim
+ set rtp+=~/.fzf/
 endif
 
 if $USER == "tim.heaton"
  source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
- set rtp+=~/.linuxbrew/Cellar/fzf/0.18.0
+ set rtp+=~/.fzf/
 endif
 
 set foldmethod=manual
@@ -167,3 +168,6 @@ nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
 " binary read and write "
 nmap <leader>hr :%!xxd<CR> :set filetype=xxd<CR>
 nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
+
+" works on tss but not here?
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }

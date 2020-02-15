@@ -25,6 +25,9 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "
                                                                   (rougify highlight {} ||
                                                                     cat {}) 2> /dev/null | head -500"'
 
+
+
+
 set -o vi
 export TERM=xterm-256color
 if [ ${USER} == "tim" ]
@@ -32,8 +35,9 @@ if [ ${USER} == "tim" ]
   archey3 --color=cyan
   export PATH="$HOME/AUR/matlab/bin:$PATH"
   export PATH="$HOME/.local/rouge/bin/:$PATH"
-  source /usr/share/fzf/completion.bash 
-#  alias vtags='python ~/.vim/vtags-3.00/vtags.py'
+  source /home/tim/.fzf/shell/completion.bash
+  export PATH="$HOME/.fzf/bin/:$PATH"
+
   eval $(dircolors ~/.dir_colors)
   #source ~/.colors
   source ~/.functions.sh
@@ -44,14 +48,20 @@ fi
 # TSS Only
 if [ ${USER} == "tim.heaton" ]
  then
-  alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
   export PATH="/home/tim.heaton/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
   source ~/.linuxbrew/opt/fzf/shell/completion.bash
-export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools"
-source /home/tim.heaton/Tim_Project_Temporary/packages/fzf/shell/completion.bash
-source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
+  source /home/tim.heaton/.fzf/shell/completion.bash
+  export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools"
+
+  if [ -f "$HOME/Tim_Project_Temporary" ]
+  alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
+  source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
+  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
+  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/binmake/bin:$PATH"
+  fi
+
 fi
 
 
