@@ -11,7 +11,6 @@ alias ll='ls -la'
 alias la='ls -a'
 alias dirs='dirs -v'
 alias matlab='matlab -nosplash -nodesktop'
-alias todo='todotxt-machine'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
@@ -51,17 +50,16 @@ if [ ${USER} == "tim.heaton" ]
   export PATH="/home/tim.heaton/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
-  source ~/.linuxbrew/opt/fzf/shell/completion.bash
   source /home/tim.heaton/.fzf/shell/completion.bash
-  export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools"
 
   if [ -f "$HOME/Tim_Project_Temporary" ]
-  alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
-  source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
-  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
-  export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/binmake/bin:$PATH"
-  fi
-
+   then
+    alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
+    source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
+    export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
+    export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/binmake/bin:$PATH"
+    export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools"
+   fi
 fi
 
 
