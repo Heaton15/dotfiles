@@ -14,16 +14,22 @@ if exists("loaded_verilog_emacsauto")
 endif
 let loaded_verilog_emacsauto = 1
 
+
+
+"------------------------------------------------------------------------------"
+"             This is commented out to let vimrc binds to override.            "
+"------------------------------------------------------------------------------"
+
 " map \a, \d pair to Add and Delete functions, assuming \ is the leader
 " alternatively, map C-A, C-D to Add and Delete functions
-if !hasmapto('<Plug>VerilogEmacsAutoAdd')
-   map <unique> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
-   map <unique> <leader><leader>a <Plug>VerilogEmacsAutoAdd
-endif
-if !hasmapto('<Plug>VerilogEmacsAutoDelete')
-   map <unique> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
-   map <unique> <leader><leader>d <Plug>VerilogEmacsAutoDelete
-endif
+"if !hasmapto('<Plug>VerilogEmacsAutoAdd')
+"   map <unique> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
+"   map <unique> <leader><leader>a <Plug>VerilogEmacsAutoAdd
+"endif
+"if !hasmapto('<Plug>VerilogEmacsAutoDelete')
+"   map <unique> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
+"   map <unique> <leader><leader>d <Plug>VerilogEmacsAutoDelete
+"endif
 
 noremap <unique> <script> <Plug>VerilogEmacsAutoAdd    <SID>Add
 noremap <unique> <script> <Plug>VerilogEmacsAutoDelete <SID>Delete

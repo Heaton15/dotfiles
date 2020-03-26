@@ -1,7 +1,6 @@
-
-"------------------------------------------------------------------------------"
-"                             Vundle Configuration                             "
-"------------------------------------------------------------------------------"
+""------------------------------------------------------------------------------"
+""                             Vundle Configuration                             "
+""------------------------------------------------------------------------------"
 set nocompatible
 "filetype off " required
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -31,6 +30,7 @@ Plugin 'thinca/vim-localrc'
 Plugin 'camspiers/lens.vim'
 Plugin 'camspiers/animate.vim'
 Plugin 'cometsong/CommentFrame.vim'
+Plugin 'lervag/vimtex'
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
@@ -55,7 +55,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set relativenumber
-set formatoptions=cro
+set formatoptions=crot
 set t_Co=256
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
@@ -79,7 +79,7 @@ endif
 "                                Keybind Changes                               "
 "------------------------------------------------------------------------------"
 let mapleader ="\<Space>" " Change spacebar to leader key
-let maplocalleader =","
+let maplocalleader ="\<Space>"
 nnoremap <leader>q :qa! <CR>
 nnoremap <leader>wh <C-w>h 
 nnoremap <leader>wj <C-w>j
@@ -92,6 +92,7 @@ nnoremap <leader>wv <C-w>v
 "                              Tab Movement in vim                             "
 "------------------------------------------------------------------------------"
 nnoremap tn :tabnew <CR>
+nnoremap tN :tab sball <CR>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -123,6 +124,7 @@ au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.v,*.vg set filetype=verilog_systemverilog
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
+au BufRead,BufNewFile *.tex setlocal textwidth=80
 
 
 "------------------------------------------------------------------------------"
@@ -200,8 +202,6 @@ let g:lens#height_resize_min = (winheight(0)*8/10)
 let g:lens#width_resize_max = (winwidth(0)*8/10)
 let g:lens#width_resize_min = (winwidth(0)*8/10)
 
-
-
 """"""" superbar Configuration"""""""
 let g:SuperTabDefaultCompletionType = 'context'
 
@@ -219,8 +219,21 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>
 nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>
 
+"------------------------------------------------------------------------------"
+"                              Latex Configuration                             "
+"------------------------------------------------------------------------------"
+let g:tex_flavor = "latex"
+let g:vimtex_view_general_viewer="zathura"
 
-
-
+"------------------------------------------------------------------------------"
+"                          Verilog Autos Configuration                         "
+"------------------------------------------------------------------------------"
+augroup verilogBindings
+    autocmd! verilogBindings
+    autocmd Filetype verilog_systemverilog map <buffer> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
+    autocmd Filetype verilog_systemverilog map <buffer> <leader><leader>a <Plug>VerilogEmacsAutoAdd 
+    autocmd Filetype verilog_systemverilog map <buffer> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
+    autocmd Filetype verilog_systemverilog map <buffer> <leader><leader>d <Plug>VerilogEmacsAutoDelete 
+augroup end
 
 
