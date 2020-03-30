@@ -47,16 +47,16 @@ set wrap
 set backspace=indent,eol,start
 set ttyfast
 set matchpairs+=<:>
-set number
 set hlsearch
 set incsearch
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set relativenumber
+set number relativenumber
 set formatoptions=crot
 set t_Co=256
+set clipboard+=unnamed,unnamedplus
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
@@ -196,7 +196,7 @@ let g:ale_linters = {'c': ['gcc']}
 "------------------------------------------------------------------------------"
 "                              animate/lens Config                             "
 "------------------------------------------------------------------------------"
-let g:lens#disabled_filetypes = ['vundle', '']
+let g:lens#disabled_filetypes = ['vundle', 'qf', '']
 let g:lens#height_resize_max = (winheight(0)*8/10)
 let g:lens#height_resize_min = (winheight(0)*8/10)
 let g:lens#width_resize_max = (winwidth(0)*8/10)
