@@ -239,9 +239,9 @@ augroup end
 "                             YCM/Gutentags Control                            "
 "------------------------------------------------------------------------------"
 let g:ycm_collect_identifiers_from_tags_files = 1
-set tags=./tags;,tags; "Use ctags -R --fields=+l
-"set tags^=.git/tags;
-"let g:gutentags_ctags_tagfile=".git/tags"
+"set tags=./tags;,tags; "Use ctags -R --fields=+l
+set tags^=.git/tags;
+let g:gutentags_ctags_tagfile=".git/tags"
 let g:gutentags_ctags_extra_args = [
       \ '--fields=l',
       \ ]
