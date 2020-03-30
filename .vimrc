@@ -10,10 +10,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'noah/vim256-color'
 Plugin 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
 Plugin 'godlygeek/tabular'              " Enables user to line up code accordingly
-Plugin 'majutsushi/tagbar'
-Plugin 'BufOnly.vim' " Use :BufOnly command to kill all buffers but active one
 Plugin 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
-Plugin 'ervandew/supertab'
 Plugin 'tagexplorer.vim'
 Plugin 'vim-scripts/verilog_emacsauto.vim'
 Plugin 'raingo/vim-matlab'
@@ -32,7 +29,8 @@ Plugin 'camspiers/animate.vim'
 Plugin 'cometsong/CommentFrame.vim'
 Plugin 'lervag/vimtex'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
@@ -59,6 +57,7 @@ set number relativenumber
 set formatoptions=crot
 set t_Co=256
 set clipboard+=unnamed,unnamedplus
+
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
@@ -198,7 +197,7 @@ let g:ale_linters = {'c': ['gcc']}
 "------------------------------------------------------------------------------"
 "                              animate/lens Config                             "
 "------------------------------------------------------------------------------"
-let g:lens#disabled_filetypes = ['vundle', 'qf', '']
+let g:lens#disabled_filetypes = ['vundle', 'qf', 'tagbar', '']
 let g:lens#height_resize_max = (winheight(0)*8/10)
 let g:lens#height_resize_min = (winheight(0)*8/10)
 let g:lens#width_resize_max = (winwidth(0)*8/10)
@@ -214,6 +213,7 @@ let g:tagbar_iconchars = ['▸', '▾']
 
 """""""File Finder Commands"""""
 nmap <leader>ff :Files 
+nmap <leader>tt :Tags <CR>
 nmap <leader>bb :Buffers <CR>
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
@@ -238,4 +238,11 @@ augroup verilogBindings
     autocmd Filetype verilog_systemverilog map <buffer> <leader><leader>d <Plug>VerilogEmacsAutoDelete 
 augroup end
 
-
+"------------------------------------------------------------------------------"
+"                             YCM/Gutentags Control                            "
+"------------------------------------------------------------------------------"
+let g:ycm_collect_identifiers_from_tags_files = 1
+set tags=./tags;,tags;
+"let g:gutentags_ctags_tagfile=".git/tags"
+"set tags^=.git/tags,*/.git/tags;~ " Check every .git for tags file
+"set tags^=.git/tags;
