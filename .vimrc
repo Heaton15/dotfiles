@@ -31,6 +31,8 @@ Plugin 'camspiers/lens.vim'
 Plugin 'camspiers/animate.vim'
 Plugin 'cometsong/CommentFrame.vim'
 Plugin 'lervag/vimtex'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
