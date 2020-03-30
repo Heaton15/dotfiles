@@ -24,13 +24,13 @@ Plugin 'psliwka/vim-smoothie'
 Plugin 'justinmk/vim-syntax-extra' " c highlighting
 Plugin 'dense-analysis/ale'
 Plugin 'thinca/vim-localrc'
-Plugin 'camspiers/lens.vim'
+"Plugin 'camspiers/lens.vim'
 Plugin 'camspiers/animate.vim'
 Plugin 'cometsong/CommentFrame.vim'
 Plugin 'lervag/vimtex'
 Plugin 'ycm-core/YouCompleteMe'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'liuchengxu/vista.vim'
+Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
@@ -56,7 +56,9 @@ set shiftwidth=4
 set number relativenumber
 set formatoptions=crot
 set t_Co=256
-set clipboard+=unnamed,unnamedplus
+set clipboard=unnamed
+set encoding=utf-8
+
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
@@ -197,7 +199,7 @@ let g:ale_linters = {'c': ['gcc']}
 "------------------------------------------------------------------------------"
 "                              animate/lens Config                             "
 "------------------------------------------------------------------------------"
-let g:lens#disabled_filetypes = ['vundle', 'qf', 'tagbar', '']
+let g:lens#disabled_filetypes = ['vundle', 'qf', 'vista', '']
 let g:lens#height_resize_max = (winheight(0)*8/10)
 let g:lens#height_resize_min = (winheight(0)*8/10)
 let g:lens#width_resize_max = (winwidth(0)*8/10)
@@ -205,11 +207,6 @@ let g:lens#width_resize_min = (winwidth(0)*8/10)
 
 """"""" superbar Configuration"""""""
 let g:SuperTabDefaultCompletionType = 'context'
-
-"""""""Tagbar Keybinds"""""""""""""""
-nmap <S-M> :TagbarToggle<CR>
-let g:tagbar_iconchars = ['▸', '▾']
-
 
 """""""File Finder Commands"""""
 nmap <leader>ff :Files 
@@ -242,7 +239,17 @@ augroup end
 "                             YCM/Gutentags Control                            "
 "------------------------------------------------------------------------------"
 let g:ycm_collect_identifiers_from_tags_files = 1
-set tags=./tags;,tags;
-"let g:gutentags_ctags_tagfile=".git/tags"
-"set tags^=.git/tags,*/.git/tags;~ " Check every .git for tags file
+set tags=./tags;,tags; "Use ctags -R --fields=+l
 "set tags^=.git/tags;
+"let g:gutentags_ctags_tagfile=".git/tags"
+let g:gutentags_ctags_extra_args = [
+      \ '--fields=l',
+      \ ]
+
+"------------------------------------------------------------------------------"
+"                               Vista Tag Display                              "
+"------------------------------------------------------------------------------"
+let g:vista#renderer#enable_icon = 0
+let g:vista_icon_indent= ['▸', '▾'] 
+let g:vista_fold_toggle_icons= ['▸', '▾'] 
+

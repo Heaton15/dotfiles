@@ -53,8 +53,9 @@ URxvt*background:   #000000
 
 !URxvt*colorUL:  red
 !URxvt*underlineColor:  red
-!URxvt.font: xft:Inconsolata:Light:pixelsize=40
-URxvt.font: xft:LiberationMono:Regular:pixelsize=32
+URxvt.font: xft:DejavuSansMono:pixelsize=34
+!URxvt.font: xft:Inconsolata:Bold:pixelsize=40
+!URxvt.font: xft:LiberationMono:Regular:pixelsize=32
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 !URxvt.borderColor:      #0AA030
