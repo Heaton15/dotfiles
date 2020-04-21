@@ -18,10 +18,8 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'RRethy/vim-illuminate'
 Plugin 'amal-khailtash/vim-xdc-syntax'
 Plugin 'psliwka/vim-smoothie'
-Plugin 'justinmk/vim-syntax-extra' " c highlighting
 Plugin 'dense-analysis/ale'
 Plugin 'thinca/vim-localrc'
 Plugin 'camspiers/lens.vim'
@@ -29,11 +27,19 @@ Plugin 'camspiers/animate.vim'
 Plugin 'cometsong/CommentFrame.vim'
 Plugin 'lervag/vimtex'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'liuchengxu/vista.vim'
-Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'voldikss/vim-floaterm'
+Plugin 'justinmk/vim-syntax-extra' " c highlighting
+Plugin 'vim-python/python-syntax'
+"Plugin 'liuchengxu/vista.vim'
+"Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
+
+let g:python_highlight_all = 1
+let g:python_version_2 = 0
+let b:python_version_2 = 0
+
 set rtp+=~/dotfiles/myhelp/
 colorscheme elda
 syntax on
@@ -74,7 +80,7 @@ endif
 "                          Paths / Config for External                         "
 "------------------------------------------------------------------------------"
 if $USER == "tim.heaton"
- source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
+" source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
  set rtp+=~/.fzf/
 endif
 
@@ -128,6 +134,11 @@ au BufRead,BufNewFile *.v,*.vg set filetype=verilog_systemverilog
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
 au BufRead,BufNewFile *.tex setlocal textwidth=80
+au BufRead,BufNewFile *.py set tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=80
+    \ autoindent
 
 
 "------------------------------------------------------------------------------"
@@ -160,10 +171,10 @@ nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 "------------------------------------------------------------------------------"
 "                             Vim Illuminate Config                            "
 "------------------------------------------------------------------------------"
-au BufRead,BufNewFile *.v,*.sv,*.py,*.c hi illuminatedWord cterm=underline ctermfg=46
-let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
-                               \'tex', 'org', 'make', 'taskreport', 'sh', '']
-let g:Illuminate_delay = 25
+"au BufRead,BufNewFile *.v,*.sv,*.py,*.c hi illuminatedWord cterm=underline ctermfg=46
+"let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
+"                               \'tex', 'org', 'make', 'taskreport', 'sh', '']
+"let g:Illuminate_delay = 25
 
 
 "------------------------------------------------------------------------------"
@@ -253,4 +264,12 @@ let g:gutentags_ctags_extra_args = [
 let g:vista#renderer#enable_icon = 0
 let g:vista_icon_indent= ['▸', '▾'] 
 let g:vista_fold_toggle_icons= ['▸', '▾'] 
+
+"------------------------------------------------------------------------------"
+"                            Floaterm Configuration                            "
+"------------------------------------------------------------------------------"
+let g:floaterm_keymap_new = '<F1>'
+let g:floaterm_keymap_prev = '<F2>'
+let g:floaterm_keymap_next = '<F3>'
+let g:floaterm_keymap_toggle = '<F4>'
 

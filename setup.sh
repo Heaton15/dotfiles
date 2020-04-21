@@ -235,3 +235,19 @@ else
     ln -s $HOME/dotfiles/.xbindkeysrc $HOME/.xbindkeysrc
 fi
 
+#------------------------------------------------------------------------------#
+#                             Final Install Changes                            #
+#------------------------------------------------------------------------------#
+
+vim +BundleInstall +qall
+rm $HOME/.vim/bundle/vim256-color/colors/elda.vim
+ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/bundle/vim256-color/colors/elda.vim
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+pushd .
+cd ~/fzf/
+source install
+popd
+
+
+
+

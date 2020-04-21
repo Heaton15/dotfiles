@@ -47,6 +47,7 @@ fi
 # TSS Only
 if [ ${USER} == "tim.heaton" ]
  then
+  export PATH="/home/tim.heaton/.fzf/bin:$PATH"
   export PATH="/home/tim.heaton/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/Cellar/texlive/20190406/libexec/bin/x86_64-linux::$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
