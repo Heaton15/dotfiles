@@ -30,6 +30,8 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'justinmk/vim-syntax-extra' " c highlighting
 Plugin 'vim-python/python-syntax'
+Plugin 'vim-scripts/tcl.vim--smithfield'
+Plugin 'tarikgraba/vim-lefdef.git'
 "Plugin 'liuchengxu/vista.vim'
 "Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'jimmysitu/vtags.git'
