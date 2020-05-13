@@ -190,7 +190,7 @@ fi
 if [ -e $HOME/.elisp ]
 then 
     mv $HOME/.elisp $HOME/$BACKUP/.elisp_bak
-    ln -s $HOME/dotfiles/.elisr $HOME/.elisp
+    ln -s $HOME/dotfiles/.elisp $HOME/.elisp
 else
     ln -s $HOME/dotfiles/.elisp $HOME/.elisp
 fi
@@ -244,10 +244,9 @@ rm $HOME/.vim/bundle/vim256-color/colors/elda.vim
 ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/bundle/vim256-color/colors/elda.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 pushd .
-cd ~/fzf/
+cd ~/.fzf/
 source install
 popd
-
 
 
 

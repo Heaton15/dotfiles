@@ -253,6 +253,18 @@ augroup end
 "                             YCM/Gutentags Control                            "
 "------------------------------------------------------------------------------"
 let g:ycm_collect_identifiers_from_tags_files = 1
+  let g:ycm_filetype_blacklist = {
+        \ 'tagbar': 1,
+        \ 'markdown': 1,
+        \ 'netrw': 1,
+        \ 'unite': 1,
+        \ 'vimwiki': 1,
+        \ 'pandoc': 1,
+        \ 'infolog': 1,
+        \ 'leaderf': 1,
+        \ 'mail': 1
+        \}
+
 "set tags=./tags;,tags; "Use ctags -R --fields=+l
 set tags^=.git/tags;
 let g:gutentags_ctags_tagfile=".git/tags"
