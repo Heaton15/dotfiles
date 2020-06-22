@@ -83,4 +83,8 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 # Changes colors for the use@machinename in bash
 
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+<<<<<<< HEAD
 source $HOME/linuxbrew/all_proxy.sh
+=======
+[[ -r "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh"
+>>>>>>> b8eca5abe6d45f96f3aa38223280e501edaeb03e
