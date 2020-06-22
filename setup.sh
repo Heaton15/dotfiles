@@ -245,7 +245,7 @@ ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/bundle/vim256-color/colors
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 pushd .
 cd ~/.fzf/
-source install
+sh install
 popd
 
 
