@@ -56,8 +56,8 @@ if [ ${USER} == "tim.heaton" ]
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
   source $HOME/.fzf/shell/completion.bash
   export HOMEBREW_TEMP=$HOME/.linxubrew_tmp
-  export EDITOR="$HOME/.linuxbre/bin/vim"
-  export VISUAL="$HOME/.linuxbre/bin/vim"
+  export EDITOR="$HOME/.linuxbrew/bin/vim"
+  export VISUAL="$HOME/.linuxbrew/bin/vim"
 
   if [ -f "$HOME/Tim_Project_Temporary" ]
    then
