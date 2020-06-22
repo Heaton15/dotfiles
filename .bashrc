@@ -47,7 +47,7 @@ if [ ${USER} == "tim" ]
 fi
 
 # TSS Only
-if [ ${USER} == "tim.heaton" ]
+if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
  then
   export PATH="$HOME/.fzf/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/perl/bin:$PATH"
@@ -58,6 +58,7 @@ if [ ${USER} == "tim.heaton" ]
   export HOMEBREW_TEMP=$HOME/.linxubrew_tmp
   export EDITOR="$HOME/.linuxbrew/bin/vim"
   export VISUAL="$HOME/.linuxbrew/bin/vim"
+  export TMUX_TMPDIR=$HOME/.linuxbrew_tmp
 
   if [ -f "$HOME/Tim_Project_Temporary" ]
    then
@@ -82,4 +83,4 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 # Changes colors for the use@machinename in bash
 
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
+source $HOME/linuxbrew/all_proxy.sh

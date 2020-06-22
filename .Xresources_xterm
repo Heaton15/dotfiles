@@ -46,6 +46,6 @@ URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.internalBorder:   1
 !XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false
-XTerm.vt100.faceName: xft:Inconsolata:pixelsize=18
+XTerm.vt100.faceName: xft:Inconsolata:pixelsize=15.5
 XTerm.vt100.scrollBar: false
 
