@@ -42,17 +42,22 @@ if [ ${USER} == "tim" ]
   source ~/.functions.sh
   export LESSOPEN="| $HOME/.local/rouge/bin/rougify %s 2> /dev/null"                        
   export LESS="-R"
+  export EDITOR="/usr/bin/vim"
+  export VISUAL="/usr/bin/vim"
 fi
 
 # TSS Only
 if [ ${USER} == "tim.heaton" ]
  then
-  export PATH="/home/tim.heaton/.fzf/bin:$PATH"
-  export PATH="/home/tim.heaton/.linuxbrew/opt/perl/bin:$PATH"
+  export PATH="$HOME/.fzf/bin:$PATH"
+  export PATH="$HOME/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/Cellar/texlive/20190406/libexec/bin/x86_64-linux::$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
-  source /home/tim.heaton/.fzf/shell/completion.bash
+  source $HOME/.fzf/shell/completion.bash
+  export HOMEBREW_TEMP=$HOME/.linxubrew_tmp
+  export EDITOR="$HOME/.linuxbre/bin/vim"
+  export VISUAL="$HOME/.linuxbre/bin/vim"
 
   if [ -f "$HOME/Tim_Project_Temporary" ]
    then
@@ -71,7 +76,6 @@ shopt -s checkwinsize
 # Set vtags creation
 
 # Setting local terminal variables used by neomutt
-export EDITOR="/usr/bin/vim"
 
 # Setting ranger environment variables
 export RANGER_LOAD_DEFAULT_RC="FALSE"
