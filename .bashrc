@@ -84,3 +84,7 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
+
+if [ ${USER} == heaton.49 ]; then
+    source $HOME/linuxbrew/all_proxy.sh
+fi
