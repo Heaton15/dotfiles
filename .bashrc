@@ -59,6 +59,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export EDITOR="$HOME/.linuxbrew/bin/vim"
   export VISUAL="$HOME/.linuxbrew/bin/vim"
   export TMUX_TMPDIR=$HOME/.linuxbrew_tmp
+  unset TMOUT
   [[ -r "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh"
 
   if [ -f "$HOME/Tim_Project_Temporary" ]
@@ -84,7 +85,6 @@ export RANGER_LOAD_DEFAULT_RC="FALSE"
 # Changes colors for the use@machinename in bash
 
 export PS1="\[\033[38;5;231m\][\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;231m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;231m\]\w]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
 
 if [ ${USER} == heaton.49 ]; then
     source $HOME/linuxbrew/all_proxy.sh
