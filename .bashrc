@@ -59,6 +59,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export EDITOR="$HOME/.linuxbrew/bin/vim"
   export VISUAL="$HOME/.linuxbrew/bin/vim"
   export TMUX_TMPDIR=$HOME/.linuxbrew_tmp
+  [[ -r "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh"
 
   if [ -f "$HOME/Tim_Project_Temporary" ]
    then
