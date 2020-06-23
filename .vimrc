@@ -71,20 +71,11 @@ set encoding=utf-8
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
-"------------------------------------------------------------------------------"
-"                       Paths / Config for Local Machine                       "
-"------------------------------------------------------------------------------"
-if $USER == "tim" 
- set rtp+=~/.fzf/
-endif
 
 "------------------------------------------------------------------------------"
-"                          Paths / Config for External                         "
+"                        Add fzf to rtp for all systems                        "
 "------------------------------------------------------------------------------"
-if $USER == "tim.heaton"
-" source ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim
- set rtp+=~/.fzf/
-endif
+set rtp+=~/.fzf/
 
 "------------------------------------------------------------------------------"
 "                                Keybind Changes                               "
