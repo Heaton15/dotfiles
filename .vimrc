@@ -37,7 +37,7 @@ Plugin 'tarikgraba/vim-lefdef.git'
 "Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
-set updatetime=150
+set updatetime=1000
 let g:python_highlight_all = 1
 let g:python_version_2 = 0
 let b:python_version_2 = 0
