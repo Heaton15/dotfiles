@@ -86,15 +86,16 @@ endfunction
 
 
 "let s:bg = 233 "|234
-let s:bg = "NONE" "|234
-let s:fg = 38
-let s:const = 35
-let s:func = 33
-let s:white = 252
-let s:macro = 29
-let s:red = 124
-let s:diff = 202
+let s:bg      = "NONE" "|234
+let s:fg      = 38
+let s:const   = 35
+let s:func    = 33
+let s:white   = 252
+let s:macro   = 29
+let s:red     = 124
+let s:diff    = 202
 let s:diff_bg = 233
+let s:popup   = 30
 
 
 " basic highlight groups (:help highlight-groups)
@@ -120,7 +121,9 @@ exe 'hi SpellRare   guifg=NONE  ctermfg=NONE ctermbg=53'
 
 call s:hi('FoldColumn', 248, s:bg, 'bold')
 call s:hi('SignColumn', 248, s:bg, 'bold')
-call s:hi('Pmenu', 244, s:bg, '')
+
+"Pmenu controls the popups (like path completion)
+call s:hi('Pmenu',s:white, s:popup, '')
 call s:hi('PmenuSel', s:white, 240, '')
 exe 'hi PmenuSbar  guifg=NONE guibg=#555555  ctermfg='.s:bg.'  ctermbg='.s:bg
 exe 'hi PmenuThumb guifg=NONE guibg=#cccccc  ctermfg=gray      ctermbg=gray'

@@ -64,8 +64,8 @@ URxvt.internalBorder:   1
 !URxvt*background: rgba:0000/0000/0000/cccc
 
 URxvt*fading:  5
-URxvt*transparent: false
-URxvt*shading: 75
+URxvt*transparent: true
+URxvt*shading: 15
 
 ## Rofi Theming
 rofi.color-enabled: true
