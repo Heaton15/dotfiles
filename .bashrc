@@ -54,7 +54,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export PATH="$HOME/.linuxbrew/Cellar/texlive/20190406/libexec/bin/x86_64-linux::$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
-  export HOMEBREW_TEMP=$HOME/.linxubrew_tmp
+  export HOMEBREW_TEMP=$HOME/.linuxbrew_tmp
   export EDITOR="$HOME/.linuxbrew/bin/vim"
   export VISUAL="$HOME/.linuxbrew/bin/vim"
   export TMUX_TMPDIR=$HOME/.linuxbrew_tmp
