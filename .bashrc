@@ -49,11 +49,14 @@ fi
 # TSS Only
 if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
  then
+  alias vtags='python3 $HOME/timh_linuxbrew/vtags-3.01/vtags_custom_api.py'
   export PATH="$HOME/.fzf/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/Cellar/texlive/20190406/libexec/bin/x86_64-linux::$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
+  export RISCV="$HOME/rocket-tools"
+  export PATH="$HOME/rocket-tools/bin:$PATH"
   export HOMEBREW_TEMP=$HOME/.linuxbrew_tmp
   export EDITOR="$HOME/.linuxbrew/bin/vim"
   export VISUAL="$HOME/.linuxbrew/bin/vim"
