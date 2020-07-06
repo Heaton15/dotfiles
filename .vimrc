@@ -22,7 +22,7 @@ Plugin 'amal-khailtash/vim-xdc-syntax'
 Plugin 'psliwka/vim-smoothie'
 Plugin 'dense-analysis/ale'
 Plugin 'thinca/vim-localrc'
-"Plugin 'camspiers/lens.vim'
+Plugin 'camspiers/lens.vim'
 "Plugin 'camspiers/animate.vim'
 Plugin 'cometsong/CommentFrame.vim'
 Plugin 'lervag/vimtex'
@@ -34,7 +34,6 @@ Plugin 'vim-scripts/tcl.vim--smithfield'
 Plugin 'tarikgraba/vim-lefdef.git'
 "Plugin 'liuchengxu/vista.vim'
 "Plugin 'ludovicchabant/vim-gutentags'
-"Plugin 'jimmysitu/vtags.git'
 call vundle#end()
 """""""""""""""""""""""""""""""""""""
 set updatetime=1000
@@ -71,6 +70,12 @@ set encoding=utf-8
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
+"------------------------------------------------------------------------------"
+"                                 Vtags source                                 "
+"------------------------------------------------------------------------------"
+if (($USER == 'tim.heaton') && isdirectory($HOME.'.vtags-3.01'))
+    source ~/.vtags-3.01/vtags_vim_api.vim
+endif
 
 "------------------------------------------------------------------------------"
 "                        Add fzf to rtp for all systems                        "
@@ -173,13 +178,13 @@ nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 "------------------------------------------------------------------------------"
 "                                vtags Keybinds                                "
 "------------------------------------------------------------------------------"
-nnoremap <leader>i       :py try_go_into_submodule()         <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
-nnoremap <leader>u       :py try_go_upper_module()           <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
-nnoremap <leader>mt      :py try_print_module_trace()        <CR>
-nnoremap <leader>ct      :py clear_trace()                   <CR>
-nnoremap <leader>v       :py try_show_frame()                <CR>
-nnoremap <leader><Left>  :py try_trace_signal_sources()      <CR>
-nnoremap <leader><Right> :py try_trace_signal_destinations() <CR>
+nnoremap <leader>i       :py3 try_go_into_submodule()         <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
+nnoremap <leader>u       :py3 try_go_upper_module()           <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
+nnoremap <leader>mt      :py3 try_print_module_trace()        <CR>
+nnoremap <leader>ct      :py3 clear_trace()                   <CR>
+nnoremap <leader>v       :py3 try_show_frame()                <CR> :set filetype=verilog_systemverilog <CR>
+nnoremap <leader><Left>  :py3 try_trace_signal_sources()      <CR>
+nnoremap <leader><Right> :py3 try_trace_signal_destinations() <CR>
 
 
 "------------------------------------------------------------------------------"
@@ -203,7 +208,7 @@ let g:ale_linters = {'c': ['gcc']}
 "------------------------------------------------------------------------------"
 "                              animate/lens Config                             "
 "------------------------------------------------------------------------------"
-let g:lens#disabled_filetypes = ['vundle', 'qf', 'vista', '']
+"let g:lens#disabled_filetypes = ['vundle', 'qf', 'vista', '']
 let g:lens#height_resize_max = (winheight(0)*8/10)
 let g:lens#height_resize_min = (winheight(0)*8/10)
 let g:lens#width_resize_max = (winwidth(0)*8/10)

@@ -49,7 +49,7 @@ fi
 # TSS Only
 if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
  then
-  alias vtags='python3 $HOME/timh_linuxbrew/vtags-3.01/vtags_custom_api.py'
+  alias vtags='python $HOME/.vtags-3.01/vtags.py'
   export PATH="$HOME/.fzf/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/Cellar/texlive/20190406/libexec/bin/x86_64-linux::$PATH"
@@ -68,7 +68,6 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
 
   if [ -f "$HOME/Tim_Project_Temporary" ]
    then
-    alias vtags='python ~/Tim_Project_Temporary/packages/vtags-3.00/vtags_vim_api.vim'
     source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
     export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
     export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/binmake/bin:$PATH"
@@ -79,8 +78,6 @@ fi
 
 # Sets it so that creating more terminals in i3 does not cause text to weirdly rap around the window
 shopt -s checkwinsize
-
-# Set vtags creation
 
 # Setting local terminal variables used by neomutt
 
