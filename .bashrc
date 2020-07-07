@@ -29,6 +29,7 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "
 
 set -o vi
 export TERM=xterm-256color
+#export TERM=rxvt-unicode-256color
 if [ ${USER} == "tim" ]
  then
   archey3 --color=cyan
@@ -55,6 +56,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export PATH="$HOME/.linuxbrew/Cellar/texlive/20190406/libexec/bin/x86_64-linux::$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
+  export PATH="$HOME/.rxvt-unicode-9.22/bin:$PATH"
   export RISCV="$HOME/rocket-tools"
   export PATH="$HOME/rocket-tools/bin:$PATH"
   export HOMEBREW_TEMP=$HOME/.linuxbrew_tmp
