@@ -5,17 +5,17 @@ tar -xf rxvt.tar.bz2
 mv rxvt-unicode-9.22 .rxvt-unicode-9.22
 rm rxvt.tar.bz2
 cd .rxvt-unicode-9.22
-#git clone https://aur.archlinux.org/rxvt-unicode-patched.git
-#git clone https://github.com/blueyed/PKGBUILD-rxvt-unicode-wide.git
+git clone https://aur.archlinux.org/rxvt-unicode-patched.git
+git clone https://github.com/blueyed/PKGBUILD-rxvt-unicode-wide.git
 
 #patch -p0 -i rxvt-unicode-patched/font-width-fix.patch
 #patch -p0 -i rxvt-unicode-patched/line-spacing-fix.patch
 #patch -p0 -i rxvt-unicode-patched/sgr-mouse-mode.patch
 #patch -p1 -i rxvt-unicode-patched/fix-smart-resize-with-x11-frame-borders.patch
 
-#patch -p0 -i PKGBUILD-rxvt-unicode-wide/font-width-fix.patch
-#patch -p0 -i PKGBUILD-rxvt-unicode-wide/line-spacing-fix.patch
-#patch -p1 -i PKGBUILD-rxvt-unicode-wide/enable-wide-glyphs.patch
+patch -p0 -i PKGBUILD-rxvt-unicode-wide/font-width-fix.patch
+patch -p0 -i PKGBUILD-rxvt-unicode-wide/line-spacing-fix.patch
+patch -p1 -i PKGBUILD-rxvt-unicode-wide/enable-wide-glyphs.patch
 
   ./configure \
     --prefix=$HOME/.rxvt-unicode-9.22 \

@@ -8,6 +8,8 @@ URxvt*foreground:   #00AFAF
 !URxvt*background:  #121212
 !URxvt*background:   #121212
 URxvt*background:   #000000
+URxvt*pointerColor: blue
+URxvt*pointerColor2: green
 
 ! 0-8 are the normal color schemes
 !black, red, green, yellow, blue, magenta, cyan, white
@@ -53,9 +55,11 @@ URxvt*background:   #000000
 
 !URxvt*colorUL:  red
 !URxvt*underlineColor:  red
-URxvt.font: xft:DejavuSansMono:pixelsize=34
-!URxvt.font: xft:Inconsolata:Bold:pixelsize=40
-!URxvt.font: xft:LiberationMono:Regular:pixelsize=32
+!URxvt.font: xft:DejavuSansMono:pixelsize=15.5
+URxvt.font: xft:Inconsolata Awesome:style=Medium:pixelsize=19.5, xft:Noto Color Emoji:style=Regular:pixelsize=5, \
+xft:OpenSymbol:style=Regular:pixelsize=12, xft:Noto Emoji:style=Regular:pixelsize=5, \
+xft:Unifont:style=Medium:pixelsize=11
+!URxvt.faceName: xft:Inconsolata:Bold:pixelsize=15.5
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 !URxvt.borderColor:      #0AA030
