@@ -20,21 +20,35 @@ LIBXFT_UPSTREAM_URL="https://gitlab.freedesktop.org/xorg/lib/libxft.git"
 GITLAB_REVISION=7
 COMMIT_ID=7808631e7a9a605d5fe7a1077129c658d9ec47fc
 
-  curl -o libxft.tar.bz2 $source 
+  pushd .
+  curl -o $HOME/libxft.tar.bz2 $source 
+  cd ~
   tar -xf libxft.tar.bz2
+  rm libxft.tar.bz2
+  mv libXft-2.3.3 .libXft-2.3.3
  
   echo "${_pkgbasever}.r${GITLAB_REVISION}.`echo $COMMIT_ID | cut -c1-8`"
 
-  pushd libXft-${_pkgbasever}
+  pushd .libXft-${_pkgbasever}
   curl -S https://gitlab.freedesktop.org/xorg/lib/libxft/-/commit/${COMMIT_ID}.patch | patch -p1
   popd
 
 
-  cd libXft-${_pkgbasever}
-  ./configure --prefix=$HOME/libxft-bgra --sysconfdir=/etc --disable-static
-#  make
+  cd .libXft-${_pkgbasever}
+  ./configure --prefix=$HOME/.libXft-2.3.3 --sysconfdir=/etc --disable-static
+  make
 
 #  cd libXft-${_pkgbasever}
-#  make install
-  #install -d -m755 "${pkgdir}/usr/share/licenses/${pkgname}"
-  #install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
+  make install
+
+  unlink $HOME/.linuxbrew/lib/libXft.so.2.3.3
+  unlink $HOME/.linuxbrew/lib/libXft.so.2
+  unlink $HOME/.linuxbrew/lib/libXft.so
+
+  ln -s $HOME/.libXft-2.3.3/lib/libXft.so.2.3.3 $HOME/.linuxbrew/lib
+  ln -s $HOME/.libXft-2.3.3/lib/libXft.so.2 $HOME/.linuxbrew/lib
+  ln -s $HOME/.libXft-2.3.3/lib/libXft.so. $HOME/.linuxbrew/lib
+
+# libXft.so.2.3.3 -> ../Cellar/libxft/2.3.3/lib/libXft.so.2.3.3
+# libXft.so -> ../Cellar/libxft/2.3.3/lib/libXft.so
+# libXft.so.2 -> ../Cellar/libxft/2.3.3/lib/libXft.so.2
