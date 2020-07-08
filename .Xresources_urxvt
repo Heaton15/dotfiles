@@ -56,10 +56,8 @@ URxvt*pointerColor2: green
 !URxvt*colorUL:  red
 !URxvt*underlineColor:  red
 !URxvt.font: xft:DejavuSansMono:pixelsize=15.5
-URxvt.font: xft:Inconsolata Awesome:style=Medium:pixelsize=19.5, xft:Noto Color Emoji:style=Regular:pixelsize=5, \
-xft:OpenSymbol:style=Regular:pixelsize=12, xft:Noto Emoji:style=Regular:pixelsize=5, \
-xft:Unifont:style=Medium:pixelsize=11
-!URxvt.faceName: xft:Inconsolata:Bold:pixelsize=15.5
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=34, \
+            xft:Noto Emoji:style=Regular:pixelsize=9, \
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 !URxvt.borderColor:      #0AA030
