@@ -57,6 +57,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
   export PATH="$HOME/.rxvt-unicode-9.22/bin:$PATH"
+  export PATH="$HOME/timh_chipyard/verilator/bin:$PATH"
   export RISCV="$HOME/rocket-tools"
   export PATH="$HOME/rocket-tools/bin:$PATH"
   export HOMEBREW_TEMP=$HOME/.linuxbrew_tmp
