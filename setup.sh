@@ -195,15 +195,13 @@ else
     ln -s $HOME/dotfiles/.elisp $HOME/.elisp
 fi
 
-##################################################################
-#Install Vundle Plugin if not installed ##########################
-##################################################################
-if [ ! -d $HOME/.vim/bundle ]
-then 
- git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
- echo "Vundle not Detected: Installing"
- echo " "
-fi
+
+#------------------------------------------------------------------------------#
+#                              Added plug install                              #
+#------------------------------------------------------------------------------#
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 ##################################################################
 #Install Tmux Theme Pack If Not Installed ########################
@@ -240,8 +238,8 @@ fi
 #------------------------------------------------------------------------------#
 
 vim +BundleInstall +qall
-rm $HOME/.vim/bundle/vim256-color/colors/elda.vim
-ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/bundle/vim256-color/colors/elda.vim
+rm $HOME/.vim/plugged/vim256-color/colors/elda.vim
+ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/plugged/vim256-color/colors/elda.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 pushd .
 cd ~/.fzf/
