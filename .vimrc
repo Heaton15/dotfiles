@@ -4,7 +4,6 @@
 set nocompatible
 "filetype off " required
 
-"Set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/tarikgraba/vim-lefdef.git'
 Plug 'junegunn/fzf.vim'
@@ -72,14 +71,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
 
-"------------------------------------------------------------------------------"
-"                                 Vtags source                                 "
-"------------------------------------------------------------------------------"
-"if (($USER == "tim.heaton") && isdirectory($HOME.'.vtags-3.01'))
-if ($USER == "tim.heaton")
-    source ~/.vtags-3.01/vtags_vim_api.vim
-endif
-"    source ~/.vtags-3.01/vtags_vim_api.vim
 
 "------------------------------------------------------------------------------"
 "                        Add fzf to rtp for all systems                        "
@@ -179,16 +170,6 @@ nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 "let g:Illuminate_delay = 25
 
 
-"------------------------------------------------------------------------------"
-"                                vtags Keybinds                                "
-"------------------------------------------------------------------------------"
-nnoremap <leader>i       :py3 try_go_into_submodule()         <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
-nnoremap <leader>u       :py3 try_go_upper_module()           <CR> :py try_show_frame() <CR> :py try_print_module_trace() <CR>
-nnoremap <leader>mt      :py3 try_print_module_trace()        <CR>
-nnoremap <leader>ct      :py3 clear_trace()                   <CR>
-nnoremap <leader>v       :py3 try_show_frame()                <CR> :set filetype=verilog_systemverilog <CR>
-nnoremap <leader><Left>  :py3 try_trace_signal_sources()      <CR>
-nnoremap <leader><Right> :py3 try_trace_signal_destinations() <CR>
 
 
 "------------------------------------------------------------------------------"
@@ -239,15 +220,44 @@ let g:vimtex_view_general_viewer="zathura"
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 
 "------------------------------------------------------------------------------"
-"                          Verilog Autos Configuration                         "
+"                          Verilog Autos / Vtags Confiurations                 "
 "------------------------------------------------------------------------------"
+
+"------------------------------------------------------------------------------"
+"                                vtags Keybinds                                "
+"------------------------------------------------------------------------------"
+if ($USER == "tim.heaton")
+    source ~/.vtags-3.01/vtags_vim_api.vim
+endif
+
 augroup verilogBindings
     autocmd! verilogBindings
     autocmd Filetype verilog_systemverilog map <buffer> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
     autocmd Filetype verilog_systemverilog map <buffer> <leader><leader>a <Plug>VerilogEmacsAutoAdd 
     autocmd Filetype verilog_systemverilog map <buffer> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
     autocmd Filetype verilog_systemverilog map <buffer> <leader><leader>d <Plug>VerilogEmacsAutoDelete 
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>v       : py3 try_show_frame()                <CR> <C-w>h <CR> : set filetype=verilog_systemverilog <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>i       : py3 try_go_into_submodule()         <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>u       : py3 try_go_upper_module()           <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>mt      : py3 try_print_module_trace()        <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>ct      : py3 clear_trace()                   <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader><Left>  : py3 try_trace_signal_sources()      <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader><Right> : py3 try_trace_signal_destinations() <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  gi              : py3 try_go_into_submodule()           <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  gu              : py3 try_go_upper_module()             <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  mt              : py3 try_print_module_trace()          <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  ct              : py3 clear_trace()                     <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space><Down>   : py3 try_roll_back()                   <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space><Up>     : py3 try_go_forward()                  <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>c        : py3 try_add_check_point()             <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>b        : py3 try_add_base_module()             <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>         : py3 try_space_operation()             <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>d        : py3 try_del_operation()               <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>s        : py3 try_save_env_snapshort()          <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>r        : py3 try_reload_env_snapshort()        <CR>
 augroup end
+
+
 
 "------------------------------------------------------------------------------"
 "                             YCM/Gutentags Control                            "
