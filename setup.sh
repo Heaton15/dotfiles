@@ -237,7 +237,7 @@ fi
 #                             Final Install Changes                            #
 #------------------------------------------------------------------------------#
 
-vim +BundleInstall +qall
+vim +PlugInstall +qall
 rm $HOME/.vim/plugged/vim256-color/colors/elda.vim
 ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/plugged/vim256-color/colors/elda.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
