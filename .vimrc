@@ -216,8 +216,7 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip
 "                              Latex Configuration                             "
 "------------------------------------------------------------------------------"
 let g:tex_flavor = "latex"
-let g:vimtex_view_general_viewer="zathura"
-let g:vimtex_quickfix_latexlog = {'default' : 0}
+"let g:vimtex_quickfix_latexlog = {'default' : 0}
 
 "------------------------------------------------------------------------------"
 "                          Verilog Autos / Vtags Confiurations                 "
