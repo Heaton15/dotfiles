@@ -103,6 +103,7 @@ let s:popfg   = 36
 
 " text
 
+call s:hi('Conceal', s:fg, s:bg, '')
 call s:hi('Normal', s:fg, s:bg, '')
 call s:hi('DiffChange', '', s:diff_bg, '')
 call s:hi('DiffAdd', s:diff, s:diff_bg, '')
