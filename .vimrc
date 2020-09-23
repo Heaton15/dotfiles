@@ -32,6 +32,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'justinmk/vim-syntax-extra' " c highlighting
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/tcl.vim--smithfield'
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 "Plug 'liuchengxu/vista.vim'
 "Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
@@ -216,7 +217,15 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip
 "                              Latex Configuration                             "
 "------------------------------------------------------------------------------"
 let g:tex_flavor = "latex"
-let g:vimtex_quickfix_enabled = 0
+let g:vimtex_quickfix_mode = 2
+set conceallevel=2
+let g:tex_conceal='adgms'
+let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
+let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
+let g:vimtex_quickfix_ignore_filters = [
+    \ 'Underfull',
+    \ 'Overfull',
+    \]
 
 "------------------------------------------------------------------------------"
 "                          Verilog Autos / Vtags Confiurations                 "
