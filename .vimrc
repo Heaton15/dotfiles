@@ -219,7 +219,7 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 2
 set conceallevel=2
-let g:tex_conceal='adgms'
+let g:tex_conceal='abdgms'
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 let g:vimtex_quickfix_ignore_filters = [
@@ -260,7 +260,7 @@ augroup verilogBindings
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>c        : py3 try_add_check_point()             <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>b        : py3 try_add_base_module()             <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>         : py3 try_space_operation()             <CR>
-    autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>d        : py3 try_del_operation()               <CR>
+    "autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>d        : py3 try_del_operation()               <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>s        : py3 try_save_env_snapshort()          <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>r        : py3 try_reload_env_snapshort()        <CR>
 augroup end
