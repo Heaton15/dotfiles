@@ -1,5 +1,5 @@
 !rxvt controls
-!URxvt*dpi: 180
+Xft*dpi: 96
 URxvt*termName: rxvt-unicode-256color
 URxvt*geometry:  210:46
 
@@ -65,7 +65,7 @@ URxvt.internalBorder:   1
 !URxvt*depth: 32
 !URxvt*background: rgba:0000/0000/0000/cccc
 
-URxvt*fading:  5
+!URxvt*fading:  0
 URxvt*transparent: true
 URxvt*shading: 15
 

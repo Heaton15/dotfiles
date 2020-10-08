@@ -1,10 +1,12 @@
 ""------------------------------------------------------------------------------"
 ""                             Vundle Configuration                             "
 ""------------------------------------------------------------------------------"
+" This is a test for rebasing
 set nocompatible
 "filetype off " required
 
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/tarikgraba/vim-lefdef.git'
 Plug 'junegunn/fzf.vim'
 Plug 'noah/vim256-color'

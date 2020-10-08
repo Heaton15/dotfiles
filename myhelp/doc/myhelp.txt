@@ -15,11 +15,14 @@ myHelp -- Self defined help tags file
 
 ==============================================================================
                                                                    *conferences*
+DAC    — Design Automation Conference 
+RFIC   — RF Integrated Circuits Conference
 IMS    — International Microwave Symposium
 BCICTS — BiCMOS and Compound Semiconductor Integrated Circuits and Technology Symposium
 ISSCS  — International Symposium on Signals, Circuits, & Systems
 GOMAC  — Government Microcircuit Applications & Critical Technology Conference
-
+LASCAS — Latin American Symposium on Circuits and Systems
+HOST   — Hardware Oriented Security and Trust
 
 ==============================================================================
                                                                   *vim-notes*
@@ -66,3 +69,67 @@ $* - The part of a filename which matched a suffix rule
 $? - The names of all the dependencies newer than the target separated by spaces
 $^ - The names of all the dependencies separated by spaces, but with duplicate names removed
 $+ - The names of all the dependencies separated by spaces with duplicated names included and in the same order as in the rule
+==============================================================================
+                                                                  *bash-help*
+$0 - command name that is called
+$1 - command argument 1
+$2 - command argument 2
+$* - represents all command arguments
+$@ - represents all command arguments, preserving the grouping of quoted arguments
+$# - Gives the number of arguments
+
+set -n (bash -n) - Just checks for syntax 
+set -x (bash -x) - echos all commands after running them
+set -v (bash -v) - echos all commands before running them
+set -u (bash -u) - causes shell to treat unset variables as an error
+set -e (bash -e) - causes the script to exit immediately upon any nono-zero exit status
+==============================================================================
+                                                                  *bash-flags*
+-e file - file exists?
+-d file - file is a dir?
+-f file - file is a regular file?
+-s file - file has a non-zero size?
+-g file - file has sgid set?
+-u file - file has suid set?
+-r file - file is readable?
+-w file - file is writeable?
+-x file - file is executable?
+==============================================================================
+                                                                  *bash-strings*
+string - string not empty?
+string1 == string2 - strings same?
+string1 != string2 - strings differ?
+-n string - string not null?
+-z string - string null?
+==============================================================================
+                                                                  *bash-loops*
+for loop
+--------
+    for file in $(find . -name "*.o")
+    do 
+        echo "I am removing file: $file"
+        rm -f "$file"
+    done
+# Also done with: find . -name "*.o" | xargs rm
+
+while loop
+----------
+    while [[$ntry -lt $ntry_max ]] ; do
+        ntry=$(( $ntry + 1 ))
+        echo -n 'Give password: '
+        read password
+        if [[ $password = "linux" ]] ; then 
+            echo "Congrats" 
+            exit 0
+        fi 
+        echo "You failed"
+    done
+
+==============================================================================
+                                                                  *bash-functions*
+fun_foorbar() {
+    var=FUN_VAR
+    shift 
+    echo " PARS after fun shift: $1 $2 $3"
+}
+

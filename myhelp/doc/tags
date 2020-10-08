@@ -1,3 +1,8 @@
+bash-flags	myhelp.txt	/*bash-flags*
+bash-functions	myhelp.txt	/*bash-functions*
+bash-help	myhelp.txt	/*bash-help*
+bash-loops	myhelp.txt	/*bash-loops*
+bash-strings	myhelp.txt	/*bash-strings*
 conferences	myhelp.txt	/*conferences*
 makefile-help	myhelp.txt	/*makefile-help*
 myhelp-contents	myhelp.txt	/*myhelp-contents*
