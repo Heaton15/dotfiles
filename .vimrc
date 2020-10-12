@@ -133,6 +133,17 @@ au BufRead,BufNewFile *.py set tabstop=4
     \ autoindent
 
 "------------------------------------------------------------------------------"
+"                                 Vim-Fugitive                                 "
+"------------------------------------------------------------------------------"
+nnoremap <leader>g :Git 
+nnoremap <leader>gl :Git log <CR>
+nnoremap <leader>gb :Git blame
+"nnoremap <leader>g
+"nnoremap <leader>g
+"nnoremap <leader>g
+"nnoremap <leader>g
+
+"------------------------------------------------------------------------------"
 "                              tmux / vimux config                             "
 "------------------------------------------------------------------------------"
 map <leader>vp :VimuxPromptCommand<CR>
