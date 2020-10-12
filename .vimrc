@@ -135,13 +135,15 @@ au BufRead,BufNewFile *.py set tabstop=4
 "------------------------------------------------------------------------------"
 "                                 Vim-Fugitive                                 "
 "------------------------------------------------------------------------------"
-nnoremap <leader>g :Git 
-nnoremap <leader>gl :Git log <CR>
-nnoremap <leader>gb :Git blame
-"nnoremap <leader>g
-"nnoremap <leader>g
-"nnoremap <leader>g
-"nnoremap <leader>g
+nnoremap <leader>g   :Git
+nnoremap <leader>gl  :Git log
+nnoremap <leader>gb  :Git blame
+nnoremap <leader>gs  :Git status <CR>
+nnoremap <leader>gg  :Git grep
+nnoremap <leader>ga  :Git add
+nnoremap <leader>gc  :Git commit -m
+nnoremap <leader>grm :Git rm --cache
+nnoremap <leader>gls :Git -p ls-files
 
 "------------------------------------------------------------------------------"
 "                              tmux / vimux config                             "
