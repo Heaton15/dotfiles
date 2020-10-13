@@ -144,6 +144,7 @@ nnoremap <leader>ga  :Git add
 nnoremap <leader>gc  :Git commit -m
 nnoremap <leader>grm :Git rm --cache
 nnoremap <leader>gls :Git -p ls-files
+nnoremap <leader>gw  :Gwrite <CR>
 
 "------------------------------------------------------------------------------"
 "                              tmux / vimux config                             "
