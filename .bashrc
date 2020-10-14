@@ -11,6 +11,7 @@ alias ll='ls -la'
 alias la='ls -a'
 alias dirs='dirs -v'
 alias matlab='matlab -nosplash -nodesktop'
+alias grep='grep --color=yes'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
