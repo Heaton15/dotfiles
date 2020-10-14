@@ -18,11 +18,12 @@ taskvim='vim -c "TW" -c "Calendar -view=year -split=horizontal -position=below -
 #################PATH Updates##############
 
 # Configures fuzzy finder 
-export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --preview "
-                                                                [[ $(file --mime {}) =~ binary ]] &&
-                                                                   echo {} is a binary file ||
-                                                                  (rougify highlight {} ||
-                                                                    cat {}) 2> /dev/null | head -500"'
+
+export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color fg:#00bfe5,fg+:#00bfe5,bg:#000000,preview-bg:#000000,border:#00bfe5 --preview "
+                                                                 [[ $(file --mime {}) =~ binary ]] &&
+                                                                    echo {} is a binary file ||
+                                                                   (rougify highlight {} ||
+                                                                     cat {}) 2> /dev/null | head -500"'
 
 
 
