@@ -1,5 +1,5 @@
 ""------------------------------------------------------------------------------"
-""                             Vundle Configuration                             "
+""                             Plug Configuration                               "
 ""------------------------------------------------------------------------------"
 set nocompatible
 "filetype off " required
@@ -9,22 +9,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/tarikgraba/vim-lefdef.git'
 Plug 'junegunn/fzf.vim'
 Plug 'noah/vim256-color'
-Plug 'vhda/verilog_systemverilog.vim' " Highlighting for V/SV
-Plug 'godlygeek/tabular'              " Enables user to line up code accordingly
-Plug 'wesQ3/vim-windowswap' " Switch vim buffers with <leader>m
-"Plug 'tagexplorer.vim'
+Plug 'vhda/verilog_systemverilog.vim'
+Plug 'godlygeek/tabular'
 Plug 'vim-scripts/verilog_emacsauto.vim'
 Plug 'raingo/vim-matlab'
-Plug 'vim-scripts/ZoomWin'
 Plug 'junegunn/vim-easy-align'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'amal-khailtash/vim-xdc-syntax'
 Plug 'psliwka/vim-smoothie'
-"Plugin 'dense-analysis/ale'
 Plug 'thinca/vim-localrc'
 Plug 'camspiers/lens.vim'
-"Plugin 'camspiers/animate.vim'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
@@ -34,6 +29,12 @@ Plug 'justinmk/vim-syntax-extra' " c highlighting
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/tcl.vim--smithfield'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'vim-scripts/ZoomWin'
+ 
+"Plug 'camspiers/animate.vim'
+"Plug 'tagexplorer.vim'
+"Plug 'daeyun/vim-matlab'
+"Plug 'dense-analysis/ale'
 "Plug 'liuchengxu/vista.vim'
 "Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
@@ -67,12 +68,8 @@ set formatoptions=crot
 set t_Co=256
 set clipboard=unnamed
 set encoding=utf-8
-
-
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
-
-
 
 "------------------------------------------------------------------------------"
 "                        Add fzf to rtp for all systems                        "
@@ -89,7 +86,7 @@ nnoremap <leader>wh <C-w>h
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
-"nnoremap <leader>ws <C-w>s
+nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
 
 "------------------------------------------------------------------------------"
@@ -135,6 +132,19 @@ au BufRead,BufNewFile *.py set tabstop=4
     \ textwidth=80
     \ autoindent
 
+"------------------------------------------------------------------------------"
+"                                 Vim-Fugitive                                 "
+"------------------------------------------------------------------------------"
+nnoremap <leader>g   :Git
+nnoremap <leader>gl  :Git log
+nnoremap <leader>gb  :Git blame
+nnoremap <leader>gs  :Git status <CR>
+nnoremap <leader>gg  :Git grep
+nnoremap <leader>ga  :Git add
+nnoremap <leader>gc  :Git commit -m
+nnoremap <leader>grm :Git rm --cache
+nnoremap <leader>gls :Git -p ls-files
+nnoremap <leader>gw  :Gwrite <CR>
 
 "------------------------------------------------------------------------------"
 "                              tmux / vimux config                             "
@@ -144,7 +154,6 @@ map <leader>vl :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInspectRunner<CR>
 map <leader>vz :VimuxZoomRunner<CR>
 
-
 "------------------------------------------------------------------------------"
 "                             Vim Buffer Naviation                             "
 "------------------------------------------------------------------------------"
@@ -152,7 +161,6 @@ nnoremap <silent> <leader>wh :TmuxNavigateLeft <CR>
 nnoremap <silent> <leader>wj :TmuxNavigateDown <CR>
 nnoremap <silent> <leader>wk :TmuxNavigateUp <CR>
 nnoremap <silent> <leader>wl :TmuxNavigateRight <CR>
-
 
 "------------------------------------------------------------------------------"
 "                                Vim Windowswap                                "
@@ -162,7 +170,6 @@ nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
 nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 
-
 "------------------------------------------------------------------------------"
 "                             Vim Illuminate Config                            "
 "------------------------------------------------------------------------------"
@@ -170,9 +177,6 @@ nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 "let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
 "                               \'tex', 'org', 'make', 'taskreport', 'sh', '']
 "let g:Illuminate_delay = 25
-
-
-
 
 "------------------------------------------------------------------------------"
 "                                  Binary R/W                                  "
