@@ -137,6 +137,7 @@ au BufRead,BufNewFile *.py set tabstop=4
 "------------------------------------------------------------------------------"
 nnoremap <leader>g   :Git
 nnoremap <leader>gl  :Git log
+nnoremap <leader>gd  :Gdiffsplit
 nnoremap <leader>gb  :Git blame
 nnoremap <leader>gs  :Git status <CR>
 nnoremap <leader>gg  :Git grep
