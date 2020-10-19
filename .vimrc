@@ -133,11 +133,11 @@ au BufRead,BufNewFile *.py set tabstop=4
     \ autoindent
 
 "------------------------------------------------------------------------------"
-"                                 Vim-Fugitive                                 "
+"                                 Vim-Fugitive + vimbinds                      "
 "------------------------------------------------------------------------------"
 nnoremap <leader>g   :Git
 nnoremap <leader>gl  :Git log
-nnoremap <leader>gd  :Gdiffsplit
+nnoremap <leader>gd  :Gvdiffsplit!
 nnoremap <leader>gb  :Git blame
 nnoremap <leader>gs  :Git status <CR>
 nnoremap <leader>gg  :Git grep
@@ -146,6 +146,8 @@ nnoremap <leader>gc  :Git commit -m
 nnoremap <leader>grm :Git rm --cache
 nnoremap <leader>gls :Git -p ls-files
 nnoremap <leader>gw  :Gwrite <CR>
+nnoremap <leader>o   :only <CR>
+
 
 "------------------------------------------------------------------------------"
 "                              tmux / vimux config                             "
