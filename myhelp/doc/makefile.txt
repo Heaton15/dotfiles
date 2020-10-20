@@ -1,0 +1,11 @@
+*makefile.txt*
+
+==============================================================================
+                                                                  *makefile-help*
+$@ - The file name of the target
+$< - The name of the first dependency
+$* - The part of a filename which matched a suffix rule
+$? - The names of all the dependencies newer than the target separated by spaces
+$^ - The names of all the dependencies separated by spaces, but with duplicate names removed
+$+ - The names of all the dependencies separated by spaces with duplicated names included and in the same order as in the rule
+==============================================================================
