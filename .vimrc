@@ -144,8 +144,8 @@ nnoremap <leader>gls :Git -p ls-files
 nnoremap <leader>gw  :Gwrite <CR>
 nnoremap <leader>o   :only <CR>
 " Note that Vim-Fugitive uses //2 and //3 for 3-way diff puts/gets
-nnoremap <leader>dg  :diffget 
-nnoremap <leader>dp  :diffput
+nnoremap <leader>gdh  :diffget //2 <CR>
+nnoremap <leader>gdl  :diffget //3 <CR>
 
 
 "------------------------------------------------------------------------------"
