@@ -7,4 +7,6 @@ conferences	conferences.txt	/*conferences*
 conferences.txt	conferences.txt	/*conferences.txt*
 makefile-help	makefile.txt	/*makefile-help*
 makefile.txt	makefile.txt	/*makefile.txt*
+verilog-macro	verilog.txt	/*verilog-macro*
+verilog-plusargs	verilog.txt	/*verilog-plusargs*
 verilog.txt	verilog.txt	/*verilog.txt*
