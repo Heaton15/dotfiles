@@ -1,0 +1,14 @@
+*verilog.txt*
+
+==============================================================================
+                                                                  *verilog-macro*
+// Macros are used 
+
+==============================================================================
+                                                                  *verilog-plusargs*
+// $value$plusargs allows you to grab + arguments from simulation run line
+ string prog_file;
+ if($value$plusargs("PROG=%s", prog_file)) //+PROG=s2m_prog.bin
+   load_mem_512(prog_file, MEM_SIZE);
+ else
+

@@ -1,0 +1,14 @@
+*conferences.txt*
+
+==============================================================================
+                                                                   *conferences*
+DAC    — Design Automation Conference
+RFIC   — RF Integrated Circuits Conference
+IMS    — International Microwave Symposium
+BCICTS — BiCMOS and Compound Semiconductor Integrated Circuits and Technology Symposium
+ISSCS  — International Symposium on Signals, Circuits, & Systems
+GOMAC  — Government Microcircuit Applications & Critical Technology Conference
+LASCAS — Latin American Symposium on Circuits and Systems
+HOST   — Hardware Oriented Security and Trust
+
+==============================================================================
