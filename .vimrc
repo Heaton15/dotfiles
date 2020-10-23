@@ -140,7 +140,6 @@ nnoremap <leader>gl  :Git log <CR>
 nnoremap <leader>gd  :Gvdiffsplit!
 nnoremap <leader>gb  :Git blame
 nnoremap <leader>gs  :Git status <CR>
-nnoremap <leader>gls :Git -p ls-files
 nnoremap <leader>gw  :Gwrite <CR>
 nnoremap <leader>o   :only <CR>
 " Note that Vim-Fugitive uses //2 and //3 for 3-way diff puts/gets
