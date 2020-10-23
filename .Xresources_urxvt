@@ -56,7 +56,7 @@ URxvt*pointerColor2: green
 !URxvt*colorUL:  red
 !URxvt*underlineColor:  red
 !URxvt.font: xft:DejavuSansMono:pixelsize=15.5
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=15.5, \
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=35.5, \
             xft:Noto Emoji:style=Regular:pixelsize=9, \
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
