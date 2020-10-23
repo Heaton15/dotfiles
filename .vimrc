@@ -135,8 +135,8 @@ au BufRead,BufNewFile *.py set tabstop=4
 "------------------------------------------------------------------------------"
 "                                 Vim-Fugitive + vimbinds                      "
 "------------------------------------------------------------------------------"
-nnoremap <leader>g   :Git
-nnoremap <leader>gl  :Git log
+nnoremap <leader>g   :Git <CR>
+nnoremap <leader>gl  :Git log <CR>
 nnoremap <leader>gd  :Gvdiffsplit!
 nnoremap <leader>gb  :Git blame
 nnoremap <leader>gs  :Git status <CR>
