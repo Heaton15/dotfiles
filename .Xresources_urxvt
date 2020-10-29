@@ -1,5 +1,5 @@
 !rxvt controls
-Xft*dpi: 96
+Xft*dpi: 256
 URxvt*termName: rxvt-unicode-256color
 URxvt*geometry:  210:46
 
