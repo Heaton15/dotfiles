@@ -1,5 +1,5 @@
 [global]
-    font = xft:DejavuSansMono 12
+    font = xft:DejavuSansMono 6
 
     # allow a small subset of html markup:
     # <b>bold</b>
