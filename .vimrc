@@ -30,6 +30,7 @@ Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/tcl.vim--smithfield'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'vim-scripts/ZoomWin'
+Plug 'aserebryakov/vim-todo-lists'
  
 "Plug 'camspiers/animate.vim'
 "Plug 'tagexplorer.vim'
@@ -319,4 +320,10 @@ let g:ycm_language_server = [
   \     'project_root_files': [ 'build.sbt' ]
   \   },
   \ ]
+
+"------------------------------------------------------------------------------"
+"                                vim-todo-lists                                "
+"------------------------------------------------------------------------------"
+let g:VimTodoListsDatesEnabled = 1
+let g:VimTodoListsMoveItems = 0
 
