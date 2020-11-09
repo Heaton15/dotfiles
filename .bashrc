@@ -32,8 +32,7 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
 set -o vi
 export TERM=xterm-256color
 #export TERM=rxvt-unicode-256color
-if [ ${USER} == "tim" ]
- then
+if [ ${USER} == "tim" ]; then
   archey3 --color=cyan
   export PATH="$HOME/AUR/matlab/bin:$PATH"
   export PATH="$HOME/.local/rouge/bin/:$PATH"
