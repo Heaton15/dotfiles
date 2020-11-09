@@ -53,6 +53,7 @@ fi
 if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
  then
   alias vtags='python $HOME/.vtags-3.01/vtags.py'
+  export PATH="$HOME/dotfiles/bin:$PATH"
   export PATH="$HOME/.fzf/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/texlive/texlive/bin/x86_64-linux:$PATH"

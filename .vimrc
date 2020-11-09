@@ -325,5 +325,4 @@ let g:ycm_language_server = [
 "                                vim-todo-lists                                "
 "------------------------------------------------------------------------------"
 let g:VimTodoListsDatesEnabled = 1
-let g:VimTodoListsMoveItems = 0
 
