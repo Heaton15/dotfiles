@@ -49,3 +49,7 @@ fun_foorbar() {
     echo " PARS after fun shift: $1 $2 $3"
 }
 
+==============================================================================
+                                                                  *bash-highlight*
+syntax keyword shKeyword 
+syntax keyword shFunction custom_function 

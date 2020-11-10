@@ -1,5 +1,6 @@
 bash-flags	bash.txt	/*bash-flags*
 bash-functions	bash.txt	/*bash-functions*
+bash-highlight	bash.txt	/*bash-highlight*
 bash-loops	bash.txt	/*bash-loops*
 bash-strings	bash.txt	/*bash-strings*
 bash.txt	bash.txt	/*bash.txt*
