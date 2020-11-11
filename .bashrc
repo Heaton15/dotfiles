@@ -12,6 +12,8 @@ alias la='ls -a'
 alias dirs='dirs -v'
 alias matlab='matlab -nosplash -nodesktop'
 alias grep='grep --color=yes'
+alias vimrc='vim $HOME/.vimrc'
+alias bashrc='vim $HOME/.bashrc'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
