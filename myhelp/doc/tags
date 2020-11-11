@@ -4,6 +4,8 @@ bash-highlight	bash.txt	/*bash-highlight*
 bash-loops	bash.txt	/*bash-loops*
 bash-strings	bash.txt	/*bash-strings*
 bash.txt	bash.txt	/*bash.txt*
+cadence-documentation	cadence.txt	/*cadence-documentation*
+cadence.txt	cadence.txt	/*cadence.txt*
 conferences	conferences.txt	/*conferences*
 conferences.txt	conferences.txt	/*conferences.txt*
 disc-golf	hobbies.txt	/*disc-golf*
