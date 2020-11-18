@@ -245,6 +245,8 @@ pushd .
 cd ~/.fzf/
 sh install
 popd
+# Remove the normal mode Comment bindings
+sed -i 's/ni/n/g' $HOME/.vim/plugged/CommentFrame.vim/plugin/CommentFrame.vim
 
 
 

@@ -12,7 +12,9 @@ disc-golf	hobbies.txt	/*disc-golf*
 hobbies.txt	hobbies.txt	/*hobbies.txt*
 makefile-help	makefile.txt	/*makefile-help*
 makefile.txt	makefile.txt	/*makefile.txt*
+python-help	python.txt	/*python-help*
 python-libraries	hobbies.txt	/*python-libraries*
+python.txt	python.txt	/*python.txt*
 verilog-for	verilog.txt	/*verilog-for*
 verilog-help	verilog.txt	/*verilog-help*
 verilog-macro	verilog.txt	/*verilog-macro*
