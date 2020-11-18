@@ -13,6 +13,11 @@ hobbies.txt	hobbies.txt	/*hobbies.txt*
 makefile-help	makefile.txt	/*makefile-help*
 makefile.txt	makefile.txt	/*makefile.txt*
 python-libraries	hobbies.txt	/*python-libraries*
+verilog-for	verilog.txt	/*verilog-for*
+verilog-help	verilog.txt	/*verilog-help*
 verilog-macro	verilog.txt	/*verilog-macro*
 verilog-plusargs	verilog.txt	/*verilog-plusargs*
+verilog-repeat	verilog.txt	/*verilog-repeat*
+verilog-task	verilog.txt	/*verilog-task*
+verilog-while	verilog.txt	/*verilog-while*
 verilog.txt	verilog.txt	/*verilog.txt*

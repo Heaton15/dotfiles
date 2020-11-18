@@ -1,8 +1,36 @@
 *verilog.txt*
 
 ==============================================================================
+VERILOG-LOOPS                                                     *verilog-help*
+    for (i=0; i<5; i++) begin            *verilog-for*
+        a = 1;
+    end
+
+    while (^data[i] !== 1'bX) begin      *verilog-while*
+        a = 1;
+    end
+
+    repeat(4) begin                      *verilog-repeat*
+        a = 1;
+    end
+
+ task demo_task;                         *verilog-task*
+      input string filename;    // Name of file containing data
+      input integer nwords;     // Number of words in the memory
+      reg [511:0]    readtmp;
+      integer       file;
+      integer       i, j;
+
+      begin
+        a = 1;
+      end 
+ endtask
+
+
+==============================================================================
                                                                   *verilog-macro*
 // Macros are used 
+
 
 ==============================================================================
                                                                   *verilog-plusargs*
