@@ -18,8 +18,7 @@ echo "===.neomutt
 echo " " 
 
 # Create backup directory to store all old dotfiles if they exist
-if [ ! -d $HOME/dotfiles_backup ]
-then 
+if [ ! -d $HOME/dotfiles_backup ]; then 
  mkdir $HOME/dotfiles_backup
 fi
 
@@ -28,8 +27,7 @@ BACKUP="dotfiles_backup"
 ######################################################################
 # Create .vimrc symlink. If .vimrc already exists, backup and replace.
 ######################################################################
-if [ -e $HOME/.vimrc ]
-then 
+if [ -e $HOME/.vimrc ]; then 
     mv $HOME/.vimrc $HOME/$BACKUP/.vimrc_bak
     ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc 
 else
@@ -38,8 +36,7 @@ fi
 ############################################################################
 # Create spacemacs symlink. If .spacemacs already exists, backup and replace
 ############################################################################
-if [ -e $HOME/.spacemacs ]
-then 
+if [ -e $HOME/.spacemacs ]; then 
     mv $HOME/.spacemacs $HOME/$BACKUP/.spacemacs_bak
     ln -s $HOME/dotfiles/.spacemacs $HOME/.spacemacs
 else
@@ -48,8 +45,7 @@ fi
 #####################################################################
 # Create .bash_profile symlink. If already exists, backup and replace
 #####################################################################
-if [ -e $HOME/.bash_profile ]
-then 
+if [ -e $HOME/.bash_profile ]; then 
     mv $HOME/.bash_profile $HOME/$BACKUP/.bash_profile_bak
     ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
 else
@@ -58,8 +54,7 @@ fi
 ###############################################################
 # Create .bashrc symlink. If already exists, backup and replace
 ###############################################################
-if [ -e $HOME/.bashrc ]
-then 
+if [ -e $HOME/.bashrc ]; then 
     mv $HOME/.bashrc $HOME/$BACKUP/.bashrc_bak
     ln -s $HOME/dotfiles/.bashrc $HOME/.bashrc
 else
@@ -68,8 +63,7 @@ fi
 ###################################################################
 # Create .dir_colors symlink. If already exists, backup and replace
 ###################################################################
-if [ -e $HOME/.dir_colors ]
-then 
+if [ -e $HOME/.dir_colors ]; then 
     mv $HOME/.dir_colors $HOME/$BACKUP/.dir_colors_bak
     ln -s $HOME/dotfiles/.dir_colors $HOME/.dir_colors
 else
@@ -78,8 +72,7 @@ fi
 ##########################################################################
 # Create .fan symlink (fan control). If already exists, backup and replace
 ##########################################################################
-if [ -e $HOME/.fan ]
-then 
+if [ -e $HOME/.fan ]; then 
     mv $HOME/.fan $HOME/$BACKUP/.fan_bak
     ln -s $HOME/dotfiles/.fan $HOME/.fan
 else
@@ -90,8 +83,7 @@ fi
 #If already exists, backup and replace
 # Note that a background path is inside of the file. 
 ################################################################################
-if [ -e $HOME/.fehbg ]
-then 
+if [ -e $HOME/.fehbg ]; then 
     mv $HOME/.fehbg $HOME/$BACKUP/.fehbg_bak
     cp $HOME/dotfiles/.fehbg $HOME
 else
@@ -103,8 +95,7 @@ sh $HOME/.fehbg 2> /dev/null
 ########################################################
 # Create .i3 file symlink. If exists, backup and replace
 ########################################################
-if [ -d $HOME/.config/i3 ]
-then 
+if [ -d $HOME/.config/i3 ]; then 
     cp -RL $HOME/.config/i3/config $HOME/$BACKUP/.i3_config_bak
     ln -s $HOME/dotfiles/.i3_config $HOME/.config/i3/config
 else
@@ -117,8 +108,7 @@ fi
 ##############################################################
 # Create .inputrc file symlink. If exists, backup and replace. 
 ##############################################################
-if [ -e $HOME/.inputrc ]
-then 
+if [ -e $HOME/.inputrc ]; then 
     mv $HOME/.inputrc $HOME/$BACKUP/.inputrc_bak
     ln -s $HOME/dotfiles/.inputrc $HOME/.inputrc
 else
@@ -133,8 +123,7 @@ fi
 # the .config file of $HOME
 ##############################################################
 
-if [ -d $HOME/.config/ranger ]
-then 
+if [ -d $HOME/.config/ranger ]; then 
     mv $HOME/.config/ranger $HOME/$BACKUP/ranger_bak
     ln -s $HOME/dotfiles/ranger $HOME/.config/ranger
 else
@@ -158,17 +147,14 @@ read -p 'Selection: ' term_config
 ##################################################################
 # Create .Xresources symlink depending on Xterm or URxvt selection 
 ##################################################################
-if [ -e $HOME/.Xresources ]
-then 
+if [ -e $HOME/.Xresources ]; then 
     mv $HOME/.Xresources $HOME/$BACKUP/.Xresources_bak
 fi
 
-if [ $term_config -eq '1' ]
-then
+if [ $term_config -eq '1' ]; then
     ln -s $HOME/dotfiles/.Xresources_xterm $HOME/.Xresources
     xrdb $HOME/.Xresources
-elif [ $term_config -eq '2' ] 
-then
+elif [ $term_config -eq '2' ]; then
     ln -s $HOME/dotfiles/.Xresources_urxvt $HOME/.Xresources
     xrdb $HOME/.Xresources
 fi
@@ -176,8 +162,7 @@ fi
 ######################################################################
 # Create .tmux.conf TMUX configuration file
 ######################################################################
-if [ -e $HOME/.tmux.conf ]
-then 
+if [ -e $HOME/.tmux.conf ]; then 
     mv $HOME/.tmux.conf $HOME/$BACKUP/.tmux.conf_bak
     ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf 
 else
@@ -187,8 +172,7 @@ fi
 ##################################################################
 # Create .elisp file to hold verilog-auto.el file   
 ##################################################################
-if [ -e $HOME/.elisp ]
-then 
+if [ -e $HOME/.elisp ]; then 
     mv $HOME/.elisp $HOME/$BACKUP/.elisp_bak
     ln -s $HOME/dotfiles/.elisp $HOME/.elisp
 else
@@ -206,8 +190,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ##################################################################
 #Install Tmux Theme Pack If Not Installed ########################
 ##################################################################
-if [ ! -d $HOME/.tmux-themepack ]
-then 
+if [ ! -d $HOME/.tmux-themepack ]; then 
  git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
  echo "Tmux Themepack Not Installed: Installing"
  echo " "
@@ -217,16 +200,14 @@ fi
 ##################################################################
 #Create URxvt/Xterm Color Files for 256 ##########################
 ##################################################################
-if [ ! -d $HOME/.terminfo ]
-then 
+if [ ! -d $HOME/.terminfo ]; then 
     cp -R $HOME/dotfiles/.terminfo $HOME
 fi
 
 ##############################################################
 # Create .xbindkeysrc file for arch linux bindkeys
 ##############################################################
-if [ -e $HOME/.xbindkeysrc ]
-then 
+if [ -e $HOME/.xbindkeysrc ]; then 
     mv $HOME/.xbindkeysrc $HOME/$BACKUP/.xbindkeys_bak
     ln -s $HOME/dotfiles/.xbindkeysrc $HOME/.xbindkeysrc
 else
