@@ -20,6 +20,7 @@ Plug 'amal-khailtash/vim-xdc-syntax'
 Plug 'psliwka/vim-smoothie'
 Plug 'thinca/vim-localrc'
 Plug 'camspiers/lens.vim'
+"Plug 'camspiers/animate.vim'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
@@ -32,7 +33,6 @@ Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'vim-scripts/ZoomWin'
 Plug 'aserebryakov/vim-todo-lists'
  
-"Plug 'camspiers/animate.vim'
 "Plug 'tagexplorer.vim'
 "Plug 'daeyun/vim-matlab'
 "Plug 'dense-analysis/ale'
@@ -137,7 +137,7 @@ au BufRead,BufNewFile *.py set tabstop=4
 "------------------------------------------------------------------------------"
 "                                 Vim-Fugitive + vimbinds                      "
 "------------------------------------------------------------------------------"
-nnoremap <leader>g   :Git
+nnoremap <leader>g   :Git 
 nnoremap <leader>gl  :Git log <CR>
 nnoremap <leader>gd  :Gvdiffsplit!
 nnoremap <leader>gb  :Git blame
@@ -227,7 +227,6 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 2
 set conceallevel=2
-let g:tex_conceal='abdgms'
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 let g:vimtex_quickfix_ignore_filters = [
