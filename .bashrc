@@ -18,6 +18,8 @@ alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
 taskvim='vim -c "TW" -c "Calendar -view=year -split=horizontal -position=below -height=26"'
+alias vimgit="vim -c \":Git\" -c \":only\""
+alias vimlog="vim -c \":Git log\" -c \":only\""
 #################PATH Updates##############
 
 # Configures fuzzy finder 
@@ -68,6 +70,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export VISUAL="$HOME/.linuxbrew/bin/vim"
   export TMUX_TMPDIR=$HOME/.linuxbrew_tmp
   unset TMOUT
+  export CDPATH="$HOME/timh_build3a/socta1_chipyard/generators:$CDPATH"
   # The order of these 2 commands matters
   [[ -r "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh"
   source $HOME/.fzf/shell/completion.bash
