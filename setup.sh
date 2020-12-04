@@ -61,13 +61,13 @@ else
     ln -s $HOME/dotfiles/.bashrc $HOME/.bashrc
 fi
 ###################################################################
-# Create .dir_colors symlink. If already exists, backup and replace
+# Create .dircolors symlink. If already exists, backup and replace
 ###################################################################
-if [ -e $HOME/.dir_colors ]; then 
-    mv $HOME/.dir_colors $HOME/$BACKUP/.dir_colors_bak
-    ln -s $HOME/dotfiles/.dir_colors $HOME/.dir_colors
+if [ -e $HOME/.dircolors ]; then 
+    mv $HOME/.dircolors $HOME/$BACKUP/.dircolors_bak
+    ln -s $HOME/dotfiles/.dircolors $HOME/.dircolors
 else
-    ln -s $HOME/dotfiles/.dir_colors $HOME/.dir_colors
+    ln -s $HOME/dotfiles/.dircolors $HOME/.dircolors
 fi
 ##########################################################################
 # Create .fan symlink (fan control). If already exists, backup and replace

@@ -42,8 +42,7 @@ if [ ${USER} == "tim" ]; then
   export PATH="$HOME/.local/rouge/bin/:$PATH"
   source /home/tim/.fzf/shell/completion.bash
   export PATH="$HOME/.fzf/bin/:$PATH"
-
-  eval $(dircolors ~/.dir_colors)
+  eval $(dircolors ~/.dircolors)
   #source ~/.colors
   source ~/.functions.sh
   export LESSOPEN="| $HOME/.local/rouge/bin/rougify %s 2> /dev/null"                        
@@ -55,6 +54,7 @@ fi
 # TSS Only
 if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
  then
+  eval $(dircolors ~/.dircolors)
   alias vtags='python $HOME/.vtags-3.01/vtags.py'
   export PATH="$HOME/.fzf/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/perl/bin:$PATH"
