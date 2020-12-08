@@ -38,7 +38,7 @@ blue = #00AFFF
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 27
+height = 68
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
@@ -59,17 +59,21 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+font-0 = fixed:pixelsize=25;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = "Wuncon Siji:pixelsize=10;1"
+font-2 = Inconsolata:style=Regular:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = 
-;modules-right = filesystem xbacklight alsa pulseaudio memory cpu wlan eth battery battery2 temperature date powermenu
-modules-right = filesystem xbacklight pulseaudio memory cpu wlan eth battery battery2 temperature date powermenu
+;modules-right = filesystem xbacklight alsa pulseaudio memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem xbacklight pulseaudio memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
+dpi-x = 0
+dpi-y = 0
+tray-maxsize = 100
+;tray-scale = 1
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -230,7 +234,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlp82s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -337,40 +341,7 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-
 [module/battery]
-type = internal/battery
-battery = BAT1
-adapter = AC
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.blue}
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${colors.blue}
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${colors.blue}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.red}
-animation-discharging-framerate = 750
-
-[module/battery2]
 type = internal/battery
 battery = BAT0
 adapter = AC
