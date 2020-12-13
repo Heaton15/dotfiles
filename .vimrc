@@ -227,7 +227,8 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip
 "------------------------------------------------------------------------------"
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 2
-set conceallevel=2
+let g:vimtex_view_general_viewer="zathura"
+set conceallevel=0
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 let g:vimtex_quickfix_ignore_filters = [
