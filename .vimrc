@@ -30,7 +30,6 @@ Plug 'justinmk/vim-syntax-extra' " c highlighting
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/tcl.vim--smithfield'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
-Plug 'vim-scripts/ZoomWin'
 Plug 'aserebryakov/vim-todo-lists'
  
 "Plug 'tagexplorer.vim'
@@ -114,7 +113,6 @@ nnoremap <silent> <leader>wq :exe "vertical resize " . (winheight(0) * 12/16)<CR
 nnoremap <silent> <leader>ww <C-w>= <CR>
 nnoremap <silent> <leader>w- :sp <CR>
 nnoremap <silent> <leader>w/ :vsp <CR>
-nnoremap <leader>wm :ZoomWin<CR>
 
 "------------------------------------------------------------------------------"
 "                               Filetype Updates                               "
@@ -329,3 +327,16 @@ let g:ycm_language_server = [
 let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsMoveItems = 0
 
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <leader>wm :ZoomToggle<CR>
