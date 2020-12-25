@@ -72,11 +72,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 highlight search ctermbg = green
 
 "------------------------------------------------------------------------------"
-"                        Add fzf to rtp for all systems                        "
-"------------------------------------------------------------------------------"
-set rtp+=~/.fzf/
-
-"------------------------------------------------------------------------------"
 "                                Keybind Changes                               "
 "------------------------------------------------------------------------------"
 let mapleader ="\<Space>" " Change spacebar to leader key
@@ -88,6 +83,22 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
+
+"------------------------------------------------------------------------------"
+"                              Load Vim Functions                              "
+"------------------------------------------------------------------------------"
+if filereadable("vim_functions.vim")
+    source vim_functions.vim
+endif
+
+if filereadable("vim_binds.vim")
+    source vim_binds.vim
+endif
+
+"------------------------------------------------------------------------------"
+"                        Add fzf to rtp for all systems                        "
+"------------------------------------------------------------------------------"
+set rtp+=~/.fzf/
 
 "------------------------------------------------------------------------------"
 "                              Tab Movement in vim                             "
@@ -173,19 +184,10 @@ nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 
 "------------------------------------------------------------------------------"
-"                             Vim Illuminate Config                            "
-"------------------------------------------------------------------------------"
-"au BufRead,BufNewFile *.v,*.sv,*.py,*.c hi illuminatedWord cterm=underline ctermfg=46
-"let g:Illuminate_ftblacklist = ['vim' , 'notes', 'xdefaults', 'sshconfig', 'conf',
-"                               \'tex', 'org', 'make', 'taskreport', 'sh', '']
-"let g:Illuminate_delay = 25
-
-"------------------------------------------------------------------------------"
 "                                  Binary R/W                                  "
 "------------------------------------------------------------------------------"
 nmap <leader>hr :%!xxd<CR> :set filetype=xxd<CR>
 nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
-
 
 "------------------------------------------------------------------------------"
 "                                  fzf Config                                  "
@@ -214,6 +216,7 @@ let g:SuperTabDefaultCompletionType = 'context'
 nmap <leader>ff :Files 
 nmap <leader>tt :Tags <CR>
 nmap <leader>bb :Buffers <CR>
+
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -235,16 +238,15 @@ let g:vimtex_quickfix_ignore_filters = [
     \]
 
 "------------------------------------------------------------------------------"
-"                          Verilog Autos / Vtags Confiurations                 "
-"------------------------------------------------------------------------------"
-
-"------------------------------------------------------------------------------"
 "                                vtags Keybinds                                "
 "------------------------------------------------------------------------------"
 if ($USER == "tim.heaton")
     source ~/.vtags-3.01/vtags_vim_api.vim
 endif
 
+"------------------------------------------------------------------------------"
+"                          Verilog Autos / Vtags Confiurations                 "
+"------------------------------------------------------------------------------"
 augroup verilogBindings
     autocmd! verilogBindings
     autocmd Filetype verilog_systemverilog map <buffer> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
@@ -267,12 +269,9 @@ augroup verilogBindings
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>c        : py3 try_add_check_point()             <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>b        : py3 try_add_base_module()             <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>         : py3 try_space_operation()             <CR>
-    "autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>d        : py3 try_del_operation()               <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>s        : py3 try_save_env_snapshort()          <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <Space>r        : py3 try_reload_env_snapshort()        <CR>
 augroup end
-
-
 
 "------------------------------------------------------------------------------"
 "                             YCM/Gutentags Control                            "
@@ -326,17 +325,3 @@ let g:ycm_language_server = [
 "------------------------------------------------------------------------------"
 let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsMoveItems = 0
-
-function! s:ZoomToggle() abort
-    if exists('t:zoomed') && t:zoomed
-        execute t:zoom_winrestcmd
-        let t:zoomed = 0
-    else
-        let t:zoom_winrestcmd = winrestcmd()
-        resize
-        vertical resize
-        let t:zoomed = 1
-    endif
-endfunction
-command! ZoomToggle call s:ZoomToggle()
-nnoremap <silent> <leader>wm :ZoomToggle<CR>
