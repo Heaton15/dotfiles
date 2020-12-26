@@ -214,6 +214,17 @@ else
     ln -s $HOME/dotfiles/.xbindkeysrc $HOME/.xbindkeysrc
 fi
 
+
+#------------------------------------------------------------------------------#
+#                               Custom Vim Syntax                              #
+#------------------------------------------------------------------------------#
+if [ -d $HOME/.vim/syntax ]; then 
+    mv $HOME/.vim/syntax $HOME/$BACKUP/.vim/syntax_bak
+    ln -s $HOME/dotfiles/syntax $HOME/.vim/syntax
+else
+    ln -s $HOME/dotfiles/syntax $HOME/.vim/syntax
+fi
+
 #------------------------------------------------------------------------------#
 #                             Final Install Changes                            #
 #------------------------------------------------------------------------------#
