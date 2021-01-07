@@ -87,12 +87,12 @@ nnoremap <leader>wv <C-w>v
 "------------------------------------------------------------------------------"
 "                              Load Vim Functions                              "
 "------------------------------------------------------------------------------"
-if filereadable("vim_functions.vim")
-    source vim_functions.vim
+if filereadable(expand("$HOME/dotfiles/vim_functions.vim"))
+    source $HOME/dotfiles/vim_functions.vim
 endif
 
-if filereadable("vim_binds.vim")
-    source vim_binds.vim
+if filereadable(expand("$HOME/dotfiles/vim_binds.vim"))
+    source $HOME/dotfiles/vim_binds.vim
 endif
 
 "------------------------------------------------------------------------------"
