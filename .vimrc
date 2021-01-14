@@ -104,6 +104,7 @@ set rtp+=~/.fzf/
 "                              Tab Movement in vim                             "
 "------------------------------------------------------------------------------"
 nnoremap tn :tabnew <CR>
+nnoremap tc :tabclose <CR>
 nnoremap tN :tab sball <CR>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
