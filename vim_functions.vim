@@ -36,6 +36,8 @@ command! BranchCalc call s:BranchCalc()
 function! s:BranchCalcOverride()
     if !empty($git_branch)
         let @d = $git_branch
+    else
+        let @d =""
     endif
 endfunction
 command! BranchCalcOverride call s:BranchCalcOverride()
