@@ -3,3 +3,5 @@
                                                                   *work-url*
 https://github.com/enjoy-digital/litex
 https://github.com/m-labs/migen
+https://devhints.io/vimscript-functions
+
