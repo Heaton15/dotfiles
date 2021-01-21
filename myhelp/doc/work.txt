@@ -2,3 +2,4 @@
 ==============================================================================
                                                                   *work-url*
 https://github.com/enjoy-digital/litex
+https://github.com/m-labs/migen

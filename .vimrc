@@ -151,6 +151,7 @@ nnoremap <leader>g   :Git
 nnoremap <leader>gl  :Git log <CR>
 nnoremap <leader>gp  :Git log -p % <CR>
 nnoremap <leader>gd  :Gvdiffsplit!
+nnoremap <leader>gt  :BranchCalc <CR> :Git diff-tree -r <C-R>b <C-R>d %
 nnoremap <leader>gb  :Git blame
 nnoremap <leader>gs  :Git status <CR>
 nnoremap <leader>gw  :Gwrite <CR>

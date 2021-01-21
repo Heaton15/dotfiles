@@ -14,4 +14,14 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 
-
+function! s:BranchCalc()
+    let @b = FugitiveHead()
+    if !empty($vimBranch )
+        let @d = $vimBranch
+    else
+        call inputsave()
+        let @d = input('Enter Diff Branch: ')
+        call inputrestore()
+    endif
+endfunction
+command! BranchCalc call s:BranchCalc()
