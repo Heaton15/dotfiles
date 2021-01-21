@@ -16,8 +16,8 @@ command! ZoomToggle call s:ZoomToggle()
 
 function! s:BranchCalc()
     let @b = FugitiveHead()
-    if !empty($vimBranch )
-        let @d = $vimBranch
+    if !empty($git_branch)
+        let @d = $git_branch
     else
         call inputsave()
         let @d = input('Enter Diff Branch: ')
