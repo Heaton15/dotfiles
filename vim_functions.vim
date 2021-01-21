@@ -14,6 +14,10 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 
+
+"------------------------------------------------------------------------------"
+"     BranchCalc: Determines git branch for diffing from $env or user input     "
+"------------------------------------------------------------------------------"
 function! s:BranchCalc()
     let @b = FugitiveHead()
     if !empty($git_branch)
@@ -25,3 +29,13 @@ function! s:BranchCalc()
     endif
 endfunction
 command! BranchCalc call s:BranchCalc()
+
+"------------------------------------------------------------------------------"
+"       BranchCalcOverride: User git_branch $env if set, otherwise nothing     "
+"------------------------------------------------------------------------------"
+function! s:BranchCalcOverride()
+    if !empty($git_branch)
+        let @d = $git_branch
+    endif
+endfunction
+command! BranchCalcOverride call s:BranchCalcOverride()
