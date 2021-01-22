@@ -83,6 +83,7 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
+nnoremap <F5> :set norelativenumber! <CR> :set nonumber! <CR>
 
 "------------------------------------------------------------------------------"
 "                              Load Vim Functions                              "
@@ -312,6 +313,7 @@ let g:floaterm_keymap_new = '<F1>'
 let g:floaterm_keymap_prev = '<F2>'
 let g:floaterm_keymap_next = '<F3>'
 let g:floaterm_keymap_toggle = '<F4>'
+
 
 
 let g:ycm_language_server = [
