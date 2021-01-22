@@ -165,10 +165,10 @@ nnoremap <leader>gdl  :diffget //3 <CR>
 "------------------------------------------------------------------------------"
 "                              tmux / vimux config                             "
 "------------------------------------------------------------------------------"
-map <leader>vp :VimuxPromptCommand<CR>
-map <leader>vl :VimuxRunLastCommand<CR>
-map <leader>vi :VimuxInspectRunner<CR>
-map <leader>vz :VimuxZoomRunner<CR>
+nnoremap <leader>vp :VimuxPromptCommand<CR>
+nnoremap <leader>vl :VimuxRunLastCommand<CR>
+nnoremap <leader>vi :VimuxInspectRunner<CR>
+nnoremap <leader>vz :VimuxZoomRunner<CR>
 
 "------------------------------------------------------------------------------"
 "                             Vim Buffer Naviation                             "
@@ -252,10 +252,10 @@ endif
 "------------------------------------------------------------------------------"
 augroup verilogBindings
     autocmd! verilogBindings
-    autocmd Filetype verilog_systemverilog map <buffer> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
-    autocmd Filetype verilog_systemverilog map <buffer> <leader><leader>a <Plug>VerilogEmacsAutoAdd 
-    autocmd Filetype verilog_systemverilog map <buffer> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
-    autocmd Filetype verilog_systemverilog map <buffer> <leader><leader>d <Plug>VerilogEmacsAutoDelete 
+    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader><leader>a <Plug>VerilogEmacsAutoAdd 
+    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
+    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader><leader>d <Plug>VerilogEmacsAutoDelete 
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>v       : py3 try_show_frame()                <CR> <C-w>h <CR> : set filetype=verilog_systemverilog <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>i       : py3 try_go_into_submodule()         <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>u       : py3 try_go_upper_module()           <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>
