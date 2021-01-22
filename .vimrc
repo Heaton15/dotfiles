@@ -151,7 +151,7 @@ nnoremap <leader>g   :Git
 nnoremap <leader>gl  :Git log <CR>
 nnoremap <leader>gp  :Git log -p % <CR>
 nnoremap <leader>gd  :BranchCalcOverride <CR> :Gvdiffsplit! <C-R>d
-nnoremap <leader>gt  :BranchCalc <CR> :Git diff-tree -r <C-R>b <C-R>d %
+nnoremap <leader>gt  :BranchCalc <CR> :GitBranchInput <CR> :Git diff-tree -r <C-R>b <C-R>d %
 nnoremap <leader>gb  :Git blame
 nnoremap <leader>gs  :Git status <CR>
 nnoremap <leader>gw  :Gwrite <CR>
@@ -327,3 +327,4 @@ let g:ycm_language_server = [
 "------------------------------------------------------------------------------"
 let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsMoveItems = 0
+

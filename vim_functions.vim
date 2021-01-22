@@ -14,12 +14,22 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 
-
 "------------------------------------------------------------------------------"
 "     BranchCalc: Determines git branch for diffing from $env or user input     "
 "------------------------------------------------------------------------------"
 function! s:BranchCalc()
     let @b = FugitiveHead()
+    let @a = system("git branch -a")
+    vnew
+    put =@a
+    wincmd h
+endfunction
+command! BranchCalc call s:BranchCalc()
+
+"------------------------------------------------------------------------------"
+"                   GitBranchInput: Requests Git Branch Input                  "
+"------------------------------------------------------------------------------"
+function! s:GitBranchInput()
     if !empty($git_branch)
         let @d = $git_branch
     else
@@ -27,8 +37,9 @@ function! s:BranchCalc()
         let @d = input('Enter Diff Branch: ')
         call inputrestore()
     endif
+    close!
 endfunction
-command! BranchCalc call s:BranchCalc()
+command! GitBranchInput call s:GitBranchInput()
 
 "------------------------------------------------------------------------------"
 "       BranchCalcOverride: User git_branch $env if set, otherwise nothing     "
