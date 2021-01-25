@@ -22,7 +22,7 @@ function! s:BranchCalc()
     let @a = system("git branch -a")
     vnew
     put =@a
-    wincmd h
+    wincmd l
 endfunction
 command! BranchCalc call s:BranchCalc()
 

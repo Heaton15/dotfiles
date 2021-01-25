@@ -48,6 +48,7 @@ set rtp+=~/dotfiles/myhelp/
 colorscheme elda
 syntax on
 filetype plugin indent on
+set splitright
 set foldmethod=manual
 set virtualedit=all
 set mouse=a
@@ -76,6 +77,7 @@ highlight search ctermbg = green
 "------------------------------------------------------------------------------"
 let mapleader ="\<Space>" " Change spacebar to leader key
 let maplocalleader ="\<Space>"
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>q :qa! <CR>
 nnoremap <leader>wh <C-w>h 
 nnoremap <leader>wj <C-w>j
@@ -229,9 +231,12 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip
 "------------------------------------------------------------------------------"
 "                              Latex Configuration                             "
 "------------------------------------------------------------------------------"
+if ($USER == "tim")
+    let g:vimtex_view_general_viewer="zathura"
+endif
+
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 2
-let g:vimtex_view_general_viewer="zathura"
 set conceallevel=0
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
