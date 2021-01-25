@@ -77,7 +77,9 @@ highlight search ctermbg = green
 "------------------------------------------------------------------------------"
 let mapleader ="\<Space>" " Change spacebar to leader key
 let maplocalleader ="\<Space>"
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC <CR>
+nnoremap <leader>vr :source $MYVIMRC <CR>
+nnoremap <leader>eb :vsplit $HOME/.bashrc <CR>
 nnoremap <leader>q :qa! <CR>
 nnoremap <leader>wh <C-w>h 
 nnoremap <leader>wj <C-w>j
