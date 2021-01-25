@@ -249,7 +249,11 @@ let g:vimtex_quickfix_ignore_filters = [
 "                                vtags Keybinds                                "
 "------------------------------------------------------------------------------"
 if ($USER == "tim.heaton")
-    source ~/.vtags-3.01/vtags_vim_api.vim
+    if filereadable(expand("$HOME/.vtags-3.01/vtags_vim_api.vim"))
+        source ~/.vtags-3.01/vtags_vim_api.vim
+    else 
+        echo "Vtags Not Installed: Re-Run Install"
+    endif
 endif
 
 "------------------------------------------------------------------------------"
