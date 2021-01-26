@@ -37,7 +37,7 @@ function! s:GitBranchInput()
         let @d = input('Enter Diff Branch: ')
         call inputrestore()
     endif
-    close!
+    silent! close!
 endfunction
 command! GitBranchInput call s:GitBranchInput()
 
@@ -53,11 +53,18 @@ function! s:BranchCalcOverride()
 endfunction
 command! BranchCalcOverride call s:BranchCalcOverride()
 
+"------------------------------------------------------------------------------"
+"                    Grabs git branch name from BranchCalc()                   "
+"------------------------------------------------------------------------------"
+
 function! s:BranchReturn()
     let @b = line(".")."s"."/\\\<[a-zA-Z0-9_-]\\\+$/\\\=setreg('a',submatch(0))/n"
 endfunction
 command! BranchReturn call s:BranchReturn()
 
+"------------------------------------------------------------------------------"
+"                  Clear search register and close open window                 "
+"------------------------------------------------------------------------------"
 function! s:ClearClose()
     let @/=""
     close!
