@@ -16,7 +16,7 @@ alias bashrc='vim $HOME/.bashrc'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
-taskvim='vim -c "TW" -c "Calendar -view=year -split=horizontal -position=below -height=26"'
+alias cadence_tools="source $HOME/timh_linuxbrew/source_file/setup_tools.sh"
 alias vimgit="vim -c \":Git\" -c \":only\""
 alias vimlog="vim -c \":Git log\" -c \":only\""
 #################PATH Updates##############
