@@ -52,3 +52,14 @@ function! s:BranchCalcOverride()
     endif
 endfunction
 command! BranchCalcOverride call s:BranchCalcOverride()
+
+function! s:BranchReturn()
+    let @b = line(".")."s"."/\\\<[a-zA-Z0-9_-]\\\+$/\\\=setreg('a',submatch(0))/n"
+endfunction
+command! BranchReturn call s:BranchReturn()
+
+function! s:ClearClose()
+    let @/=""
+    close!
+endfunction
+command! ClearClose call s:ClearClose()

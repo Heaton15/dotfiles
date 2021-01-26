@@ -153,11 +153,13 @@ au BufRead,BufNewFile *.py set tabstop=4
 "                                 Vim-Fugitive + vimbinds                      "
 "------------------------------------------------------------------------------"
 nnoremap <leader>g   :Git 
-nnoremap <leader>gl  :Git log <CR>
+nnoremap <leader>gl  :Git log <CR> :only <CR>
 nnoremap <leader>gp  :Git log -p % <CR>
 nnoremap <leader>gd  :BranchCalcOverride <CR> :Gvdiffsplit! <C-R>d
 nnoremap <leader>gt  :BranchCalc <CR> :GitBranchInput <CR> :Git diff-tree -r <C-R>b <C-R>d %
-nnoremap <leader>gb  :Git blame
+" Checkout git branch launched from BranchCalc()
+nnoremap <leader>gc :BranchReturn <CR> :<C-R>b<CR> :ClearClose<CR> :Git checkout <C-R>a
+nnoremap <leader>gb  :BranchCalc <CR>
 nnoremap <leader>gs  :Git status <CR>
 nnoremap <leader>gw  :Gwrite <CR>
 nnoremap <leader>o   :only <CR>
