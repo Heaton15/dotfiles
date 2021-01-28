@@ -155,7 +155,8 @@ au BufRead,BufNewFile *.py set tabstop=4
 nnoremap <leader>g   :Git
 nnoremap <leader>gs  :Git <CR> :only <CR>
 nnoremap <leader>gl  :Git log <CR> :only <CR>
-nnoremap <leader>gp  :Git log -p % <CR>
+nnoremap <leader>gp  :Git push
+nnoremap <leader>go :Git log -p % <CR>
 nnoremap <leader>gd  :BranchCalcOverride <CR> :Gvdiffsplit! <C-R>d
 nnoremap <leader>gt  :BranchCalc <CR> :GitBranchInput <CR> :Git diff-tree -r <C-R>b <C-R>d %
 " Checkout git branch launched from BranchCalc()

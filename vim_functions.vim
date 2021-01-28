@@ -53,8 +53,9 @@ function! s:BranchCalcOverride()
 endfunction
 command! BranchCalcOverride call s:BranchCalcOverride()
 
+
 "------------------------------------------------------------------------------"
-"                    Grabs git branch name from BranchCalc()                   "
+"             BranchReturn: Grabs git branch name from BranchCalc()            "
 "------------------------------------------------------------------------------"
 
 function! s:BranchReturn()
@@ -63,7 +64,7 @@ endfunction
 command! BranchReturn call s:BranchReturn()
 
 "------------------------------------------------------------------------------"
-"                  Clear search register and close open window                 "
+"            ClearClose: Clear search register and close open window           "
 "------------------------------------------------------------------------------"
 function! s:ClearClose()
     let @/=""
