@@ -228,7 +228,7 @@ fi
 #------------------------------------------------------------------------------#
 #                             Final Install Changes                            #
 #------------------------------------------------------------------------------#
-
+bash
 vim +PlugInstall +qall
 rm $HOME/.vim/plugged/vim256-color/colors/elda.vim
 ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/plugged/vim256-color/colors/elda.vim
@@ -242,6 +242,7 @@ popd
 # Remove the normal mode Comment bindings
 sed -i 's/ni/n/g' $HOME/.vim/plugged/CommentFrame.vim/plugin/CommentFrame.vim
 mkdir $HOME/.linuxbrew_tmp/
+go get -u github.com/arl/gitmux
 
 
 

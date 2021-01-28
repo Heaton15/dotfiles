@@ -77,14 +77,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   # The order of these 2 commands matters
   [[ -r "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh"
   source $HOME/.fzf/shell/completion.bash
-
-  if [ -f "$HOME/Tim_Project_Temporary" ]
-   then
-    source ~/Tim_Project_Temporary/source_file/brew_riscv_install/path_update.sh
-    export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/rouge/bin:$PATH"
-    export PATH="/home/tim.heaton/Tim_Project_Temporary/packages/binmake/bin:$PATH"
-    export RISCV="/home/tim.heaton/Tim_Project_Temporary/source_file/brew_riscv_install/rocket-tools"
-   fi
+  export GOPATH="$HOME/.go" && export PATH="$HOME/.go/bin:$PATH"
 fi
 
 
