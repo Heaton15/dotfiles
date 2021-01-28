@@ -153,17 +153,16 @@ au BufRead,BufNewFile *.py set tabstop=4
 "                                 Vim-Fugitive + vimbinds                      "
 "------------------------------------------------------------------------------"
 nnoremap <leader>g   :Git
-nnoremap <leader>gs  :Git <CR> :only <CR>
-nnoremap <leader>gl  :Git log <CR> :only <CR>
-nnoremap <leader>gp  :Git push
-nnoremap <leader>go :Git log -p % <CR>
-nnoremap <leader>gd  :BranchCalcOverride <CR> :Gvdiffsplit! <C-R>d
-nnoremap <leader>gt  :BranchCalc <CR> :GitBranchInput <CR> :Git diff-tree -r <C-R>b <C-R>d %
-" Checkout git branch launched from BranchCalc()
-nnoremap <leader>gc  :BranchReturn <CR> :<C-R>b<CR> :ClearClose<CR> :Git checkout <C-R>a
-nnoremap <leader>gb  :BranchCalc <CR>
-nnoremap <leader>gw  :Gwrite <CR>
 nnoremap <leader>o   :only <CR>
+nnoremap gs  :Git <CR> :only <CR>
+nnoremap gl  :Git log <CR> :only <CR>
+nnoremap gp  :Git push
+nnoremap go  :Git log -p % <CR>
+nnoremap gd  :BranchCalcOverride <CR> :Gvdiffsplit! <C-R>d
+nnoremap gt  :BranchCalc <CR> :GitBranchInput <CR> :Git diff-tree -r <C-R>b <C-R>d %
+" Checkout git branch launched from BranchCalc()
+nnoremap gc  :BranchReturn <CR> :<C-R>b<CR> :ClearClose<CR> :Git checkout <C-R>a
+nnoremap gb  :BranchCalc <CR>
 " Note that Vim-Fugitive uses //2 and //3 for 3-way diff puts/gets
 nnoremap <leader>gdh  :diffget //2 <CR>
 nnoremap <leader>gdl  :diffget //3 <CR>
