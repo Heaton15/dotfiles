@@ -154,9 +154,9 @@ au BufRead,BufNewFile *.py set tabstop=4
 "------------------------------------------------------------------------------"
 nnoremap <leader>g   :Git
 nnoremap <leader>o   :only <CR>
+nnoremap <leader>gp  :Git push 
 nnoremap gs  :Git <CR> :only <CR>
 nnoremap gl  :Git log <CR> :only <CR>
-nnoremap gp  :Git push
 nnoremap go  :Git log -p % <CR>
 nnoremap gd  :BranchCalcOverride <CR> :Gvdiffsplit! <C-R>d
 nnoremap gt  :BranchCalc <CR> :GitBranchInput <CR> :Git diff-tree -r <C-R>b <C-R>d %
