@@ -23,6 +23,7 @@ function! s:BranchCalc()
     vnew
     put =@b
     wincmd l
+    normal ggdd
 endfunction
 command! BranchCalc call s:BranchCalc()
 
