@@ -46,6 +46,7 @@ if [ ${USER} == "tim" ]; then
   export PATH="$HOME/.local/rouge/bin/:$PATH"
   source /home/tim/.fzf/shell/completion.bash
   export PATH="$HOME/.fzf/bin/:$PATH"
+  export GOPATH="$HOME/.go" && export PATH="$HOME/.go/bin:$PATH"
   eval $(dircolors ~/.dircolors)
   #source ~/.colors
   source ~/.functions.sh
