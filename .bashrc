@@ -7,12 +7,15 @@
 alias ls='ls --color=auto'
 alias vi='vim'
 alias ll='ls -la'
-alias la='ls -a'
 alias dirs='dirs -v'
 alias matlab='matlab -nosplash -nodesktop'
 alias grep='grep --color=yes'
 alias vimrc='vim $HOME/.vimrc'
 alias bashrc='vim $HOME/.bashrc'
+alias c='clear'
+alias cls='clear && ls'
+alias cla='clear && ls -a'
+alias cll='clear && ls -l'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"

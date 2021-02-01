@@ -139,6 +139,7 @@ au BufRead,BufNewFile *.il set filetype=skill
 au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.cdsenv set filetype=skill
+au BufRead,BufNewFile cds.lib set filetype=skill
 au BufRead,BufNewFile *.v,*.vg set filetype=verilog_systemverilog
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
