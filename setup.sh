@@ -230,6 +230,8 @@ fi
 #------------------------------------------------------------------------------#
 bash
 vim +PlugInstall +qall
+rm $HOME/.vim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
+ln -s $HOME/dotfiles/verilog_emacsauto.vim $HOME/.vim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
 rm $HOME/.vim/plugged/vim256-color/colors/elda.vim
 ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/plugged/vim256-color/colors/elda.vim
 bash scripts/vtags_setup.sh
