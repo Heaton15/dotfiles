@@ -140,7 +140,7 @@ au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.cdsenv set filetype=skill
 au BufRead,BufNewFile cds.lib set filetype=skill
-au BufRead,BufNewFile *.v,*.vg set filetype=verilog_systemverilog
+au BufRead,BufNewFile *.v,*.vg set filetype=verilog_systemverilog.verilog
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
 au BufRead,BufNewFile *.tex setlocal textwidth=80
@@ -266,10 +266,10 @@ endif
 "------------------------------------------------------------------------------"
 augroup verilogBindings
     autocmd! verilogBindings
-    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
-    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader><leader>a <Plug>VerilogEmacsAutoAdd 
-    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
-    autocmd Filetype verilog_systemverilog nnoremap <buffer> <leader><leader>d <Plug>VerilogEmacsAutoDelete 
+    autocmd FileType verilog_systemverilog map <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>
+    autocmd Filetype verilog_systemverilog map <leader><leader>a <Plug>VerilogEmacsAutoAdd
+    autocmd Filetype verilog_systemverilog map <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>
+    autocmd Filetype verilog_systemverilog map <leader><leader>d <Plug>VerilogEmacsAutoDelete
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>v       : py3 try_show_frame()                <CR> <C-w>h <CR> : set filetype=verilog_systemverilog <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>i       : py3 try_go_into_submodule()         <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>
     autocmd Filetype verilog_systemverilog nnoremap <buffer>  <leader>u       : py3 try_go_upper_module()           <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>
