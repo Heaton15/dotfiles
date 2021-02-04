@@ -25,7 +25,11 @@ VERILOG-LOOPS                                                     *verilog-help*
         a = 1;
       end 
  endtask
-
+                                         *verilog-autos*
+// Local Variables:
+// verilog-library-flags:("-F vmode.f")
+// verilog-auto-wire-comment: nil
+// End;
 
 ==============================================================================
                                                                   *verilog-macro*

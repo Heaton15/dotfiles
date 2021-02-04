@@ -15,6 +15,7 @@ makefile.txt	makefile.txt	/*makefile.txt*
 python-help	python.txt	/*python-help*
 python-libraries	hobbies.txt	/*python-libraries*
 python.txt	python.txt	/*python.txt*
+verilog-autos	verilog.txt	/*verilog-autos*
 verilog-for	verilog.txt	/*verilog-for*
 verilog-help	verilog.txt	/*verilog-help*
 verilog-macro	verilog.txt	/*verilog-macro*
