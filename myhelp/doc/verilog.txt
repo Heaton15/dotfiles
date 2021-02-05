@@ -1,4 +1,7 @@
 *verilog.txt*
+==============================================================================
+VERILOG-WEBSITE                                                   *verilog-website*
+https://verilogguide.readthedocs.io/en/latest/index.html
 
 ==============================================================================
 VERILOG-LOOPS                                                     *verilog-help*

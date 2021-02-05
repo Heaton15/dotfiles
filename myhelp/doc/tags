@@ -22,6 +22,7 @@ verilog-macro	verilog.txt	/*verilog-macro*
 verilog-plusargs	verilog.txt	/*verilog-plusargs*
 verilog-repeat	verilog.txt	/*verilog-repeat*
 verilog-task	verilog.txt	/*verilog-task*
+verilog-website	verilog.txt	/*verilog-website*
 verilog-while	verilog.txt	/*verilog-while*
 verilog.txt	verilog.txt	/*verilog.txt*
 work-url	work.txt	/*work-url*
