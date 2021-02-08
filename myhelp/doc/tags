@@ -10,6 +10,7 @@ conferences	conferences.txt	/*conferences*
 conferences.txt	conferences.txt	/*conferences.txt*
 disc-golf	hobbies.txt	/*disc-golf*
 hobbies.txt	hobbies.txt	/*hobbies.txt*
+makefile-examples	makefile.txt	/*makefile-examples*
 makefile-help	makefile.txt	/*makefile-help*
 makefile.txt	makefile.txt	/*makefile.txt*
 python-help	python.txt	/*python-help*
