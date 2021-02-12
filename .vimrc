@@ -158,6 +158,7 @@ au BufRead,BufNewFile *.py set tabstop=4
 nnoremap <leader>g   :Git
 nnoremap <leader>o   :only <CR>
 nnoremap <leader>gp  :Git push 
+nnoremap <leader>gf  :Git fetch -p <CR>
 nnoremap <leader>gs  :Git <CR> :only <CR>
 nnoremap <leader>gl  :Git log <CR> :only <CR>
 nnoremap <leader>go  :Git log -p % <CR>
@@ -186,14 +187,6 @@ nnoremap <silent> <leader>wh :TmuxNavigateLeft <CR>
 nnoremap <silent> <leader>wj :TmuxNavigateDown <CR>
 nnoremap <silent> <leader>wk :TmuxNavigateUp <CR>
 nnoremap <silent> <leader>wl :TmuxNavigateRight <CR>
-
-"------------------------------------------------------------------------------"
-"                                Vim Windowswap                                "
-"------------------------------------------------------------------------------"
-let g:windowswap_map_keys = 0 "prevent default bindings
-nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
-nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
-nnoremap <silent> <leader>m :call WindowSwap#EasyWindowSwap()<CR>
 
 "------------------------------------------------------------------------------"
 "                                  Binary R/W                                  "

@@ -10,9 +10,25 @@ $^ - The names of all the dependencies separated by spaces, but with duplicate n
 $+ - The names of all the dependencies separated by spaces with duplicated names included and in the same order as in the rule
 ==============================================================================
                                                                   *makefile-examples*
-CC = gcc 
+CC = gcc
+
 CFLAGS = -g -Wall -pedantic
 
-hex_read: hex_read.o
-    $(CC) $(CFLAGS) -o $@ $^
+PROGRAM = hex_read
+OBJ = plaintext.o hex_read.o
+
+default: $(addsuffix .bin,$(PROGRAM))
+	./hex_read.bin
+
+%.bin: $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+%.o: %.S
+	$(CC) $(CFLAGS) -c $< -o $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean: 
+	rm -f *.o
 ==============================================================================

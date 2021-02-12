@@ -1,0 +1,106 @@
+*constraints.txt*
+==============================================================================
+CONSTRAINTS                                                     *constraints-help*
+
+*set_multicyle_path*
+ Specified multicycle paths between timing paths. These are paths which
+ require more than one clock period for execution. All paths are considered
+ as one cycle paths for setup/hold unless specified. 
+    
+ Setting to 2 paths means that the hold timing is checked after 2 cycles, not 1.
+
+ NOTE: Genus ignores -hold multicycles unless during a physical flow. Insertion
+       delay often accounts for hold failures and is not accounted for in 
+       front end tools.
+
+ NOTE: Reset synchronization can be done with multi cycle paths by carefully
+ constraining it with a state machine to hold reset for the right amount of
+ time. You can multi cycle the synchronous reset, but must constrain the skew so
+ that the arriving resets land all in the same clock cycle. 
+>
+ set_multicycle_path 2 -hold -from CLKA -to CLKb
+<
+
+*create_clock*
+ Creates a clock object and defines its waveform. Not specifying a source 
+ will cause the clock to be defined as virtual. 
+
+# Creates a 10 MHz clock with a 50% duty cycle
+>
+ create_clock 
+    -name CLKA 
+    -period 10 
+    -waveform "0 5"
+<
+
+*set_false_path*
+ Identifies false paths in a design and breaks/disables specific instance timing
+ arcs. An example would be disabling timing checks of BIST blocks you plan on
+ running much slower than the mission mode clock or disabling timing to static 
+ configuration static registers (CSRs). 
+
+# Disables timing checks on the TCEN BIST signal for the block
+>
+ set_false_path -to [get_pins -hierarchical *instance*/TCEN]
+<
+
+*set_case_analysis* 
+ Sets a constant or transitional value to a list of pins or ports for the timing
+ engine. Can specify the mode of a design without changing the netlist.
+
+ NOTE: False paths will disable timing for a path. Case analysis will propagate
+       a specific value for timing. 
+
+# Sets the input value of memory pin EMAS to 0 for the timing engine.
+>
+ set_case_analysis 0 [get_pins -hierarchical *SRAM*/*/EMAS]
+<
+
+*set_clock_uncertainty*
+ Specified the uncertainty of a clock network, specifically a window in which
+ the clock can rise or fall. Applying an uncertainty constraint can be
+ representative of inter/intra clock skew, jitter, margins, etc.
+
+ NOTE: Inter-Clock uncertainty is skew between 2 clocks
+ NOTE: Intra-Clock uncertainty is skew defined for 1 clock
+
+# Sets a intra-clock setup uncertainty which creates 0.4 units uncertainty on
+  all paths ending at reg1 captured by clock CLK.
+>
+ set_clock_uncertainty -setup -rise_to 0.4 [get_db pins *reg1/CLK]
+<
+
+*set_clock_transition*
+ Sets a specific slew value for a clocks rising or falling edge. 
+>
+ set_clock_transition -max -rise 0.5 CLKA
+<
+
+*set_max/min_transition*
+ Sets the max/min slew time limit (transition) on the specified instance, pin or
+ port. The pins of cells in a timing library will have their own max constraint,
+ and the most aggressive between your own and the timing library will be used. 
+
+# Creates a 0.9 unit slew on all ports of the design
+>
+ set_max_transition 0.9 [get_ports *]
+<
+
+*create_generated_clock*
+TODO
+
+*set_clock_groups*
+TODO
+
+*set_output_delay*
+TODO
+
+*set_input_delay*
+TODO
+
+*set_max_delay*
+TODO
+
+*set_min_delay*
+TODO
+
