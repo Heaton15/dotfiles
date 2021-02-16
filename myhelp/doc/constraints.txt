@@ -76,10 +76,14 @@ CONSTRAINTS                                                     *constraints-hel
  set_clock_transition -max -rise 0.5 CLKA
 <
 
-*set_max/min_transition*
+*set_max_transition*
+*set_min_transition*
  Sets the max/min slew time limit (transition) on the specified instance, pin or
  port. The pins of cells in a timing library will have their own max constraint,
  and the most aggressive between your own and the timing library will be used. 
+
+ NOTE: For analysis, transition time is the time it takes to go from high to low
+ or low to high
 
 # Creates a 0.9 unit slew on all ports of the design
 >
@@ -87,10 +91,35 @@ CONSTRAINTS                                                     *constraints-hel
 <
 
 *create_generated_clock*
-TODO
+ Creates a new clock signal which is source synchronous to the clock which it
+ creates. For example, dividing a clock by 2 through a clock and setting this
+ constraint creates a new clock with T = Tsource*2
+
+# Creates a generated clock at the output of a flop div 2
+>
+ create_generated_clock -name newCLK -source CLK -divide_by 2 FD1/Q
+<
 
 *set_clock_groups*
-TODO
+ Defines clock groups with specific clock definitions. You can specifiy mutual
+ exclusiveness, asynchronous groups, or logical exclusiveness. 
+    - asynchronous: Defines clock groups to not have a phase relationship
+    - logically_exclusive: Clock groups share no functional paths (clock mux clocks)
+    - physically_exclusive: Cannot exist at the same time (multiple clocks on 1 pin)
+
+# Creates 2 clocks which are logically exclusive and then specifies they are
+  also async to the other clocks of the design. 
+
+>
+ set_clock_group -logically_exclusive \
+    -group {CLK_DIV1} \
+    -group {CLK_DIV2}
+
+ set_clock_group -asynchronous \
+    -group {CLK_DIV1} \
+    -group {CLK_DIV2} \
+    -group {CLKA}
+<
 
 *set_output_delay*
 TODO
@@ -104,3 +133,8 @@ TODO
 *set_min_delay*
 TODO
 
+==============================================================================
+BLOCKAGES                                                     *blockage-help*
+
+==============================================================================
+HALOS                                                         *halo-help*
