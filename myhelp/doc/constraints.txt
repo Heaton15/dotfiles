@@ -121,11 +121,110 @@ CONSTRAINTS                                                     *constraints-hel
     -group {CLKA}
 <
 
-*set_output_delay*
-TODO
+
 
 *set_input_delay*
-TODO
+
+ Timing paths often extend from a clock pin to a source register. These paths
+ will go through traces and comb logic which have delays. If the source or
+ destination register are outside of the macro you are designing, then the timing
+ paths with those registers are not defined. You use the output delay and input
+ delay constraints to solve this issue.
+
+ NOTE: max input/output delay is used for setup timing analysis
+       min input/output delay is used for hold timing analysis
+
+ `set_input_delay` defines the arrival time relative to a clock edge on input
+ ports. It models the delay from an external register to an input port of the
+ module. It is the range of delays of the data toggling after a clock.
+
+ For example, specifying an input delay of 5ns means that after the rising
+ edge of the clock, the data will be presented 5ns after the clock edge.
+ Therefore, set_input_delay is arrival time of data after clock edge. 
+
+    max: A maximum input delay is a setup check. It measures the maximum clock
+         to output of the driving chip + board propagation delay. This means
+         that the input data line will arrive after the specified max delay of the clock
+         edge. If signal Dout of the design is the input to a register and the maximum
+         input delay is applied as 4ns, then that means when the clock fires, the signal
+         will not be valid at the input until 4ns or later.
+
+    min: A minimum output delay is a hold check. If signal Dout inside your
+         design is the input to a register, then the minimum input delay is the minimum
+         that you must wait before the input is valid. Hold timing is the amount of time
+         an input must be held before switching after the clock edge, so the minimum
+         input delay should account for the hold time of the flop.
+        
+
+*set_output_delay*
+
+ Timing paths often extend from a clock pin to a source register. These paths
+ will go through traces and comb logic which have delays. If the source or
+ destination register are outside of the macro you are designing, then the timing
+ paths with those registers are not defined. You use the output delay and input
+ delay constraints to solve this issue.
+
+ NOTE: max input/output delay is used for setup timing analysis
+       min input/output delay is used for hold timing analysis
+
+ `set_output_delay` defines the delay of an external register relative to an
+ external clock. It is literally the output delay that the output signal in your
+ constraint will propagate before reaching the final destination. It is the
+ range of delays of the clock after a data toggles. 
+
+    max: A maximum output delay is a setup check. If signal Dout inside your
+         design is applied a 3ns maximum output delay, you are saying that the receiving
+         logic external to your macro will see that signal at maximum 3ns after the clock
+         edge. If the macro and external macro both operate on a 10ns clock, then that
+         means the receiving macro will fail if Dout has not left the flop by t=7ns (because it
+         takes 3 seconds of delay to reach the end point). This means you are saying the
+         output logic demands 3 seconds of setup time. Also defined as the setup
+         time of receiving chip + board propagation.
+
+         Example 1: `set_output_delay -clock CLKa -max 3 -period 20ns [get_ports clock_name]`
+          Tclk = 10ns
+          Tdiff = 10ns-10ns = 0ns (no clock difference)
+          Tsu = 3ns (to external logic)
+          Data must leave by Tclk-Tdiff-Tsu = 7ns
+
+         Example 2: `set_output_delay -clock CLKa -max 8 -period 20ns [get_ports clock_name]`
+          Tclk = 20ns
+          Tsu = 8ns (output delay)
+          Tu = 0ns (uncertainty)
+          Tlogic = 9.5ns (arrival time)
+          Tclk - Tsu - Tu = 12ns
+          Data must leave by 12ns
+          Slack = 12ns - Tlogic = 2.5ns
+
+    min: A minimum output delay is a hold check. If signal Dout inside your design
+         is applied a -1ns min output delay, then you are saying that when the
+         clock rises, the external device must hold on to the data for 1ns before it can
+         be updated. Also defined as minus hold time of receiving chip.
+
+         Example 1: `set_output_delay -clock CLKa -min -1 -period 20ns [get_ports clock_name]`
+          Tclk = 10ns
+          Tdiff = 10ns-10ns = 0ns (no clock difference)
+          Th = 1ns (to external logic)
+          Data must leave by Tdiff-Th = -1
+
+         Example 2: `set_output_delay -clock CLKa -min -3 -period 20ns [get_ports clock_name]`
+          Tclk = 20ns
+          Th = 3ns (to external logic)
+          Tlogic = 5ns (arrival time)
+          Tu = 0ns (uncertainty)
+          Data must leave by -3ns
+          0ns - (-3) + Tu = 3ns
+          Slack = Tlogic - 3ns = 2ns
+ 
+          
+          
+         
+
+    Valid Window Example 1: This means that because of the max/min constraints, the output
+                  register must have valid data between 7ns and 11ns (setup dicates 7ns and hold
+                  dictates 11ns)
+  
+ 
 
 *set_max_delay*
 TODO
@@ -138,3 +237,7 @@ BLOCKAGES                                                     *blockage-help*
 
 ==============================================================================
 HALOS                                                         *halo-help*
+
+==============================================================================
+CLOCK GATE                                                    *clock_gate-help*
+- look at Slack messages to put some knowledge from there in this section
