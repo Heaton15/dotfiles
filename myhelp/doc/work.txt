@@ -6,4 +6,5 @@ https://github.com/m-labs/migen
 https://devhints.io/vimscript-functions
 https://www.cs.oberlin.edu/~kuperman/help/vim/home.html
 https://learnvimscriptthehardway.stevelosh.com
+https://github.com/mhinz/vim-galore
 
