@@ -7,4 +7,5 @@ https://devhints.io/vimscript-functions
 https://www.cs.oberlin.edu/~kuperman/help/vim/home.html
 https://learnvimscriptthehardway.stevelosh.com
 https://github.com/mhinz/vim-galore
+https://www.physicaldesign4u.com/o
 
