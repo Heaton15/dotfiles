@@ -8,4 +8,7 @@ https://www.cs.oberlin.edu/~kuperman/help/vim/home.html
 https://learnvimscriptthehardway.stevelosh.com
 https://github.com/mhinz/vim-galore
 https://www.physicaldesign4u.com/o
+https://vlsibasic.blogspot.com/2014/10/clock-skew.html
+
+
 
