@@ -172,11 +172,11 @@ fi
 ##################################################################
 # Create .elisp file to hold verilog-auto.el file   
 ##################################################################
-if [ -e $HOME/.elisp ]; then 
+if [ -d $HOME/.elisp ]; then 
     mv $HOME/.elisp $HOME/$BACKUP/.elisp_bak
-    ln -s $HOME/dotfiles/.elisp $HOME/.elisp
-else
-    ln -s $HOME/dotfiles/.elisp $HOME/.elisp
+    mkdir $HOME/.elisp && ln -s $HOME/dotfiles/.elisp/* $HOME/.elisp
+else 
+    mkdir $HOME/.elisp && ln -s $HOME/dotfiles/.elisp/* $HOME/.elisp
 fi
 
 
@@ -219,10 +219,10 @@ fi
 #                               Custom Vim Syntax                              #
 #------------------------------------------------------------------------------#
 if [ -d $HOME/.vim/syntax ]; then 
-    mv $HOME/.vim/syntax $HOME/$BACKUP/.vim/syntax_bak
-    ln -s $HOME/dotfiles/syntax $HOME/.vim/syntax
+    mv $HOME/.vim/syntax $HOME/$BACKUP/syntax_bak
+    mkdir $HOME/.vim/syntax && ln -s $HOME/dotfiles/syntax/* $HOME/.vim/syntax/
 else
-    ln -s $HOME/dotfiles/syntax $HOME/.vim/syntax
+    mkdir $HOME/.vim/syntax && ln -s $HOME/dotfiles/syntax/* $HOME/.vim/syntax/
 fi
 
 #------------------------------------------------------------------------------#
