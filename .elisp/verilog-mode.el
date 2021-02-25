@@ -123,6 +123,10 @@
 ;;; Code:
 ;;
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;    Modifications to File;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq large-file-warning-threshold nil)
 ;; This variable will always hold the version number of the mode
 (defconst verilog-mode-version "2021-01-28-d567884-vpo"
   "Version of this Verilog mode.")
