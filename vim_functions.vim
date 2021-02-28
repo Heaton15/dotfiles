@@ -39,7 +39,6 @@ function! s:BranchCalcOverride()
 endfunction
 command! BranchCalcOverride call s:BranchCalcOverride()
 
-
 "------------------------------------------------------------------------------"
 "             BranchReturn: Grabs git branch name from BranchCalc()            "
 "------------------------------------------------------------------------------"
@@ -57,3 +56,17 @@ function! s:ClearClose()
     close!
 endfunction
 command! ClearClose call s:ClearClose()
+
+"------------------------------------------------------------------------------"
+"             Hover: Allows you to turn on python help for commands            "
+"------------------------------------------------------------------------------"
+let s:ycm_hover_popup=-1
+function s:Hover()
+  let response = youcompleteme#GetCommandResponse( 'GetDoc' )
+  if response == ''
+    return
+endif
+  call popup_hide( s:ycm_hover_popup ) 
+  let s:ycm_hover_popup = popup_atcursor( balloon_split( response ), {} )
+endfunction
+command! Hover call s:Hover()

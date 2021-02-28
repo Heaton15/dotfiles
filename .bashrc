@@ -47,6 +47,7 @@ if [ ${USER} == "tim" ]; then
   archey3 --color=cyan
   export PATH="$HOME/AUR/matlab/bin:$PATH"
   export PATH="$HOME/.local/rouge/bin/:$PATH"
+  export PATH="$HOME/.local/bin:$PATH"
   source /home/tim/.fzf/shell/completion.bash
   export PATH="$HOME/.fzf/bin/:$PATH"
   export GOPATH="$HOME/.go" && export PATH="$HOME/.go/bin:$PATH"

@@ -339,4 +339,5 @@ let g:ycm_language_server = [
 "------------------------------------------------------------------------------"
 let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsMoveItems = 0
-
+let g:ycm_auto_hover=""
+nnoremap <silent> <leader>pp :Hover<CR>
