@@ -82,6 +82,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   # The order of these 2 commands matters
   [[ -r "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh"
   source $HOME/.fzf/shell/completion.bash
+  export PATH="$HOME/.linuxbrew/Cellar/openjdk@8/1.8.0+282/bin:$PATH"
   export GOPATH="$HOME/.go" && export PATH="$HOME/.go/bin:$PATH"
 fi
 
