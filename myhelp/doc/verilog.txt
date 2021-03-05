@@ -1,5 +1,14 @@
 *verilog.txt*
 ==============================================================================
+VERILOG-AUTOS                                                     *verilog-autos*
+// Local Variables:
+// verilog-library-flags:("-F vmode.f")
+// verilog-library-extensions:(".vm" ".v")
+// verilog-auto-endcomments: nil
+// verilog-auto-wire-comment: nil
+// End:
+
+==============================================================================
 VERILOG-WEBSITE                                                   *verilog-website*
 https://verilogguide.readthedocs.io/en/latest/index.html
 
@@ -28,12 +37,6 @@ VERILOG-LOOPS                                                     *verilog-help*
         a = 1;
       end 
  endtask
-                                         *verilog-autos*
-// Local Variables:
-// verilog-library-flags:("-F vmode.f")
-// verilog-auto-wire-comment: nil
-// End;
-
 ==============================================================================
                                                                   *verilog-macro*
 // Macros are used 
