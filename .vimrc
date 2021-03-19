@@ -236,15 +236,21 @@ if ($USER == "tim")
     let g:vimtex_view_general_viewer="zathura"
 endif
 
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 2
 set conceallevel=0
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
 let g:vimtex_quickfix_ignore_filters = [
-    \ 'Underfull',
-    \ 'Overfull',
-    \]
+            \'float specifier changed to',
+            \'Underfull',
+            \'Overfull'
+            \]
 
 "------------------------------------------------------------------------------"
 "                                vtags Keybinds                                "
