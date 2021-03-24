@@ -11,6 +11,25 @@
 -w file - file is writeable?
 -x file - file is executable?
 ==============================================================================
+                                                                  *bash-special-flags*
+
+$! - Bash script parameter is used to reference process ID of most recently 
+     executed command in background
+$$ - Used to reference process ID of bash shell itself
+$# - Special bash parameter which expands to a number of positional parameters in decimal
+$0 - Used to reference name of shell or shell script. Used to print name of shell script. 
+$- - Used to get current option flags specified during invocation, by the set built-in command
+     or set by the bash shell itself. Rarely used bash parameter. 
+$? - One of the most used and reports exit status of most recently executed command in the foreground. 
+     By using this, you can check whether your bash script completed successfully or not
+$_ - Used to reference the absolute file name of the shell or bash script which is being executed as
+     specified in the argument list. Also used to hold the name of mail file while checking emails. 
+$@ - Used to expand into positional parameters starting from one. When expansion occurs inside
+     double-quotes, every parameter expands into separate words.
+$* - Similar to $@ special bash parameter only difference is when expansion occurs with double quotes,
+     it expands to aq single word with the value of each bash parameter separated by the first character
+     of the IFS special env variable.
+==============================================================================
                                                                   *bash-strings*
 string - string not empty?
 string1 == string2 - strings same?
