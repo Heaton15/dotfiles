@@ -166,7 +166,7 @@ nnoremap <leader>gs  :Git <CR> :only <CR>
 nnoremap <leader>gl  :Git log <CR> :only <CR>
 nnoremap <leader>go  :Git log -p % <CR>
 nnoremap <leader>gd  :BranchCalcOverride <CR> :Gvdiffsplit!<C-R>d
-nnoremap <leader>gt  :BranchReturn <CR> :<C-R>b<CR> :ClearClose<CR> :Git diff-tree -r <C-R>a <C-R>c %
+nnoremap <leader>gt  :BranchReturn <CR> :<C-R>b<CR> :ClearClose<CR> :Git -p diff-tree -r <C-R>a <C-R>c %
 " Checkout git branch launched from BranchCalc()
 nnoremap <leader>gc  :BranchReturn <CR> :<C-R>b<CR> :ClearClose<CR> :Git checkout <C-R>c
 nnoremap <leader>gb  :BranchCalc <CR>
