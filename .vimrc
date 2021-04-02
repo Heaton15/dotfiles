@@ -49,7 +49,7 @@ colorscheme elda
 syntax on
 filetype plugin indent on
 set splitright
-set foldmethod=manual
+set foldmethod=syntax
 set virtualedit=all
 set mouse=a
 set noea "set equalalways
@@ -80,6 +80,8 @@ let maplocalleader ="\<Space>"
 nnoremap <leader>ev :vsplit $MYVIMRC <CR>
 nnoremap <leader>vr :source $MYVIMRC <CR>
 nnoremap <leader>eb :vsplit $HOME/.bashrc <CR>
+nnoremap <leader>bn :bn <CR>
+nnoremap <leader>bp :bp <CR>
 nnoremap <leader>q :qa! <CR>
 nnoremap <leader>wh <C-w>h 
 nnoremap <leader>wj <C-w>j
@@ -171,6 +173,7 @@ nnoremap <leader>gb  :BranchCalc <CR>
 " Note that Vim-Fugitive uses //2 and //3 for 3-way diff puts/gets
 nnoremap <leader>gdh  :diffget //2 <CR>
 nnoremap <leader>gdl  :diffget //3 <CR>
+nnoremap nc ]c
 
 
 "------------------------------------------------------------------------------"
@@ -236,10 +239,10 @@ if ($USER == "tim")
     let g:vimtex_view_general_viewer="zathura"
 endif
 
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+"if !exists('g:ycm_semantic_triggers')
+"  let g:ycm_semantic_triggers = {}
+"endif
+"au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 2
