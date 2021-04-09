@@ -26,18 +26,19 @@ Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
 Plug 'voldikss/vim-floaterm'
-Plug 'justinmk/vim-syntax-extra' " c highlighting
+Plug 'justinmk/vim-syntax-extra' "c highlighting
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/tcl.vim--smithfield'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'aserebryakov/vim-todo-lists'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'liuchengxu/vista.vim'
  
 "Plug 'tagexplorer.vim'
 "Plug 'daeyun/vim-matlab'
 "Plug 'dense-analysis/ale'
-"Plug 'liuchengxu/vista.vim'
-"Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
+
 """""""""""""""""""""""""""""""""""""
 set updatetime=1000
 let g:python_highlight_all = 1
@@ -315,8 +316,17 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 set tags^=.git/tags;
 let g:gutentags_ctags_tagfile=".git/tags"
 let g:gutentags_ctags_extra_args = [
-      \ '--fields=l',
+      \ '--fields=ailmnS',
+      \ '--tag-relative=yes',
+      \ '--python-kinds=-i',
       \ ]
+let g:gutentags_ctags_exclude = [
+            \ '*.sv', '*.v',
+            \ ]
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
 
 "------------------------------------------------------------------------------"
 "                               Vista Tag Display                              "
