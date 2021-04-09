@@ -20,7 +20,8 @@ Plug 'amal-khailtash/vim-xdc-syntax'
 Plug 'psliwka/vim-smoothie'
 Plug 'thinca/vim-localrc'
 Plug 'camspiers/lens.vim'
-"Plug 'camspiers/animate.vim'
+
+Plug 'camspiers/animate.vim'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
@@ -39,7 +40,7 @@ Plug 'liuchengxu/vista.vim'
 "Plug 'dense-analysis/ale'
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""
 set updatetime=1000
 let g:python_highlight_all = 1
 let g:python_version_2 = 0
@@ -174,7 +175,7 @@ nnoremap <leader>gb  :BranchCalc <CR>
 " Note that Vim-Fugitive uses //2 and //3 for 3-way diff puts/gets
 nnoremap <leader>gdh  :diffget //2 <CR>
 nnoremap <leader>gdl  :diffget //3 <CR>
-nnoremap nc ]c
+nnoremap <leader>nc ]c
 
 
 "------------------------------------------------------------------------------"
@@ -213,7 +214,7 @@ let g:ale_linters = {'c': ['gcc']}
 "------------------------------------------------------------------------------"
 "                              animate/lens Config                             "
 "------------------------------------------------------------------------------"
-"let g:lens#disabled_filetypes = ['vundle', 'qf', 'vista', '']
+let g:lens#disabled_filetypes = ['vundle', 'qf', 'vista', '']
 let g:lens#height_resize_max = (winheight(0)*8/10)
 let g:lens#height_resize_min = (winheight(0)*8/10)
 let g:lens#width_resize_max = (winwidth(0)*8/10)
@@ -315,6 +316,9 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 "set tags=./tags;,tags; "Use ctags -R --fields=+l
 set tags^=.git/tags;
 let g:gutentags_ctags_tagfile=".git/tags"
+
+" Note you can check specific filetype options
+" with ctags --list-kinds=python
 let g:gutentags_ctags_extra_args = [
       \ '--fields=ailmnS',
       \ '--tag-relative=yes',
@@ -322,6 +326,7 @@ let g:gutentags_ctags_extra_args = [
       \ ]
 let g:gutentags_ctags_exclude = [
             \ '*.sv', '*.v',
+            \ '*Makefile',
             \ ]
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1
@@ -331,6 +336,9 @@ let g:gutentags_generate_on_empty_buffer = 0
 "------------------------------------------------------------------------------"
 "                               Vista Tag Display                              "
 "------------------------------------------------------------------------------"
+nnoremap tt :Vista <CR>
+" Don't jump to the vista window when opening
+let g:vista_stay_on_open = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_icon_indent= ['▸', '▾'] 
 let g:vista_fold_toggle_icons= ['▸', '▾'] 
