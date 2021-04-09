@@ -314,8 +314,8 @@ let g:ycm_collect_identifiers_from_tags_files = 1
         \}
 
 "set tags=./tags;,tags; "Use ctags -R --fields=+l
-set tags^=.git/tags;
-let g:gutentags_ctags_tagfile=".git/tags"
+"set tags^=.git/tags;
+"let g:gutentags_ctags_tagfile=".git/tags"
 
 " Note you can check specific filetype options
 " with ctags --list-kinds=python
@@ -332,6 +332,13 @@ let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+let g:gutentags_add_default_project_roots = 0
+
+" Need to figure out a better project dir specifier
+let g:gutentags_project_root = ['.tmp_top']
+command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+nnoremap <leader>dt :GutentagsClearCache <CR>
 
 "------------------------------------------------------------------------------"
 "                               Vista Tag Display                              "
