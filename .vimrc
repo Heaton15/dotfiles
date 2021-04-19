@@ -41,6 +41,8 @@ Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
+" Allows ESC sequence to not pend
+set ttimeoutlen=5
 set updatetime=1000
 let g:python_highlight_all = 1
 let g:python_version_2 = 0
@@ -51,7 +53,7 @@ colorscheme elda
 syntax on
 filetype plugin indent on
 set splitright
-set foldmethod=syntax
+set foldmethod=manual
 set virtualedit=all
 set mouse=a
 set noea "set equalalways
@@ -138,6 +140,7 @@ nnoremap <silent> <leader>w/ :vsp <CR>
 "------------------------------------------------------------------------------"
 "                               Filetype Updates                               "
 "------------------------------------------------------------------------------"
+autocmd FileType git setlocal foldmethod=syntax
 au BufRead,BufNewFile *.scs set filetype=spectre
 au BufRead,BufNewFile *.il set filetype=skill
 au BufRead,BufNewFile *.ils set filetype=skill
@@ -226,7 +229,9 @@ let g:SuperTabDefaultCompletionType = 'context'
 """""""File Finder Commands"""""
 nmap <leader>ff :Files 
 nmap <leader>tt :Tags <CR>
+nnoremap <leader>bt :BTags <CR>
 nmap <leader>bb :Buffers <CR>
+nnoremap <leader>ft :Filetypes <CR>
 
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
@@ -240,11 +245,6 @@ nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip
 if ($USER == "tim")
     let g:vimtex_view_general_viewer="zathura"
 endif
-
-"if !exists('g:ycm_semantic_triggers')
-"  let g:ycm_semantic_triggers = {}
-"endif
-"au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 2
