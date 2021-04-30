@@ -228,7 +228,6 @@ fi
 #------------------------------------------------------------------------------#
 #                             Final Install Changes                            #
 #------------------------------------------------------------------------------#
-bash
 vim +PlugInstall +qall
 rm $HOME/.vim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
 ln -s $HOME/dotfiles/verilog_emacsauto.vim $HOME/.vim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
