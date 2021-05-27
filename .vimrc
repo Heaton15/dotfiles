@@ -20,11 +20,10 @@ Plug 'amal-khailtash/vim-xdc-syntax'
 Plug 'psliwka/vim-smoothie'
 Plug 'thinca/vim-localrc'
 Plug 'camspiers/lens.vim'
-
-Plug 'camspiers/animate.vim'
+"Plug 'camspiers/animate.vim'
 Plug 'cometsong/CommentFrame.vim'
 Plug 'lervag/vimtex'
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
 Plug 'voldikss/vim-floaterm'
 Plug 'justinmk/vim-syntax-extra' "c highlighting
@@ -142,7 +141,10 @@ nnoremap <silent> <leader>w/ :vsp <CR>
 "------------------------------------------------------------------------------"
 autocmd FileType git setlocal foldmethod=syntax
 au BufRead,BufNewFile *.scs set filetype=spectre
-au BufRead,BufNewFile *.il set filetype=skill
+au BufRead,BufNewFile *.il set filetype=skill tabstop=4
+    \ softtabstop=4
+    \ textwidth=80
+    \ autoindent
 au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.cdsenv set filetype=skill
@@ -185,9 +187,10 @@ nnoremap <leader>nc ]c
 "                              tmux / vimux config                             "
 "------------------------------------------------------------------------------"
 nnoremap <leader>vp :VimuxPromptCommand<CR>
+nnoremap <leader>vc :VimuxCloseRunner<CR>
+nnoremap <leader>vo :VimuxOpenRunner<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 nnoremap <leader>vi :VimuxInspectRunner<CR>
-nnoremap <leader>vz :VimuxZoomRunner<CR>
 
 "------------------------------------------------------------------------------"
 "                             Vim Buffer Naviation                             "
