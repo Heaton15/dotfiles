@@ -5,6 +5,19 @@ set nocompatible
 "filetype off " required
 
 call plug#begin('~/.vim/plugged')
+
+if version > 800
+    Plug 'benmills/vimux'
+    Plug 'cometsong/CommentFrame.vim'
+    Plug 'ycm-core/YouCompleteMe'
+    Plug 'lervag/vimtex'
+    Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
+    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'camspiers/lens.vim'
+    Plug 'psliwka/vim-smoothie'
+    "Plug 'camspiers/animate.vim'
+endif
+
 Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/tarikgraba/vim-lefdef.git'
 Plug 'junegunn/fzf.vim'
@@ -14,24 +27,14 @@ Plug 'godlygeek/tabular'
 Plug 'vim-scripts/verilog_emacsauto.vim'
 Plug 'raingo/vim-matlab'
 Plug 'junegunn/vim-easy-align'
-Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'amal-khailtash/vim-xdc-syntax'
-Plug 'psliwka/vim-smoothie'
-Plug 'thinca/vim-localrc'
-Plug 'camspiers/lens.vim'
-"Plug 'camspiers/animate.vim'
-Plug 'cometsong/CommentFrame.vim'
-Plug 'lervag/vimtex'
-"Plug 'ycm-core/YouCompleteMe'
-Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
-Plug 'voldikss/vim-floaterm'
+"Plug 'thinca/vim-localrc'
 Plug 'justinmk/vim-syntax-extra' "c highlighting
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/tcl.vim--smithfield'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'aserebryakov/vim-todo-lists'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vista.vim'
  
 "Plug 'tagexplorer.vim'
