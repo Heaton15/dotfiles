@@ -25,9 +25,6 @@ alias .2="cd ../../"
 alias .3="cd ../../../"
 alias .4="cd ../../../../"
 alias .5="cd ../../../../../"
-alias cadence_tools="source $HOME/timh_linuxbrew/source_file/setup_tools.sh"
-alias vimgit="vim -c \":Git\" -c \":only\""
-alias vimlog="vim -c \":Git log\" -c \":only\""
 #################PATH Updates##############
 
 # Configures fuzzy finder 
@@ -46,7 +43,6 @@ export TERM=xterm-256color
 #export TERM=rxvt-unicode-256color
 if [ ${USER} == "tim" ]; then
   archey3 --color=cyan
-  export PATH="$HOME/AUR/matlab/bin:$PATH"
   export PATH="$HOME/.local/rouge/bin/:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
   source /home/tim/.fzf/shell/completion.bash
