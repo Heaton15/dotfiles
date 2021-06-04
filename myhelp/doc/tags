@@ -36,6 +36,8 @@ set_min_delay	constraints.txt	/*set_min_delay*
 set_min_transition	constraints.txt	/*set_min_transition*
 set_multicyle_path	constraints.txt	/*set_multicyle_path*
 set_output_delay	constraints.txt	/*set_output_delay*
+ssh-help	ssh.txt	/*ssh-help*
+ssh.txt	ssh.txt	/*ssh.txt*
 verilog-autos	verilog.txt	/*verilog-autos*
 verilog-for	verilog.txt	/*verilog-for*
 verilog-help	verilog.txt	/*verilog-help*
