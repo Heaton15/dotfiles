@@ -39,8 +39,8 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
 
 
 set -o vi
-export TERM=xterm-256color
-#export TERM=rxvt-unicode-256color
+#export TERM=xterm-256color
+export TERM=rxvt-unicode-256color
 if [ ${USER} == "tim" ]; then
   archey3 --color=cyan
   export PATH="$HOME/.local/rouge/bin/:$PATH"
@@ -60,15 +60,14 @@ fi
 # TSS Only
 if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
  then
-  eval $(dircolors ~/.dircolors)
+  eval $(dircolors --sh ~/.dircolors)
   alias vtags='python $HOME/.vtags-3.01/vtags.py'
   export PATH="$HOME/.fzf/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/perl/bin:$PATH"
   export PATH="$HOME/.linuxbrew/opt/texlive/texlive/bin/x86_64-linux:$PATH"
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
-  export PATH="$HOME/.rxvt-unicode-9.22/bin:$PATH"
-  export PATH="$HOME/timh_chipyard/verilator/bin:$PATH"
+  export FONTCONFIG_PATH=$HOME/.linuxbrew/etc/fonts
   export RISCV="$HOME/rocket-tools"
   export PATH="$HOME/rocket-tools/bin:$PATH"
   export HOMEBREW_TEMP=$HOME/.linuxbrew_tmp
@@ -93,6 +92,6 @@ export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]
 
 
 
-if [ ${USER} == heaton.49 ]; then
-    source $HOME/linuxbrew/all_proxy.sh
-fi
+#if [ ${USER} == heaton.49 ]; then
+#    source $HOME/linuxbrew/all_proxy.sh
+#fi
