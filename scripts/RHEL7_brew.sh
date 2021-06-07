@@ -24,4 +24,5 @@ brew install glibc
 brew install gcc
 brew install git
 brew tap linuxbrew/fonts
+ln -s $HOME/.linuxbrew/share/fonts $HOME/.local/share/fonts
 
