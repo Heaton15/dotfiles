@@ -1,4 +1,5 @@
 ""------------------------------------------------------------------------------"
+ 
 ""                             Plug Configuration                               "
 ""------------------------------------------------------------------------------"
 set nocompatible
@@ -9,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 if version > 800
     Plug 'benmills/vimux'
     Plug 'cometsong/CommentFrame.vim'
-    Plug 'ycm-core/YouCompleteMe'
+    "Plug 'ycm-core/YouCompleteMe'
     Plug 'lervag/vimtex'
     Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
     Plug 'ludovicchabant/vim-gutentags'
@@ -213,6 +214,7 @@ nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
 "                                  fzf Config                                  "
 "------------------------------------------------------------------------------"
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:fzf_preview_window = ['right:50%', 'F1']
 
 "------------------------------------------------------------------------------"
 "                               ale Configuration                              "
@@ -355,14 +357,6 @@ let g:vista_stay_on_open = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_icon_indent= ['▸', '▾'] 
 let g:vista_fold_toggle_icons= ['▸', '▾'] 
-
-"------------------------------------------------------------------------------"
-"                            Floaterm Configuration                            "
-"------------------------------------------------------------------------------"
-let g:floaterm_keymap_new = '<F1>'
-let g:floaterm_keymap_prev = '<F2>'
-let g:floaterm_keymap_next = '<F3>'
-let g:floaterm_keymap_toggle = '<F4>'
 
 
 
