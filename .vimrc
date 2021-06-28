@@ -37,6 +37,7 @@ Plug 'vim-scripts/tcl.vim--smithfield'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'liuchengxu/vista.vim'
+Plug 'kshenoy/vim-signature'
  
 "Plug 'tagexplorer.vim'
 "Plug 'daeyun/vim-matlab'
@@ -120,6 +121,7 @@ set rtp+=~/.fzf/
 nnoremap tn :tabnew <CR>
 nnoremap tc :tabclose <CR>
 nnoremap tN :tab sball <CR>
+nnoremap ts :tab split <CR>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -237,6 +239,7 @@ let g:SuperTabDefaultCompletionType = 'context'
 """""""File Finder Commands"""""
 nmap <leader>ff :Files 
 nmap <leader>tt :Tags <CR>
+nmap <leader>mm :Marks <CR>
 nnoremap <leader>bt :BTags <CR>
 nmap <leader>bb :Buffers <CR>
 nnoremap <leader>ft :Filetypes <CR>
@@ -375,3 +378,8 @@ let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsMoveItems = 0
 let g:ycm_auto_hover=""
 nnoremap <silent> <leader>pp :Hover<CR>
+
+"Mark toggling 
+nnoremap <silent> <F2> :SignatureToggle<CR>
+highlight SignatureMarkText ctermfg=red
+
