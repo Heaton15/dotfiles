@@ -354,7 +354,7 @@ nnoremap <leader>dt :GutentagsClearCache <CR>
 "------------------------------------------------------------------------------"
 "                               Vista Tag Display                              "
 "------------------------------------------------------------------------------"
-nnoremap tt :Vista <CR>
+nnoremap tt :Vista!! <CR>
 " Don't jump to the vista window when opening
 let g:vista_stay_on_open = 0
 let g:vista#renderer#enable_icon = 0
