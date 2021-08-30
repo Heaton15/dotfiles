@@ -10,9 +10,9 @@ call plug#begin('~/.vim/plugged')
 if version > 800
     Plug 'benmills/vimux'
     Plug 'cometsong/CommentFrame.vim'
-    "Plug 'ycm-core/YouCompleteMe'
+    Plug 'ycm-core/YouCompleteMe'
     Plug 'lervag/vimtex'
-    Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
+    "Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'camspiers/lens.vim'
     Plug 'psliwka/vim-smoothie'
@@ -271,12 +271,10 @@ let g:vimtex_quickfix_ignore_filters = [
 "------------------------------------------------------------------------------"
 "                                vtags Keybinds                                "
 "------------------------------------------------------------------------------"
-if ($USER == "tim.heaton")
-    if filereadable(expand("$HOME/.vtags-3.01/vtags_vim_api.vim"))
-        source ~/.vtags-3.01/vtags_vim_api.vim
-    else 
-        echo "Vtags Not Installed: Re-Run Install"
-    endif
+if filereadable(expand("$HOME/.vtags-3.01/vtags_vim_api.vim"))
+    source ~/.vtags-3.01/vtags_vim_api.vim
+else 
+    echo "Vtags Not Installed: Re-Run Install"
 endif
 
 "------------------------------------------------------------------------------"

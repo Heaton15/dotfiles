@@ -10,7 +10,7 @@ alias ll='ls -la'
 alias dirs='dirs -v'
 alias clear='clear -x'
 alias matlab='matlab -nosplash -nodesktop'
-alias grep='grep --color=yes'
+alias cgrep='grep --color=yes'
 alias vimrc='vim $HOME/.vimrc'
 alias bashrc='vim $HOME/.bashrc'
 alias c='clear'
@@ -68,8 +68,10 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export PATH="$HOME/.linuxbrew/bin:$PATH"
   export PATH="$HOME/.linuxbrew/sbin:$PATH"
   export FONTCONFIG_PATH=$HOME/.linuxbrew/etc/fonts
-  export RISCV="$HOME/rocket-tools"
-  export PATH="$HOME/rocket-tools/bin:$PATH"
+  export RISCV="/home/heaton.48/rocket-tools"
+  export PATH="/home/heaton.48/.sdkman/candidates/sbt/current/bin:$PATH"
+  export PATH="/home/heaton.48/rocket-tools/bin:$PATH"
+  export PATH="/home/heaton.48/tools/verilator_bin/bin:$PATH"
   export HOMEBREW_TEMP=$HOME/.linuxbrew_tmp
   export EDITOR="$HOME/.linuxbrew/bin/vim"
   export VISUAL="$HOME/.linuxbrew/bin/vim"
@@ -78,7 +80,7 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   # The order of these 2 commands matters
   [[ -r "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh" ]] && . "/home/tim.heaton/.linuxbrew/etc/profile.d/bash_completion.sh"
   source $HOME/.fzf/shell/completion.bash
-  export PATH="$HOME/.linuxbrew/Cellar/openjdk@8/1.8.0+282/bin:$PATH"
+  #export PATH="$HOME/.linuxbrew/Cellar/openjdk@8/1.8.0+282/bin:$PATH"
   export GOPATH="$HOME/.go" && export PATH="$HOME/.go/bin:$PATH"
 fi
 
