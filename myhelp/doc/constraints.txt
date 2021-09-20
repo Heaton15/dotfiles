@@ -2,6 +2,18 @@
 ==============================================================================
 CONSTRAINTS                                                     *constraints-help*
 
+*virtual_clocks*
+ Virtual clocks are clocks which are not associated with a pin or port in a design. 
+ They are used as references for timing analysis to specify input and output 
+ delays. If your chip is system_clock but the input and output come from
+ CLK1 and go to CLK2, then CLK1 / CLK2 can be made virtual for I/O timing. 
+>
+ create_clock -name VIRTUAL_CLK1 -period 10 -waveform {2 8}
+ set_input_delay -clock VIRTUAL_CLK1 -max 2.7 [get_ports CORE_IN]
+<
+    NOTE: CORE_IN is the input port that is being timed to the virtual 
+          clock on a different domain
+
 *set_multicycle_path*
  Specified multicycle paths between timing paths. These are paths which
  require more than one clock period for execution. All paths are considered

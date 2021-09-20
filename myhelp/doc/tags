@@ -52,5 +52,6 @@ verilog-task	verilog.txt	/*verilog-task*
 verilog-website	verilog.txt	/*verilog-website*
 verilog-while	verilog.txt	/*verilog-while*
 verilog.txt	verilog.txt	/*verilog.txt*
+virtual_clocks	constraints.txt	/*virtual_clocks*
 work-url	work.txt	/*work-url*
 work.txt	work.txt	/*work.txt*
