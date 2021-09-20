@@ -8,6 +8,10 @@ bash.txt	bash.txt	/*bash.txt*
 blockage-help	constraints.txt	/*blockage-help*
 cadence-documentation	cadence.txt	/*cadence-documentation*
 cadence.txt	cadence.txt	/*cadence.txt*
+chisel-help	chisel.txt	/*chisel-help*
+chisel-map	chisel.txt	/*chisel-map*
+chisel-zip	chisel.txt	/*chisel-zip*
+chisel.txt	chisel.txt	/*chisel.txt*
 clock_gate-help	constraints.txt	/*clock_gate-help*
 conferences	conferences.txt	/*conferences*
 conferences.txt	conferences.txt	/*conferences.txt*
@@ -34,7 +38,7 @@ set_max_delay	constraints.txt	/*set_max_delay*
 set_max_transition	constraints.txt	/*set_max_transition*
 set_min_delay	constraints.txt	/*set_min_delay*
 set_min_transition	constraints.txt	/*set_min_transition*
-set_multicyle_path	constraints.txt	/*set_multicyle_path*
+set_multicycle_path	constraints.txt	/*set_multicycle_path*
 set_output_delay	constraints.txt	/*set_output_delay*
 ssh-help	ssh.txt	/*ssh-help*
 ssh.txt	ssh.txt	/*ssh.txt*

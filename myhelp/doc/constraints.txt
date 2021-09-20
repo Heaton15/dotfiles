@@ -2,7 +2,7 @@
 ==============================================================================
 CONSTRAINTS                                                     *constraints-help*
 
-*set_multicyle_path*
+*set_multicycle_path*
  Specified multicycle paths between timing paths. These are paths which
  require more than one clock period for execution. All paths are considered
  as one cycle paths for setup/hold unless specified. 
