@@ -227,7 +227,7 @@ if executable('fzf')
     " vim spellcheck with fzf
     function! FzfSpell()
       let suggestions = spellsuggest(expand("<cword>"))
-      return fzf#run({'source': suggestions, 'sink': function("FzfSpellSink"), 'down': 10 })
+      return fzf#run({'source': suggestions, 'sink': function("FzfSpellSink"), 'window': { 'width': 0.9, 'height': 0.6}})
     endfunction
 
     " fzf plugin mappings
