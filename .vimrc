@@ -161,7 +161,7 @@ au BufRead,BufNewFile *.v,*.vg,*.vm set filetype=verilog_systemverilog.verilog
     \ shiftwidth=4
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
-au BufRead,BufNewFile *.tex setlocal textwidth=80
+au BufRead,BufNewFile *.tex setlocal textwidth=80 spell spelllang=en_us
 au BufRead,BufNewFile *.py set tabstop=4
     \ softtabstop=4
     \ shiftwidth=4
@@ -215,8 +215,30 @@ nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
 "------------------------------------------------------------------------------"
 "                                  fzf Config                                  "
 "------------------------------------------------------------------------------"
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-let g:fzf_preview_window = ['right:50%', 'F1']
+if executable('fzf')
+    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+    let g:fzf_preview_window = ['right:50%', 'F1']
+
+    function! FzfSpellSink(word)
+      exe 'normal! "_ciw'.a:word
+    endfunction
+
+    " vim spellcheck with fzf
+    function! FzfSpell()
+      let suggestions = spellsuggest(expand("<cword>"))
+      return fzf#run({'source': suggestions, 'sink': function("FzfSpellSink"), 'down': 10 })
+    endfunction
+
+    " fzf plugin mappings
+    nnoremap <leader>z= :call FzfSpell()<CR>
+    nmap <leader>ff :Files 
+    nmap <leader>tt :Tags <CR>
+    nmap <leader>mm :Marks <CR>
+    nnoremap <leader>bt :BTags <CR>
+    nmap <leader>bb :Buffers <CR>
+    nnoremap <leader>ft :Filetypes <CR>
+endif
+
 
 "------------------------------------------------------------------------------"
 "                               ale Configuration                              "
@@ -236,13 +258,6 @@ let g:lens#width_resize_min = (winwidth(0)*8/10)
 """"""" superbar Configuration"""""""
 let g:SuperTabDefaultCompletionType = 'context'
 
-"""""""File Finder Commands"""""
-nmap <leader>ff :Files 
-nmap <leader>tt :Tags <CR>
-nmap <leader>mm :Marks <CR>
-nnoremap <leader>bt :BTags <CR>
-nmap <leader>bb :Buffers <CR>
-nnoremap <leader>ft :Filetypes <CR>
 
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
