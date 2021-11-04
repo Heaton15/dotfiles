@@ -1,0 +1,163 @@
+\documentclass[12pt, letterpaper]{article}%
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{forest}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{mathptmx}
+\usepackage{dirtree}
+\usepackage{booktabs}
+\usepackage{varwidth}
+\setlength{\parindent}{0pt}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{darkpastelgreen}{rgb}{0.01, 0.75, 0.24}
+\definecolor{darkturquoise}{rgb}{0.0, 0.81, 0.82}
+\definecolor{electriccrimson}{rgb}{1.0, 0.0, 0.25}
+\definecolor{green(munsell)}{rgb}{0.0, 0.66, 0.47}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+\definecolor{lightseagreen}{rgb}{0.13, 0.7, 0.67}
+\definecolor{lust}{rgb}{0.9, 0.13, 0.13}
+\definecolor{malachite}{rgb}{0.04, 0.85, 0.32}
+\definecolor{mint}{rgb}{0.24, 0.71, 0.54}
+\graphicspath{{../figs/}}
+
+\renewcommand*\DTstyle{\rmfamily\textcolor{black}}
+
+\graphicspath{{../figs}}
+
+\tcbset{colframe=black, colback=pink,
+        every box on layer 2/.style={reset,every box,colback=lightseagreen}
+}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\setlength{\headheight}{15pt}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\frenchspacing
+
+\lstdefinestyle{c_style}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color{lust},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{electriccrimson},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+\lstdefinestyle{verilog_style}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color{lust},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{electriccrimson},
+    stringstyle=\color{purple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=verilog
+}
+%\title{d Workflow Strategy}%
+\title{Title Card}%
+\author{Author and Name}%
+\date{\today}%
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage}
+
+\begin{document}
+
+%\setlength{\parindent}{24em}
+\normalsize
+\maketitle
+\tableofcontents
+\thispagestyle{empty} %Removes title page number
+\newpage
+\section{Introduction}
+\label{intro}
+Insert Intro
+
+\section{Section Title Card}
+Section 
+
+\begin{tcolorbox}
+    \center{Example Path}
+\end{tcolorbox}
+
+\begin{figure}[h]
+    \centering
+    \begin{varwidth}{\linewidth}
+    \begin{verbatim}
+reg                 clk;                    // input
+reg [127:0]         dec_key;                // input
+reg                 dec_kld;                // input
+reg                 dec_ld;                 // input
+reg [127:0]         enc_key;                // input
+reg                 enc_ld;                 // input
+reg [127:0]         enc_text_in;            // input
+reg                 rst;                    // input
+wire                dec_done;               // output
+wire [127:0]        dec_text_out;           // output
+    \end{verbatim}
+    \end{varwidth}
+\end{figure}
+
+% Example figure 
+%\begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=6.5in]{aes_prog_behav_tb.png}
+%  \caption{aes\_prog\_behav\_tb Pass / Fail Report}
+%  \label{fig:aes_prog_behav}
+%\end{figure}
+
+\begin{itemize}
+    \item \textbf{read\_csr(MSB)}: Selects the CSR for read access
+    \item \textbf{write\_csr(ENC\_TEXT\_MSB, plaintext[127:64])}: Selects the CSR for write access
+    \item \textbf{read\_text(i, DEC\_TEXT\_MSB, DEC\_TEXT\_LSB)}: Grabs CSR
+        from read\_csr and reads back decrypted data
+    \item \textbf{write\_text(plaintext[i], key)}: Grabs CSR from write\_csr 
+        and sends AES plaintext data
+\end{itemize}
+
+\dirtree{%
+    .1 axi\_aes \ldots \begin{minipage}[t]{10cm}
+        \textcolor{red}{AES core wrapped in axi-slave wrapper}
+    \end{minipage}.
+    .2 aes\_top \ldots \begin{minipage}[t]{10cm}
+        \textcolor{red}{AES cipher \ inv\_cipher wrapper to create top level AES
+        core}
+    \end{minipage}.
+    .3 aes\_cipher\_top \ldots \begin{minipage}[t]{10cm}
+        \textcolor{red}{AES encryption block}
+    \end{minipage}.
+    .3 aes\_inc\_cipher\_top \begin{minipage}[t]{10cm}
+        \textcolor{red}{AES decryption block\\}
+    \end{minipage}.
+}
+
+\end{document}
+
