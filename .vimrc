@@ -97,6 +97,7 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
+nnoremap <leader>c :let @/ = "" <CR>
 nnoremap <F5> :set norelativenumber! <CR> :set nonumber! <CR>
 
 "------------------------------------------------------------------------------"
