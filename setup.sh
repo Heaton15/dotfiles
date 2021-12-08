@@ -52,13 +52,13 @@ else
     ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
 fi
 ###############################################################
-# Create .bashrc symlink. If already exists, backup and replace
+# Create .bash_aliases symlink. If already exists, backup and replace
 ###############################################################
-if [ -e $HOME/.bashrc ]; then 
-    mv $HOME/.bashrc $HOME/$BACKUP/.bashrc_bak
-    ln -s $HOME/dotfiles/.bashrc $HOME/.bashrc
+if [ -e $HOME/.bash_aliases ]; then 
+    mv $HOME/.bash_aliases $HOME/$BACKUP/.bash_aliases_bak
+    ln -s $HOME/dotfiles/.bash_aliases $HOME/.bash_aliases
 else
-    ln -s $HOME/dotfiles/.bashrc $HOME/.bashrc
+    ln -s $HOME/dotfiles/.bash_aliases $HOME/.bash_aliases
 fi
 ###################################################################
 # Create .dircolors symlink. If already exists, backup and replace

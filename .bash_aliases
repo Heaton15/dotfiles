@@ -36,8 +36,8 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
                                                                      cat {}) 2> /dev/null | head -500"'
 
 set -o vi
-SYSTEM=$(`uname -n)
-#export TERM=xterm-256color
+SYSTEM=$(uname -n)
+export TERM=xterm-256color
 export TERM=rxvt-unicode-256color
 if [ $SYSTEM == "arch" ]; then
   archey3 --color=cyan
