@@ -289,7 +289,7 @@ let g:vimtex_quickfix_ignore_filters = [
 "------------------------------------------------------------------------------"
 if filereadable(expand("$HOME/.vtags-3.01/vtags_vim_api.vim"))
     source ~/.vtags-3.01/vtags_vim_api.vim
-else 
+elseif ($USER != "tim")
     echo "Vtags Not Installed: Re-Run Install"
 endif
 
