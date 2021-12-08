@@ -35,13 +35,11 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
                                                                    (rougify highlight {} ||
                                                                      cat {}) 2> /dev/null | head -500"'
 
-
-
-
 set -o vi
+SYSTEM=$(`uname -n)
 #export TERM=xterm-256color
 export TERM=rxvt-unicode-256color
-if [ ${USER} == "tim" ]; then
+if [ $SYSTEM == "arch" ]; then
   archey3 --color=cyan
   export PATH="$HOME/.local/rouge/bin/:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
@@ -84,15 +82,12 @@ if [[ ${USER} == "tim.heaton" || ${USER} == "heaton.49" ]]
   export GOPATH="$HOME/.go" && export PATH="$HOME/.go/bin:$PATH"
 fi
 
-
 # Sets it so that creating more terminals in i3 does not cause text to weirdly rap around the window
 shopt -s checkwinsize
 
 # Changes colors for the use@machinename in bash
 
 export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
-
-
 
 #if [ ${USER} == heaton.49 ]; then
 #    source $HOME/linuxbrew/all_proxy.sh

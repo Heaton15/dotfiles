@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #############################################################################################################
 # Run this script to properly create all directories and symlinks needed to re-create the work environment .#
 # Use this for either Arch Linux or other environment configurations.                                       #
