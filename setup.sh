@@ -238,7 +238,7 @@ cp scripts/vtags_vim_api.vim $HOME/.vtags-3.01/
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 pushd .
 cd ~/.fzf/
-sh install
+bash install
 popd
 # Remove the normal mode Comment bindings
 sed -i 's/ni/n/g' $HOME/.vim/plugged/CommentFrame.vim/plugin/CommentFrame.vim
