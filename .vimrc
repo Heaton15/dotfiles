@@ -217,7 +217,10 @@ nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
 "                                  fzf Config                                  "
 "------------------------------------------------------------------------------"
 if executable('fzf')
-    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+    if version > 810 
+        let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+    endif
+
     let g:fzf_preview_window = ['right:50%', 'F1']
 
     function! FzfSpellSink(word)
