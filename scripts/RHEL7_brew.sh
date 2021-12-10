@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+export PATH=$HOME/.linuxbrew/bin:$PATH
+export PATH=$HOME/.linuxbrew/sbin:$PATH
+
 ## Installs the linuxbrew tools
 gitver=$(git --version | grep '^git *version' | cut -d " " -f3)
 requiredgitver="2.7"
@@ -21,14 +24,17 @@ else
     echo "Failed: Curl version must be > $requiredcurlver. Found at https://curl.se/download"
     exit 0
 fi
-#export PATH=$HOME/.local/bin:$PATH
+
+# Check if brew does not exist
 if ! command -v brew > /dev/null 2>&1; then
-    echo "Homebrew is not installed. Please install before continuing"
+    echo "Homebrew is not installed."
     echo "/usr/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
     echo "export PATH=$HOME/.linuxbrew/bin:$PATH"
     echo "export PATH=$HOME/.linuxbrew/sbin:$PATH"
-    exit 1
+    echo "Installing now"
 fi
+
+/usr/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Update brew version if needed
 brew update
@@ -36,12 +42,6 @@ brew update
 # Upgrade all packages 
 brew upgrade
 
-# Following was down in 2019 to resolve dependency loops #
-# yes you have to do this
-brew uninstall gcc
-brew uninstall glibc
-brew install glibc
-brew install gcc
-brew install git
-brew tap linuxbrew/fonts
+#brew install git
+#brew tap linuxbrew/fonts
 #ln -s $HOME/.linuxbrew/share/fonts $HOME/.local/share/fonts
