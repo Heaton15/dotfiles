@@ -147,6 +147,7 @@ nnoremap <silent> <leader>w/ :vsp <CR>
 "                               Filetype Updates                               "
 "------------------------------------------------------------------------------"
 autocmd FileType git setlocal foldmethod=syntax
+au BufRead,BufNewFile *.bash_aliases set filetype=sh
 au BufRead,BufNewFile *.scs set filetype=spectre
 au BufRead,BufNewFile *.il set filetype=skill tabstop=4
     \ softtabstop=4
