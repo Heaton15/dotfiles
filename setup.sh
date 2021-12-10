@@ -23,6 +23,7 @@ if [ ! -d $HOME/dotfiles_backup ]; then
 fi
 
 BACKUP="dotfiles_backup"
+SYSTEM=$(uname -n)
 
 ######################################################################
 # Create .vimrc symlink. If .vimrc already exists, backup and replace.
@@ -45,11 +46,13 @@ fi
 #####################################################################
 # Create .bash_profile symlink. If already exists, backup and replace
 #####################################################################
-if [ -e $HOME/.bash_profile ]; then 
-    mv $HOME/.bash_profile $HOME/$BACKUP/.bash_profile_bak
-    ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
-else
-    ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
+if [ $SYSTEM == "arch" ]; then
+    if [ -e $HOME/.bash_profile ]; then 
+        mv $HOME/.bash_profile $HOME/$BACKUP/.bash_profile_bak
+        ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
+    else
+        ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
+    fi
 fi
 ###############################################################
 # Create .bash_aliases symlink. If already exists, backup and replace
