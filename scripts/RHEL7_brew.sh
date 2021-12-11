@@ -32,9 +32,9 @@ if ! command -v brew > /dev/null 2>&1; then
     echo "export PATH=$HOME/.linuxbrew/bin:$PATH"
     echo "export PATH=$HOME/.linuxbrew/sbin:$PATH"
     echo "Installing now"
+   #/usr/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-/usr/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Update brew version if needed
 brew update
@@ -45,3 +45,7 @@ brew upgrade
 #brew install git
 #brew tap linuxbrew/fonts
 #ln -s $HOME/.linuxbrew/share/fonts $HOME/.local/share/fonts
+
+CFG_BREW_BINS="\
+    vim \
+    tmux \"
