@@ -9,8 +9,7 @@ echo " "
 echo "This script configures the Linux work environment"
 echo "If being used to configure a personal laptop, "
 echo "Manually configure the following dotfiles:"
-echo "===.neomutt
-===grub (kernel params)
+echo "===grub (kernel params)
 ===.polybar
 ===.xinitrc
 ===.xserverrc
@@ -30,9 +29,9 @@ SYSTEM=$(uname -n)
 ######################################################################
 if [ -e $HOME/.vimrc ]; then 
     mv $HOME/.vimrc $HOME/$BACKUP/.vimrc_bak
-    ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc 
+    ln -s $HOME/dotfiles/vim/.vimrc $HOME/.vimrc 
 else
-    ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+    ln -s $HOME/dotfiles/vim/.vimrc $HOME/.vimrc
 fi
 ############################################################################
 # Create spacemacs symlink. If .spacemacs already exists, backup and replace
@@ -49,9 +48,9 @@ fi
 if [ $SYSTEM == "arch" ]; then
     if [ -e $HOME/.bash_profile ]; then 
         mv $HOME/.bash_profile $HOME/$BACKUP/.bash_profile_bak
-        ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
+        ln -s $HOME/dotfiles/bash/.bash_profile $HOME/.bash_profile
     else
-        ln -s $HOME/dotfiles/.bash_profile $HOME/.bash_profile
+        ln -s $HOME/dotfiles/bash/.bash_profile $HOME/.bash_profile
     fi
 fi
 ###############################################################
@@ -68,18 +67,18 @@ fi
 ###################################################################
 if [ -e $HOME/.dircolors ]; then 
     mv $HOME/.dircolors $HOME/$BACKUP/.dircolors_bak
-    ln -s $HOME/dotfiles/.dircolors $HOME/.dircolors
+    ln -s $HOME/dotfiles/bash/.dircolors $HOME/.dircolors
 else
-    ln -s $HOME/dotfiles/.dircolors $HOME/.dircolors
+    ln -s $HOME/dotfiles/bash/.dircolors $HOME/.dircolors
 fi
 ##########################################################################
 # Create .fan symlink (fan control). If already exists, backup and replace
 ##########################################################################
 if [ -e $HOME/.fan ]; then 
     mv $HOME/.fan $HOME/$BACKUP/.fan_bak
-    ln -s $HOME/dotfiles/.fan $HOME/.fan
+    ln -s $HOME/dotfiles/arch/.fan $HOME/.fan
 else
-    ln -s $HOME/dotfiles/.fan $HOME/.fan
+    ln -s $HOME/dotfiles/arch/.fan $HOME/.fan
 fi
 ################################################################################
 # Do not set .fehbg as symlink. Sourcing .sh overwrites relative paths (feh bug) 
@@ -98,24 +97,21 @@ sh $HOME/.fehbg 2> /dev/null
 ########################################################
 # Create .i3 file symlink. If exists, backup and replace
 ########################################################
-if [ -d $HOME/.config/i3 ]; then 
-    cp -RL $HOME/.config/i3/config $HOME/$BACKUP/.i3_config_bak
-    ln -s $HOME/dotfiles/.i3_config $HOME/.config/i3/config
-else
-
-    echo " "
-    echo "Warning: i3 not Installed. "
-    echo "Please Install i3 and Run"
-    echo "Again for i3 Config"
+if [[ $SYSTEM == "arch" ]]; then
+    if [[ -d $HOME/.config/i3 ]]; then
+        cp -RL $HOME/.config/i3/config $HOME/$BACKUP/.i3_config_bak
+        ln -s $HOME/dotfiles/arch/.i3_config $HOME/.config/i3/config
+    fi
 fi
+
 ##############################################################
 # Create .inputrc file symlink. If exists, backup and replace. 
 ##############################################################
 if [ -e $HOME/.inputrc ]; then 
     mv $HOME/.inputrc $HOME/$BACKUP/.inputrc_bak
-    ln -s $HOME/dotfiles/.inputrc $HOME/.inputrc
+    ln -s $HOME/dotfiles/bash/.inputrc $HOME/.inputrc
 else
-    ln -s $HOME/dotfiles/.inputrc $HOME/.inputrc
+    ln -s $HOME/dotfiles/bash/.inputrc $HOME/.inputrc
 fi
 ##############################################################
 # Add ranger symlinks. If exists, backup and replace. 
@@ -167,9 +163,9 @@ fi
 ######################################################################
 if [ -e $HOME/.tmux.conf ]; then 
     mv $HOME/.tmux.conf $HOME/$BACKUP/.tmux.conf_bak
-    ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf 
+    ln -s $HOME/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf 
 else
-    ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+    ln -s $HOME/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 fi
 
 ##################################################################
@@ -210,11 +206,13 @@ fi
 ##############################################################
 # Create .xbindkeysrc file for arch linux bindkeys
 ##############################################################
-if [ -e $HOME/.xbindkeysrc ]; then 
-    mv $HOME/.xbindkeysrc $HOME/$BACKUP/.xbindkeys_bak
-    ln -s $HOME/dotfiles/.xbindkeysrc $HOME/.xbindkeysrc
-else
-    ln -s $HOME/dotfiles/.xbindkeysrc $HOME/.xbindkeysrc
+if [[ $SYSTEM == "arch" ]]; then
+    if [ -e $HOME/.xbindkeysrc ]; then 
+        mv $HOME/.xbindkeysrc $HOME/$BACKUP/.xbindkeys_bak
+        ln -s $HOME/dotfiles/arch/.xbindkeysrc $HOME/.xbindkeysrc
+    else
+        ln -s $HOME/dotfiles/arch/.xbindkeysrc $HOME/.xbindkeysrc
+    fi
 fi
 
 
@@ -223,9 +221,9 @@ fi
 #------------------------------------------------------------------------------#
 if [ -d $HOME/.vim/syntax ]; then 
     mv $HOME/.vim/syntax $HOME/$BACKUP/syntax_bak
-    mkdir $HOME/.vim/syntax && ln -s $HOME/dotfiles/syntax/* $HOME/.vim/syntax/
+    mkdir $HOME/.vim/syntax && ln -s $HOME/dotfiles/vim/syntax/* $HOME/.vim/syntax/
 else
-    mkdir $HOME/.vim/syntax && ln -s $HOME/dotfiles/syntax/* $HOME/.vim/syntax/
+    mkdir $HOME/.vim/syntax && ln -s $HOME/dotfiles/vim/syntax/* $HOME/.vim/syntax/
 fi
 
 #------------------------------------------------------------------------------#
@@ -233,7 +231,7 @@ fi
 #------------------------------------------------------------------------------#
 vim +PlugInstall +qall
 rm $HOME/.vim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
-ln -s $HOME/dotfiles/verilog_emacsauto.vim $HOME/.vim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
+ln -s $HOME/dotfiles/vim/verilog_emacsauto.vim $HOME/.vim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
 rm $HOME/.vim/plugged/vim256-color/colors/elda.vim
 ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/plugged/vim256-color/colors/elda.vim
 bash scripts/vtags_setup.sh

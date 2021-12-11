@@ -103,12 +103,12 @@ nnoremap <F5> :set norelativenumber! <CR> :set nonumber! <CR>
 "------------------------------------------------------------------------------"
 "                              Load Vim Functions                              "
 "------------------------------------------------------------------------------"
-if filereadable(expand("$HOME/dotfiles/vim_functions.vim"))
-    source $HOME/dotfiles/vim_functions.vim
+if filereadable(expand("$HOME/dotfiles/vim/vim_functions.vim"))
+    source $HOME/dotfiles/vim/vim_functions.vim
 endif
 
-if filereadable(expand("$HOME/dotfiles/vim_binds.vim"))
-    source $HOME/dotfiles/vim_binds.vim
+if filereadable(expand("$HOME/dotfiles/vim/vim_binds.vim"))
+    source $HOME/dotfiles/vim/vim_binds.vim
 endif
 
 "------------------------------------------------------------------------------"
