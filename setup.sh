@@ -38,9 +38,9 @@ fi
 ############################################################################
 if [ -e $HOME/.spacemacs ]; then 
     mv $HOME/.spacemacs $HOME/$BACKUP/.spacemacs_bak
-    ln -s $HOME/dotfiles/.spacemacs $HOME/.spacemacs
+    ln -s $HOME/dotfiles/emacs/.spacemacs $HOME/.spacemacs
 else
-    ln -s $HOME/dotfiles/.spacemacs $HOME/.spacemacs
+    ln -s $HOME/dotfiles/emacs/.spacemacs $HOME/.spacemacs
 fi
 #####################################################################
 # Create .bash_profile symlink. If already exists, backup and replace
@@ -58,9 +58,9 @@ fi
 ###############################################################
 if [ -e $HOME/.bash_aliases ]; then 
     mv $HOME/.bash_aliases $HOME/$BACKUP/.bash_aliases_bak
-    ln -s $HOME/dotfiles/.bash_aliases $HOME/.bash_aliases
+    ln -s $HOME/dotfiles/bash/.bash_aliases $HOME/.bash_aliases
 else
-    ln -s $HOME/dotfiles/.bash_aliases $HOME/.bash_aliases
+    ln -s $HOME/dotfiles/bash/.bash_aliases $HOME/.bash_aliases
 fi
 ###################################################################
 # Create .dircolors symlink. If already exists, backup and replace
@@ -85,14 +85,16 @@ fi
 #If already exists, backup and replace
 # Note that a background path is inside of the file. 
 ################################################################################
-if [ -e $HOME/.fehbg ]; then 
-    mv $HOME/.fehbg $HOME/$BACKUP/.fehbg_bak
-    cp $HOME/dotfiles/.fehbg $HOME
-else
-    cp $HOME/dotfiles/.fehbg $HOME
+if [[ $SYSTEM == "arch" ]]; then
+    if [ -e $HOME/.fehbg ]; then 
+        mv $HOME/.fehbg $HOME/$BACKUP/.fehbg_bak
+        cp $HOME/dotfiles/.fehbg $HOME
+    else
+        cp $HOME/dotfiles/.fehbg $HOME
+    fi
+    sh $HOME/.fehbg 2> /dev/null
+    # Sets background to default red_wave
 fi
-sh $HOME/.fehbg 2> /dev/null
-# Sets background to default red_wave
 
 ########################################################
 # Create .i3 file symlink. If exists, backup and replace
