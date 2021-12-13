@@ -247,6 +247,3 @@ popd
 sed -i 's/ni/n/g' $HOME/.vim/plugged/CommentFrame.vim/plugin/CommentFrame.vim
 mkdir $HOME/.linuxbrew_tmp/
 go get -u github.com/arl/gitmux
-
-
-
