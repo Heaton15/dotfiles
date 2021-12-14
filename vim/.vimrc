@@ -356,6 +356,8 @@ let g:gutentags_ctags_extra_args = [
 let g:gutentags_ctags_exclude = [
             \ '*.sv', '*.v',
             \ '*Makefile',
+            \ 'env',
+            \ 'chipyard'
             \ ]
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1

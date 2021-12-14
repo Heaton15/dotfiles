@@ -38,6 +38,9 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
 # All system paths
 export PATH="$HOME/.fzf/bin:$PATH"
 source $HOME/.fzf/shell/completion.bash
+export PATH=$HOME/.local/mybin:$PATH
+alias loadBrew="export PATH=$HOME/.linuxbrew/bin:$PATH"
+alias vtags='python ~/.vtags-3.01/vtags.py'
 
 set -o vi
 SYSTEM=$(uname -n)

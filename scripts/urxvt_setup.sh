@@ -1,5 +1,5 @@
 pushd .
-curl -o ~/rxvt.tar.bz2 http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.22.tar.bz2
+curl -o ~/rxvt.tar.bz2 http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
 cd ~/
 tar -xf rxvt.tar.bz2
 mv rxvt-unicode-9.22 .rxvt-unicode-9.22
