@@ -158,9 +158,9 @@ au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.cdsenv set filetype=skill
 au BufRead,BufNewFile cds.lib set filetype=skill
 au BufRead,BufNewFile *.sdc set filetype=tcl
-au BufRead,BufNewFile *.v,*.vg,*.vm set filetype=verilog_systemverilog.verilog
+au BufRead,BufNewFile *.v,*.vg,*.vm,*.sv set filetype=verilog_systemverilog.verilog
     \ softtabstop=4
-    \ shiftwidth=4
+    \ shiftwidth=2
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
 au BufRead,BufNewFile *.tex setlocal textwidth=80 spell spelllang=en_us
