@@ -26,7 +26,8 @@ makefile-examples	makefile.txt	/*makefile-examples*
 makefile-help	makefile.txt	/*makefile-help*
 makefile.txt	makefile.txt	/*makefile.txt*
 python-help	python.txt	/*python-help*
-python-libraries	hobbies.txt	/*python-libraries*
+python-libraries	python.txt	/*python-libraries*
+python-todo	python.txt	/*python-todo*
 python.txt	python.txt	/*python.txt*
 set_case_analysis	constraints.txt	/*set_case_analysis*
 set_clock_groups	constraints.txt	/*set_clock_groups*

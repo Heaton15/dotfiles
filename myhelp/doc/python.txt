@@ -2,3 +2,30 @@
 
 ==============================================================================
 PYTHON-LOOPS                                                     *python-help*
+
+==============================================================================
+                                                                 *python-libraries*
+https://github.com/vinta/awesome-python
+==============================================================================
+                                                                 *python-todo*
+1: map()
+2: itertools
+3: lambda function
+4: Exception Handling
+5: Decorators
+6: Collections
+    - namedtuple (similar to dataclass)
+    - OrderedDict
+    - Counter (counting hashable objects)
+    - ChainMap (creating single view of multiple mappings)
+7: Generators
+    - Function which returns iterable objects 
+    - return in a typical function returns 1 balue
+    - yield (for generator function) pauses a function and sends back the result each time
+8: Magic methods
+    __add__
+    __round__
+    __floor__
+9: Threading
+10: Regular expressions
+    - import re

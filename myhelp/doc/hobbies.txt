@@ -2,6 +2,3 @@
 ==============================================================================
                                                                   *disc-golf*
 https://daegalus.github.io/discgolf/plastics.html
-==============================================================================
-                                                                  *python-libraries*
-https://github.com/vinta/awesome-python
