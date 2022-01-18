@@ -18,4 +18,5 @@ my $split = Verilog::EditFiles->new
     );
 
 $split->read_and_split(glob("*.v")); # src is the directory that the .v you are extracting the modules from sits. 
+$split->read_and_split(glob("*.sv")); # src is the directory that the .v you are extracting the modules from sits. 
 $split->write_files();

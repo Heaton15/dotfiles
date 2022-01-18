@@ -158,9 +158,10 @@ au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.cdsenv set filetype=skill
 au BufRead,BufNewFile cds.lib set filetype=skill
 au BufRead,BufNewFile *.sdc set filetype=tcl
-au BufRead,BufNewFile *.v,*.vg,*.vm,*.sv set filetype=verilog_systemverilog.verilog
+au BufRead,BufNewFile *.v,*.vg,*.vm,*.sv,*.f set filetype=verilog_systemverilog.verilog
     \ softtabstop=4
     \ shiftwidth=2
+    \ textwidth=80
 au BufRead,BufNewFile *.xdc set filetype=xdc
 au BufRead,BufNewFile *.txt set filetype=notes
 au BufRead,BufNewFile *.tex setlocal textwidth=80 spell spelllang=en_us
@@ -178,7 +179,7 @@ nnoremap <leader>o   :only <CR>
 nnoremap <leader>gp  :Git push 
 nnoremap <leader>gf  :Git fetch -p <CR>
 nnoremap <leader>gs  :Git <CR> :only <CR>
-nnoremap <leader>gl  :Git log <CR> :only <CR>
+nnoremap <leader>gl  :Git log --decorate <CR> :only <CR>
 nnoremap <leader>go  :Git log -p % <CR>
 nnoremap <leader>gd  :BranchCalcOverride <CR> :Gvdiffsplit!<C-R>d
 nnoremap <leader>gt  :BranchReturn <CR> :<C-R>b<CR> :ClearClose<CR> :Git -p diff-tree -r <C-R>a <C-R>c %
@@ -357,7 +358,8 @@ let g:gutentags_ctags_exclude = [
             \ '*.sv', '*.v',
             \ '*Makefile',
             \ 'env',
-            \ 'chipyard'
+            \ 'fpga', 'generators', 'toolchains',
+            \ 'tools', 'vlsi', 'project',
             \ ]
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1
@@ -394,8 +396,11 @@ let g:ycm_language_server = [
 "------------------------------------------------------------------------------"
 "                                vim-todo-lists                                "
 "------------------------------------------------------------------------------"
+nnoremap <leader>td :vsplit $HOME/.tasklist.todo.md <CR>
 let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsMoveItems = 0
+
+" Misc
 let g:ycm_auto_hover=""
 nnoremap <silent> <leader>pp :Hover<CR>
 

@@ -7,6 +7,15 @@ PYTHON-LOOPS                                                     *python-help*
                                                                  *python-libraries*
 https://github.com/vinta/awesome-python
 ==============================================================================
+                                                                 *python-comprehensions*
+List Comprehension: [expr for x in iterable]
+Dictionary Comprehension: {key_expr: value_expr for x in iterable}
+Set Comprehension: {expr for x in iterable}With Optional Conditions:
+
+[expr for x in iterable if condition]
+{key_expr: value_expr for x in iterable if condition}
+{expr for x in iterable if condition}
+==============================================================================
                                                                  *python-todo*
 1: map()
 2: itertools
@@ -29,3 +38,6 @@ https://github.com/vinta/awesome-python
 9: Threading
 10: Regular expressions
     - import re
+11: unpacking
+    *x, = map(x,y)
+    a, b, *c = [1,2,3,4,5]
