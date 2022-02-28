@@ -19,6 +19,8 @@ if version > 800
     "Plug 'camspiers/animate.vim'
 endif
 
+Plug 'https://github.com/SirVer/ultisnips.git'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/tarikgraba/vim-lefdef.git'
 Plug 'junegunn/fzf.vim'
@@ -157,9 +159,9 @@ au BufRead,BufNewFile *.ils set filetype=skill
 au BufRead,BufNewFile *.cdsinit set filetype=skill
 au BufRead,BufNewFile *.cdsenv set filetype=skill
 au BufRead,BufNewFile cds.lib set filetype=skill
-au BufRead,BufNewFile *.sdc set filetype=tcl
-au BufRead,BufNewFile *.v,*.vg,*.vm,*.sv,*.f set filetype=verilog_systemverilog.verilog
-    \ softtabstop=4
+au BufRead,BufNewFile *.sdc,*.xel set filetype=tcl
+au BufRead,BufNewFile *.v,*.vg,*.vm,*.sv,*.vams,*.f set filetype=verilog_systemverilog.verilog.systemverilog
+    \ softtabstop=2
     \ shiftwidth=2
     \ textwidth=80
 au BufRead,BufNewFile *.xdc set filetype=xdc
@@ -382,6 +384,19 @@ let g:vista_stay_on_open = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_icon_indent= ['▸', '▾'] 
 let g:vista_fold_toggle_icons= ['▸', '▾'] 
+
+"------------------------------------------------------------------------------"
+"                                   UltiSnips                                  "
+"------------------------------------------------------------------------------"
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-m>"
+let g:UltiSnipsJumpBackwardTrigger="<c-n>"
+
+" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
 
 
 
