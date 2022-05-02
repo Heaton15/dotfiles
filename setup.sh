@@ -238,6 +238,7 @@ rm $HOME/.vim/plugged/vim256-color/colors/elda.vim
 ln -s $HOME/dotfiles/colorschemes/elda.vim $HOME/.vim/plugged/vim256-color/colors/elda.vim
 bash scripts/vtags_setup.sh
 cp scripts/vtags_vim_api.vim $HOME/.vtags-3.01/
+cp scripts/vtags_glb.config.py $HOME/.vtags-3.01/
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 pushd .
 cd ~/.fzf/

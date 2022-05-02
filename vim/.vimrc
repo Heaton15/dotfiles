@@ -3,6 +3,8 @@
 ""                             Plug Configuration                               "
 ""------------------------------------------------------------------------------"
 set nocompatible
+set visualbell
+set t_vb=
 "filetype off " required
 
 call plug#begin('~/.vim/plugged')

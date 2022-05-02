@@ -39,14 +39,18 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
 export PATH="$HOME/.fzf/bin:$PATH"
 source $HOME/.fzf/shell/completion.bash
 export PATH=$HOME/.local/mybin:$PATH
-alias loadBrew="export PATH=$HOME/.linuxbrew/bin:$PATH"
 alias vtags='python ~/.vtags-3.01/vtags.py'
+export EDITOR="$HOME/.local/mybin/vim"
+export VISUAL="$HOME/.local/mybin/vim"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 set -o vi
 SYSTEM=$(uname -n)
 
 if [[ $SYSTEM != "arch" ]]; then 
     export TERM=xterm-256color
+    source $HOME/.functions
 else
     export TERM=rxvt-unicode-256color
 fi
