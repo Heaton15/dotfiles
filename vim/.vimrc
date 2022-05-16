@@ -42,6 +42,7 @@ Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'liuchengxu/vista.vim'
 Plug 'kshenoy/vim-signature'
+Plug 'dhruvasagar/vim-table-mode'
  
 "Plug 'tagexplorer.vim'
 "Plug 'daeyun/vim-matlab'
@@ -425,3 +426,9 @@ nnoremap <silent> <leader>pp :Hover<CR>
 nnoremap <silent> <F2> :SignatureToggle<CR>
 highlight SignatureMarkText ctermfg=red
 
+
+"------------------------------------------------------------------------------"
+"                                vim-table-mode                                "
+"------------------------------------------------------------------------------"
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='

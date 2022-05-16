@@ -6,6 +6,7 @@ PYTHON-LOOPS                                                     *python-help*
 ==============================================================================
                                                                  *python-libraries*
 https://github.com/vinta/awesome-python
+https://schemdraw.readthedocs.io/en/latest/usage/start.html
 ==============================================================================
                                                                  *python-comprehensions*
 List Comprehension: [expr for x in iterable]
@@ -41,3 +42,4 @@ Set Comprehension: {expr for x in iterable}With Optional Conditions:
 11: unpacking
     *x, = map(x,y)
     a, b, *c = [1,2,3,4,5]
+
