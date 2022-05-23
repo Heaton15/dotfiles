@@ -18,6 +18,8 @@ if version > 800
     Plug 'ludovicchabant/vim-gutentags'
     Plug 'camspiers/lens.vim'
     Plug 'psliwka/vim-smoothie'
+    Plug 'honza/vim-snippets'
+    Plug 'SirVer/ultisnips'
     "Plug 'camspiers/animate.vim'
 endif
 
@@ -425,6 +427,13 @@ nnoremap <silent> <leader>pp :Hover<CR>
 nnoremap <silent> <F2> :SignatureToggle<CR>
 highlight SignatureMarkText ctermfg=red
 
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-m>"
+let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 
 "------------------------------------------------------------------------------"
 "                                vim-table-mode                                "
