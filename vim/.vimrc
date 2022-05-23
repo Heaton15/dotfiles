@@ -110,6 +110,10 @@ if filereadable(expand("$HOME/dotfiles/vim/vim_functions.vim"))
     source $HOME/dotfiles/vim/vim_functions.vim
 endif
 
+if filereadable(expand("$HOME/dotfiles/vim/vim_binds.vim"))
+    source $HOME/dotfiles/vim/vim_binds.vim
+endif
+
 " Add fzf to rtp
 set rtp+=~/.fzf/
 
