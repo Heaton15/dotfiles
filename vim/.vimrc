@@ -23,7 +23,6 @@ if version > 800
     "Plug 'camspiers/animate.vim'
 endif
 
-Plug 'https://github.com/SirVer/ultisnips.git'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/tarikgraba/vim-lefdef.git'
@@ -106,20 +105,12 @@ nnoremap <leader>wv <C-w>v
 nnoremap <leader>c :let @/ = "" <CR>
 nnoremap <F5> :set norelativenumber! <CR> :set nonumber! <CR>
 
-"------------------------------------------------------------------------------"
-"                              Load Vim Functions                              "
-"------------------------------------------------------------------------------"
+" Load custom vim functions
 if filereadable(expand("$HOME/dotfiles/vim/vim_functions.vim"))
     source $HOME/dotfiles/vim/vim_functions.vim
 endif
 
-if filereadable(expand("$HOME/dotfiles/vim/vim_binds.vim"))
-    source $HOME/dotfiles/vim/vim_binds.vim
-endif
-
-"------------------------------------------------------------------------------"
-"                        Add fzf to rtp for all systems                        "
-"------------------------------------------------------------------------------"
+" Add fzf to rtp
 set rtp+=~/.fzf/
 
 "------------------------------------------------------------------------------"
@@ -143,8 +134,6 @@ noremap <leader>9 9gt
 "                             Window Control in vim                            "
 "------------------------------------------------------------------------------"
 nnoremap <silent> <leader>l :redraw! <CR>
-nnoremap <silent> <leader>we :exe "vertical resize " . (winheight(0) * 17/4)<CR>
-nnoremap <silent> <leader>wq :exe "vertical resize " . (winheight(0) * 12/16)<CR>
 nnoremap <silent> <leader>ww <C-w>= <CR>
 nnoremap <silent> <leader>w- :sp <CR>
 nnoremap <silent> <leader>w/ :vsp <CR>
@@ -253,12 +242,6 @@ endif
 
 
 "------------------------------------------------------------------------------"
-"                               ale Configuration                              "
-"------------------------------------------------------------------------------"
-let g:ale_c_parse_makefile = 1
-let g:ale_linters = {'c': ['gcc']}
-
-"------------------------------------------------------------------------------"
 "                              animate/lens Config                             "
 "------------------------------------------------------------------------------"
 let g:lens#disabled_filetypes = ['vundle', 'qf', 'vista', '']
@@ -266,10 +249,6 @@ let g:lens#height_resize_max = (winheight(0)*8/10)
 let g:lens#height_resize_min = (winheight(0)*8/10)
 let g:lens#width_resize_max = (winwidth(0)*8/10)
 let g:lens#width_resize_min = (winwidth(0)*8/10)
-
-""""""" superbar Configuration"""""""
-let g:SuperTabDefaultCompletionType = 'context'
-
 
 """""""EasyAlign File Finder"""""
 xmap ga <Plug>(EasyAlign)
@@ -403,7 +382,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 "let g:UltiSnipsEditSplit="vertical"
 
 
-
 let g:ycm_language_server = [
   \   { 'name': 'scala',
   \     'filetypes': [ 'scala', 'sbt' ],
@@ -426,14 +404,6 @@ nnoremap <silent> <leader>pp :Hover<CR>
 "Mark toggling 
 nnoremap <silent> <F2> :SignatureToggle<CR>
 highlight SignatureMarkText ctermfg=red
-
-
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<c-m>"
-let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 
 "------------------------------------------------------------------------------"
 "                                vim-table-mode                                "
