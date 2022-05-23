@@ -34,7 +34,6 @@ Plug 'raingo/vim-matlab'
 Plug 'junegunn/vim-easy-align'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'amal-khailtash/vim-xdc-syntax'
-"Plug 'thinca/vim-localrc'
 Plug 'justinmk/vim-syntax-extra' "c highlighting
 Plug 'vim-python/python-syntax'
 Plug 'vim-scripts/tcl.vim--smithfield'
