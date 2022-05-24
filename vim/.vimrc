@@ -11,19 +11,28 @@ call plug#begin('~/.vim/plugged')
 
 if version > 800
     Plug 'benmills/vimux'
-    Plug 'cometsong/CommentFrame.vim'
-    Plug 'ycm-core/YouCompleteMe'
     Plug 'lervag/vimtex'
-    "Plug 'neoclide/coc.nvim', { 'for': ['scala', 'sbt']}
     Plug 'ludovicchabant/vim-gutentags'
+    Plug 'cometsong/CommentFrame.vim'
     Plug 'camspiers/lens.vim'
     Plug 'psliwka/vim-smoothie'
+
+    "Plug 'prabirshrestha/vim-lsp'
+    "Plug 'mattn/vim-lsp-settings'
+    "Plug 'prabirshrestha/asyncomplete.vim'
+    "Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    "Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+    "Plug 'thomasfaingnaert/vim-lsp-snippets'
+    "if has('python3')
+    "    Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+    "endif
+    
     Plug 'honza/vim-snippets'
     Plug 'SirVer/ultisnips'
-    "Plug 'camspiers/animate.vim'
+
+
 endif
 
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'https://github.com/tarikgraba/vim-lefdef.git'
 Plug 'junegunn/fzf.vim'
@@ -44,9 +53,6 @@ Plug 'liuchengxu/vista.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'dhruvasagar/vim-table-mode'
  
-"Plug 'tagexplorer.vim'
-"Plug 'daeyun/vim-matlab'
-"Plug 'dense-analysis/ale'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""
@@ -319,18 +325,22 @@ augroup end
 "------------------------------------------------------------------------------"
 "                             YCM/Gutentags Control                            "
 "------------------------------------------------------------------------------"
-let g:ycm_collect_identifiers_from_tags_files = 1
-  let g:ycm_filetype_blacklist = {
-        \ 'tagbar': 1,
-        \ 'markdown': 1,
-        \ 'netrw': 1,
-        \ 'unite': 1,
-        \ 'vimwiki': 1,
-        \ 'pandoc': 1,
-        \ 'infolog': 1,
-        \ 'leaderf': 1,
-        \ 'mail': 1
-        \}
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"  let g:ycm_filetype_blacklist = {
+"        \ 'tagbar': 1,
+"        \ 'markdown': 1,
+"        \ 'netrw': 1,
+"        \ 'unite': 1,
+"        \ 'vimwiki': 1,
+"        \ 'pandoc': 1,
+"        \ 'infolog': 1,
+"        \ 'leaderf': 1,
+"        \ 'mail': 1
+"        \}
+
+" Misc
+"let g:ycm_auto_hover=""
+"nnoremap <silent> <leader>pp :Hover<CR>
 
 "set tags=./tags;,tags; "Use ctags -R --fields=+l
 "set tags^=.git/tags;
@@ -375,9 +385,6 @@ let g:vista_fold_toggle_icons= ['▸', '▾']
 "------------------------------------------------------------------------------"
 "                                   UltiSnips                                  "
 "------------------------------------------------------------------------------"
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
 let g:UltiSnipsExpandTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<c-m>"
 let g:UltiSnipsJumpBackwardTrigger="<c-n>"
@@ -385,14 +392,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
 
-
-let g:ycm_language_server = [
-  \   { 'name': 'scala',
-  \     'filetypes': [ 'scala', 'sbt' ],
-  \     'cmdline': [ 'metals-vim' ],
-  \     'project_root_files': [ 'build.sbt' ]
-  \   },
-  \ ]
+"------------------------------------------------------------------------------"
+"                                vim-lsp / async                               "
+"------------------------------------------------------------------------------"
+let g:lsp_diagnostics_enabled = 0 " disable diagnostics support
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR>    pumvisible() ? asyncomplete#close_popup() : "\<CR>"
 
 "------------------------------------------------------------------------------"
 "                                vim-todo-lists                                "
@@ -401,9 +407,6 @@ nnoremap <leader>td :vsplit $HOME/.tasklist.todo.md <CR>
 let g:VimTodoListsDatesEnabled = 1
 let g:VimTodoListsMoveItems = 0
 
-" Misc
-let g:ycm_auto_hover=""
-nnoremap <silent> <leader>pp :Hover<CR>
 
 "Mark toggling 
 nnoremap <silent> <F2> :SignatureToggle<CR>
@@ -414,3 +417,4 @@ highlight SignatureMarkText ctermfg=red
 "------------------------------------------------------------------------------"
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
+
