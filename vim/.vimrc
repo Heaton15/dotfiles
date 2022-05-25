@@ -29,6 +29,7 @@ if version > 800
     
     Plug 'honza/vim-snippets'
     Plug 'SirVer/ultisnips'
+    Plug 'EdenEast/nightfox.nvim'
 
 
 endif
@@ -64,7 +65,8 @@ let g:python_version_2 = 0
 let b:python_version_2 = 0
 
 set rtp+=~/dotfiles/myhelp/
-colorscheme elda
+"colorscheme elda
+colorscheme terafox
 syntax on
 filetype plugin indent on
 set splitright
