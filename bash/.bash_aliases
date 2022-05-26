@@ -36,6 +36,10 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
                                                                      cat {}) 2> /dev/null | head -500"'
 
 # All system paths
+if [[ $USER == "tim" ]]; then
+    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+fi
+
 export PATH="$HOME/.fzf/bin:$PATH"
 source $HOME/.fzf/shell/completion.bash
 export PATH=$HOME/.local/mybin:$PATH
