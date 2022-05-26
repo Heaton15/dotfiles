@@ -68,7 +68,6 @@ vim.opt.visualbell = true
 
 opt("o", "termguicolors", true)
 opt("o", "ttimeoutlen", 5)
-cmd([[syntax on]])
 cmd([[filetype plugin indent on]])
 cmd([[set noea "set equalalways]])
 cmd([[set backspace=indent,eol,start]])
@@ -161,18 +160,25 @@ cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 require("plugins")
 
-require'nvim-treesitter.configs'.setup {
-  -- Modules and its options go here
-  highlight = { enable = true },
-  incremental_selection = { enable = true },
-  textobjects = { enable = true },
-}
-
-
-
-   
-   
-   
-   
-   
-   
+require("nvim-treesitter.configs").setup({
+    ensure_installed = {
+        "bash",
+        "c",
+        "comment",
+        "cpp",
+        "html",
+        "json",
+        "latex",
+        "lua",
+        "python",
+        "regex",
+        "rst",
+        "scala",
+        "verilog",
+        "yaml",
+        --"devicetree",
+    },
+    highlight = { enable = true },
+    textobjects = { enable = true },
+    incremental_selection = { enable = true },
+})

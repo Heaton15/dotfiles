@@ -32,7 +32,7 @@ return require("packer").startup(function()
 
     use({"https://github.com/tarikgraba/vim-lefdef.git"})
     use({"junegunn/fzf.vim"})
-    use({"vhda/verilog_systemverilog.vim"})
+    --use({"vhda/verilog_systemverilog.vim"})
     use({"godlygeek/tabular"})
     use({"vim-scripts/verilog_emacsauto.vim"})
     use({"junegunn/vim-easy-align"})
@@ -45,8 +45,10 @@ return require("packer").startup(function()
     use({"kshenoy/vim-signature"})
     use({"dhruvasagar/vim-table-mode"})
     use({"EdenEast/nightfox.nvim"})
-    use({'nvim-treesitter/nvim-treesitter'})
-
+    use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use({"nvim-treesitter/completion-treesitter"})
+    use({"haorenW1025/completion-nvim"})
+    
     use({
         "KeitaNakamura/tex-conceal.vim",
         ft = {'tex'}
