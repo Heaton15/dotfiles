@@ -5,6 +5,7 @@
 set nocompatible
 set visualbell
 set t_vb=
+set t_u7=
 "filetype off " required
 
 call plug#begin('~/.vim/plugged')

@@ -19,7 +19,6 @@ end
 
 -- Can now call 1 function to set the options
 local scopes = { o = vim.opt, b = vim.b, w = vim.wo}
-
 local function opt(scope, key, value)
     scopes[scope][key] = value
     if scope ~= "o" then
@@ -162,7 +161,18 @@ cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 require("plugins")
 
+require'nvim-treesitter.configs'.setup {
+  -- Modules and its options go here
+  highlight = { enable = true },
+  incremental_selection = { enable = true },
+  textobjects = { enable = true },
+}
 
 
 
-
+   
+   
+   
+   
+   
+   

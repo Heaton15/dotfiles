@@ -45,8 +45,7 @@ return require("packer").startup(function()
     use({"kshenoy/vim-signature"})
     use({"dhruvasagar/vim-table-mode"})
     use({"EdenEast/nightfox.nvim"})
-    use({"bluz71/vim-moonfly-colors"})
-    use({"Mofiqul/vscode.nvim"})
+    use({'nvim-treesitter/nvim-treesitter'})
 
     use({
         "KeitaNakamura/tex-conceal.vim",
