@@ -153,7 +153,7 @@ set_ft(buf, {"*.txt"}, "notes")
 -- TODO: If latex issues arise, check if textwidth needs to be setlocal again
 set_ft(buf, {"*.tex"}, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
 
-set_ft(buf, {"*.py"}, nil, [[set tabtop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent]])
+set_ft(buf, {"*.py"}, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent]])
 
 -- Allows vim-fugitive to fold changes when viewing
 set_ft({"FileType"}, {"git"}, nil, [[setlocal foldmethod=syntax]])

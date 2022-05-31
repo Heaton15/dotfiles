@@ -75,6 +75,18 @@ if [ $SYSTEM == "arch" ]; then
 fi
 
 # Sets it so that creating more terminals in i3 does not cause text to weirdly rap around the window
+
 shopt -s checkwinsize
 
+if [[ -d $HOME/go ]]; then
+    GOPATH=$HOME/go
+fi
+function _update_ps1() {
+    PS1="$($GOPATH/bin/powerline-go -error $?)"
+}
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
 export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
+
