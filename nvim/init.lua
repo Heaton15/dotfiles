@@ -1,21 +1,28 @@
 -- Neovim Configurations
 
-local cmd = vim.cmd -- shorthand for the vim.cmd('cd') calls
-local fn = vim.fn -- shorthand for fn.bufnr() calls
-local g = vim.g -- table for the global variables
-
 -- vim.g   : let
 -- vim.opt : global options
 -- vim.wo  : window options
 -- vim.bo  : buffer options
 
-function map(mode, shortcut, command)
-    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+      vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
+      vim.api.nvim_command("packadd packer.nvim")
 end
 
-function nmap(shortcut, command)
-    map('n', shortcut, command)
-end
+require("plugins")
+
+-- Compile packer config whenever 'plugins.lua' changes
+local packer_user_config = vim.api.nvim_create_augroup("packer_user_config", {})
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    { pattern = "plugins.lua", command = "source <afile> | PackerCompile", group = packer_user_config }
+)
+
+-- Keybinds Updates
+vim.g.mapleader = [[ ]]
+vim.g.maplocalleader = [[ ]]
 
 -- Can now call 1 function to set the options
 local scopes = { o = vim.opt, b = vim.b, w = vim.wo}
@@ -26,91 +33,169 @@ local function opt(scope, key, value)
     end
 end
 
--- Keybinds Updates
-g.mapleader = " "
-g.maplocalleader = " " 
-
-nmap("<leader>ev", ":vsplit $MYVIMRC <CR>")
-nmap("<leader>vr", ":source $MYVIMRC <CR>")
-nmap("<leader>eb", ":vsplit $HOME/.bashrc <CR>")
-nmap("<leader>bn", ":bn <CR>")
-nmap("<leader>bp", ":bp <CR>")
-nmap("<leader>q",  ":qa! <CR>")
-nmap("<leader>wh", "<C-w>h")
-nmap("<leader>wj", "<C-w>j")
-nmap("<leader>wk", "<C-w>k")
-nmap("<leader>wl", "<C-w>l")
-nmap("<leader>ws", "<C-w>s")
-nmap("<leader>w/", "<C-w>v")
-nmap("<leader>wv", "<C-w>v")
+vim.keymap.set("n","<leader>ev", ":vsplit $MYVIMRC <CR>")
+vim.keymap.set("n", "<leader>vr", ":source $MYVIMRC <CR>")
+vim.keymap.set("n", "<leader>eb", ":vsplit $HOME/.bashrc <CR>")
+vim.keymap.set("n", "<leader>bn", ":bn <CR>")
+vim.keymap.set("n", "<leader>bp", ":bp <CR>")
+vim.keymap.set("n", "<leader>q",  ":qa! <CR>")
+vim.keymap.set("n", "<leader>wh", "<C-w>h")
+vim.keymap.set("n", "<leader>wj", "<C-w>j")
+vim.keymap.set("n", "<leader>wk", "<C-w>k")
+vim.keymap.set("n", "<leader>wl", "<C-w>l")
+vim.keymap.set("n", "<leader>ws", "<C-w>s")
+vim.keymap.set("n", "<leader>w/", "<C-w>v")
+vim.keymap.set("n", "<leader>wv", "<C-w>v")
 
 -- Tab movement in nvim
-nmap("tn", ":tabnew <CR>")
-nmap("tc", ":tabclose <CR>")
-nmap("tN", ":tab sball <CR>")
-nmap("ts", ":tab split <CR>")
-nmap("<leader>1", "1gt")
-nmap("<leader>2", "2gt")
-nmap("<leader>3", "3gt")
-nmap("<leader>4", "4gt")
-nmap("<leader>5", "5gt")
-nmap("<leader>6", "6gt")
-nmap("<leader>7", "7gt")
-nmap("<leader>8", "8gt")
-nmap("<leader>9", "9gt")
+vim.keymap.set("n", "tn", ":tabnew <CR>")
+vim.keymap.set("n", "tc", ":tabclose <CR>")
+vim.keymap.set("n", "tN", ":tab sball <CR>")
+vim.keymap.set("n", "ts", ":tab split <CR>")
+vim.keymap.set("n", "<leader>1", "1gt")
+vim.keymap.set("n", "<leader>2", "2gt")
+vim.keymap.set("n", "<leader>3", "3gt")
+vim.keymap.set("n", "<leader>4", "4gt")
+vim.keymap.set("n", "<leader>5", "5gt")
+vim.keymap.set("n", "<leader>6", "6gt")
+vim.keymap.set("n", "<leader>7", "7gt")
+vim.keymap.set("n", "<leader>8", "8gt")
+vim.keymap.set("n", "<leader>9", "9gt")
 
 -- Global Settings
-g.python_highlight_all = 1
-g.python_version_2 = 0
+vim.g.python_highlight_all = 1
+vim.g.python_version_2 = 0
 
 -- nvim Configuration
 vim.opt.visualbell = true
 
-opt("o", "termguicolors", true)
-opt("o", "ttimeoutlen", 5)
-cmd([[filetype plugin indent on]])
-cmd([[set noea "set equalalways]])
-cmd([[set backspace=indent,eol,start]])
-opt("o", "splitright", true)
-opt("o", "foldmethod", "manual")
-opt("o", "virtualedit", "all")
-opt("o", "mouse", "a")
-opt("w", "wrap", true)
-opt("o", "ttyfast",  true)
-opt("o", "modelines", 0)
+vim.opt.termguicolors = true
+vim.opt.ttimeoutlen = 5
+
+vim.cmd([[filetype plugin indent on]])
+vim.cmd([[set noea "set equalalways]])
+vim.cmd([[set backspace=indent,eol,start]])
+
+vim.opt.splitright = true
+vim.opt.foldmethod = "manual"
+vim.opt.virtualedit = "all"
+vim.opt.mouse = "a"
+vim.wo.wrap = true
+vim.opt.ttyfast = true
+vim.opt.modelines = 0
 
 -- Search settings
-opt("o", "hlsearch", true)
-opt("o", "incsearch", true)
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
 
 local indent = 4
-opt("b", "expandtab", true)
-opt("b", "tabstop", indent)
-opt("b", "softtabstop", indent)
-opt("b", "shiftwidth", indent)
 
-opt("w", "number", true)
-opt("w", "relativenumber", true)
-opt("b", "formatoptions", "crot")
+vim.opt.expandtab = true
+vim.opt.tabstop = indent
+vim.opt.softtabstop = indent
+vim.opt.shiftwidth = indent
 
---cmd([[highlight search guibg = green]])
---nmap("<F5>", ":set norelativenumber! <CR> :set nonumber! <CR>")
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.bo.formatoptions = "crot"
 
-		--bold
-		--underline
-		--underlineline	double underline
-		--undercurl	curly underline
-		--underdot	dotted underline
-		--underdash	dashed underline
-		--strikethrough
-		--reverse
-		--inverse		same as reverse
-		--italic
-		--standout
-		--nocombine	override attributes instead of combining them
-		--NONE		no attributes used (used to reset it)
+--vim.cmd([[highlight search guibg = green]])
+vim.keymap.set("n", "<F5>", [[ :set norelativenumber! <CR> :set nonumber! <CR>]])
 
-local tim = 5
+-- Window control in neovim
+vim.keymap.set("n", "<leader>l",  ":redraw <CR>", {silent = true})
+vim.keymap.set("n", "<leader>ww", "<C-w>= <CR>", {silent = true})
+vim.keymap.set("n", "<leader>w-", ":sp <CR>", {silent = true})
+vim.keymap.set("n", "<leader>w/", ":vsp <CR>", {silent = true})
+
+function set_ft(events, ft_list, ft, ft_cmd)
+    
+    if (ft == nil) then
+        ft = ''
+    else 
+        ft = [[set filetype=]] .. ft
+    end
+
+    if (ft_cmd == nil) then
+        ft_cmd = ''
+    end
+
+    cmd = ft .. ' ' .. ft_cmd
+
+    for _, item in pairs(ft_list) do
+        vim.api.nvim_create_autocmd(events, { 
+            pattern = {item},
+            command = cmd,
+        })
+    end
+end
+
+-- autocmd assignments
+local buf = {"BufRead", "BufNewFile"}
+local ft_skill = {"*.ils", "*.cdsinit", "*.cdsenv", "cds.lib"}
+local ft_tcl   = {"*.sdc", "*.xel"}
+local ft_vlog  = {"*.v", "*.vg", "*.vm", "*.sv", "*.vams", "*.f"}
+
+-- Set certain commonly used files to a filetype
+set_ft(buf, {"*.bash_aliases"}, "sh")
+set_ft(buf, {"*.scs"}, "spectre")
+
+set_ft(buf, {"*.il"}, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoindent]])
+
+set_ft(buf, ft_skill, "skill")
+set_ft(buf, ft_tcl, "tcl")
+
+-- TODO: determine if the verilog ft still needs updated based on the janky plugins that exist
+set_ft(buf, ft_vlog, "systemverilog", [[softtabstop=4 shiftwidth=4 textwidth=80]])
+set_ft(buf, {"*.xdc"}, "xdc")
+set_ft(buf, {"*.txt"}, "notes")
+
+-- TODO: If latex issues arise, check if textwidth needs to be setlocal again
+set_ft(buf, {"*.tex"}, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
+
+set_ft(buf, {"*.py"}, nil, [[set tabtop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent]])
+
+-- Allows vim-fugitive to fold changes when viewing
+set_ft({"FileType"}, {"git"}, nil, [[setlocal foldmethod=syntax]])
+
+-- Vim-Fugitive Custom binds
+vim.keymap.set("n", "<leader>o", ":only <CR>")
+vim.keymap.set("n", "<leader>gp", ":Git push")
+vim.keymap.set("n", "<leader>gf", ":Git fetch -p <CR>")
+vim.keymap.set("n", "<leader>gs", ":Git <CR> :only <CR>")
+vim.keymap.set("n", "<leader>gl", ":Git log --decorate <CR> :only <CR>")
+vim.keymap.set("n", "<leader>go", ":Git log -p % <CR>")
+vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!<C-R>d")
+vim.keymap.set("n", "<leader>gdh", ":diffget //2")
+vim.keymap.set("n", "<leader>gdl", ":diffget //3")
+vim.keymap.set("n", "<leader>nc", "]c")
+
+-- tmux / vimux config
+vim.keymap.set("n", "<leader>vp", ":VimuxPromptCommand<CR>")
+vim.keymap.set("n", "<leader>vc", ":VimuxCloseRunner<CR>")
+vim.keymap.set("n", "<leader>vo", ":VimuxOpenRunner<CR>")
+vim.keymap.set("n", "<leader>vl", ":VimuxRunLastCommand<CR>")
+vim.keymap.set("n", "<leader>vi", ":VimuxInspectRunner<CR>")
+
+-- vim buffer navigation
+vim.keymap.set("n", "<leader>wh", ":TmuxNavigateLeft <CR>", {silent = true})
+vim.keymap.set("n", "<leader>wj", ":TmuxNavigateDown <CR>", {silent = true})
+vim.keymap.set("n", "<leader>wk", ":TmuxNavigateUp <CR>", {silent = true})
+vim.keymap.set("n", "<leader>wl", ":TmuxNavigateRight <CR>", {silent = true})
+
+-- Binary R/W
+vim.keymap.set("n", "<leader>hr", ":%!xxd<CR> :set filetype=xxd<CR>", {remap = true})
+vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<CR>", {remap = true})
+
+-- Ultisnips
+vim.g.UltiSnipsExpandTrigger="<c-b>"
+vim.g.UltiSnipsJumpForwardTrigger="<c-m>"
+vim.g.UltiSnipsJumpBackwardTrigger="<c-n>"
+
+-- vim-table-mode
+vim.g.table_mode_corner_corner=[[+]]
+vim.g.table_mode_header_fillchar=[[=]]
+
 
 require('nightfox').setup({
     options = {
@@ -144,21 +229,13 @@ require('nightfox').setup({
 })
 
 
-cmd([[colorscheme terafox]])
-cmd("set rtp+=~/dotfiles/myhelp/")
+vim.cmd([[colorscheme terafox]])
+vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
--- Auto install packer.nvim if not exists
--- Bootstrap packer installation
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-      fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-      vim.api.nvim_command("packadd packer.nvim")
-end
 
 -- Compile packer config whenever 'plugins.lua' changes
-cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
+vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
-require("plugins")
 
 require("nvim-treesitter.configs").setup({
     ensure_installed = {

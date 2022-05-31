@@ -2,11 +2,13 @@
 return require("packer").startup(function()
 
     -- Plugin manager install
-    --
     use({"wbthomason/packer.nvim"})
 
     -- Useful lua functions for nvim
     use({"wbthomason/plenary.nvim"})
+
+    -- Colorscheme
+    use({"EdenEast/nightfox.nvim"})
 
     -- Allow nvim / tmux to operate together
     use({"benmills/vimux"})
@@ -22,10 +24,7 @@ return require("packer").startup(function()
 
     -- Snippets for neovim
     use({"honza/vim-snippets"})
-    --use({"SirVer/ultisnips"})
-
-    -- Better python highlighting
-    use({"vim-python/python-syntax"})
+    use({"SirVer/ultisnips"})
 
     -- git management plugin
     use({"tpope/vim-fugitive"})
@@ -44,10 +43,11 @@ return require("packer").startup(function()
     use({"liuchengxu/vista.vim"})
     use({"kshenoy/vim-signature"})
     use({"dhruvasagar/vim-table-mode"})
-    use({"EdenEast/nightfox.nvim"})
-    use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use({"nvim-treesitter/completion-treesitter"})
-    use({"haorenW1025/completion-nvim"})
+    use({"nvim-treesitter/nvim-treesitter"})
+
+    --use({"nvim-treesitter/completion-treesitter"})
+    --use({"haorenW1025/completion-nvim"})
+    --use({"hrsh7th/nvim-cmp"})
     
     use({
         "KeitaNakamura/tex-conceal.vim",
