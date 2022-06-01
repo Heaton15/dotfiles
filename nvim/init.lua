@@ -1,5 +1,4 @@
 -- Neovim Configurations
-
 -- vim.g   : let
 -- vim.opt : global options
 -- vim.wo  : window options
@@ -11,27 +10,15 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
       vim.api.nvim_command("packadd packer.nvim")
 end
 
-require("plugins")
 
 -- Compile packer config whenever 'plugins.lua' changes
-local packer_user_config = vim.api.nvim_create_augroup("packer_user_config", {})
-vim.api.nvim_create_autocmd(
-    "BufWritePost",
-    { pattern = "plugins.lua", command = "source <afile> | PackerCompile", group = packer_user_config }
-)
+--vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
+
+require("plugins")
 
 -- Keybinds Updates
 vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[ ]]
-
--- Can now call 1 function to set the options
-local scopes = { o = vim.opt, b = vim.b, w = vim.wo}
-local function opt(scope, key, value)
-    scopes[scope][key] = value
-    if scope ~= "o" then
-        scopes["o"][key] = value
-    end
-end
 
 vim.keymap.set("n","<leader>ev", ":vsplit $MYVIMRC <CR>")
 vim.keymap.set("n", "<leader>vr", ":source $MYVIMRC <CR>")
@@ -196,66 +183,8 @@ vim.g.UltiSnipsJumpBackwardTrigger="<c-n>"
 vim.g.table_mode_corner_corner=[[+]]
 vim.g.table_mode_header_fillchar=[[=]]
 
-
-require('nightfox').setup({
-    options = {
-        --Compiled file's destination location
-        compile_path = vim.fn.stdpath("cache") .. "/nightfox",
-        compile_file_suffix = "_compiled", -- Compiled file suffix
-        transparent = false,    -- Disable setting background
-        terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-        dim_inactive = false,   -- Non focused panes set to alternative background
-        styles = {              -- Style to be applied to different syntax groups
-            comments = "NONE",    -- Value is any valid attr-list value `:help attr-list`
-            conditionals = "NONE",
-            constants = "NONE",
-            functions = "NONE",
-            keywords = "NONE",
-            numbers = "NONE",
-            operators = "NONE",
-            strings = "NONE",
-            types = "NONE",
-            variables = "NONE",
-        },
-        inverse = {             -- Inverse highlight for different types
-            match_paren = true,
-            visual = false,
-            search = false,
-        },
-        modules = {             -- List of various plugins and additional options
-        -- ...
-        },
-    }
-})
-
-
 vim.cmd([[colorscheme terafox]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
 
--- Compile packer config whenever 'plugins.lua' changes
-vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
-
-
-require("nvim-treesitter.configs").setup({
-    ensure_installed = {
-        "bash",
-        "c",
-        "comment",
-        "cpp",
-        "html",
-        "json",
-        "latex",
-        "lua",
-        "python",
-        "regex",
-        "rst",
-        "scala",
-        "verilog",
-        "yaml",
-        --"devicetree",
-    },
-    highlight = { enable = true },
-    textobjects = { enable = true },
-    incremental_selection = { enable = true },
-})
+--local async = require "plenary.async"

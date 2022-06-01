@@ -5,10 +5,15 @@ return require("packer").startup(function()
     use({"wbthomason/packer.nvim"})
 
     -- Useful lua functions for nvim
-    use({"wbthomason/plenary.nvim"})
+    use({"nvim-lua/plenary.nvim"})
 
     -- Colorscheme
-    use({"EdenEast/nightfox.nvim"})
+    use({
+        "EdenEast/nightfox.nvim",
+        config = function()
+            require("config.nightfox")
+        end
+    })
 
     -- Allow nvim / tmux to operate together
     use({"benmills/vimux"})
@@ -21,10 +26,6 @@ return require("packer").startup(function()
     use({"camspiers/lens.vim"})
 
     use({"psliwka/vim-smoothie"})
-
-    -- Snippets for neovim
-    use({"honza/vim-snippets"})
-    use({"SirVer/ultisnips"})
 
     -- git management plugin
     use({"tpope/vim-fugitive"})
@@ -43,7 +44,17 @@ return require("packer").startup(function()
     use({"liuchengxu/vista.vim"})
     use({"kshenoy/vim-signature"})
     use({"dhruvasagar/vim-table-mode"})
-    use({"nvim-treesitter/nvim-treesitter"})
+
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        config = function()
+            require("config.treesitter")
+        end,
+        run = ":TSUpdate",
+    })
+    
+    use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+
 
     --use({"nvim-treesitter/completion-treesitter"})
     --use({"haorenW1025/completion-nvim"})
@@ -54,12 +65,45 @@ return require("packer").startup(function()
         ft = {'tex'}
     })
 
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        },
+        config = function()
+            require("config.telescope")
+        end,
 
+    })
 
+    use({"hrsh7th/nvim-cmp",
+        config = function() 
+            require("config.nvim-cmp")
+        end,
+    })
 
-    
+    use({'neovim/nvim-lspconfig', after = "nvim-cmp"})
+    use({'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp"})
+    use({'hrsh7th/cmp-buffer', after = "nvim-cmp"})
+    use({'hrsh7th/cmp-path', after = "nvim-cmp"})
+    use({'hrsh7th/cmp-cmdline', after = "nvim-cmp"})
 
+    use({"SirVer/ultisnips"})
+    use({"quangnguyen30192/cmp-nvim-ultisnips"})
 
+    -- Fancy notification manager
+    use({
+        "rcarriga/nvim-notify",
+        config = function()
+            local notify = require("notify")
+            notify.setup({
+                timeout = 3000,
+                stages = "fade",
+            })
+            vim.notify = notify
+        end,
+    })
 
 
 end)
