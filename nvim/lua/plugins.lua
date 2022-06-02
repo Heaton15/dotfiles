@@ -88,13 +88,16 @@ return require("packer").startup(function()
 
     -- Common LSP Configurations
     use({
-        'neovim/nvim-lspconfig',
-        after = {
-            "cmp-nvim-lsp",
-        },
-        config = function()
-            require("config.lsp")
-        end,
+        "williamboman/nvim-lsp-installer",
+        {
+            'neovim/nvim-lspconfig',
+            after = {
+                "cmp-nvim-lsp",
+            },
+            config = function()
+                require("config.lsp")
+            end
+        }
     })
 
     -- Fancy notification manager

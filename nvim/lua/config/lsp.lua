@@ -1,5 +1,6 @@
 -- LSP configurations
 
+require("nvim-lsp-installer").setup {}
 local lspconfig = require("lspconfig")
 
 -- Adds cmp as a capability to the lsp autocompletion
@@ -34,6 +35,7 @@ local function custom_lsp_attach(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
+    map("i", "glc", vim.lsp.buf.code_action, opts)
     map("n", "gla", vim.lsp.buf.code_action, opts)
     map("v", "gla", vim.lsp.buf.range_code_action, opts)
     map("n", "gld", ts_builtin.lsp_definitions, opts)
@@ -47,6 +49,7 @@ local function custom_lsp_attach(client, bufnr)
     map("n", "glj", vim.diagnostic.goto_next, opts)
     map("n", "glk", vim.diagnostic.goto_prev, opts)
     map("n", "gln", vim.lsp.buf.rename, opts)
+    map("n", "glp", vim.lsp.buf.execute_command, opts)
     map("n", "glr", ts_builtin.lsp_references, opts)
     map("n", "gltd", vim.lsp.buf.type_definition, opts)
     map("n", "glwd", ts_builtin.diagnostics, opts)
@@ -73,3 +76,4 @@ for _, lsp in ipairs(servers) do
     }
   })
 end
+
