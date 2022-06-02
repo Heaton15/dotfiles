@@ -78,7 +78,6 @@ return require("packer").startup(function()
         end,
     })
 
-    use({'neovim/nvim-lspconfig', after = "nvim-cmp"})
     use({'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp"})
     use({'hrsh7th/cmp-buffer', after = "nvim-cmp"})
     use({'hrsh7th/cmp-path', after = "nvim-cmp"})

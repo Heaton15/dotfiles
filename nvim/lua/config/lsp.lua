@@ -2,8 +2,6 @@
 
 local lspconfig = require("lspconfig")
 
-require'lspconfig'.pyright.setup{}
-
 -- Adds cmp as a capability to the lsp autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -58,6 +56,7 @@ local function custom_lsp_attach(client, bufnr)
     map("n", "glws", ts_builtin.lsp_workspace_symbols, opts)
     map("n", "glx", function()
         vim.lsp.stop_client(vim.lsp.get_active_clients())
+    end, opts)
 end
 
 local servers = {
@@ -65,7 +64,7 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-  lspconfig.[lsp].setup({
+  lspconfig[lsp].setup({
     on_attach = custom_lsp_attach,
     capabilities = capabilities,
     flags = {
