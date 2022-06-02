@@ -54,11 +54,6 @@ return require("packer").startup(function()
     })
     
     use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
-
-
-    --use({"nvim-treesitter/completion-treesitter"})
-    --use({"haorenW1025/completion-nvim"})
-    --use({"hrsh7th/nvim-cmp"})
     
     use({
         "KeitaNakamura/tex-conceal.vim",
@@ -69,7 +64,7 @@ return require("packer").startup(function()
         "nvim-telescope/telescope.nvim",
         requires = {
             {"nvim-lua/plenary.nvim"},
-            { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+            {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
         },
         config = function()
             require("config.telescope")
@@ -88,9 +83,20 @@ return require("packer").startup(function()
     use({'hrsh7th/cmp-buffer', after = "nvim-cmp"})
     use({'hrsh7th/cmp-path', after = "nvim-cmp"})
     use({'hrsh7th/cmp-cmdline', after = "nvim-cmp"})
+    use({'hrsh7th/cmp-vsnip', after = "nvim-cmp"})
+    use({'hrsh7th/vim-vsnip', after = "nvim-cmp"})
+    use({'rafamadriz/friendly-snippets', after = "nvim-cmp"})
 
-    use({"SirVer/ultisnips"})
-    use({"quangnguyen30192/cmp-nvim-ultisnips"})
+    -- Common LSP Configurations
+    use({
+        'neovim/nvim-lspconfig',
+        after = {
+            "cmp-nvim-lsp",
+        },
+        config = function()
+            require("config.lsp")
+        end,
+    })
 
     -- Fancy notification manager
     use({
@@ -107,3 +113,4 @@ return require("packer").startup(function()
 
 
 end)
+

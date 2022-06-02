@@ -39,15 +39,12 @@ vim.keymap.set("n", "tn", ":tabnew <CR>")
 vim.keymap.set("n", "tc", ":tabclose <CR>")
 vim.keymap.set("n", "tN", ":tab sball <CR>")
 vim.keymap.set("n", "ts", ":tab split <CR>")
-vim.keymap.set("n", "<leader>1", "1gt")
-vim.keymap.set("n", "<leader>2", "2gt")
-vim.keymap.set("n", "<leader>3", "3gt")
-vim.keymap.set("n", "<leader>4", "4gt")
-vim.keymap.set("n", "<leader>5", "5gt")
-vim.keymap.set("n", "<leader>6", "6gt")
-vim.keymap.set("n", "<leader>7", "7gt")
-vim.keymap.set("n", "<leader>8", "8gt")
-vim.keymap.set("n", "<leader>9", "9gt")
+
+-- Move between tabs with leader + num
+for i=1,9 do
+    key = '<leader>' .. i
+    vim.keymap.set("n", key, i..'gt')
+end
 
 -- Global Settings
 vim.g.python_highlight_all = 1
@@ -165,6 +162,7 @@ vim.keymap.set("n", "<leader>vl", ":VimuxRunLastCommand<CR>")
 vim.keymap.set("n", "<leader>vi", ":VimuxInspectRunner<CR>")
 
 -- vim buffer navigation
+vim.g.tmux_navigator_no_mappings = 1
 vim.keymap.set("n", "<leader>wh", ":TmuxNavigateLeft <CR>", {silent = true})
 vim.keymap.set("n", "<leader>wj", ":TmuxNavigateDown <CR>", {silent = true})
 vim.keymap.set("n", "<leader>wk", ":TmuxNavigateUp <CR>", {silent = true})
@@ -175,9 +173,9 @@ vim.keymap.set("n", "<leader>hr", ":%!xxd<CR> :set filetype=xxd<CR>", {remap = t
 vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<CR>", {remap = true})
 
 -- Ultisnips
-vim.g.UltiSnipsExpandTrigger="<c-b>"
-vim.g.UltiSnipsJumpForwardTrigger="<c-m>"
-vim.g.UltiSnipsJumpBackwardTrigger="<c-n>"
+--vim.g.UltiSnipsExpandTrigger="<c-b>"
+--vim.g.UltiSnipsJumpForwardTrigger="<S-l>"
+--vim.g.UltiSnipsJumpBackwardTrigger="<S-h>"
 
 -- vim-table-mode
 vim.g.table_mode_corner_corner=[[+]]
@@ -186,5 +184,4 @@ vim.g.table_mode_header_fillchar=[[=]]
 vim.cmd([[colorscheme terafox]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
-
---local async = require "plenary.async"
+local async = require "plenary.async"
