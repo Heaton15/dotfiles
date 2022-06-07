@@ -7,51 +7,49 @@ local feedkey = function(key, mode)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
+vim.cmd([[set completeopt=menu,menuone,noselect]])
+
 local cmp = require("cmp")
+local select_opts = {behavior = cmp.SelectBehavior.Select}
 cmp.setup({
     snippet = {
         expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        --vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
     },
     mapping = cmp.mapping.preset.insert({
-
-        ["<C-n>"] = cmp.mapping(function(fallback)
+        ['<C-n>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
-                cmp.complete()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
             else
                 fallback()
             end
-        end, { "i" }),
-
-        ["<C-p>"] = cmp.mapping(function()
+    end, { 'i', 's' }),
+        ['<C-p>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
             end
-        end, { "i" }),
+    end, { 'i', 's' }),
 
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-o>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-       }),
+      ['<CR>'] = cmp.mapping.confirm({select = true,}),
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "vsnip" },
+        { name = "nvim_lsp_signature_help" },
+        { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
     })

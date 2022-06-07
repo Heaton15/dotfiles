@@ -185,3 +185,7 @@ vim.cmd([[colorscheme terafox]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
 local async = require "plenary.async"
+
+
+-- Load external vtags plugin and run
+require("config.vtags")
