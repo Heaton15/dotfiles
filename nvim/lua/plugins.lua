@@ -87,6 +87,7 @@ return require("packer").startup(function()
 
     use({'L3MON4D3/LuaSnip', after = "nvim-cmp"})
     use({'saadparwaiz1/cmp_luasnip', after = "nvim-cmp"})
+    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 
     use({'rafamadriz/friendly-snippets', after = "nvim-cmp"})
 

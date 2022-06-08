@@ -76,3 +76,42 @@ for _, lsp in ipairs(servers) do
   })
 end
 
+-- nvim-metals Setup
+local Path = require("plenary.path")
+local metals = require("metals")
+
+metals_config = metals.bare_config()
+metals_config.on_attach = custom_lsp_attach
+metals_config.settings = {
+    showImplicitArguments = true,
+    excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+}
+metals_config.root_patterns = { "build.sbt", "build.sc" }
+
+-- Find the last directory which contains one of the files/directories in 'metals_config.root_patterns'
+metals_config.find_root_dir = function(patterns, startpath)
+    local root_dir = nil
+    local path = Path:new(startpath)
+    for _, parent in ipairs(path:parents()) do
+        for _, pattern in ipairs(patterns) do
+            local target = Path:new(parent, pattern)
+            if target:exists() then
+                root_dir = parent
+            end
+        end
+    end
+    return root_dir
+end
+
+metals_config.init_options.statusBarProvider = "on"
+metals_config.capabilities = capabilities
+
+local lsp_metals = vim.api.nvim_create_augroup("lsp_metals", {})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "scala,sbt",
+    callback = function()
+        metals.initialize_or_attach(metals_config)
+    end,
+    group = lsp_metals,
+})
+
