@@ -35,7 +35,6 @@ local function custom_lsp_attach(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-    map("i", "glc", vim.lsp.buf.code_action, opts)
     map("n", "gla", vim.lsp.buf.code_action, opts)
     map("v", "gla", vim.lsp.buf.range_code_action, opts)
     map("n", "gld", ts_builtin.lsp_definitions, opts)
