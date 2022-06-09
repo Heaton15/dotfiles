@@ -195,3 +195,4 @@ cfg = {}
 vim.cmd([[packadd! lsp_signature.nvim]])
 require "lsp_signature".setup(cfg)
 vim.opt_global.shortmess:remove("F")
+vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
