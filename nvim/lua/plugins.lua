@@ -32,7 +32,7 @@ return require("packer").startup(function()
 
     use({"https://github.com/tarikgraba/vim-lefdef.git"})
     use({"junegunn/fzf.vim"})
-    --use({"vhda/verilog_systemverilog.vim"})
+    use({"vhda/verilog_systemverilog.vim"})
     use({"godlygeek/tabular"})
     use({"vim-scripts/verilog_emacsauto.vim"})
     use({"junegunn/vim-easy-align"})
