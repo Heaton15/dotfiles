@@ -20,7 +20,14 @@ require("plugins")
 vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[ ]]
 
-vim.keymap.set("n","<leader>ev", ":vsplit $MYVIMRC <CR>")
+if vim.fn.has('nvim') == 1 then
+    local initlua = vim.fn.expand("$HOME/.config/nvim")
+    vim.keymap.set("n", "<leader>ev", ":Telescope find_files cwd=" .. initlua .. " <CR>")
+else
+    vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
+end
+
+--vim.keymap.set("n","<leader>ev", ":Telescope $MYVIMRC <CR>")
 vim.keymap.set("n", "<leader>vr", ":source $MYVIMRC <CR>")
 vim.keymap.set("n", "<leader>eb", ":vsplit $HOME/.bashrc <CR>")
 vim.keymap.set("n", "<leader>bn", ":bn <CR>")
@@ -131,6 +138,7 @@ set_ft(buf, ft_tcl, "tcl")
 
 -- TODO: determine if the verilog ft still needs updated based on the janky plugins that exist
 set_ft(buf, ft_vlog, "verilog_systemverilog.verilog.systemverilog", [[softtabstop=4 shiftwidth=4 textwidth=80]])
+
 set_ft(buf, {"*.xdc"}, "xdc")
 set_ft(buf, {"*.txt"}, "notes")
 
@@ -188,7 +196,10 @@ local async = require "plenary.async"
 
 
 -- Load external vtags plugin and run
-require("config.vtags")
+-- Issues getting vtags working. python3 execute problems
+--require("config.vtags")
+
+--vim.keymap.set("n", "<leader>vt, "source $HOME.
 
 cfg = {}
 -- Have to add lsp_signature since it sits in /opt
