@@ -13,7 +13,7 @@ require("nvim-treesitter.configs").setup({
         "regex",
         "rst",
         "scala",
-        "verilog",
+        --"verilog",
         "yaml",
         --"devicetree",
     },
