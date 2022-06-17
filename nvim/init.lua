@@ -197,9 +197,7 @@ local async = require "plenary.async"
 
 -- Load external vtags plugin and run
 -- Issues getting vtags working. python3 execute problems
---require("config.vtags")
-
---vim.keymap.set("n", "<leader>vt, "source $HOME.
+require("config.vtags")
 
 cfg = {}
 -- Have to add lsp_signature since it sits in /opt

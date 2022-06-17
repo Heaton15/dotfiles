@@ -1,6 +1,7 @@
 vim.notify = require("notify")
-local vtags_version = "https://www.vim.org/scripts/download_script.php?src_id=27765"
-local version = "3.10"
+local vtags_version = "https://www.vim.org/scripts/download_script.php?src_id=26794" -- 3.01
+local vtags_3p10= "https://www.vim.org/scripts/download_script.php?src_id=27765" --3.10
+local version = "3.01"
 local dest = ".vtags-" .. version
 
 -- Curl down vtags and install it in the home directory
@@ -47,5 +48,4 @@ vlog_bind('nnoremap <buffer> <Space>         : py3 try_space_operation()        
 vlog_bind('nnoremap <buffer> <Space>s        : py3 try_save_env_snapshort()          <CR>', vlog_group)
 vlog_bind('nnoremap <buffer> <Space>r        : py3 try_reload_env_snapshort()        <CR>', vlog_group)
 
---vim.keymap.set("n", "<leader>vt", ":source "..vtags_path.." <CR>")
---vim.cmd("source "..vtags_path)
+vim.keymap.set("n", "<leader>vt", ":source "..vtags_path.." <CR>")
