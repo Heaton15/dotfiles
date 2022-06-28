@@ -44,7 +44,7 @@ fi
 export PATH="$HOME/.fzf/bin:$PATH"
 source $HOME/.fzf/shell/completion.bash
 export PATH=$HOME/.local/mybin:$PATH
-alias vtags='python ~/.vtags-3.01/vtags.py'
+alias vtags='/usr/bin/python ~/.vtags-3.01/vtags-3.01/vtags.py'
 export EDITOR="$HOME/.local/mybin/vim"
 export VISUAL="$HOME/.local/mybin/vim"
 
