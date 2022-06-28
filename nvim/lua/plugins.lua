@@ -82,7 +82,7 @@ return require("packer").startup(function()
     use({'hrsh7th/cmp-buffer', after = "nvim-cmp"})
     use({'hrsh7th/cmp-path', after = "nvim-cmp"})
     use({'hrsh7th/cmp-cmdline', after = "nvim-cmp"})
-    --use({'hrsh7th/cmp-nvim-lsp-signature-help', after = "nvim-cmp"})
+    use({'hrsh7th/cmp-nvim-lsp-signature-help', after = "nvim-cmp"})
     use({'ray-x/lsp_signature.nvim', after = "nvim-cmp"})
 
     use({'L3MON4D3/LuaSnip', after = "nvim-cmp"})

@@ -212,7 +212,35 @@ vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
 
 
 -- LuaSnip forward commands 
-vim.keymap.set("i", "<Tab>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
-vim.keymap.set("s", "<Tab>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
-vim.keymap.set("i", "<S-Tab>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
-vim.keymap.set("s", "<S-Tab>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
+--vim.keymap.set("i", "<S-]>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
+--vim.keymap.set("s", "<S-]>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
+--vim.keymap.set("i", "<S-[>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
+--vim.keymap.set("s", "<S-[>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
+
+
+-- vista
+vim.keymap.set("n", "tt", ":Vista!! <CR>")
+vim.g.vista_stay_on_open = 0
+vim.cmd[[let g:vista#renderer#enable_icon = 0]]
+
+-- gutentags
+vim.g.gutentags_ctags_extra_args = {
+    '--fields=ailmnS',
+    '--tag-relative=yes',
+    '--python-kinds=-i',
+}
+
+vim.g.gutentags_ctags_exclude = {
+    '*.sv', '*.v',
+    '*Makefile',
+    'env',
+    'fpga', 'generators', 'toolchains',
+    'tools', 'vlsi', 'project',
+}
+vim.g.gutentags_generate_on_new = 1
+vim.g.gutentags_generate_on_missing = 1
+vim.g.gutentags_generate_on_write = 1
+vim.g.gutentags_generate_on_empty_buffer = 0
+vim.g.gutentags_cache_dir = vim.fn.expand('~/.cache/vim/ctags/')
+vim.g.gutentags_add_default_project_roots = 0
+vim.g.gutentags_project_root = '.tmp_top'
