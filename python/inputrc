@@ -1,0 +1,8 @@
+# Enable Tab-completion.
+Tab: complete
+
+# Enable vi-style editing.
+set show-all-if-ambiguous on
+set colored-stats on
+set editing-mode vi
+

@@ -1,0 +1,6 @@
+[user]
+	name = Tim Heaton
+	useConfigOnly = true
+
+[diff]
+	ignoreSubmodules = dirty
