@@ -9,7 +9,7 @@ endif
 
 ifeq ($(shell which cs 2> /dev/null),)
 $(error Please install coursier: >>> \
-	curl -fLo cs https://git.io/coursier-cli-"$$(uname | tr LD ld)" \
+	curl -fLo ~/.local/bin/cs https://git.io/coursier-cli-"$$(uname | tr LD ld)" \
 	<<<)
 endif
 

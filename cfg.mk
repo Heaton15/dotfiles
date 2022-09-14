@@ -1,6 +1,6 @@
 BREW     := 0
 GIT      := 1
-NODE     := 1
+NODE     := 0
 NVIM     := 1
 PYTHON   := 1
 SCALA    := 1
