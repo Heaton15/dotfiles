@@ -89,6 +89,14 @@ return require("packer").startup(function()
     use({'saadparwaiz1/cmp_luasnip', after = "nvim-cmp"})
     use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 
+    -- LSP statusline components
+    use({
+        "j-hui/fidget.nvim",
+        config = function()
+            require("fidget").setup({})
+        end,
+    })
+
     use({'rafamadriz/friendly-snippets', after = "nvim-cmp"})
 
     -- Common LSP Configurations
