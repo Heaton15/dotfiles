@@ -21,8 +21,6 @@ return require("packer").startup(function()
     -- vimtex commands for vim
     use({"lervag/vimtex"})
 
-    use({"ludovicchabant/vim-gutentags"})
-
     use({"camspiers/lens.vim"})
 
     use({"psliwka/vim-smoothie"})
@@ -34,7 +32,6 @@ return require("packer").startup(function()
     use({"junegunn/fzf.vim"})
     use({"vhda/verilog_systemverilog.vim"})
     use({"godlygeek/tabular"})
-    use({"vim-scripts/verilog_emacsauto.vim"})
     use({"junegunn/vim-easy-align"})
     use({"christoomey/vim-tmux-navigator"})
     use({"amal-khailtash/vim-xdc-syntax"})

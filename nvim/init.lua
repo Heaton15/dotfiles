@@ -146,6 +146,7 @@ set_ft(buf, {"*.txt"}, "notes")
 set_ft(buf, {"*.tex"}, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
 
 set_ft(buf, {"*.py"}, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent]])
+set_ft(buf, {"*.scala"}, nil, [[set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 
 -- Allows vim-fugitive to fold changes when viewing
 set_ft({"FileType"}, {"git"}, nil, [[setlocal foldmethod=syntax]])
@@ -224,23 +225,23 @@ vim.g.vista_stay_on_open = 0
 vim.cmd[[let g:vista#renderer#enable_icon = 0]]
 
 -- gutentags
-vim.g.gutentags_ctags_extra_args = {
-    '--fields=ailmnS',
-    '--tag-relative=yes',
-    '--python-kinds=-i',
-}
-
-vim.g.gutentags_ctags_exclude = {
-    '*.sv', '*.v',
-    '*Makefile',
-    'env',
-    'fpga', 'generators', 'toolchains',
-    'tools', 'vlsi', 'project',
-}
-vim.g.gutentags_generate_on_new = 1
-vim.g.gutentags_generate_on_missing = 1
-vim.g.gutentags_generate_on_write = 1
-vim.g.gutentags_generate_on_empty_buffer = 0
-vim.g.gutentags_cache_dir = vim.fn.expand('~/.cache/vim/ctags/')
-vim.g.gutentags_add_default_project_roots = 0
-vim.g.gutentags_project_root = '.tmp_top'
+--vim.g.gutentags_ctags_extra_args = {
+--    '--fields=ailmnS',
+--    '--tag-relative=yes',
+--    '--python-kinds=-i',
+--}
+--
+--vim.g.gutentags_ctags_exclude = {
+--    '*.sv', '*.v',
+--    '*Makefile',
+--    'env',
+--    'fpga', 'generators', 'toolchains',
+--    'tools', 'vlsi', 'project',
+--}
+--vim.g.gutentags_generate_on_new = 1
+--vim.g.gutentags_generate_on_missing = 1
+--vim.g.gutentags_generate_on_write = 1
+--vim.g.gutentags_generate_on_empty_buffer = 0
+--vim.g.gutentags_cache_dir = vim.fn.expand('~/.cache/vim/ctags/')
+--vim.g.gutentags_add_default_project_roots = 0
+--vim.g.gutentags_project_root = '.tmp_top'

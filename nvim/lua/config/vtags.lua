@@ -49,3 +49,4 @@ vlog_bind('nnoremap <buffer> <Space>s        : py3 try_save_env_snapshort()     
 vlog_bind('nnoremap <buffer> <Space>r        : py3 try_reload_env_snapshort()        <CR>', vlog_group)
 
 vim.keymap.set("n", "<leader>vt", ":source "..vtags_path.." <CR>")
+vim.cmd[[source $HOME/dotfiles/vim/verilog_emacsauto.vim]]
