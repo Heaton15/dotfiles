@@ -22,7 +22,7 @@ vim.g.maplocalleader = [[ ]]
 
 if vim.fn.has('nvim') == 1 then
     local initlua = vim.fn.expand("$HOME/.config/nvim")
-    vim.keymap.set("n", "<leader>ev", ":Telescope find_files cwd=" .. initlua .. " <CR>")
+    vim.keymap.set("n", "<leader>ev", ":Telescope find_files follow=true cwd=" .. initlua .. " <CR>")
 else
     vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
 end
