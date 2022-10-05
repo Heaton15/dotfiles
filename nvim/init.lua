@@ -98,6 +98,8 @@ vim.keymap.set("n", "<leader>l",  ":redraw <CR>", {silent = true})
 vim.keymap.set("n", "<leader>ww", "<C-w>= <CR>", {silent = true})
 vim.keymap.set("n", "<leader>w-", ":sp <CR>", {silent = true})
 vim.keymap.set("n", "<leader>w/", ":vsp <CR>", {silent = true})
+vim.cmd[[nnoremap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>]]
+vim.cmd[[nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>]]
 
 function set_ft(events, ft_list, ft, ft_cmd)
     

@@ -35,18 +35,17 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
                                                                    (rougify highlight {} ||
                                                                      cat {}) 2> /dev/null | head -500"'
 
-# All system paths
-if [[ $USER == "tim" ]]; then
-    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-fi
+## All system paths
+#if [[ $USER == "tim" ]]; then
+#    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+#fi
 
 
 export PATH="$HOME/.fzf/bin:$PATH"
 source $HOME/.fzf/shell/completion.bash
-export PATH=$HOME/.local/mybin:$PATH
 alias vtags='/usr/bin/python ~/.vtags-3.01/vtags-3.01/vtags.py'
-export EDITOR="$HOME/.local/mybin/vim"
-export VISUAL="$HOME/.local/mybin/vim"
+export EDITOR="$HOME/.local/bin/nvim"
+export VISUAL="$HOME/.local/bin/nvim"
 
 
 export LC_CTYPE=en_US.UTF-8
