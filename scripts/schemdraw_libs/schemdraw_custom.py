@@ -2,6 +2,7 @@
 
 import schemdraw.dsp as dsp
 import schemdraw.elements as elm
+import schemdraw.flow as flow
 from schemdraw.segments import Segment
 from schemdraw.segments import SegmentText
 from schemdraw.elements import IcPin
@@ -130,3 +131,56 @@ class B2TEncode(elm.Ic):
                ]
 
         super().__init__(pins=pins, size=size)
+
+class SampHold(elm.Ic):
+    def __init__(self, *d, size=(2, 3), plblsize=14, **kwargs):
+        pins = [IcPin('$A_{in}$', side='left', slot='3/3'),
+                IcPin('>', side='left', slot='1/3'),
+                IcPin('$A_{out}$', side='right', slot='3/3')
+               ]
+
+        super().__init__(pins=pins, size=size, plblsize=plblsize)
+
+class BoxN(flow.Box):
+    def __init__(self, w: float=3, h: float=2, num: int=0, **kwargs):
+        super().__init__(w=w, h=h, **kwargs)
+        self.num = num
+        self.new_seg = list()
+        if self.num > 0:
+            for instances in range(self.num-1):
+                self.new_seg.clear()
+                seg = self.segments[instances]
+                for point in seg.path:
+                    self.new_seg.append((point.x + 0.2, point.y + 0.2))
+                self.segments.append(Segment(self.new_seg))
+
+        for num, zord in enumerate(reversed(self.segments)):
+            zord.zorder = num * 2 + 10
+
+class ShiftBlock(elm.Ic):
+    ''' ShiftRegister Flop with bus notation
+
+        Anchors:
+            * D
+            * CLK
+            * Q
+    '''
+    def __init__(self, *d, size=(1.4, 1.2), plblsize=14, **kwargs):
+        pins=[IcPin('D', side='left', slot='1/1'),
+              IcPin('>', side='bottom', slot='1/1'),
+              IcPin('Q', side='right', slot='1/1')]
+
+        super().__init__(pins=pins, size=size, plblsize=plblsize)
+
+class Flop(elm.Ic):
+    def __init__(self, *d, preclr: bool=False, preclrinvert: bool=True, size=(2, 3), plblsize=14, **kwargs):
+        pins=[IcPin('D', side='left', slot='2/2'),
+              IcPin('>', side='left', slot='1/2'),
+              IcPin('Q', side='right', slot='2/2'),
+              IcPin('$\overline{Q}$', side='right', slot='1/2', anchorname='Qbar')]
+
+        if preclr:
+            pins.extend([IcPin('PRE', side='top', invert=preclrinvert),
+                         IcPin('CLR', side='bottom', invert=preclrinvert)])
+
+        super().__init__(pins=pins, size=size, plblsize=plblsize)
