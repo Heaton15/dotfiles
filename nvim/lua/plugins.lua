@@ -48,6 +48,7 @@ return require("packer").startup(function()
             require("config.treesitter")
         end,
         run = ":TSUpdate",
+        commit = "v0.8.0"
     })
     
     use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
