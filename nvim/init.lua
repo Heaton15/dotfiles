@@ -209,7 +209,7 @@ cfg = {}
 vim.cmd([[packadd! friendly-snippets]])
 vim.cmd([[packadd! LuaSnip]])
 --require "lsp_signature".setup(cfg)
-require("luasnip.loaders.from_vscode").lazy_load()
+--require("luasnip.loaders.from_vscode").lazy_load()
 vim.opt_global.shortmess:remove("F")
 vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
 
