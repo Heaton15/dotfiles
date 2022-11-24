@@ -48,6 +48,7 @@ return require("packer").startup(function()
             require("config.treesitter")
         end,
         run = ":TSUpdate",
+        commit = "v0.8.0"
     })
     
     use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
@@ -75,16 +76,14 @@ return require("packer").startup(function()
         end,
     })
 
-    use({'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp"})
+    use({'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp", commit = 'affe808'})
     use({'hrsh7th/cmp-buffer', after = "nvim-cmp"})
     use({'hrsh7th/cmp-path', after = "nvim-cmp"})
     use({'hrsh7th/cmp-cmdline', after = "nvim-cmp"})
     use({'hrsh7th/cmp-nvim-lsp-signature-help', after = "nvim-cmp"})
-    use({'ray-x/lsp_signature.nvim', after = "nvim-cmp"})
 
-    use({'L3MON4D3/LuaSnip', after = "nvim-cmp"})
     use({'saadparwaiz1/cmp_luasnip', after = "nvim-cmp"})
-    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }, commit = 'v0.7.x'})
 
     -- LSP statusline components
     use({

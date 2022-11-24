@@ -4,6 +4,7 @@ require("nvim-lsp-installer").setup {}
 local lspconfig = require("lspconfig")
 
 -- Adds cmp as a capability to the lsp autocompletion
+--local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
@@ -40,7 +41,7 @@ local function custom_lsp_attach(client, bufnr)
     map("n", "gld", ts_builtin.lsp_definitions, opts)
     map("n", "glD", vim.lsp.buf.declaration, opts)
     map("n", "glf", function()
-        vim.lsp.buf.format({ async = true })
+        vim.lsp.buf.formatting({ async = true })
     end, opts)
     map("n", "glh", vim.lsp.buf.hover, opts)
     map("n", "glH", vim.lsp.buf.signature_help, opts)
@@ -87,6 +88,7 @@ metals_config.on_attach = custom_lsp_attach
 metals_config.settings = {
     showImplicitArguments = true,
     excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+    serverVersion = "0.10.9+131-30f6a57b-SNAPSHOT"
 }
 metals_config.root_patterns = { "build.sbt", "build.sc" }
 

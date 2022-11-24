@@ -205,11 +205,11 @@ require("config.vtags")
 cfg = {}
 
 -- Have to add following packages because they are in opt/
-vim.cmd([[packadd! lsp_signature.nvim]])
+--vim.cmd([[packadd! lsp_signature.nvim]])
 vim.cmd([[packadd! friendly-snippets]])
 vim.cmd([[packadd! LuaSnip]])
-require "lsp_signature".setup(cfg)
-require("luasnip.loaders.from_vscode").lazy_load()
+--require "lsp_signature".setup(cfg)
+--require("luasnip.loaders.from_vscode").lazy_load()
 vim.opt_global.shortmess:remove("F")
 vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
 
