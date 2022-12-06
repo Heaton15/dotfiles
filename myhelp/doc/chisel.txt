@@ -49,4 +49,12 @@ but with the integer values doubled.
     [success] Total time: 7 s, completed Aug 30, 2021 8:14:12 PM
 <
 
-
+*chisel-learning*
+ 1. Use type aliasing when you want to avoid typing the same type: "type Foo = Seq[(UInt, String)]"
+ 2. A .map(...) statement on an Option[Seq[Any]] is the same as a None() / Some() match statement
+ 3. Use case classes instead of traits when users need to extend something to create a parameter list
+ 4. Option[Seq[...]] can be used but often accomplishes the same as just Seq[...] because you can just
+    check if the Seq[...] is empty for the None() case. 
+ 5. Don't keep falling for the excessive if(...) cases. An empty array returns 0 so there's no need to return 0.
+    `if (x.Empty) 0x0 else x * 0x8 == x * 0x8`
+    
