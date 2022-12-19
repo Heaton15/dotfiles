@@ -49,6 +49,64 @@ but with the integer values doubled.
     [success] Total time: 7 s, completed Aug 30, 2021 8:14:12 PM
 <
 
+*chisel-call-by-value*
+When the return type of something() is sent to the function, it executes through only one
+time compared to call by name which executes on the function every time the return value
+is accessed. 
+>
+    def something() = {
+      println("calling something")
+      1 // return value
+    }
+
+    def callByValue(x: Int) = {
+      println("x1=" + x)
+      println("x2=" + x)
+    }
+
+    callByName(something())
+    >>>
+    "calling something"
+    x1=1
+    x1=1
+    <<<
+<
+
+
+*chisel-call-by-name*
+Note that x: => Int is call by name which allows you to pass the result of something
+in so that every time the Int 1 is returned, the function is re-evaluated.
+>
+    def something() = {
+      println("calling something")
+      1 // return value
+    }
+
+    def callByName(x: => Int) = {
+      println("x1=" + x)
+      println("x2=" + x)
+    }
+
+    callByName(something())
+    >>>
+    "calling something"
+    x1=1
+    "calling something"
+    x1=1
+    <<<
+<
+*chisel-higher-order-function*
+Note that the x: () => Int allows you to pass x in as a higher order function. The HOF 
+results are computed when the HOF is invoked. 
+>
+  def printTest(x: () => Int): String = {
+    println(x().toString)
+    x.toString
+  }
+
+  val tmp = printTest(() => 5)
+<
+
 *chisel-learning*
  1. Use type aliasing when you want to avoid typing the same type: "type Foo = Seq[(UInt, String)]"
  2. A .map(...) statement on an Option[Seq[Any]] is the same as a None() / Some() match statement

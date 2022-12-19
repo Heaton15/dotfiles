@@ -4,7 +4,7 @@ require("nvim-treesitter.configs").setup({
         "bash",
         --"c",
         --"comment",
-        --"cpp",
+        "cpp",
         "html",
         "json",
         --"latex",

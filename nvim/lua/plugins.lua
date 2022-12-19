@@ -122,5 +122,7 @@ return require("packer").startup(function()
         end,
     })
 
+    --use {"shortcuts/no-neck-pain.nvim", tag = "*" }
+
 
 end)
