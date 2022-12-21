@@ -2,6 +2,7 @@
 
 require("nvim-lsp-installer").setup {}
 local lspconfig = require("lspconfig")
+local null_ls = require("null-ls")
 
 -- Adds cmp as a capability to the lsp autocompletion
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -41,7 +42,7 @@ local function custom_lsp_attach(client, bufnr)
     map("n", "gld", ts_builtin.lsp_definitions, opts)
     map("n", "glD", vim.lsp.buf.declaration, opts)
     map("n", "glf", function()
-        vim.lsp.buf.formatting({ async = true })
+        vim.lsp.buf.format ({ async = true })
     end, opts)
     map("n", "glh", vim.lsp.buf.hover, opts)
     map("n", "glH", vim.lsp.buf.signature_help, opts)
@@ -78,6 +79,15 @@ for _, lsp in ipairs(servers) do
     }
   })
 end
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.verible_verilog_format.with({
+            extra_filetypes = { "verilog_systemverilog" },
+        }),
+    },
+    on_attach = custom_lsp_attach,
+})
 
 -- nvim-metals Setup
 local Path = require("plenary.path")

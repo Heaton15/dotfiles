@@ -139,7 +139,7 @@ set_ft(buf, ft_skill, "skill")
 set_ft(buf, ft_tcl, "tcl")
 
 -- TODO: determine if the verilog ft still needs updated based on the janky plugins that exist
-set_ft(buf, ft_vlog, "verilog_systemverilog.verilog.systemverilog", [[softtabstop=4 shiftwidth=4 textwidth=80]])
+set_ft(buf, ft_vlog, "verilog_systemverilog", [[softtabstop=2 shiftwidth=2 textwidth=80]])
 
 set_ft(buf, {"*.xdc"}, "xdc")
 set_ft(buf, {"*.txt"}, "notes")
@@ -225,25 +225,3 @@ vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
 vim.keymap.set("n", "tt", ":Vista!! <CR>")
 vim.g.vista_stay_on_open = 0
 vim.cmd[[let g:vista#renderer#enable_icon = 0]]
-
--- gutentags
---vim.g.gutentags_ctags_extra_args = {
---    '--fields=ailmnS',
---    '--tag-relative=yes',
---    '--python-kinds=-i',
---}
---
---vim.g.gutentags_ctags_exclude = {
---    '*.sv', '*.v',
---    '*Makefile',
---    'env',
---    'fpga', 'generators', 'toolchains',
---    'tools', 'vlsi', 'project',
---}
---vim.g.gutentags_generate_on_new = 1
---vim.g.gutentags_generate_on_missing = 1
---vim.g.gutentags_generate_on_write = 1
---vim.g.gutentags_generate_on_empty_buffer = 0
---vim.g.gutentags_cache_dir = vim.fn.expand('~/.cache/vim/ctags/')
---vim.g.gutentags_add_default_project_roots = 0
---vim.g.gutentags_project_root = '.tmp_top'
