@@ -1,6 +1,6 @@
-*verilog.txt*
+*systemverilog.txt*
 ==============================================================================
-VERILOG-AUTOS                                                     *verilog-autos*
+VERILOG-AUTOS                                                     *systemverilog-autos*
 // Local Variables:
 // verilog-library-flags:("-F vmode.f")
 // verilog-library-extensions:(".vm" ".v")
@@ -13,20 +13,20 @@ VERILOG-WEBSITE                                                   *verilog-websi
 https://verilogguide.readthedocs.io/en/latest/index.html
 
 ==============================================================================
-VERILOG-LOOPS                                                     *verilog-help*
-    for (i=0; i<5; i++) begin            *verilog-for*
+VERILOG-LOOPS                                                     *systemverilog-help*
+    for (i=0; i<5; i++) begin            *systemverilog-for*
         a = 1;
     end
 
-    while (^data[i] !== 1'bX) begin      *verilog-while*
+    while (^data[i] !== 1'bX) begin      *systemverilog-while*
         a = 1;
     end
 
-    repeat(4) begin                      *verilog-repeat*
+    repeat(4) begin                      *systemverilog-repeat*
         a = 1;
     end
 
- task demo_task;                         *verilog-task*
+ task demo_task;                         *systemverilog-task*
       input string filename;    // Name of file containing data
       input integer nwords;     // Number of words in the memory
       reg [511:0]    readtmp;
@@ -38,15 +38,21 @@ VERILOG-LOOPS                                                     *verilog-help*
       end 
  endtask
 ==============================================================================
-                                                                  *verilog-macro*
+                                                                  *systemverilog-macro*
 // Macros are used 
 
 
 ==============================================================================
-                                                                  *verilog-plusargs*
+                                                                  *systemverilog-plusargs*
 // $value$plusargs allows you to grab + arguments from simulation run line
  string prog_file;
  if($value$plusargs("PROG=%s", prog_file)) //+PROG=s2m_prog.bin
    load_mem_512(prog_file, MEM_SIZE);
  else
 
+==============================================================================
+                                                                  *systemverilog-assertions*
+// Website with explanations of all the assertions and uses
+https://www.chipverify.com/systemverilog/systemverilog-assertions
+https://www.doulos.com/knowhow/systemverilog/systemverilog-tutorials/systemverilog-assertions-tutorial/
+https://verificationguide.com/systemverilog/systemverilog-functional-coverage/
