@@ -10,6 +10,7 @@ cadence-documentation	cadence.txt	/*cadence-documentation*
 cadence.txt	cadence.txt	/*cadence.txt*
 chisel-call-by-name	chisel.txt	/*chisel-call-by-name*
 chisel-call-by-value	chisel.txt	/*chisel-call-by-value*
+chisel-common-functions	chisel.txt	/*chisel-common-functions*
 chisel-help	chisel.txt	/*chisel-help*
 chisel-higher-order-function	chisel.txt	/*chisel-higher-order-function*
 chisel-learning	chisel.txt	/*chisel-learning*

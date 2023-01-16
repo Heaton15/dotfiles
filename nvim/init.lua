@@ -40,6 +40,7 @@ vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>ws", "<C-w>s")
 vim.keymap.set("n", "<leader>w/", "<C-w>v")
 vim.keymap.set("n", "<leader>wv", "<C-w>v")
+vim.keymap.set("n", "<CR>", "o<ESC>")
 
 -- Tab movement in nvim
 vim.keymap.set("n", "tn", ":tabnew <CR>")
@@ -207,7 +208,7 @@ cfg = {}
 -- Have to add following packages because they are in opt/
 --vim.cmd([[packadd! lsp_signature.nvim]])
 vim.cmd([[packadd! friendly-snippets]])
-vim.cmd([[packadd! LuaSnip]])
+--vim.cmd([[packadd! LuaSnip]])
 --require "lsp_signature".setup(cfg)
 --require("luasnip.loaders.from_vscode").lazy_load()
 vim.opt_global.shortmess:remove("F")

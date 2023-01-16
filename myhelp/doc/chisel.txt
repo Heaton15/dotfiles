@@ -2,6 +2,21 @@
 ==============================================================================
 CHISEL3 Constructs                                               *chisel-help*
 
+*chisel-common-functions*
+    .zip
+    .find
+    .foreach
+    .map
+    .sliding - Great for creating groups on a sliding line
+    .group - Great for taking a list and creating groups from it 
+    .forall
+    .reduce
+    .fold
+    .foldRight
+    .drop
+    .dropWhile
+    Seq.tabulate
+
 *chisel-zip*
 The zip / zipWithIndex functions are used to create a list/sequence by "zipping"
 the values up into a list/sequence of lists/sequences. You can see
