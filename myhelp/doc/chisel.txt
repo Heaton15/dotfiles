@@ -15,6 +15,9 @@ CHISEL3 Constructs                                               *chisel-help*
     .foldRight
     .drop
     .dropWhile
+    .linesIterator -> Allows you to iterate over strings that are terminated by \n, \r, \r\n
+                      This is helpful when you don't want to iterate over each Char of a String
+                      because you actually want to iterate over an entire string
     Seq.tabulate
 
 *chisel-zip*
