@@ -38,6 +38,8 @@ of the elements with their index.
         case ((a,b),c) => println(s"$a, $b, $c")
       }
     }
+<
+
     Output: 
     [info] running Demo 
     1, 2, 10
@@ -46,7 +48,7 @@ of the elements with their index.
     7, 8, 40
     9, 10, 50
     [success] Total time: 5 s, completed Aug 30, 2021 8:02:38 PM
-<
+ 
 
 *chisel-map*
 The map function takes an input list and allows you to create
@@ -61,16 +63,19 @@ but with the integer values doubled.
       val y = x.map( x => x*2)
       println(y)
     }
+<
+
     Output: 
     [info] running Demo 
     List(2, 6, 10, 14, 18)
     [success] Total time: 7 s, completed Aug 30, 2021 8:14:12 PM
-<
+ 
 
 *chisel-call-by-value*
 When the return type of something() is sent to the function, it executes through only one
 time compared to call by name which executes on the function every time the return value
 is accessed. 
+ 
 >
     def something() = {
       println("calling something")
@@ -83,17 +88,15 @@ is accessed.
     }
 
     callByName(something())
-    >>>
     "calling something"
     x1=1
     x1=1
-    <<<
 <
-
-
+ 
 *chisel-call-by-name*
 Note that x: => Int is call by name which allows you to pass the result of something
 in so that every time the Int 1 is returned, the function is re-evaluated.
+
 >
     def something() = {
       println("calling something")
@@ -106,16 +109,17 @@ in so that every time the Int 1 is returned, the function is re-evaluated.
     }
 
     callByName(something())
-    >>>
+
     "calling something"
     x1=1
     "calling something"
     x1=1
-    <<<
 <
+ 
 *chisel-higher-order-function*
 Note that the x: () => Int allows you to pass x in as a higher order function. The HOF 
 results are computed when the HOF is invoked. 
+ 
 >
   def printTest(x: () => Int): String = {
     println(x().toString)
@@ -124,6 +128,7 @@ results are computed when the HOF is invoked.
 
   val tmp = printTest(() => 5)
 <
+ 
 
 *chisel-learning*
  1. Use type aliasing when you want to avoid typing the same type: "type Foo = Seq[(UInt, String)]"
@@ -134,3 +139,101 @@ results are computed when the HOF is invoked.
  5. Don't keep falling for the excessive if(...) cases. An empty array returns 0 so there's no need to return 0.
     `if (x.Empty) 0x0 else x * 0x8 == x * 0x8`
     
+
+*chisel-type-classes*
+Type Classes in Scala allow you to define user (new behavior) to closed data types. In this example, we want 
+to be able to "sum" Ints and Strings and error on anything else. As a result, we can define a Summable trait
+and create type classes as implicit objects for Int and String. When we call the processMyList function, 
+the implicit value summable will grab the String or Int Type Class to implement the method. Everything
+else will cause errors.
+
+>
+  trait Summable[T] {
+    def sumElements(list: List[T]): T
+  }
+
+  implicit object IntSummable extends Summable[Int] {
+    override def sumElements(list: List[Int]) = list.sum
+  }
+
+  implicit object StringSummable extends Summable[String] {
+    override def sumElements(list: List[String]) = list.mkString("")
+  }
+
+  // This is known as ad-hoc polymorphism
+  def processMyList[T](list: List[T])(implicit summable: Summable[T]): T = {
+    summable.sumElements(list)
+  }
+
+  val intSum = processMyList(List(1, 2, 3))
+  val stringSum = processMyList(List("Scala ", "is ", "awesome"))
+  println(intSum)
+  println(stringSum)
+
+  //processMyList(List(true, true, false)) // -> ERROR at compile time :)
+<
+
+Type Classes should be defined in objects, like the following object Printer. 
+This allows you to add new implicit vals inside the companion object of the Printer trait. 
+
+>
+  case class StudentId(id: Int)
+  case class StaffId(id: Int)
+  case class Score(s: Double)
+
+  trait Printer[A] {
+    def getString(a: A): String // For Type A, we want to "getString".
+  }
+
+  // Similar to the first example, this requires a TypeClass called Printer, and
+  // the argument a will determine which implementation gets called
+  // Note that parameter printer must be defined as implicit, and it's value
+  // in the scope must also be implicit
+
+  def show[A](a: A)(implicit printer: Printer[A]): String = printer.getString(a)
+
+  // Note that you can use implicit val or implicit object. Object will only be
+  // created when accessed, while val is strict.
+  //implicit object StudentIdObject extends Printer[StudentId] {
+  //  override def getString(a: StudentId): String = s"StudentId: ${a.id}"
+  //}
+
+  object Printer {
+    implicit val studentPrinter: Printer[StudentId] = new Printer[StudentId] {
+      def getString(a: StudentId): String = s"StudentId: ${a.id}"
+    }
+
+    implicit val staffPrinter: Printer[StaffId] = new Printer[StaffId] {
+      def getString(a: StaffId): String = s"StaffId: ${a.id}"
+    }
+
+    implicit val scorePrinter: Printer[Score] = new Printer[Score] {
+      def getString(a: Score): String = s"Score: ${a.s}"
+    }
+  }
+
+  val studentId = StudentId(5)
+  val staffId = StaffId(10)
+  val score = Score(5)
+  println(show(score))
+<
+
+*chisel-value-classes*
+Value Classes are mechanisms in Scala that allow you to avoid allocation of runtime objects. 
+This is done by extending AnyVal. A common use of this is to create an implicit class
+which extends AnyVal to provie allocation-free extension methods. 
+For example, type Module as an input to ImplicitModule will allow 
+myModule to have access to the moduleName and instNum methods. 
+
+>
+  case class Module(inst: Int, name: String)
+
+  implicit class ImplicitModule(val self: Module) extends AnyVal {
+    def moduleName: String = s"Module Name: ${self.name}"
+    def instNum: Int = self.inst
+  }
+
+  val myModule = Module(5, "ADDERPE")
+  println(tim.moduleName)
+<
+

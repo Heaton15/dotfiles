@@ -67,6 +67,9 @@ vim.opt.ttimeoutlen = 5
 vim.cmd([[filetype plugin indent on]])
 vim.cmd([[set noea "set equalalways]])
 vim.cmd([[set backspace=indent,eol,start]])
+--vim.cmd([[set autoread]])
+--vim.cmd([[au CursorHold * checktime]])
+--vim.cmd([[au FocusGained,BufEnter * :checktime]])
 
 vim.opt.splitright = true
 vim.opt.foldmethod = "manual"
@@ -128,7 +131,7 @@ end
 local buf = {"BufRead", "BufNewFile"}
 local ft_skill = {"*.ils", "*.cdsinit", "*.cdsenv", "cds.lib"}
 local ft_tcl   = {"*.sdc", "*.xel"}
-local ft_vlog  = {"*.v", "*.vg", "*.vm", "*.sv", "*.vams", "*.f"}
+local ft_vlog  = {"*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams", "*.f"}
 
 -- Set certain commonly used files to a filetype
 set_ft(buf, {"*.bash_aliases"}, "sh")
@@ -140,7 +143,7 @@ set_ft(buf, ft_skill, "skill")
 set_ft(buf, ft_tcl, "tcl")
 
 -- TODO: determine if the verilog ft still needs updated based on the janky plugins that exist
-set_ft(buf, ft_vlog, "verilog_systemverilog", [[softtabstop=2 shiftwidth=2 textwidth=80]])
+set_ft(buf, ft_vlog, "verilog_systemverilog", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80]])
 
 set_ft(buf, {"*.xdc"}, "xdc")
 set_ft(buf, {"*.txt"}, "notes")

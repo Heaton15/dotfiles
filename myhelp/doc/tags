@@ -15,6 +15,8 @@ chisel-help	chisel.txt	/*chisel-help*
 chisel-higher-order-function	chisel.txt	/*chisel-higher-order-function*
 chisel-learning	chisel.txt	/*chisel-learning*
 chisel-map	chisel.txt	/*chisel-map*
+chisel-type-classes	chisel.txt	/*chisel-type-classes*
+chisel-value-classes	chisel.txt	/*chisel-value-classes*
 chisel-zip	chisel.txt	/*chisel-zip*
 chisel.txt	chisel.txt	/*chisel.txt*
 clock_gate-help	constraints.txt	/*clock_gate-help*

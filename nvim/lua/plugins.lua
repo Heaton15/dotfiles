@@ -128,6 +128,16 @@ return require("packer").startup(function()
             { "neovim/nvim-lspconfig" },
         },
     })
+    use { 
+    's1n7ax/nvim-comment-frame',
+    requires = {
+        { 'nvim-treesitter' }
+    },
+    config = function()
+        require('nvim-comment-frame').setup()
+    end
+    }
+    use({'cometsong/CommentFrame.vim'})
 
 
 end)
