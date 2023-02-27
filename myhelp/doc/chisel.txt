@@ -20,6 +20,17 @@ CHISEL3 Constructs                                               *chisel-help*
                       because you actually want to iterate over an entire string
     Seq.tabulate
 
+*chisel-unpacking*
+This is not necessarily unpacking like in python, but : _* 
+is used to pass each element of a list as an independent argument to a function.
+For example, the following code creates a list of Ints and creates a ListMap for 
+each individual Int. 
+
+>
+    val ls = Seq.tabulate(6)(_+1)
+    val myListMap: ListMap[Int, Int] = ListMap( ls.map {i => i -> 5}: _* )
+<
+
 *chisel-zip*
 The zip / zipWithIndex functions are used to create a list/sequence by "zipping"
 the values up into a list/sequence of lists/sequences. You can see
