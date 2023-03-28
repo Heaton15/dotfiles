@@ -187,11 +187,6 @@ vim.keymap.set("n", "<leader>wl", ":TmuxNavigateRight <CR>", {silent = true})
 vim.keymap.set("n", "<leader>hr", ":%!xxd<CR> :set filetype=xxd<CR>", {remap = true})
 vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<CR>", {remap = true})
 
--- Ultisnips
---vim.g.UltiSnipsExpandTrigger="<c-b>"
---vim.g.UltiSnipsJumpForwardTrigger="<S-l>"
---vim.g.UltiSnipsJumpBackwardTrigger="<S-h>"
-
 -- vim-table-mode
 vim.g.table_mode_corner_corner=[[+]]
 vim.g.table_mode_header_fillchar=[[=]]
@@ -205,30 +200,15 @@ local async = require "plenary.async"
 -- Load external vtags plugin and run
 -- Issues getting vtags working. python3 execute problems
 require("config.vtags")
+require('neoscroll').setup()
 require("autoclose").setup({
   options = {
     disable_when_touch = true,
   }
 })
 
-cfg = {}
-
--- Have to add following packages because they are in opt/
---vim.cmd([[packadd! lsp_signature.nvim]])
-vim.cmd([[packadd! friendly-snippets]])
---vim.cmd([[packadd! LuaSnip]])
---require "lsp_signature".setup(cfg)
---require("luasnip.loaders.from_vscode").lazy_load()
 vim.opt_global.shortmess:remove("F")
 vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
-
-
--- LuaSnip forward commands 
---vim.keymap.set("i", "<S-]>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
---vim.keymap.set("s", "<S-]>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
---vim.keymap.set("i", "<S-[>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
---vim.keymap.set("s", "<S-[>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
-
 
 -- vista
 vim.keymap.set("n", "tt", ":Vista!! <CR>")

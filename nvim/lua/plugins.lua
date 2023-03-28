@@ -21,9 +21,7 @@ return require("packer").startup(function()
     -- vimtex commands for vim
     use({"lervag/vimtex"})
 
-    use({"camspiers/lens.vim"})
-
-    use({"psliwka/vim-smoothie"})
+    use({'karb94/neoscroll.nvim'})
 
     -- git management plugin
     use({"tpope/vim-fugitive"})
@@ -34,11 +32,7 @@ return require("packer").startup(function()
     use({"godlygeek/tabular"})
     use({"junegunn/vim-easy-align"})
     use({"christoomey/vim-tmux-navigator"})
-    use({"amal-khailtash/vim-xdc-syntax"})
-    use({"justinmk/vim-syntax-extra"})
     use({"vim-scripts/tcl.vim--smithfield"})
-    use({"aserebryakov/vim-todo-lists"})
-    use({"liuchengxu/vista.vim"})
     use({"kshenoy/vim-signature"})
     use({"dhruvasagar/vim-table-mode"})
 
@@ -81,7 +75,7 @@ return require("packer").startup(function()
     use({'hrsh7th/cmp-cmdline', after = "nvim-cmp"})
     use({'hrsh7th/cmp-nvim-lsp-signature-help', after = "nvim-cmp"})
 
-    use({'saadparwaiz1/cmp_luasnip', after = "nvim-cmp"})
+    --use({'saadparwaiz1/cmp_luasnip', after = "nvim-cmp"})
     use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 
     -- LSP statusline components
@@ -91,8 +85,6 @@ return require("packer").startup(function()
             require("fidget").setup({})
         end,
     })
-
-    use({'rafamadriz/friendly-snippets', after = "nvim-cmp"})
 
     -- Common LSP Configurations
     use({
@@ -137,6 +129,7 @@ return require("packer").startup(function()
         require('nvim-comment-frame').setup()
     end
     }
+
     use({'m4xshen/autoclose.nvim'})
 
 
