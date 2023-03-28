@@ -205,6 +205,11 @@ local async = require "plenary.async"
 -- Load external vtags plugin and run
 -- Issues getting vtags working. python3 execute problems
 require("config.vtags")
+require("autoclose").setup({
+  options = {
+    disable_when_touch = true,
+  }
+})
 
 cfg = {}
 

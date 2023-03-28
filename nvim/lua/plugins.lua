@@ -137,7 +137,7 @@ return require("packer").startup(function()
         require('nvim-comment-frame').setup()
     end
     }
-    use({'cometsong/CommentFrame.vim'})
+    use({'m4xshen/autoclose.nvim'})
 
 
 end)
