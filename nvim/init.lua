@@ -132,9 +132,10 @@ local buf = {"BufRead", "BufNewFile"}
 local ft_skill = {"*.ils", "*.cdsinit", "*.cdsenv", "cds.lib"}
 local ft_tcl   = {"*.sdc", "*.xel"}
 local ft_vlog  = {"*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams", "*.f"}
+local ft_sh    = {"*.sh", "*.bash_aliases", "*.bashrc", "*.bash"}
 
 -- Set certain commonly used files to a filetype
-set_ft(buf, {"*.bash_aliases"}, "sh")
+set_ft(buf, ft_sh, "sh", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 set_ft(buf, {"*.scs"}, "spectre")
 
 set_ft(buf, {"*.il"}, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoindent]])
@@ -200,12 +201,20 @@ local async = require "plenary.async"
 -- Load external vtags plugin and run
 -- Issues getting vtags working. python3 execute problems
 require("config.vtags")
+
 require('neoscroll').setup()
+
 require("autoclose").setup({
   options = {
     disable_when_touch = true,
   }
 })
+
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = true,
+}
 
 vim.opt_global.shortmess:remove("F")
 vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
