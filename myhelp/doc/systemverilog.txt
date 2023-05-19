@@ -13,6 +13,39 @@ VERILOG-WEBSITE                                                   *verilog-websi
 https://verilogguide.readthedocs.io/en/latest/index.html
 
 ==============================================================================
+VERILOG-TASKS                                                     *systemverilog-tasks*
+
+SystemVerilog tasks are procedural and often exist inside of modules. This gives you the ability
+to update signals inside of that module with a routine task call.
+
+module MyModule
+
+task myTask;
+...
+endtask
+
+endmodule
+
+If you ever want to add a task outside of a module and still have the task values update
+variables within the module definition, you need to pass the task values by reference and make
+the tasks automatic. This will allow your module to see the task updates.
+
+module MyModule
+reg a;
+initial begin
+    myTask(a);
+end
+endmodule
+
+task automatic myTask(ref x)
+    begin
+        x = 1;
+        #1ns;
+        x=0;
+        end
+endtask
+
+==============================================================================
 VERILOG-LOOPS                                                     *systemverilog-help*
     for (i=0; i<5; i++) begin            *systemverilog-for*
         a = 1;
