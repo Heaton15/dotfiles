@@ -71,8 +71,43 @@ VERILOG-LOOPS                                                     *systemverilog
       end 
  endtask
 ==============================================================================
-                                                                  *systemverilog-macro*
-// Macros are used 
+                                                                  *systemverilog-coverage*
+Data-Oriented Coverage -> covergroups
+// A covergroup is a group of coverpoints on a sampling clock or the .sample method
+// For a covergroup, the bins are counters. 
+// covergroup has to be constructed (could be in a package)
+// covergroups can have arguments as values / refernces.
+covergroup cg @(posedge clk);
+    cpa: coverpoint addr
+    { bins low = {[0: 'h0f], 19};
+      bins mid[] = {16, 17, 18};
+      bins high = {['h14:'hff] }; }
+      addrxvalid : cross cpa, valid // addrxvalid is a cross between cpa and valid (need more research)
+endgroup
+
+Control-Oriente Coverage -> property
+// For a property you can assert it for a failure or cover it for a counter to see if it happens.
+propert req_gnt(cyc);
+    @(posedge clk)
+        req ##[cyc] gnt;
+endproperty
+
+Covreqgnt_3: cover property (req_gnt(3))
+Covreqgnt_4: cover property (req_gnt(4))
+Covreqgnt_5: cover property (req_gnt(5))
+
+==============================================================================
+                                                                  *systemverilog-assertions*
+$assertoff(levels, tb.path.to.instance) -> Disable assertions
+  level 0: All assertions in path and below are turned off
+  level 1: Only assertions in module instance are turned off
+  level 2: Assertions in module instance and one level below are turned off
+
+$asserton() -> Re-enable assertions
+
+
+
+
 
 
 ==============================================================================
