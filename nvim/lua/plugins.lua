@@ -81,6 +81,7 @@ return require("packer").startup(function()
     -- LSP statusline components
     use({
         "j-hui/fidget.nvim",
+        commit = "legacy",
         config = function()
             require("fidget").setup({})
         end,
