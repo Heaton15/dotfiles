@@ -144,7 +144,7 @@ set_ft(buf, ft_skill, "skill")
 set_ft(buf, ft_tcl, "tcl")
 
 -- TODO: determine if the verilog ft still needs updated based on the janky plugins that exist
-set_ft(buf, ft_vlog, "verilog_systemverilog", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80]])
+set_ft(buf, ft_vlog, "verilog_systemverilog", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=120]])
 
 set_ft(buf, {"*.xdc"}, "xdc")
 set_ft(buf, {"*.txt"}, "notes")
