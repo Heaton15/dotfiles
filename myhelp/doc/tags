@@ -59,13 +59,16 @@ set_output_delay	constraints.txt	/*set_output_delay*
 ssh-help	ssh.txt	/*ssh-help*
 ssh.txt	ssh.txt	/*ssh.txt*
 systemverilog-assertions	systemverilog.txt	/*systemverilog-assertions*
+systemverilog-assertions-operators	systemverilog.txt	/*systemverilog-assertions-operators*
+systemverilog-assertions-websites	systemverilog.txt	/*systemverilog-assertions-websites*
 systemverilog-autos	systemverilog.txt	/*systemverilog-autos*
+systemverilog-coverage	systemverilog.txt	/*systemverilog-coverage*
 systemverilog-for	systemverilog.txt	/*systemverilog-for*
 systemverilog-help	systemverilog.txt	/*systemverilog-help*
-systemverilog-macro	systemverilog.txt	/*systemverilog-macro*
 systemverilog-plusargs	systemverilog.txt	/*systemverilog-plusargs*
 systemverilog-repeat	systemverilog.txt	/*systemverilog-repeat*
 systemverilog-task	systemverilog.txt	/*systemverilog-task*
+systemverilog-tasks	systemverilog.txt	/*systemverilog-tasks*
 systemverilog-while	systemverilog.txt	/*systemverilog-while*
 systemverilog.txt	systemverilog.txt	/*systemverilog.txt*
 verilog-website	systemverilog.txt	/*verilog-website*

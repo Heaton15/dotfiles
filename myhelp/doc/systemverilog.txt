@@ -105,9 +105,100 @@ $assertoff(levels, tb.path.to.instance) -> Disable assertions
 
 $asserton() -> Re-enable assertions
 
+==============================================================================
+                                                                  *systemverilog-assertions-operators*
+Overlapped Implication Operator
+ - If the left side is true, then the first element to the right is evaluated on the same clock tick.
+|-> 
 
+Non-Overlapped Implication Operator
+ - If the left side is true, the first element to the right is evaluated on the next clock tick. 
+ - This is the same as s1 ##1 1 |-> s2
+ - That translates into when s1 is true, wait 1 cycle and because 1 is true always we evaluate s2
+|=>
 
+// Wait N cycles
+##N
 
+[*3] ... The * operator is used to specify consecutive repetition of the argument to  the left
+a ##1 b [*3 ] == a ##1 b ##1b b ##1 b
+
+[*1:3] ... The [*1:3] example means everything to the left hand side 1 to 3 times or every time
+(a ##2 b) [*1:3] == a ##2 b  (or)
+               == a ##2 b ##1 a ##2 b (or)
+               == a ##2 b ##1 a ##2 b ##1 a ##2 b
+
+$ ... Used to extend a time window to a finite, but unbounded range 
+// This translates into a and then any number of b from 1 to infinite, and then c
+a ##1 b [*1:$] ##1 == a b b b b c
+
+[-> ... The goto repetition operator
+- This is probably one of the more confusing ones, but it specifies a non-consecutive sequence. 
+- Specifies that a signal will match the number of times specified not necessarily on continuous clock cycles.
+
+ In this example, we are saying that after a goes high, b must be high for anywhere from 1 to 3 cycles before c goes high in the next cycle. 
+ - a goes high
+ - b must stay high for 1 to 3 cycles (it can go low but MUST be high 1 to 3 times)
+ - Following the 3rd b cycle, the next cycle should have c high
+   - If c goes high before b is high 1 to 3 cycles, it will fail.
+
+NOTE: In this example, b MUST be true the cycle before c is true
+a ##1 b[->1:3] ##1 c // a !b b b !b !b b c (valid sequence)
+
+[= ... The non-consecutive repetition operator 
+- This is similar to the goto repetition operator, except that it does not require that the last match
+  on the signal repetition happens in the clock cycle before the end of the entire sequence matching. 
+  
+NOTE: In this example, b DOES NOT have to be true the cycle before c is true
+      - We get between 1 and 3 trues for b, but it does not have to be true before c 
+a ##1 b[=1:3] ##1 c // a !b b b !b !b b !b !b c
+
+$rose()
+ - Returns true if the signal changes from 0 to 1 from the prior cycle and current cycle
+
+$fell()
+ - Returns true if the signal changes from 1 to 0 from the prior cycle and current cycle
+
+$stable()
+ - Returns true if the signal is the same from the prior cycle and current cycle
+
+$past(signal, 2)
+ - Provides the value of the signal from the previous cycle. The second parameter is the number of cycles back. 
+ - Note that $past can also have a clock gating element to it (look this up if you need it)
+
+$onehot()
+ - Checks that only 1 bit of an expression is high at a time on a given clock edge
+
+$onehot0()
+ - Checks only 1 bit of an expression is high or none of the bits are high on a clock edge
+
+$isunknown()
+ - Checks if any bit of an expression is X or Z
+
+$countones()
+ - Counts the number of bits that are high in a vector
+
+disable iff (rst)
+ - If rst is true, the checker will stop
+
+ended 
+ - Used to synchronize sequences
+
+Those funny looking assertions you probably will think are easy in the future
+ - (1, delay=v_delay) -> Because 1 is always true, you assign delay to v_delay
+ - first_match() -> When multiple threads are launched, returns true and does not evaluate the rest 
+   - For example, [*1:7] will launch multiple threads and the first match will cause the rest not to be evaluated. 
+ - (1, delay=delay-1) -> Subtracts 1 from delay
+ - [*0:$] delay <= 0 ... From 0 to infinity threads, if delay is 0 we are true
+
+- Based on the above the sequence does the following:
+  - Because true, delay = v_dleay
+  - Now we need to wait for the first match in which delay <= 0
+  - Every cycle we subtract delay=delay-1, so 4 cycles will be pass before this is true. 
+
+- This is effectively a while loop that waits for 4 cycles.
+
+(1,delay=v_delay) ##0 first_match((1,delay=delay-1) [*0:$] ##0 delay <=0)
 
 
 ==============================================================================
@@ -119,7 +210,7 @@ $asserton() -> Re-enable assertions
  else
 
 ==============================================================================
-                                                                  *systemverilog-assertions*
+                                                                  *systemverilog-assertions-websites*
 // Website with explanations of all the assertions and uses
 https://www.chipverify.com/systemverilog/systemverilog-assertions
 https://www.doulos.com/knowhow/systemverilog/systemverilog-tutorials/systemverilog-assertions-tutorial/
