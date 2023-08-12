@@ -159,6 +159,9 @@ $rose()
 $fell()
  - Returns true if the signal changes from 1 to 0 from the prior cycle and current cycle
 
+$changed()
+ - Returns true if the signal changes from the previous cycle regardless of value
+
 $stable()
  - Returns true if the signal is the same from the prior cycle and current cycle
 
@@ -180,6 +183,10 @@ $countones()
 
 disable iff (rst)
  - If rst is true, the checker will stop
+
+$sampled()
+ - Grabs the sampled value at that time stamp
+
 
 ended 
  - Used to synchronize sequences
