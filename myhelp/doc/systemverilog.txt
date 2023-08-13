@@ -159,9 +159,6 @@ $rose()
 $fell()
  - Returns true if the signal changes from 1 to 0 from the prior cycle and current cycle
 
-$changed()
- - Returns true if the signal changes from the previous cycle regardless of value
-
 $stable()
  - Returns true if the signal is the same from the prior cycle and current cycle
 
@@ -183,10 +180,6 @@ $countones()
 
 disable iff (rst)
  - If rst is true, the checker will stop
-
-$sampled()
- - Grabs the sampled value at that time stamp
-
 
 ended 
  - Used to synchronize sequences
@@ -223,3 +216,6 @@ https://www.chipverify.com/systemverilog/systemverilog-assertions
 https://www.doulos.com/knowhow/systemverilog/systemverilog-tutorials/systemverilog-assertions-tutorial/
 https://verificationguide.com/systemverilog/systemverilog-functional-coverage/
 https://testbench.in/
+
+// Best guide to use for refreshing
+https://www.design-reuse.com/articles/44987/system-verilog-assertions-simplified.html
