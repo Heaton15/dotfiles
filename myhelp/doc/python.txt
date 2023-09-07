@@ -61,6 +61,87 @@ Set Comprehension: {expr for x in iterable}With Optional Conditions:
     - debug, info, warning, error, critical
     - logging.getLogger(__name__): Creates the logger name for the module scope, like in package
 
+==============================================================================
+                                                                 *python-dunder-methods*
+
+*__contains__*
+ - Used when you call "a in my_list"
+ - Translates to my_list.__contains__(a)
+
+__init__ 	        Initialise object 	docs
+__new__ 	        Create object 	docs
+__del__ 	        Destroy object 	docs
+__repr__ 	        Compute “official” string representation / repr(obj) 	blog; docs
+__str__ 	        Pretty print object / str(obj) / print(obj) 	blog; docs
+__bytes__ 	        bytes(obj) 	docs
+__format__ 	        Custom string formatting 	blog; docs
+__lt__ 	            obj < ... 	docs
+__le__ 	            obj <= ... 	docs
+__eq__ 	            obj == ... 	docs
+__ne__ 	            obj != ... 	docs
+__gt__ 	            obj > ... 	docs
+__ge__ 	            obj >= ... 	docs
+__hash__ 	        hash(obj) / object as dictionary key 	docs
+__bool__ 	        bool(obj) / define Truthy/Falsy value of object 	blog; docs
+__getattr__ 	    Fallback for attribute access 	docs
+__getattribute__ 	Implement attribute access: obj.name 	docs
+__setattr__ 	    Set attribute values: obj.name = value 	docs
+__delattr__ 	    Delete attribute: del obj.name 	docs
+__dir__ 	        dir(obj) 	docs
+__get__ 	        Attribute access in descriptor 	docs
+__set__ 	        Set attribute in descriptor 	docs
+__delete__ 	        Attribute deletion in descriptor 	docs
+__init_subclass__ 	Initialise subclass 	docs
+__set_name__ 	    Owner class assignment callback 	docs
+__instancecheck__ 	isinstance(obj, ...) 	docs
+__subclasscheck__ 	issubclass(obj, ...) 	docs
+__class_getitem__ 	Emulate generic types 	docs
+__call__ 	        Emulate callables / obj(*args, **kwargs) 	docs
+__len__ 	        len(obj) 	docs
+__length_hint__ 	Estimate length for optimisation purposes 	docs
+__getitem__ 	    Access obj[key] 	blog; docs
+__setitem__ 	    obj[key] = ... or obj[] 	blog; docs
+__delitem__ 	    del obj[key] 	blog; docs
+__missing__ 	    Handle missing keys in dict subclasses 	docs
+__iter__ 	        iter(obj) / for ... in obj (iterating over) 	docs
+__reversed__ 	    reverse(obj) 	docs
+__contains__ 	    ... in obj (membership test) 	docs
+__add__ 	        obj + ... 	blog; docs
+__radd__ 	        ... + obj 	blog; docs
+__iadd__ 	        obj += ... 	blog; docs
+__sub__  	        obj - ... 	blog; docs
+__mul__  	        obj * ... 	blog; docs
+__matmul__  	    obj @ ... 	blog; docs
+__truediv__  	    obj / ... 	blog; docs
+__floordiv__  	    obj // ... 	blog; docs
+__mod__  	        obj % ... 	blog; docs
+__divmod__ 	        divmod(obj, ...) 	blog; docs
+__pow__  	        obj ** ... 	blog; docs
+__lshift__  	    obj << ... 	blog; docs
+__rshift__  	    obj >> ... 	blog; docs
+__and__             obj & ... 	blog; docs
+__xor__  	        obj ^ ... 	blog; docs
+__or__  	        obj | ... 	blog; docs
+__neg__ 	        -obj (unary) 	blog; docs
+__pos__ 	        +obj (unary) 	blog; docs
+__abs__ 	        abs(obj) 	blog; docs
+__invert__ 	        ~obj (unary) 	blog; docs
+__complex__ 	    complex(obj) 	docs
+__int__ 	        int(obj) 	docs
+__float__ 	        float(obj) 	docs
+__index__ 	        Losslessly convert to integer 	docs
+__round__ 	        round(obj) 	docs
+__trunc__ 	        math.trunc(obj) 	docs
+__floor__ 	        math.floor(obj) 	docs
+__ceil__ 	        math.ceil(obj) 	docs
+__enter__ 	        with obj (enter context manager) 	docs
+__exit__ 	        with obj (exit context manager) 	docs
+__await__ 	        Implement awaitable objects 	docs
+__aiter__ 	        aiter(obj) 	docs
+__anext__ 	        anext(obj) 	docs
+__aenter__ 	        async with obj (enter async context manager) 	docs
+__aexit__ 	        async with obj (exit async context manager) 	docs
+
 
 
 
@@ -90,4 +171,5 @@ Set Comprehension: {expr for x in iterable}With Optional Conditions:
 11: unpacking
     *x, = map(x,y)
     a, b, *c = [1,2,3,4,5]
+
 
