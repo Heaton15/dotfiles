@@ -7,12 +7,7 @@
 alias ls='ls --color=auto'
 alias vi='vim'
 alias ll='ls -la'
-alias dirs='dirs -v'
 alias clear='clear -x'
-alias matlab='matlab -nosplash -nodesktop'
-alias cgrep='grep --color=yes'
-alias vimrc='vim $HOME/.vimrc'
-alias bashrc='vim $HOME/.bashrc'
 alias c='clear'
 alias cls='clear && ls'
 alias cla='clear && ls -a'
@@ -35,15 +30,10 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --color 
                                                                    (rougify highlight {} ||
                                                                      cat {}) 2> /dev/null | head -500"'
 
-## All system paths
-#if [[ $USER == "tim" ]]; then
-#    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-#fi
-
 
 export PATH="$HOME/.fzf/bin:$PATH"
 source $HOME/.fzf/shell/completion.bash
-alias vtags='/usr/bin/python ~/.vtags-3.01/vtags-3.01/vtags.py'
+alias vtags='/usr/bin/python2 ~/.vtags-3.01/vtags-3.01/vtags.py'
 export EDITOR="$HOME/.local/bin/nvim"
 export VISUAL="$HOME/.local/bin/nvim"
 
@@ -79,12 +69,6 @@ shopt -s checkwinsize
 
 if [[ -d $HOME/go ]]; then
     GOPATH=$HOME/go
-fi
-function _update_ps1() {
-    PS1="$($GOPATH/bin/powerline-go -error $?)"
-}
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
