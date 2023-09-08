@@ -29,7 +29,6 @@ if version > 800
     "endif
     
     Plug 'honza/vim-snippets'
-    Plug 'SirVer/ultisnips'
     Plug 'EdenEast/nightfox.nvim'
 
 
@@ -383,13 +382,6 @@ let g:vista_stay_on_open = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_icon_indent= ['▸', '▾'] 
 let g:vista_fold_toggle_icons= ['▸', '▾'] 
-
-"------------------------------------------------------------------------------"
-"                                   UltiSnips                                  "
-"------------------------------------------------------------------------------"
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<c-m>"
-let g:UltiSnipsJumpBackwardTrigger="<c-n>"
 
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
