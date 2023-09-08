@@ -17,6 +17,7 @@ require("nvim-treesitter.configs").setup({
         --"verilog",
         "yaml",
         --"devicetree",
+        "cmake",
     },
     highlight = { enable = true },
     rainbow = { enable = true },
