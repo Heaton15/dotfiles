@@ -10,10 +10,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
       vim.api.nvim_command("packadd packer.nvim")
 end
 
-
--- Compile packer config whenever 'plugins.lua' changes
---vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
-
 require("plugins")
 
 -- Keybinds Updates
@@ -39,7 +35,6 @@ vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>ws", "<C-w>s")
 vim.keymap.set("n", "<leader>w/", "<C-w>v")
-vim.keymap.set("n", "<leader>wv", "<C-w>v")
 vim.keymap.set("n", "<CR>", "o<ESC>")
 
 -- Tab movement in nvim
@@ -67,16 +62,12 @@ vim.opt.ttimeoutlen = 5
 vim.cmd([[filetype plugin indent on]])
 vim.cmd([[set noea "set equalalways]])
 vim.cmd([[set backspace=indent,eol,start]])
---vim.cmd([[set autoread]])
---vim.cmd([[au CursorHold * checktime]])
---vim.cmd([[au FocusGained,BufEnter * :checktime]])
 
 vim.opt.splitright = true
 vim.opt.foldmethod = "manual"
 vim.opt.virtualedit = "all"
 vim.opt.mouse = "a"
 vim.wo.wrap = true
-vim.opt.ttyfast = true
 vim.opt.modelines = 0
 
 -- Search settings
@@ -94,16 +85,11 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.bo.formatoptions = "crot"
 
---vim.cmd([[highlight search guibg = green]])
 vim.keymap.set("n", "<F5>", [[ :set norelativenumber! <CR> :set nonumber! <CR>]])
 
 -- Window control in neovim
 vim.keymap.set("n", "<leader>l",  ":redraw <CR>", {silent = true})
 vim.keymap.set("n", "<leader>ww", "<C-w>= <CR>", {silent = true})
-vim.keymap.set("n", "<leader>w-", ":sp <CR>", {silent = true})
-vim.keymap.set("n", "<leader>w/", ":vsp <CR>", {silent = true})
-vim.cmd[[nnoremap <leader>w; vip :EasyAlign /\ze\S\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>]]
-vim.cmd[[nnoremap <leader>w' vip :EasyAlign /\ze\s\+\s*[,;=]/<CR> vip :Tabular /=<CR> vip :Tabular /;<CR>]]
 
 function set_ft(events, ft_list, ft, ft_cmd)
     
@@ -137,21 +123,13 @@ local ft_sh    = {"*.sh", "*.bash_aliases", "*.bashrc", "*.bash"}
 -- Set certain commonly used files to a filetype
 set_ft(buf, ft_sh, "sh", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 set_ft(buf, {"*.scs"}, "spectre")
-
 set_ft(buf, {"*.il"}, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoindent]])
-
 set_ft(buf, ft_skill, "skill")
 set_ft(buf, ft_tcl, "tcl")
-
--- TODO: determine if the verilog ft still needs updated based on the janky plugins that exist
 set_ft(buf, ft_vlog, "verilog_systemverilog", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=120]])
-
 set_ft(buf, {"*.xdc"}, "xdc")
 set_ft(buf, {"*.txt"}, "notes")
-
--- TODO: If latex issues arise, check if textwidth needs to be setlocal again
 set_ft(buf, {"*.tex"}, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
-
 set_ft(buf, {"*.py"}, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent]])
 set_ft(buf, {"*.scala"}, nil, [[set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 
@@ -165,7 +143,7 @@ vim.keymap.set("n", "<leader>gf", ":Git fetch -p <CR>")
 vim.keymap.set("n", "<leader>gs", ":Git <CR> :only <CR>")
 vim.keymap.set("n", "<leader>gl", ":Git log --decorate <CR> :only <CR>")
 vim.keymap.set("n", "<leader>go", ":Git log -p % <CR>")
-vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!<C-R>d")
+vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!<CR>")
 vim.keymap.set("n", "<leader>gdh", ":diffget //2")
 vim.keymap.set("n", "<leader>gdl", ":diffget //3")
 vim.keymap.set("n", "<leader>nc", "]c")
@@ -222,8 +200,3 @@ require("indent_blankline").setup {
 
 vim.opt_global.shortmess:remove("F")
 vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
-
--- vista
-vim.keymap.set("n", "tt", ":Vista!! <CR>")
-vim.g.vista_stay_on_open = 0
-vim.cmd[[let g:vista#renderer#enable_icon = 0]]

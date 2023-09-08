@@ -29,8 +29,6 @@ return require("packer").startup(function()
     use({"https://github.com/tarikgraba/vim-lefdef.git"})
     use({"junegunn/fzf.vim"})
     use({"vhda/verilog_systemverilog.vim"})
-    use({"godlygeek/tabular"})
-    use({"junegunn/vim-easy-align"})
     use({"christoomey/vim-tmux-navigator"})
     use({"vim-scripts/tcl.vim--smithfield"})
     use({"kshenoy/vim-signature"})
@@ -43,8 +41,6 @@ return require("packer").startup(function()
         end,
         run = ":TSUpdate",
     })
-    
-    use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
     
     use({
         "KeitaNakamura/tex-conceal.vim",
@@ -75,7 +71,6 @@ return require("packer").startup(function()
     use({'hrsh7th/cmp-cmdline', after = "nvim-cmp"})
     use({'hrsh7th/cmp-nvim-lsp-signature-help', after = "nvim-cmp"})
 
-    --use({'saadparwaiz1/cmp_luasnip', after = "nvim-cmp"})
     use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 
     -- LSP statusline components
@@ -121,15 +116,6 @@ return require("packer").startup(function()
             { "neovim/nvim-lspconfig" },
         },
     })
-    use { 
-    's1n7ax/nvim-comment-frame',
-    requires = {
-        { 'nvim-treesitter' }
-    },
-    config = function()
-        require('nvim-comment-frame').setup()
-    end
-    }
 
     use({'m4xshen/autoclose.nvim'})
     use({'lukas-reineke/indent-blankline.nvim'})
