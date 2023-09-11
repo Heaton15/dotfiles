@@ -170,7 +170,8 @@ vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<
 vim.g.table_mode_corner_corner=[[+]]
 vim.g.table_mode_header_fillchar=[[=]]
 
-vim.cmd([[colorscheme carbonfox]])
+vim.cmd([[colorscheme noctis_obscuro]])
+vim.cmd([[highlight LineNr guibg=NONE]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
 local async = require "plenary.async"

@@ -15,6 +15,10 @@ return require("packer").startup(function()
         end
     })
 
+    use({
+        "talha-akram/noctis.nvim"
+    })
+
     -- Allow nvim / tmux to operate together
     use({"benmills/vimux"})
 
