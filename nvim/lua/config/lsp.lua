@@ -85,6 +85,7 @@ null_ls.setup({
             extra_filetypes = { "verilog_systemverilog" },
             extra_args = {"--column_limit=120"},
         }),
+        null_ls.builtins.formatting.black
     },
     on_attach = custom_lsp_attach,
 })
