@@ -1,4 +1,5 @@
 -- Neovim Configurations
+--
 -- vim.g   : let
 -- vim.opt : global options
 -- vim.wo  : window options
@@ -130,7 +131,7 @@ set_ft(buf, ft_vlog, "verilog_systemverilog", [[tabstop=2 softtabstop=2 shiftwid
 set_ft(buf, {"*.xdc"}, "xdc")
 set_ft(buf, {"*.txt"}, "notes")
 set_ft(buf, {"*.tex"}, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
-set_ft(buf, {"*.py"}, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent]])
+set_ft(buf, {"*.py"}, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent]])
 set_ft(buf, {"*.scala"}, nil, [[set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 
 -- Allows vim-fugitive to fold changes when viewing
@@ -143,7 +144,7 @@ vim.keymap.set("n", "<leader>gf", ":Git fetch -p <CR>")
 vim.keymap.set("n", "<leader>gs", ":Git <CR> :only <CR>")
 vim.keymap.set("n", "<leader>gl", ":Git log --decorate <CR> :only <CR>")
 vim.keymap.set("n", "<leader>go", ":Git log -p % <CR>")
-vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!<CR>")
+vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!")
 vim.keymap.set("n", "<leader>gdh", ":diffget //2")
 vim.keymap.set("n", "<leader>gdl", ":diffget //3")
 vim.keymap.set("n", "<leader>nc", "]c")
@@ -170,7 +171,12 @@ vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<
 vim.g.table_mode_corner_corner=[[+]]
 vim.g.table_mode_header_fillchar=[[=]]
 
-vim.cmd([[colorscheme noctis_obscuro]])
+if tonumber(os.date("%H")) < 17 then
+    vim.cmd([[colorscheme noctis]])
+else
+    vim.cmd([[colorscheme noctis_obscuro]])
+end
+
 vim.cmd([[highlight LineNr guibg=NONE]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
