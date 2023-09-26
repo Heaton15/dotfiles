@@ -122,7 +122,7 @@ return require("packer").startup(function()
     })
 
     use({'m4xshen/autoclose.nvim'})
-    use({'lukas-reineke/indent-blankline.nvim'})
+    --use({'lukas-reineke/indent-blankline.nvim'})
 
 
 end)

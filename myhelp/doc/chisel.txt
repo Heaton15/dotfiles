@@ -2,6 +2,12 @@
 ==============================================================================
 CHISEL3 Constructs                                               *chisel-help*
 
+*synchronizing-signals*
+AsyncQueue:
+    - Best used to synchronize a signal between 2 clock domains which have different clocks
+SynchronizerShiftReg
+    - Best used to put an async signal through multiple stages to synchronize it into a single domain
+
 *chisel-common-functions*
     .zip
     .find

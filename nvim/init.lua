@@ -171,11 +171,7 @@ vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<
 vim.g.table_mode_corner_corner=[[+]]
 vim.g.table_mode_header_fillchar=[[=]]
 
-if tonumber(os.date("%H")) < 17 then
-    vim.cmd([[colorscheme noctis]])
-else
-    vim.cmd([[colorscheme noctis_obscuro]])
-end
+vim.cmd([[colorscheme noctis]])
 
 vim.cmd([[highlight LineNr guibg=NONE]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
@@ -198,12 +194,6 @@ require("autoclose").setup({
      ["'"] = { escape = false, close = false, pair = "''"},
   },
 })
-
-require("indent_blankline").setup {
-    -- for example, context is off by default, use this to turn it on
-    show_current_context = true,
-    show_current_context_start = true,
-}
 
 vim.opt_global.shortmess:remove("F")
 vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
