@@ -1,0 +1,6 @@
+*rsync.txt*
+
+==============================================================================
+                                                                  *rsync-help*
+# This will grab only the verilog and cdl directories inside of the source path and delete the rest. Helpful when you need to move small amounts of data
+rsync -av --prune-empty-dirs --include='*/' --include='verilog/**' --include='cdl/**'  --exclude='*' /source/path/ /dest/path
