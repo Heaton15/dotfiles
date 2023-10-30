@@ -1,0 +1,7 @@
+*calibre.txt*
+==============================================================================
+Calibre Constructs                                              *calibre-help*
+
+*calibre-diffing*
+    dbdiff -system OASIS -design db1.oasis -refdesign db2.oasis -write_xor_rules xorrules
+    calibre -drc -hier -turbo 16 -hyper xorrules

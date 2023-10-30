@@ -1,3 +1,4 @@
+__contains__	python.txt	/*__contains__*
 bash-flags	bash.txt	/*bash-flags*
 bash-functions	bash.txt	/*bash-functions*
 bash-highlight	bash.txt	/*bash-highlight*
@@ -8,6 +9,9 @@ bash.txt	bash.txt	/*bash.txt*
 blockage-help	constraints.txt	/*blockage-help*
 cadence-documentation	cadence.txt	/*cadence-documentation*
 cadence.txt	cadence.txt	/*cadence.txt*
+calibre-diffing	calibre.txt	/*calibre-diffing*
+calibre-help	calibre.txt	/*calibre-help*
+calibre.txt	calibre.txt	/*calibre.txt*
 chisel-call-by-name	chisel.txt	/*chisel-call-by-name*
 chisel-call-by-value	chisel.txt	/*chisel-call-by-value*
 chisel-common-functions	chisel.txt	/*chisel-common-functions*
@@ -39,11 +43,14 @@ makefile-examples	makefile.txt	/*makefile-examples*
 makefile-help	makefile.txt	/*makefile-help*
 makefile.txt	makefile.txt	/*makefile.txt*
 python-comprehensions	python.txt	/*python-comprehensions*
+python-dunder-methods	python.txt	/*python-dunder-methods*
 python-general	python.txt	/*python-general*
 python-help	python.txt	/*python-help*
 python-libraries	python.txt	/*python-libraries*
 python-todo	python.txt	/*python-todo*
 python.txt	python.txt	/*python.txt*
+rsync-help	rsync.txt	/*rsync-help*
+rsync.txt	rsync.txt	/*rsync.txt*
 set_case_analysis	constraints.txt	/*set_case_analysis*
 set_clock_groups	constraints.txt	/*set_clock_groups*
 set_clock_transition	constraints.txt	/*set_clock_transition*
@@ -58,6 +65,7 @@ set_multicycle_path	constraints.txt	/*set_multicycle_path*
 set_output_delay	constraints.txt	/*set_output_delay*
 ssh-help	ssh.txt	/*ssh-help*
 ssh.txt	ssh.txt	/*ssh.txt*
+synchronizing-signals	chisel.txt	/*synchronizing-signals*
 systemverilog-assertions	systemverilog.txt	/*systemverilog-assertions*
 systemverilog-assertions-operators	systemverilog.txt	/*systemverilog-assertions-operators*
 systemverilog-assertions-websites	systemverilog.txt	/*systemverilog-assertions-websites*
