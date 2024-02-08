@@ -1,17 +1,22 @@
 -- Neovim Configurations
---
 -- vim.g   : let
 -- vim.opt : global options
 -- vim.wo  : window options
 -- vim.bo  : buffer options
 
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-      vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-      vim.api.nvim_command("packadd packer.nvim")
+-- Bootstrap lazy.nvim for plugin management
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-
-require("plugins")
+vim.opt.rtp:prepend(lazypath)
 
 -- Keybinds Updates
 vim.g.mapleader = [[ ]]
@@ -24,7 +29,6 @@ else
     vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
 end
 
---vim.keymap.set("n","<leader>ev", ":Telescope $MYVIMRC <CR>")
 vim.keymap.set("n", "<leader>vr", ":source $MYVIMRC <CR>")
 vim.keymap.set("n", "<leader>eb", ":vsplit $HOME/.bashrc <CR>")
 vim.keymap.set("n", "<leader>bn", ":bn <CR>")
@@ -167,33 +171,18 @@ vim.keymap.set("n", "<leader>wl", ":TmuxNavigateRight <CR>", {silent = true})
 vim.keymap.set("n", "<leader>hr", ":%!xxd<CR> :set filetype=xxd<CR>", {remap = true})
 vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<CR>", {remap = true})
 
--- vim-table-mode
-vim.g.table_mode_corner_corner=[[+]]
-vim.g.table_mode_header_fillchar=[[=]]
-
-vim.cmd([[colorscheme noctis_obscuro]])
-
-vim.cmd([[highlight LineNr guibg=NONE]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
-local async = require "plenary.async"
+vim.opt_global.shortmess:remove("F")
+vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
 
+require("lazy").setup({
+    spec = {
+        { import = "plugins" },
+    },
+    install = { colorscheme = {"noctis_obscuro"} },
+})
 
 -- Load external vtags plugin and run
 -- Issues getting vtags working. python3 execute problems
 require("config.vtags")
-
-require('neoscroll').setup()
-
-require("autoclose").setup({
-  options = {
-    disable_when_touch = true,
-  },
-  keys = {
-     ["`"] = { escape = false, close = false, pair = "``"},
-     ["'"] = { escape = false, close = false, pair = "''"},
-  },
-})
-
-vim.opt_global.shortmess:remove("F")
-vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
