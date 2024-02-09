@@ -37,4 +37,8 @@ ifeq ($(TMUX),1)
 include tmux/install.mk
 endif
 
+ifeq ($(BASH), 1)
+include bash/install.mk
+endif
+
 all: $(ALL_TARGETS)

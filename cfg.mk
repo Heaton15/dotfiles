@@ -2,6 +2,7 @@ BREW     := 0
 GIT      := 1
 NODE     := 0
 NVIM     := 1
+BASH     := 1
 PYTHON   := 1
 SCALA    := 1
 TERMINAL := 0
