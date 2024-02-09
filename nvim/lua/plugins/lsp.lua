@@ -19,11 +19,6 @@ return {
             -- since we weren't using it in the original nvim config. We can
             -- add that back in if we have problems. 
             local capabilities = {require("cmp_nvim_lsp").default_capabilities()}
-            --local capabilities = vim.tbl_deep_extend{
-            --    "force",
-            --    vim.lsp.protocol.make_client_capabilities(),
-            --    require("cmp_nvim_lsp").default_capabilities()
-            --}
 
             -- We loop through our set servers and then assign the default 
             -- lsp capabilities and override them with custom options set 
@@ -54,23 +49,23 @@ return {
                     end
 
                     -- Create a variable with the client capabilities that we can reference
-                    local cap = client.server_capabilities
+                    --local cap = client.server_capabilities
 
-                    -- Highlight the symbol under the cursor
-                    -- This is neat since the event will cause the LSP command to active
-                    if cap.documentHighlightProvider then
-                        local lsp_highlight_cursor = vim.api.nvim_create_augroup("lsp_highlight_cursor", {})
-                        vim.api.nvim_create_autocmd("CursorHold", {
-                            callback = vim.lsp.buf.document_highlight,
-                            buffer = bufnr,
-                            group = lsp_highlight_cursor,
-                        })
-                        vim.api.nvim_create_autocmd("CursorMoved", {
-                            callback = vim.lsp.buf.clear_references,
-                            buffer = bufnr,
-                            group = lsp_highlight_cursor,
-                        })
-                    end
+                    ---- Highlight the symbol under the cursor
+                    ---- This is neat since the event will cause the LSP command to active
+                    --if cap.documentHighlightProvider then
+                    --    local lsp_highlight_cursor = vim.api.nvim_create_augroup("lsp_highlight_cursor", {})
+                    --    vim.api.nvim_create_autocmd("CursorHold", {
+                    --        callback = vim.lsp.buf.document_highlight,
+                    --        buffer = bufnr,
+                    --        group = lsp_highlight_cursor,
+                    --    })
+                    --    vim.api.nvim_create_autocmd("CursorMoved", {
+                    --        callback = vim.lsp.buf.clear_references,
+                    --        buffer = bufnr,
+                    --        group = lsp_highlight_cursor,
+                    --    })
+                    --end
 
                     -- Not sure how code_lens and inlay_hints work for the LSP setup. Do some research into these if we want them.
                     
@@ -105,11 +100,11 @@ return {
                     map("n", "glh", vim.lsp.buf.hover, "Hover")
                     map("n", "glH", vim.lsp.buf.signature_help, "Signature help")
                     map("n", "gli", ts.lsp_implementations, "Go to implementation")
-                    map("n", "glr", ts_builtin.lsp_references, "Go to references")
-                    map("n", "glR", ts_builtin.lsp_type_definitions, "Go to ")
+                    map("n", "glr", ts.lsp_references, "Go to references")
+                    map("n", "glR", ts.lsp_type_definitions, "Go to ")
 
-                    map("n", "gldws", ts_builtin.lsp_dynamic_workspace_symbols, "Open dynamic workspace symbols")
-                    map("n", "glds", ts_builtin.lsp_document_symbols, "Open document symbols")
+                    map("n", "gldws", ts.lsp_dynamic_workspace_symbols, "Open dynamic workspace symbols")
+                    map("n", "glds", ts.lsp_document_symbols, "Open document symbols")
 
                     map("n", "glf",
                         function()
@@ -123,11 +118,11 @@ return {
 
                     -- map("n", "glp", vim.lsp.buf.execute_command, opts)
                     -- map("n", "gltd", vim.lsp.buf.type_definition, opts)
-                    -- map("n", "glwd", ts_builtin.diagnostics, opts)
+                    -- map("n", "glwd", ts.diagnostics, opts)
                     -- map("n", "glwl", function()
                     --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     -- end, opts)
-                    -- map("n", "glws", ts_builtin.lsp_workspace_symbols, opts)
+                    -- map("n", "glws", ts.lsp_workspace_symbols, opts)
                 end,
                 })
         end,
@@ -135,9 +130,10 @@ return {
     {
         "scalameta/nvim-metals",
         dependencies = {
+            "nvim-lua/plenary.nvim",
             "hrsh7th/cmp-nvim-lsp",
         },
-        lazy = true,
+        -- lazy = true,
         --keys = {
         --    "<leader>mc",
         --    function()
@@ -147,10 +143,11 @@ return {
         --},
         config = function()
             -- This is where the metals setup exists
-            local metals_config = metals.bare_config()
+            local metals_config = require("metals").bare_config()
 
             metals_config.settings = {
                 showImplicitArguments = true,
+                enableSemanticHighlighting = false,
                 excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
             }
 
@@ -177,7 +174,7 @@ return {
             metals_config.init_options.statusBarProvider = "on"
             metals_config.capabilities = capabilities
 
-            local lsp_metals = vim.api.nvim_create_augroup("lsp_metals", {})
+            local lsp_metals = vim.api.nvim_create_augroup("lsp_metals", {clear = true})
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "scala, sbt" },
                 callback = function()
