@@ -153,7 +153,7 @@ return {
 
             metals_config.root_patterns = { "build.sbt", "build.sc" }
 
-            -- Tynan dotfiles which finds the last directory withj the higest level root file.
+            -- Tynan dotfiles which finds the last directory with the highest level root file.
             -- This is needed in chipyard since there are so many build.sbt files all over the place. 
             metals_config.find_root_dir = function(patterns, startpath)
                 local Path = require("plenary.path")

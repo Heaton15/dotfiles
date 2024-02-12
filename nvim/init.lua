@@ -40,7 +40,6 @@ vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>ws", "<C-w>s")
 vim.keymap.set("n", "<leader>w/", "<C-w>v")
-vim.keymap.set("n", "<CR>", "o<ESC>")
 
 -- Tab movement in nvim
 vim.keymap.set("n", "tn", ":tabnew <CR>")
@@ -140,18 +139,6 @@ set_ft(buf, {"*.scala"}, nil, [[set tabstop=2 softtabstop=2 shiftwidth=2 textwid
 
 -- Allows vim-fugitive to fold changes when viewing
 set_ft({"FileType"}, {"git"}, nil, [[setlocal foldmethod=syntax]])
-
--- Vim-Fugitive Custom binds
-vim.keymap.set("n", "<leader>o", ":only <CR>")
-vim.keymap.set("n", "<leader>gp", ":Git push")
-vim.keymap.set("n", "<leader>gf", ":Git fetch -p <CR>")
-vim.keymap.set("n", "<leader>gs", ":Git <CR> :only <CR>")
-vim.keymap.set("n", "<leader>gl", ":Git log --decorate <CR> :only <CR>")
-vim.keymap.set("n", "<leader>go", ":Git log -p % <CR>")
-vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!")
-vim.keymap.set("n", "<leader>gdh", ":diffget //2")
-vim.keymap.set("n", "<leader>gdl", ":diffget //3")
-vim.keymap.set("n", "<leader>nc", "]c")
 
 -- tmux / vimux config
 vim.keymap.set("n", "<leader>vp", ":VimuxPromptCommand<CR>")

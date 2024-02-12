@@ -1,5 +1,10 @@
 return {
-
+    {
+        "sustech-data/wildfire.nvim",
+        event = "VeryLazy",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = {},
+    },
     {
         "dhruvasagar/vim-table-mode",
         event = "VeryLazy",
