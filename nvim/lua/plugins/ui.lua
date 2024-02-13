@@ -42,6 +42,7 @@ return {
         end,
     },
     {"stevearc/dressing.nvim", event = "VeryLazy"},
+    {"tpope/vim-rhubarb"},
     {"shumphrey/fugitive-gitlab.vim",
         dependencies = {"tpope/vim-fugitive"},
         config = function()
