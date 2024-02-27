@@ -20,8 +20,14 @@ return {
         end,
     },
 
+    {   "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp"
+    },
+
     {
         "hrsh7th/nvim-cmp",
+        dependencies = {"L3MON4D3/LuaSnip"},
         opts = function()
             local has_words_before = function()
                 local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -67,9 +73,9 @@ return {
         
               ['<C-d>'] = cmp.mapping.scroll_docs(-4),
               ['<C-f>'] = cmp.mapping.scroll_docs(4),
-              ['<C-o>'] = cmp.mapping.complete(),
+              --['<C-o>'] = cmp.mapping.complete(),
               ['<C-e>'] = cmp.mapping.abort(),
-              --['<CR>'] = cmp.mapping.confirm({select = true,}),
+              ['<CR>'] = cmp.mapping.confirm({select = true,}),
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },

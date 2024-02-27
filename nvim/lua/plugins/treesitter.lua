@@ -16,6 +16,7 @@ return {
                 --"latex",
                 "lua",
                 "python",
+                "make",
                 "regex",
                 --"rst",
                 "scala",
