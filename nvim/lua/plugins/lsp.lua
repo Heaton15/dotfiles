@@ -185,7 +185,6 @@ return {
 
         end,
     },
-    
 
     {
         "williamboman/nvim-lsp-installer",
@@ -193,12 +192,22 @@ return {
         after = {"cmp-nvim-lsp"},
     },
 
-
     {
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "neovim/nvim-lspconfig",
         },
+        config = function()
+            local null_ls = require("null-ls")
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.formatting.verible_verilog_format.with({
+                        extra_filetypes = { "verilog_systemverilog" },
+                        extra_args = {"--column_limit=120"},
+                    }),
+                }
+            })
+        end,
     },
 }

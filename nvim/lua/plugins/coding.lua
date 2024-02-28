@@ -75,7 +75,10 @@ return {
               ['<C-f>'] = cmp.mapping.scroll_docs(4),
               --['<C-o>'] = cmp.mapping.complete(),
               ['<C-e>'] = cmp.mapping.abort(),
-              ['<CR>'] = cmp.mapping.confirm({select = true,}),
+              -- trying this without select = true because we can't <CR> in insert
+              -- mode without autocompleting junk. Maybe there is a better way,
+              -- but idk
+              ['<CR>'] = cmp.mapping.confirm(),
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
@@ -90,7 +93,6 @@ return {
             require("cmp").setup(opts)
         end,
     },
-
     {'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp"},
     {'hrsh7th/cmp-buffer', after = "nvim-cmp"},
     {'hrsh7th/cmp-path', after = "nvim-cmp"},
