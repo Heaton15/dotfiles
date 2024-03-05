@@ -11,6 +11,7 @@ return {
             -- Add the LSP servers and server customizations here 
             servers = {
                 pyright = {},
+                verible = {},
             },
         },
         config = function(_, opts)
@@ -115,10 +116,10 @@ return {
 
                     map("n", "glj", vim.diagnostic.goto_next, "Next LSP error")
                     map("n", "glk", vim.diagnostic.goto_prev, "Previous LSP Error")
+                    map("n", "glwd", ts.diagnostics, opts)
 
                     -- map("n", "glp", vim.lsp.buf.execute_command, opts)
                     -- map("n", "gltd", vim.lsp.buf.type_definition, opts)
-                    -- map("n", "glwd", ts.diagnostics, opts)
                     -- map("n", "glwl", function()
                     --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     -- end, opts)
@@ -192,22 +193,22 @@ return {
         after = {"cmp-nvim-lsp"},
     },
 
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "neovim/nvim-lspconfig",
-        },
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.verible_verilog_format.with({
-                        extra_filetypes = { "verilog_systemverilog" },
-                        extra_args = {"--column_limit=120"},
-                    }),
-                }
-            })
-        end,
-    },
+    --{
+    --    "jose-elias-alvarez/null-ls.nvim",
+    --    dependencies = {
+    --        "nvim-lua/plenary.nvim",
+    --        "neovim/nvim-lspconfig",
+    --    },
+    --    config = function()
+    --        local null_ls = require("null-ls")
+    --        null_ls.setup({
+    --            sources = {
+    --                null_ls.builtins.formatting.verible_verilog_format.with({
+    --                    extra_filetypes = { "verilog_systemverilog" },
+    --                    extra_args = {"--column_limit=120"},
+    --                }),
+    --            }
+    --        })
+    --    end,
+    --},
 }
