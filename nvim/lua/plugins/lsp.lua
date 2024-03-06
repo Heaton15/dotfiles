@@ -1,9 +1,20 @@
 return {
 
     {
+        "soulis-1256/eagle.nvim",
+        lazy = VeryLazy,
+        config = function()
+            require("eagle").setup()
+            vim.o.mousemoveevent = true
+        end,
+    },
+    {
         "neovim/nvim-lspconfig",
         events = {"BufReadPre", "BufNewFile"},
-        dependencies = {"hrsh7th/cmp-nvim-lsp"},
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "soulis-1256/eagle.nvim",
+        },
         opts = {
             inlay_hints = {
                 enabled = true,
@@ -11,7 +22,7 @@ return {
             -- Add the LSP servers and server customizations here 
             servers = {
                 pyright = {},
-                verible = {},
+                --verible = {},
             },
         },
         config = function(_, opts)
@@ -124,6 +135,11 @@ return {
                     --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     -- end, opts)
                     -- map("n", "glws", ts.lsp_workspace_symbols, opts)
+                    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+                        vim.lsp.handlers.hover, {
+                            border = "single"
+                        }
+                    )
                 end,
                 })
         end,
