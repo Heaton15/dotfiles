@@ -14,6 +14,7 @@ return {
                 vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", {noremap = true})
                 -- draw a box by pressing "f" with visual selection
                 vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", {noremap = true})
+                vim.api.nvim_buf_set_keymap(0, "v", "o", ":VBoxO<CR>", {noremap = true})
             else
                 vim.cmd[[setlocal ve=]]
                 vim.cmd[[mapclear <buffer>]]
@@ -67,6 +68,10 @@ return {
         local cmp = require("cmp")
         local select_opts = {behavior = cmp.SelectBehavior.Select}
         return {
+            -- In some cases, the selection is auto filled in even though I
+            -- haven't called cmp.select_next_item(). This prevents the autofill
+            -- from occurring. 
+            preselect = cmp.PreselectMode.None,
             snippet = {
                 expand = function(args)
                 -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
