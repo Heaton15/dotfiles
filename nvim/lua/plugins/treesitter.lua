@@ -24,6 +24,7 @@ return {
                 "yaml",
                 --"devicetree",
                 "cmake",
+                "asm",
             },
             highlight = { enable = true },
             rainbow = { enable = true },
