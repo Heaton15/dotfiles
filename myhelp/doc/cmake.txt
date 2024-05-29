@@ -1,0 +1,66 @@
+*cmake.txt*
+==============================================================================
+PUBLIC    - I can use and anything that links can use
+PRIVATE   - Only I can use 
+INTERFACE - Only things that link to it can use
+LANG      - Language you are using (C, ASM, LD, etc)
+
+
+                                                                  *cmake-commands*
+*cmake_minimum_required(VERSION 3.10)*
+    Required to specify the cmake version 
+
+*project(PROJECT_NAME VERSION 1.0)*
+    Name of project with optional version value for tracking
+
+*add_library(LIBRARY_NAME PUBLIC/PRIVATE/INTERFACE)*
+    Name of the library you are creating and if it should be PUBLIC, PRIVATE, or an INTERFACE
+
+
+*add_subdirectory(LIBRARY_NAME)*
+    Adds a library in a subdirectory into the primary project. 
+
+*option(VAR_NAME "DESCRIPTION" ON/OFF)*
+    Create a VAR_NAME define in your code that allows you to enable or disable
+    features with if(VAR_NAME) endif() blocks. 
+
+*target_link_libraries(TARGET PUBLIC/PRIVATE/INTERFACE <TARGETS>)*
+    Links other targets into your current target. You can link other libraries and projects into 
+    here and automatically create the dependencies. 
+
+*target_compile_features(LIBRARY_NAME PUBLIC/PRIVATE/INTERFACE <feature>)*
+    Compile a feature into a library. Then link to that library to gain access to the features.
+    Available features you can compile in. This lets you create an interface to CXX 11 for example. 
+    https://cmake.org/cmake/help/latest/prop_gbl/CMAKE_CXX_KNOWN_FEATURES.html
+    
+*target_include_directories(TARGET PUBLIC/PRIVATE/INTERFACE "${PROJECT_BINARY_DIR}")*
+    Allows you to target an include location and include files in that location into the build
+
+*target_compile_definitions(TARGET PRIVATE "USE_MY_DEFINE")*
+    Compiles the "USE_MY_DEFINE" variable into the TARGET library. Now if the "USE_MY_DEFINE" macro
+    is set with option() or from the command line and this target_compile_definitions(...) is called,
+    the associated library will have USE_MY_DEFINE set. This allows you to write #ifdef #else #endif code 
+    in the C and then set those values from CMake. 
+
+*configure_file(example.h.in example.h)*
+    Allows you to populate a configuration file with variable parameters denoted @NAME@ and then automatically populate
+    them and place the results in the build directory. 
+    The *h.in file should be the template with the @NAME@ variables, and then the .h will be the result in the build directory.
+    Note that you can set the values with set(...) or use generic global envs to populate the name, such as libname_VERSION_MAJOR
+
+*add_exectuable(EXE_NAME file.cxx)*
+    Compiles the specified file list into the EXE_NAME provided
+
+
+                                                                  *cmake-envs*
+*CMAKE_<LANG>_COMPILER*
+    Switch out <LANG> for the language type and you can then set the full path to the compiler location. 
+    Some example options can be CMAKE_LD_COMPILER, CMAKE_C_COMPILER, CMAKE_ASM_COMPILER, etc. 
+*$PROJECT_BINARY_DIR*
+    Binary directory of the most recent project command. Possibly the root of your project. 
+    
+
+*$CMAKE_CURRENT_SOURCE_DIR*
+    Location of the current source for the CMakeLists.txt location your are currently modifying.
+    If you are in a root/subdirectory/ location, it will point to root/subdirectory/*
+==============================================================================
