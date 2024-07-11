@@ -54,14 +54,9 @@ return {
 
                     local ts = require("telescope.builtin")
 
-                    -- Function to allow us to map keybinds without getting into the details
-                    local function map (mode, l, r, desc)
-                        opts = opts or {}
-                        opts.buffer = bufnr
-                        vim.keymap.set(mode, l, r, {buffer = bufnr, desc = desc})
+                    local function map(mode, l, r, desc)
+                        vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
                     end
-
-
 
                     -- Create a variable with the client capabilities that we can reference
                     --local cap = client.server_capabilities
@@ -163,9 +158,9 @@ return {
             local metals_config = require("metals").bare_config()
 
             metals_config.settings = {
-                --showImplicitArguments = true,
                 showInferredType = true,
                 enableSemanticHighlighting = false,
+                showImplicitArguments = false,
                 excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
             }
 
