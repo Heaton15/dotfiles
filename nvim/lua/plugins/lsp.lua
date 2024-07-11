@@ -61,6 +61,8 @@ return {
                         vim.keymap.set(mode, l, r, {buffer = bufnr, desc = desc})
                     end
 
+
+
                     -- Create a variable with the client capabilities that we can reference
                     --local cap = client.server_capabilities
 
@@ -80,7 +82,7 @@ return {
                     --    })
                     --end
 
-                    -- Not sure how code_lens and inlay_hints work for the LSP setup. Do some research into these if we want them.
+                    -- Not sure how code_lens and work for the LSP setup. Do some research into these if we want them.
                     
                     ---- Set up code lens support
                     --if cap.code_lens then
@@ -95,16 +97,19 @@ return {
                     --    map("n", "<leader>ccl", vim.lsp.codelens.run, "Run code lens")
                     --end
 
-                    ---- Set up inlay hints
-                    --if opts.inlay_hints.enabled and vim.lsp.buf.inlay_hint then
-                    --    if client.server_capabilities.inlayHintProvider then
-                    --        vim.lsp.buf.inlay_hint(bufnr, true)
-                    --    end
-                    --    map("n", "<leader>cth", function()
-                    --        vim.lsp.buf.inlay_hint(0, nil)
-                    --    end, "Toggle inlay hints")
-                    --end
-                    --
+                    -- Set up inlay hints
+                    if opts.inlay_hints.enabled and vim.lsp.inlay_hint then
+                        if client.server_capabilities.inlayHintProvider then
+                            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                        end
+                        map("n", "<leader>cth", function()
+                            vim.lsp.inlay_hint.enable(
+                                not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+                                { bufnr = bufnr }
+                            )
+                        end, "Toggle inlay hints")
+                    end
+                    
                     map("n", "gla", vim.lsp.buf.code_action, "Run code action")
                     map("n", "gln", vim.lsp.buf.rename, "Rename")
                     map("n", "glx", client.stop, "Stop client")
@@ -128,13 +133,7 @@ return {
 
                     map("n", "glj", vim.diagnostic.goto_next, "Next LSP error")
                     map("n", "glk", vim.diagnostic.goto_prev, "Previous LSP Error")
-                    map("n", "glwd", ts.diagnostics, opts)
-
-                    -- map("n", "glp", vim.lsp.buf.execute_command, opts)
-                    -- map("n", "gltd", vim.lsp.buf.type_definition, opts)
-                    -- map("n", "glwl", function()
-                    --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                    -- end, opts)
+                    -- map("n", "glwd", ts.diagnostics, opts)
                     -- map("n", "glws", ts.lsp_workspace_symbols, opts)
                     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
                         vim.lsp.handlers.hover, {
@@ -164,7 +163,8 @@ return {
             local metals_config = require("metals").bare_config()
 
             metals_config.settings = {
-                showImplicitArguments = true,
+                --showImplicitArguments = true,
+                showInferredType = true,
                 enableSemanticHighlighting = false,
                 excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
             }

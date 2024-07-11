@@ -56,6 +56,7 @@ LANG      - Language you are using (C, ASM, LD, etc)
 *CMAKE_<LANG>_COMPILER*
     Switch out <LANG> for the language type and you can then set the full path to the compiler location. 
     Some example options can be CMAKE_LD_COMPILER, CMAKE_C_COMPILER, CMAKE_ASM_COMPILER, etc. 
+
 *$PROJECT_BINARY_DIR*
     Binary directory of the most recent project command. Possibly the root of your project. 
     
@@ -63,4 +64,19 @@ LANG      - Language you are using (C, ASM, LD, etc)
 *$CMAKE_CURRENT_SOURCE_DIR*
     Location of the current source for the CMakeLists.txt location your are currently modifying.
     If you are in a root/subdirectory/ location, it will point to root/subdirectory/*
+
+                                                                  *cmake-generators*
+https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
+
+*BUILD_INTERFACE*
+    Causes a generator expression to expand and only be used for the local build and not for people who call the target
+    E.G: $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> will cause this include directory to be used only when I build and not when
+    others depend on the target
+
+*INSTALL_INTERFACE*
+    Causes a generator expression to expand and and be used for others who depend on the target. 
+    E.G: $<INSTALL_INTERFACE:include> will cause others who depend on this project to find headers in the `include` directory
+    relative to the installation prefix. 
+
+*
 ==============================================================================

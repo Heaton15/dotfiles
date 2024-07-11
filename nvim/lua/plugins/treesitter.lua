@@ -25,6 +25,7 @@ return {
                 --"devicetree",
                 "cmake",
                 "asm",
+                "rust",
             },
             highlight = { enable = true },
             rainbow = { enable = true },
