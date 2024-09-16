@@ -23,7 +23,9 @@ return {
             servers = {
                 pyright = {},
                 clangd = {},
-                --verible = {},
+                verible = {
+                    filetypes = {"verilog_systemverilog"},
+                },
             },
         },
         config = function(_, opts)
@@ -206,21 +208,23 @@ return {
     },
 
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "neovim/nvim-lspconfig",
+        'stevearc/conform.nvim',
+        opts = {
+            formatters_by_ft = {
+                python = {"ruff_format"},
+            },
         },
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.verible_verilog_format.with({
-                        extra_filetypes = { "verilog_systemverilog" },
-                        extra_args = {"--column_limit=120"},
-                    }),
-                }
-            })
+        config = function(_, opts)
+            require("conform").setup(opts)
+
+            vim.keymap.set("n", "glf",
+                function()
+                    require("conform").format({
+                        lsp_format = "prefer",
+                        async=true
+                    })
+                end, {desc = "Format document" })
         end,
-    },
+    }
+
 }
