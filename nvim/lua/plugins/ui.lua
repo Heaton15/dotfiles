@@ -1,23 +1,4 @@
 return {
-    {
-      "jackMort/ChatGPT.nvim",
-        --commit = "d4aa4d9",
-        event = "VeryLazy",
-        dependencies = {
-          "MunifTanjim/nui.nvim",
-          "nvim-lua/plenary.nvim",
-          "folke/trouble.nvim",
-          "nvim-telescope/telescope.nvim"
-        },
-        config = function()
-          local home = vim.fn.expand("$HOME")
-          require("chatgpt").setup({
-                api_key_cmd = "bash " .. home .. "/.chatgpt.sh"
-          })
-          vim.keymap.set("n", "<leader>cg", ":ChatGPT <CR>")
-          vim.keymap.set("n", "cge", ":ChatGPTRun explain_code <CR>")
-        end,
-    },
     -- Provides icons for various file types
     { "nvim-tree/nvim-web-devicons", lazy = true },
     {"preservim/vimux"},

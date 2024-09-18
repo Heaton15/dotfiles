@@ -75,3 +75,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/users/tim/perl5"; export PERL_MM_OPT;
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.miniforge3/bin:$PATH
 export TMUX_TMPDIR=$HOME/.tmux/
+
+if [[ $(uname) == "Darwin" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
