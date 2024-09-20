@@ -121,12 +121,12 @@ return {
                     map("n", "gldws", ts.lsp_dynamic_workspace_symbols, "Open dynamic workspace symbols")
                     map("n", "glds", ts.lsp_document_symbols, "Open document symbols")
 
-                    map("n", "glf",
-                        function()
-                            vim.lsp.buf.format ({ async = true })
-                        end,
-                        "Format code"
-                    )
+                    --map("n", "glf",
+                    --    function()
+                    --        vim.lsp.buf.format ({ async = true })
+                    --    end,
+                    --    "Format code"
+                    --)
 
                     map("n", "glj", vim.diagnostic.goto_next, "Next LSP error")
                     map("n", "glk", vim.diagnostic.goto_prev, "Previous LSP Error")
@@ -209,6 +209,7 @@ return {
 
     {
         'stevearc/conform.nvim',
+        event = "VeryLazy",
         opts = {
             formatters_by_ft = {
                 python = {"ruff_format"},
