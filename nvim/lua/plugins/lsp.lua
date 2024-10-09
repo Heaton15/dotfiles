@@ -147,23 +147,20 @@ return {
             "nvim-lua/plenary.nvim",
             "hrsh7th/cmp-nvim-lsp",
         },
-        -- lazy = true,
-        --keys = {
-        --    "<leader>mc",
-        --    function()
-        --        require("metals").commands()
-        --    end,
-        --    desc = "Show metals commands",
-        --},
         config = function()
             -- This is where the metals setup exists
             local metals_config = require("metals").bare_config()
 
             metals_config.settings = {
-                showInferredType = true,
-                enableSemanticHighlighting = false,
-                showImplicitArguments = false,
+                enableSemanticHighlighting = true,
                 excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+                inlayHints = {
+                    hintsInPatternMatch = { enable = true },
+                    implicitArguments = { enable = true },
+                    implicitConversions = { enable = true },
+                    inferredTypes = { enable = true },
+                    typeParameters = { enable = true },
+                },
             }
 
             metals_config.root_patterns = { "build.sbt", "build.sc" }
