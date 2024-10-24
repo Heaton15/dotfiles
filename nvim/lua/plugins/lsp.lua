@@ -152,18 +152,18 @@ return {
             local metals_config = require("metals").bare_config()
 
             metals_config.settings = {
-                enableSemanticHighlighting = true,
+                enableSemanticHighlighting = false,
                 excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
                 inlayHints = {
-                    hintsInPatternMatch = { enable = true },
-                    implicitArguments = { enable = true },
-                    implicitConversions = { enable = true },
-                    inferredTypes = { enable = true },
-                    typeParameters = { enable = true },
+                    hintsInPatternMatch = { enable = false},
+                    implicitArguments = { enable = false},
+                    implicitConversions = { enable = false},
+                    inferredTypes = { enable = true},
+                    typeParameters = { enable = true},
                 },
             }
 
-            metals_config.root_patterns = { "build.sbt", "build.sc" }
+            metals_config.root_patterns = { "build.sbt", "build.sc", "build.mill" }
 
             -- Tynan dotfiles which finds the last directory with the highest level root file.
             -- This is needed in chipyard since there are so many build.sbt files all over the place. 
