@@ -1,7 +1,9 @@
 # If not running interactively, don't do anything
+  
 [[ $- != *i* ]] && return
 
 if [[ $(uname) == "Darwin" ]]; then
+  eval "$(/usr/libexec/path_helper)"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -55,6 +57,3 @@ export TMUX_TMPDIR=$HOME/.tmux/
 if ! which your_binary_name &> /dev/null; then
   export PATH="$HOME/.fzf/bin:$PATH"
 fi
-
-
-eval "$(fzf --bash)"
