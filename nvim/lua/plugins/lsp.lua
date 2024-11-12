@@ -158,8 +158,8 @@ return {
                     hintsInPatternMatch = { enable = false},
                     implicitArguments = { enable = false},
                     implicitConversions = { enable = false},
-                    inferredTypes = { enable = true},
-                    typeParameters = { enable = true},
+                    inferredTypes = { enable = false},
+                    typeParameters = { enable = false},
                 },
             }
 
