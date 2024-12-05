@@ -7,14 +7,14 @@
 -- Bootstrap lazy.nvim for plugin management
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -22,18 +22,18 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[ ]]
 
-if vim.fn.has('nvim') == 1 then
-    local initlua = vim.fn.expand("$HOME/.config/nvim")
-    vim.keymap.set("n", "<leader>ev", ":Telescope find_files follow=true cwd=" .. initlua .. " <CR>")
+if vim.fn.has("nvim") == 1 then
+	local initlua = vim.fn.expand("$HOME/.config/nvim")
+	vim.keymap.set("n", "<leader>ev", ":Telescope find_files follow=true cwd=" .. initlua .. " <CR>")
 else
-    vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
+	vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
 end
 
 vim.keymap.set("n", "<leader>vr", ":source $MYVIMRC <CR>")
 vim.keymap.set("n", "<leader>eb", ":vsplit $HOME/.bashrc <CR>")
 vim.keymap.set("n", "<leader>bn", ":bn <CR>")
 vim.keymap.set("n", "<leader>bp", ":bp <CR>")
-vim.keymap.set("n", "<leader>q",  ":qa! <CR>")
+vim.keymap.set("n", "<leader>q", ":qa! <CR>")
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
 vim.keymap.set("n", "<leader>wk", "<C-w>k")
@@ -51,9 +51,9 @@ vim.keymap.set("n", "ts", ":tab split <CR>")
 vim.keymap.set("i", "<C-y>", "<C-k>")
 
 -- Move between tabs with leader + num
-for i=1,9 do
-    key = '<leader>' .. i
-    vim.keymap.set("n", key, i..'gt')
+for i = 1, 9 do
+	key = "<leader>" .. i
+	vim.keymap.set("n", key, i .. "gt")
 end
 
 -- Global Settings
@@ -95,53 +95,52 @@ vim.bo.formatoptions = "crot"
 vim.keymap.set("n", "<F5>", [[ :set norelativenumber! <CR> :set nonumber! <CR>]])
 
 -- Window control in neovim
-vim.keymap.set("n", "<leader>l",  ":redraw <CR>", {silent = true})
-vim.keymap.set("n", "<leader>ww", "<C-w>= <CR>", {silent = true})
+vim.keymap.set("n", "<leader>l", ":redraw <CR>", { silent = true })
+vim.keymap.set("n", "<leader>ww", "<C-w>= <CR>", { silent = true })
 
 function set_ft(events, ft_list, ft, ft_cmd)
-    
-    if (ft == nil) then
-        ft = ''
-    else 
-        ft = [[set filetype=]] .. ft
-    end
+	if ft == nil then
+		ft = ""
+	else
+		ft = [[set filetype=]] .. ft
+	end
 
-    if (ft_cmd == nil) then
-        ft_cmd = ''
-    end
+	if ft_cmd == nil then
+		ft_cmd = ""
+	end
 
-    cmd = ft .. ' ' .. ft_cmd
+	cmd = ft .. " " .. ft_cmd
 
-    for _, item in pairs(ft_list) do
-        vim.api.nvim_create_autocmd(events, { 
-            pattern = {item},
-            command = cmd,
-        })
-    end
+	for _, item in pairs(ft_list) do
+		vim.api.nvim_create_autocmd(events, {
+			pattern = { item },
+			command = cmd,
+		})
+	end
 end
 
 -- autocmd assignments
-local buf = {"BufRead", "BufNewFile"}
-local ft_skill = {"*.ils", "*.cdsinit", "*.cdsenv", "cds.lib"}
-local ft_tcl   = {"*.sdc", "*.xel"}
-local ft_vlog  = {"*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams", "*.f"}
-local ft_sh    = {"*.sh", "*.bash_aliases", "*.bashrc", "*.bash"}
-local ft_scala = {"*.mill", "*.scala"}
+local buf = { "BufRead", "BufNewFile" }
+local ft_skill = { "*.ils", "*.cdsinit", "*.cdsenv", "cds.lib" }
+local ft_tcl = { "*.sdc", "*.xel" }
+local ft_vlog = { "*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams", "*.f" }
+local ft_sh = { "*.sh", "*.bash_aliases", "*.bashrc", "*.bash" }
+local ft_scala = { "*.mill", "*.scala" }
 
 -- Set certain commonly used files to a filetype
 set_ft(buf, ft_sh, "sh", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 set_ft(buf, ft_scala, "scala", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
-set_ft(buf, {"*.scs"}, "spectre")
-set_ft(buf, {"*.il"}, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoindent]])
+set_ft(buf, { "*.scs" }, "spectre")
+set_ft(buf, { "*.il" }, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoindent]])
 set_ft(buf, ft_skill, "skill")
 set_ft(buf, ft_tcl, "tcl")
 set_ft(buf, ft_vlog, "verilog_systemverilog", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=120]])
-set_ft(buf, {"*.xdc"}, "xdc")
-set_ft(buf, {"*.tex"}, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
-set_ft(buf, {"*.py"}, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent]])
+set_ft(buf, { "*.xdc" }, "xdc")
+set_ft(buf, { "*.tex" }, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
+set_ft(buf, { "*.py" }, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent]])
 
 -- Allows vim-fugitive to fold changes when viewing
-set_ft({"FileType"}, {"git"}, nil, [[setlocal foldmethod=syntax]])
+set_ft({ "FileType" }, { "git" }, nil, [[setlocal foldmethod=syntax]])
 
 -- tmux / vimux config
 vim.keymap.set("n", "<leader>vp", ":VimuxPromptCommand<CR>")
@@ -152,14 +151,14 @@ vim.keymap.set("n", "<leader>vi", ":VimuxInspectRunner<CR>")
 
 -- vim buffer navigation
 vim.g.tmux_navigator_no_mappings = 1
-vim.keymap.set("n", "<leader>wh", ":TmuxNavigateLeft <CR>", {silent = true})
-vim.keymap.set("n", "<leader>wj", ":TmuxNavigateDown <CR>", {silent = true})
-vim.keymap.set("n", "<leader>wk", ":TmuxNavigateUp <CR>", {silent = true})
-vim.keymap.set("n", "<leader>wl", ":TmuxNavigateRight <CR>", {silent = true})
+vim.keymap.set("n", "<leader>wh", ":TmuxNavigateLeft <CR>", { silent = true })
+vim.keymap.set("n", "<leader>wj", ":TmuxNavigateDown <CR>", { silent = true })
+vim.keymap.set("n", "<leader>wk", ":TmuxNavigateUp <CR>", { silent = true })
+vim.keymap.set("n", "<leader>wl", ":TmuxNavigateRight <CR>", { silent = true })
 
 -- Binary R/W
-vim.keymap.set("n", "<leader>hr", ":%!xxd<CR> :set filetype=xxd<CR>", {remap = true})
-vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<CR>", {remap = true})
+vim.keymap.set("n", "<leader>hr", ":%!xxd<CR> :set filetype=xxd<CR>", { remap = true })
+vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<CR>", { remap = true })
 
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
 
@@ -167,10 +166,10 @@ vim.opt_global.shortmess:remove("F")
 vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
 
 require("lazy").setup({
-    spec = {
-        { import = "plugins" },
-    },
-    install = { colorscheme = {"noctis_obscuro"} },
+	spec = {
+		{ import = "plugins" },
+	},
+	install = { colorscheme = { "noctis_obscuro" } },
 })
 
 -- Load external vtags plugin and run

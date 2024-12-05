@@ -1,16 +1,22 @@
 return {
 
     {
+        "williamboman/mason.nvim",
+        opts = {},
+    },
+
+    {
         "soulis-1256/eagle.nvim",
-        lazy = VeryLazy,
+        lazy = "VeryLazy",
         config = function()
             require("eagle").setup()
             vim.o.mousemoveevent = true
         end,
     },
+
     {
         "neovim/nvim-lspconfig",
-        events = {"BufReadPre", "BufNewFile"},
+        events = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "soulis-1256/eagle.nvim",
@@ -19,35 +25,47 @@ return {
             inlay_hints = {
                 enabled = true,
             },
-            -- Add the LSP servers and server customizations here 
+            -- Add the LSP servers and server customizations here
             servers = {
                 pyright = {},
                 clangd = {},
                 verible = {
-                    filetypes = {"verilog_systemverilog"},
+                    filetypes = { "verilog_systemverilog" },
+                },
+                lua_ls = {
+                    settings = {
+                        Lua = {
+                            runtime = { version = 'LuaJIT' },
+                            workspace = {
+                                checkThirdParty = false,
+                                library = vim.api.nvim_get_runtime_file("", true)
+                            },
+                        },
+                    },
                 },
             },
         },
+
         config = function(_, opts)
             local servers = opts.servers
             -- We don't have a reason for vim.tbl_deep_extend with the vim defaults
             -- since we weren't using it in the original nvim config. We can
-            -- add that back in if we have problems. 
-            local capabilities = {require("cmp_nvim_lsp").default_capabilities()}
+            -- add that back in if we have problems.
+            local capabilities = { require("cmp_nvim_lsp").default_capabilities() }
 
-            -- We loop through our set servers and then assign the default 
-            -- lsp capabilities and override them with custom options set 
-            -- in the server tables above. 
+            -- We loop through our set servers and then assign the default
+            -- lsp capabilities and override them with custom options set
+            -- in the server tables above.
             for server, base_server_opts in pairs(servers) do
-                local server_opts = vim.tbl_deep_extend("force", { 
-                    capabilities = vim.deepcopy(capabilities), },
-                    base_server_opts or {}) 
+                local server_opts = vim.tbl_deep_extend("force", {
+                    capabilities = vim.deepcopy(capabilities),
+                }, base_server_opts or {})
                 require("lspconfig")[server].setup(server_opts)
             end
 
             -- In the past, we used a custom_lsp_attach function to set the keybinds for the LSP servers
             -- This time, we are going to use LSP events to trigger the keybind loading. One downside to this
-            -- is that the event will only be triggered for the first LSP that is loaded for a given file. 
+            -- is that the event will only be triggered for the first LSP that is loaded for a given file.
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                 callback = function(args)
@@ -80,7 +98,7 @@ return {
                     --end
 
                     -- Not sure how code_lens and work for the LSP setup. Do some research into these if we want them.
-                    
+
                     ---- Set up code lens support
                     --if cap.code_lens then
                     --    local lsp_code_lens = vim.api.nvim_create_augroup("lsp_code_lens", {})
@@ -106,7 +124,7 @@ return {
                             )
                         end, "Toggle inlay hints")
                     end
-                    
+
                     map("n", "gla", vim.lsp.buf.code_action, "Run code action")
                     map("n", "gln", vim.lsp.buf.rename, "Rename")
                     map("n", "glx", client.stop, "Stop client")
@@ -132,13 +150,11 @@ return {
                     map("n", "glk", vim.diagnostic.goto_prev, "Previous LSP Error")
                     -- map("n", "glwd", ts.diagnostics, opts)
                     -- map("n", "glws", ts.lsp_workspace_symbols, opts)
-                    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-                        vim.lsp.handlers.hover, {
-                            border = "single"
-                        }
-                    )
+                    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+                        border = "single",
+                    })
                 end,
-                })
+            })
         end,
     },
     {
@@ -155,18 +171,18 @@ return {
                 enableSemanticHighlighting = false,
                 excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
                 inlayHints = {
-                    hintsInPatternMatch = { enable = false},
-                    implicitArguments = { enable = false},
-                    implicitConversions = { enable = false},
-                    inferredTypes = { enable = false},
-                    typeParameters = { enable = false},
+                    hintsInPatternMatch = { enable = false },
+                    implicitArguments = { enable = false },
+                    implicitConversions = { enable = false },
+                    inferredTypes = { enable = false },
+                    typeParameters = { enable = false },
                 },
             }
 
             metals_config.root_patterns = { "build.sbt", "build.sc", "build.mill" }
 
             -- Tynan dotfiles which finds the last directory with the highest level root file.
-            -- This is needed in chipyard since there are so many build.sbt files all over the place. 
+            -- This is needed in chipyard since there are so many build.sbt files all over the place.
             metals_config.find_root_dir = function(patterns, startpath)
                 local Path = require("plenary.path")
                 local root_dir = nil
@@ -186,7 +202,7 @@ return {
             metals_config.init_options.statusBarProvider = "on"
             metals_config.capabilities = capabilities
 
-            local lsp_metals = vim.api.nvim_create_augroup("lsp_metals", {clear = true})
+            local lsp_metals = vim.api.nvim_create_augroup("lsp_metals", { clear = true })
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "scala, sbt" },
                 callback = function()
@@ -194,35 +210,27 @@ return {
                 end,
                 group = lsp_metals,
             })
-
         end,
     },
 
     {
-        "williamboman/nvim-lsp-installer",
-        dependencies = {"neovim/nvim-lspconfig"},
-        after = {"cmp-nvim-lsp"},
-    },
-
-    {
-        'stevearc/conform.nvim',
+        "stevearc/conform.nvim",
         event = "VeryLazy",
         opts = {
             formatters_by_ft = {
-                python = {"ruff_format"},
+                python = { "ruff_format" },
+                lua = { "stylua" },
             },
         },
         config = function(_, opts)
             require("conform").setup(opts)
 
-            vim.keymap.set("n", "glf",
-                function()
-                    require("conform").format({
-                        lsp_format = "prefer",
-                        async=true
-                    })
-                end, {desc = "Format document" })
+            vim.keymap.set("n", "glf", function()
+                require("conform").format({
+                    lsp_format = "prefer",
+                    async = true,
+                })
+            end, { desc = "Format document" })
         end,
-    }
-
+    },
 }
