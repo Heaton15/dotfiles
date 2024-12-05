@@ -53,9 +53,6 @@ return {
             -- add that back in if we have problems.
             local capabilities = { require("cmp_nvim_lsp").default_capabilities() }
 
-            -- We loop through our set servers and then assign the default
-            -- lsp capabilities and override them with custom options set
-            -- in the server tables above.
             for server, base_server_opts in pairs(servers) do
                 local server_opts = vim.tbl_deep_extend("force", {
                     capabilities = vim.deepcopy(capabilities),
@@ -63,9 +60,6 @@ return {
                 require("lspconfig")[server].setup(server_opts)
             end
 
-            -- In the past, we used a custom_lsp_attach function to set the keybinds for the LSP servers
-            -- This time, we are going to use LSP events to trigger the keybind loading. One downside to this
-            -- is that the event will only be triggered for the first LSP that is loaded for a given file.
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                 callback = function(args)
@@ -135,17 +129,8 @@ return {
                     map("n", "gli", ts.lsp_implementations, "Go to implementation")
                     map("n", "glr", ts.lsp_references, "Go to references")
                     map("n", "glR", ts.lsp_type_definitions, "Go to ")
-
                     map("n", "gldws", ts.lsp_dynamic_workspace_symbols, "Open dynamic workspace symbols")
                     map("n", "glds", ts.lsp_document_symbols, "Open document symbols")
-
-                    --map("n", "glf",
-                    --    function()
-                    --        vim.lsp.buf.format ({ async = true })
-                    --    end,
-                    --    "Format code"
-                    --)
-
                     map("n", "glj", vim.diagnostic.goto_next, "Next LSP error")
                     map("n", "glk", vim.diagnostic.goto_prev, "Previous LSP Error")
                     -- map("n", "glwd", ts.diagnostics, opts)
