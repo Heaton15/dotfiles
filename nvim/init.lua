@@ -7,14 +7,14 @@
 -- Bootstrap lazy.nvim for plugin management
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -22,17 +22,23 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[ ]]
 
+require("lazy").setup({
+    spec = {
+        { import = "plugins" },
+    },
+})
+
+-- keybinds
+vim.keymap.set("n", "<leader>h", require("telescope.builtin").help_tags)
+
 if vim.fn.has("nvim") == 1 then
-	local initlua = vim.fn.expand("$HOME/.config/nvim")
-	vim.keymap.set("n", "<leader>ev", ":Telescope find_files follow=true cwd=" .. initlua .. " <CR>")
+    local initlua = vim.fn.expand("$HOME/.config/nvim")
+    vim.keymap.set("n", "<leader>ev", ":Telescope find_files follow=true cwd=" .. initlua .. " <CR>")
 else
-	vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
+    vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
 end
 
-vim.keymap.set("n", "<leader>vr", ":source $MYVIMRC <CR>")
 vim.keymap.set("n", "<leader>eb", ":vsplit $HOME/.bashrc <CR>")
-vim.keymap.set("n", "<leader>bn", ":bn <CR>")
-vim.keymap.set("n", "<leader>bp", ":bp <CR>")
 vim.keymap.set("n", "<leader>q", ":qa! <CR>")
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
@@ -52,8 +58,8 @@ vim.keymap.set("i", "<C-y>", "<C-k>")
 
 -- Move between tabs with leader + num
 for i = 1, 9 do
-	key = "<leader>" .. i
-	vim.keymap.set("n", key, i .. "gt")
+    local key = "<leader>" .. i
+    vim.keymap.set("n", key, i .. "gt")
 end
 
 -- Global Settings
@@ -98,25 +104,25 @@ vim.keymap.set("n", "<F5>", [[ :set norelativenumber! <CR> :set nonumber! <CR>]]
 vim.keymap.set("n", "<leader>l", ":redraw <CR>", { silent = true })
 vim.keymap.set("n", "<leader>ww", "<C-w>= <CR>", { silent = true })
 
-function set_ft(events, ft_list, ft, ft_cmd)
-	if ft == nil then
-		ft = ""
-	else
-		ft = [[set filetype=]] .. ft
-	end
+local function set_ft(events, ft_list, ft, ft_cmd)
+    if ft == nil then
+        ft = ""
+    else
+        ft = [[set filetype=]] .. ft
+    end
 
-	if ft_cmd == nil then
-		ft_cmd = ""
-	end
+    if ft_cmd == nil then
+        ft_cmd = ""
+    end
 
-	cmd = ft .. " " .. ft_cmd
+    local cmd = ft .. " " .. ft_cmd
 
-	for _, item in pairs(ft_list) do
-		vim.api.nvim_create_autocmd(events, {
-			pattern = { item },
-			command = cmd,
-		})
-	end
+    for _, item in pairs(ft_list) do
+        vim.api.nvim_create_autocmd(events, {
+            pattern = { item },
+            command = cmd,
+        })
+    end
 end
 
 -- autocmd assignments
@@ -156,21 +162,8 @@ vim.keymap.set("n", "<leader>wj", ":TmuxNavigateDown <CR>", { silent = true })
 vim.keymap.set("n", "<leader>wk", ":TmuxNavigateUp <CR>", { silent = true })
 vim.keymap.set("n", "<leader>wl", ":TmuxNavigateRight <CR>", { silent = true })
 
--- Binary R/W
-vim.keymap.set("n", "<leader>hr", ":%!xxd<CR> :set filetype=xxd<CR>", { remap = true })
-vim.keymap.set("n", "<leader>hw", ":%!xxd -r<CR> :set binary<CR> :set filetype=<CR>", { remap = true })
-
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
-
 vim.opt_global.shortmess:remove("F")
-vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
-
-require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
-	install = { colorscheme = { "noctis_obscuro" } },
-})
 
 -- Load external vtags plugin and run
 -- Issues getting vtags working. python3 execute problems
