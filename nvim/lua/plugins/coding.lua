@@ -49,6 +49,9 @@ return {
                     -- auto completes the LSP options
                     selection = "auto_insert"
                 },
+                menu = {
+                    max_height = 30
+                },
             },
 
             sources = {
