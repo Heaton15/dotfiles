@@ -149,6 +149,9 @@ return {
             "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
+            -- Keybinds
+            vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
+
             -- This is where the metals setup exists
             local metals_config = require("metals").bare_config()
 
