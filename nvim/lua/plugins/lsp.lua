@@ -18,7 +18,6 @@ return {
         "neovim/nvim-lspconfig",
         events = { "BufReadPre", "BufNewFile" },
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
             "soulis-1256/eagle.nvim",
         },
         opts = {
@@ -51,12 +50,8 @@ return {
             -- We don't have a reason for vim.tbl_deep_extend with the vim defaults
             -- since we weren't using it in the original nvim config. We can
             -- add that back in if we have problems.
-            local capabilities = { require("cmp_nvim_lsp").default_capabilities() }
 
-            for server, base_server_opts in pairs(servers) do
-                local server_opts = vim.tbl_deep_extend("force", {
-                    capabilities = vim.deepcopy(capabilities),
-                }, base_server_opts or {})
+            for server, server_opts in pairs(servers) do
                 require("lspconfig")[server].setup(server_opts)
             end
 
@@ -146,7 +141,6 @@ return {
         "scalameta/nvim-metals",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
             -- Keybinds
@@ -186,9 +180,7 @@ return {
                 return root_dir
             end
 
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
             metals_config.init_options.statusBarProvider = "on"
-            metals_config.capabilities = capabilities
 
             local lsp_metals = vim.api.nvim_create_augroup("lsp_metals", { clear = true })
             vim.api.nvim_create_autocmd("FileType", {

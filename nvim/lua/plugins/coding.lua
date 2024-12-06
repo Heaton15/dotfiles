@@ -18,85 +18,32 @@ return {
             end
         end,
     },
-
-    { "L3MON4D3/LuaSnip",                    version = "v2.*",  build = "make install_jsregexp" },
-
     {
-        "hrsh7th/nvim-cmp",
-        dependencies = { "L3MON4D3/LuaSnip" },
-        opts = function()
-            local has_words_before = function()
-                local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-                return col ~= 0
-                    and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-            end
+        'saghen/blink.cmp',
+        lazy = false, -- lazy loading handled internally
+        dependencies = 'rafamadriz/friendly-snippets',
+        version = 'v0.*',
+        opts = {
+            -- 'default' for mappings similar to built-in completion
+            -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+            -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+            -- see the "default configuration" section below for full documentation on how to define
+            -- your own keymap.
+            keymap = { preset = 'default' },
 
-            local feedkey = function(key, mode)
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-            end
-
-            vim.cmd([[set completeopt=menu,menuone,noselect]])
-
-            local cmp = require("cmp")
-            local select_opts = { behavior = cmp.SelectBehavior.Select }
-            return {
-                -- In some cases, the selection is auto filled in even though I
-                -- haven't called cmp.select_next_item(). This prevents the autofill
-                -- from occurring.
-                preselect = cmp.PreselectMode.None,
-                snippet = {
-                    expand = function(args)
-                        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                        require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-                        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-                        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-                    end,
+            -- default list of enabled providers defined so that you can extend it
+            -- elsewhere in your config, without redefining it, via `opts_extend`
+            sources = {
+                completion = {
+                    enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
                 },
-                mapping = cmp.mapping.preset.insert({
-                    ["<C-n>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
-                    ["<C-p>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
+            },
 
-                    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                    --['<C-o>'] = cmp.mapping.complete(),
-                    ["<C-e>"] = cmp.mapping.abort(),
-                    -- trying this without select = true because we can't <CR> in insert
-                    -- mode without autocompleting junk. Maybe there is a better way,
-                    -- but idk
-                    ["<CR>"] = cmp.mapping.confirm(),
-                }),
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "nvim_lsp_signature_help" },
-                    { name = "luasnip" },
-                    { name = "buffer" },
-                    { name = "path" },
-                }),
-            }
-        end,
-        config = function(_, opts)
-            require("cmp").setup(opts)
-        end,
+            -- experimental auto-brackets support
+            -- completion = { accept = { auto_brackets = { enabled = true } } }
+
+            -- experimental signature help support
+            -- signature = { enabled = true }
+        },
     },
-    { "hrsh7th/cmp-nvim-lsp",                after = "nvim-cmp" },
-    { "hrsh7th/cmp-buffer",                  after = "nvim-cmp" },
-    { "hrsh7th/cmp-path",                    after = "nvim-cmp" },
-    { "hrsh7th/cmp-cmdline",                 after = "nvim-cmp" },
-    { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
 }
