@@ -21,29 +21,41 @@ return {
     {
         'saghen/blink.cmp',
         lazy = false, -- lazy loading handled internally
-        dependencies = 'rafamadriz/friendly-snippets',
+        --dependencies = 'rafamadriz/friendly-snippets',
+        dependencies = 'L3MON4D3/LuaSnip',
         version = 'v0.*',
         opts = {
+            snippets = {
+                expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+                active = function(filter)
+                    if filter and filter.direction then
+                        return require('luasnip').jumpable(filter.direction)
+                    end
+                    return require('luasnip').in_snippet()
+                end,
+                jump = function(direction) require('luasnip').jump(direction) end,
+            },
             -- 'default' for mappings similar to built-in completion
             -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
             -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
             -- see the "default configuration" section below for full documentation on how to define
             -- your own keymap.
-            keymap = { preset = 'default' },
+            keymap = {
+                ["<C-n>"] = { "select_next", "snippet_forward" },
+                ["<C-p>"] = { "select_prev", "snippet_backward" },
+            },
+            completion = {
+                list = {
+                    -- auto completes the LSP options
+                    selection = "auto_insert"
+                },
+            },
 
-            -- default list of enabled providers defined so that you can extend it
-            -- elsewhere in your config, without redefining it, via `opts_extend`
             sources = {
                 completion = {
                     enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
                 },
             },
-
-            -- experimental auto-brackets support
-            -- completion = { accept = { auto_brackets = { enabled = true } } }
-
-            -- experimental signature help support
-            -- signature = { enabled = true }
         },
     },
 }
