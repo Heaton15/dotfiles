@@ -33,6 +33,7 @@ return {
 			vim.keymap.set("n", "<leader>gdl", ":diffget //3")
 			vim.keymap.set("n", "<leader>nc", "]c")
 			vim.keymap.set({ "n", "v" }, "<leader>gb", ":GBrowse <CR>")
+            vim.keymap.set("n", "<leader>co", require("telescope.builtin").git_branches)
 		end,
 	},
 	{
