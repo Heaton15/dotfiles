@@ -1,6 +1,6 @@
 vim.notify = require("notify")
 local vtags_version = "https://www.vim.org/scripts/download_script.php?src_id=26794" -- 3.01
-local vtags_3p10 = "https://www.vim.org/scripts/download_script.php?src_id=27765" --3.10
+local vtags_3p10 = "https://www.vim.org/scripts/download_script.php?src_id=27765"    --3.10
 local version = "3.01"
 local dest = ".vtags-" .. version
 
@@ -8,20 +8,20 @@ local dest = ".vtags-" .. version
 
 local vtags_path = "$HOME/" .. dest .. "/vtags-" .. version .. "/vtags_vim_api.vim"
 if vim.fn.filereadable(vim.fn.expand(vtags_path)) == 0 then
-	vim.notify("No Vtags Detected. ---Installing---", "INFO")
-	os.execute("curl -o ~/.vtags.tar.gz " .. vtags_version)
-	os.execute("mkdir ~/" .. dest .. " && tar -xvzf ~/.vtags.tar.gz -C ~/" .. dest)
+    vim.notify("No Vtags Detected. ---Installing---", "INFO")
+    os.execute("curl -o ~/.vtags.tar.gz " .. vtags_version)
+    os.execute("mkdir ~/" .. dest .. " && tar -xvzf ~/.vtags.tar.gz -C ~/" .. dest)
 end
 
 -- Create vtags keybinds. This is pretty clanky compared to other plugins
 local vlog_group = vim.api.nvim_create_augroup("verilog_key_bindings", {})
 
 function vlog_bind(cmd, augroup)
-	vim.api.nvim_create_autocmd("Filetype", {
-		pattern = "verilog_systemverilog",
-		command = cmd,
-		group = augroup,
-	})
+    vim.api.nvim_create_autocmd("Filetype", {
+        pattern = "verilog_systemverilog",
+        command = cmd,
+        group = augroup,
+    })
 end
 
 vlog_bind("map <leader>a <Plug>VerilogEmacsAutoAdd :redraw! <CR>", vlog_group)
@@ -29,16 +29,16 @@ vlog_bind("map <leader><leader>a <Plug>VerilogEmacsAutoAdd", vlog_group)
 vlog_bind("map <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>", vlog_group)
 vlog_bind("map <leader><leader>d <Plug>VerilogEmacsAutoDelete", vlog_group)
 vlog_bind(
-	"nnoremap <buffer> <leader>v : py3 try_show_frame() <CR> <C-w>h <CR> : set filetype=verilog_systemverilog <CR>",
-	vlog_group
+    "nnoremap <buffer> <leader>v : py3 try_show_frame() <CR> <C-w>h <CR> : set filetype=verilog_systemverilog <CR>",
+    vlog_group
 )
 vlog_bind(
-	"nnoremap <buffer> <leader>i : py3 try_go_into_submodule() <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>",
-	vlog_group
+    "nnoremap <buffer> <leader>i : py3 try_go_into_submodule() <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>",
+    vlog_group
 )
 vlog_bind(
-	"nnoremap <buffer> <leader>u : py3 try_go_upper_module() <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>",
-	vlog_group
+    "nnoremap <buffer> <leader>u : py3 try_go_upper_module() <CR> : py try_show_frame() <CR> : py try_print_module_trace() <CR>",
+    vlog_group
 )
 vlog_bind("nnoremap <buffer> <leader>mt      : py3 try_print_module_trace()        <CR>", vlog_group)
 vlog_bind("nnoremap <buffer> <leader>ct      : py3 clear_trace()                   <CR>", vlog_group)
