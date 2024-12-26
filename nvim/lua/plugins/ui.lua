@@ -92,24 +92,6 @@ return {
             end,
         },
     },
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
-        },
-        opts = {},
-        config = function(_, _)
-            require("noice").setup({
-                lsp = {},
-                presets = {
-                    bottom_search = true,         -- use a classic bottom cmdline for search
-                    long_message_to_split = true, -- long messages will be sent to a split
-                },
-            })
-        end,
-    },
 
     {
         'akinsho/bufferline.nvim',
