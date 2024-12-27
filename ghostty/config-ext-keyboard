@@ -1,0 +1,58 @@
+# Font / Themes
+font-family = Hack Nerd Font Mono
+font-style = Regular
+font-size = 14
+font-thicken = true
+theme = carbonfox
+shell-integration = bash
+confirm-close-surface=false
+cursor-color = 00afaf
+unfocused-split-opacity=0.5
+
+#background-opacity=0.8
+#background-blur-radius=20
+
+# Options
+mouse-hide-while-typing = true
+
+# Keybinds
+keybind = alt+c=copy_to_clipboard
+keybind = alt+v=paste_from_clipboard
+keybind = alt+control+k=scroll_page_up
+keybind = alt+control+j=scroll_page_down
+
+
+# Windows / Tabs
+keybind = alt+w=new_window
+keybind = alt+t=new_tab
+keybind = alt+x=close_window
+keybind = alt+shift+x=close_all_windows
+keybind = alt+f=toggle_fullscreen
+
+# Create Split
+keybind = alt+shift+l=new_split:right
+keybind = alt+shift+j=new_split:down
+keybind = alt+shift+k=new_split:up
+keybind = alt+shift+h=new_split:left
+
+# Change Split
+keybind = alt+l=goto_split:right
+keybind = alt+j=goto_split:bottom
+keybind = alt+k=goto_split:top
+keybind = global:alt+h=goto_split:left
+
+# Misc
+keybind = alt+shift+[=equalize_splits
+keybind = alt+o=toggle_split_zoom
+keybind = alt+q=close_surface
+keybind = alt+r=reload_config
+
+
+# Quick Terminal
+keybind = alt+n=toggle_quick_terminal
+
+# Makes the ghostty icon green
+macos-icon = custom-style
+macos-icon-ghost-color = #00af87
+macos-icon-screen-color = #00af87
+macos-icon-frame = chrome
