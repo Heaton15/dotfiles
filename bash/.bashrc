@@ -17,14 +17,12 @@ if [[ $(uname) == "Darwin" ]]; then
 
 fi
 
+
 ################Aliasing##################
 alias ls='ls --color=auto'
 alias vi='vim'
 alias ll='ls -la'
 alias clear='clear -x'
-alias cls='clear && ls'
-alias cla='clear && ls -a'
-alias cll='clear && ls -l'
 alias ..="cd ../"
 alias ....="cd ../../"
 alias ......="cd ../../../"
@@ -33,6 +31,8 @@ alias .2="cd ../../"
 alias .3="cd ../../../"
 alias .4="cd ../../../../"
 alias .5="cd ../../../../../"
+alias kb-mac="make -C $HOME/dotfiles/ ghostty"
+alias kb-ext="make -C $HOME/dotfiles/ ghostty-ext-keyboard"
 #################PATH Updates##############
 
 if [[ -e "$HOME/.niobium_setup.sh" ]]; then
@@ -44,9 +44,6 @@ fi
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --preview "cat {}"'
 
 alias vtags='/usr/bin/python2 ~/.vtags-3.01/vtags-3.01/vtags.py'
-
-#export EDITOR="$HOME/.local/bin/nvim"
-#export VISUAL="$HOME/.local/bin/nvim"
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
