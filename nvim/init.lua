@@ -39,6 +39,7 @@ else
 end
 
 vim.keymap.set("n", "<leader>eb", ":vsplit $HOME/.bashrc <CR>")
+vim.keymap.set("n", "<leader>eg", ":vsplit $HOME/dotfiles/ghostty/config <CR>")
 vim.keymap.set("n", "<leader>q", ":qa! <CR>")
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")

@@ -1,10 +1,20 @@
+# # Ghostty shell integration for Bash. This should be at the top of your bashrc!
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
+
 # If not running interactively, don't do anything
-  
 [[ $- != *i* ]] && return
 
 if [[ $(uname) == "Darwin" ]]; then
   eval "$(/usr/libexec/path_helper)"
+  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+  export PATH="/opt/homebrew/opt/scala@2.13/bin:$PATH"
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export RISCV="/opt/homebrew/bin/"
+  export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+  export SHELL="/opt/homebrew/bin/bash"
+
 fi
 
 ################Aliasing##################

@@ -41,4 +41,8 @@ ifeq ($(BASH), 1)
 include bash/install.mk
 endif
 
+ifeq ($(GHOSTTY), 1)
+include ghostty/install.mk
+endif
+
 all: $(ALL_TARGETS)

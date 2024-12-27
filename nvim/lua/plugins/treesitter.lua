@@ -25,6 +25,7 @@ return {
                 --"devicetree",
                 "cmake",
                 "asm",
+                "zig",
                 "rust",
             },
             highlight = { enable = true },

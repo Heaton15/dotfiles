@@ -1,0 +1,51 @@
+# Font / Themes
+font-family = Hack Nerd Font Mono
+font-style = Regular
+font-size = 14
+font-thicken = true
+theme = carbonfox
+shell-integration = bash
+confirm-close-surface=false
+
+# Options
+mouse-hide-while-typing = true
+
+# Keybinds
+keybind = cmd+c=copy_to_clipboard
+keybind = cmd+v=paste_from_clipboard
+keybind = cmd+control+k=scroll_page_up
+keybind = cmd+control+j=scroll_page_down
+
+
+# Windows / Tabs
+keybind = cmd+w=new_window
+keybind = cmd+t=new_tab
+keybind = cmd+x=close_window
+keybind = cmd+shift+x=close_all_windows
+keybind = cmd+f=toggle_fullscreen
+
+# Create Split
+keybind = cmd+shift+l=new_split:right
+keybind = cmd+shift+j=new_split:down
+keybind = cmd+shift+k=new_split:up
+keybind = cmd+shift+h=new_split:left
+
+# Change Split
+keybind = cmd+l=goto_split:right
+keybind = cmd+j=goto_split:bottom
+keybind = cmd+k=goto_split:top
+keybind = cmd+h=goto_split:left
+
+keybind = cmd+shift+[=equalize_splits
+keybind = cmd+o=toggle_split_zoom
+keybind = cmd+q=close_surface
+
+
+# Quick Terminal
+keybind = cmd+n=toggle_quick_terminal
+
+# Makes the ghostty icon green
+macos-icon = custom-style
+macos-icon-ghost-color = #00af87
+macos-icon-screen-color = #00af87
+macos-icon-frame = chrome

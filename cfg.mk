@@ -7,6 +7,7 @@ PYTHON   := 1
 SCALA    := 1
 TERMINAL := 0
 TMUX     := 1
+GHOSTTY  := 1
 
 BREW_FORMULAE := \
 	bat \
