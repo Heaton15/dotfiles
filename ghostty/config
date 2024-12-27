@@ -1,4 +1,4 @@
-# Font / Themes
+z Font / Themes
 font-family = Hack Nerd Font Mono
 font-style = Regular
 font-size = 14
@@ -6,6 +6,11 @@ font-thicken = true
 theme = carbonfox
 shell-integration = bash
 confirm-close-surface=false
+cursor-color = 00afaf
+unfocused-split-opacity=0.5
+
+#background-opacity=0.8
+#background-blur-radius=20
 
 # Options
 mouse-hide-while-typing = true
@@ -34,11 +39,13 @@ keybind = cmd+shift+h=new_split:left
 keybind = cmd+l=goto_split:right
 keybind = cmd+j=goto_split:bottom
 keybind = cmd+k=goto_split:top
-keybind = cmd+h=goto_split:left
+keybind = global:cmd+h=goto_split:left
 
+# Misc
 keybind = cmd+shift+[=equalize_splits
 keybind = cmd+o=toggle_split_zoom
 keybind = cmd+q=close_surface
+keybind = cmd+r=reload_config
 
 
 # Quick Terminal
