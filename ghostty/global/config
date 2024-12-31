@@ -1,0 +1,26 @@
+# Font / Themes
+font-family = Hack Nerd Font Mono
+font-style = Regular
+font-size = 14
+font-thicken = true
+theme = carbonfox
+shell-integration = bash
+confirm-close-surface=false
+cursor-color = 00afaf
+unfocused-split-opacity=0.5
+
+# Terminal Blur
+background-opacity=0.8
+background-blur-radius=20
+
+window-height = 1000
+window-width = 1000
+
+# Options
+mouse-hide-while-typing = true
+
+# Makes the ghostty icon green
+macos-icon = custom-style
+macos-icon-ghost-color = #00af87
+macos-icon-screen-color = #00af87
+macos-icon-frame = chrome
