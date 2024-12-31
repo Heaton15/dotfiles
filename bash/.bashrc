@@ -60,7 +60,3 @@ fi
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.miniforge3/bin:$PATH
 export TMUX_TMPDIR=$HOME/.tmux/
-
-if ! which your_binary_name &> /dev/null; then
-  export PATH="$HOME/.fzf/bin:$PATH"
-fi
