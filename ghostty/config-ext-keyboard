@@ -7,7 +7,7 @@ keybind = alt+control+k=scroll_page_up
 keybind = alt+control+j=scroll_page_down
 
 # Windows / Tabs
-keybind = global:alt+w=new_window
+keybind = global:alt+enter=new_window
 keybind = alt+t=new_tab
 keybind = alt+x=close_window
 keybind = alt+shift+x=close_all_windows

@@ -7,7 +7,7 @@ keybind = cmd+control+k=scroll_page_up
 keybind = cmd+control+j=scroll_page_down
 
 # Windows / Tabs
-keybind = global:cmd+w=new_window
+keybind = global:cmd+enter=new_window
 keybind = cmd+t=new_tab
 keybind = cmd+x=close_window
 keybind = cmd+shift+x=close_all_windows
