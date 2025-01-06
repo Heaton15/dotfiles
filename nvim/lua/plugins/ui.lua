@@ -92,7 +92,6 @@ return {
             end,
         },
     },
-
     {
         'akinsho/bufferline.nvim',
         version = "*",

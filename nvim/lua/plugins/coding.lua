@@ -55,9 +55,7 @@ return {
             },
 
             sources = {
-                completion = {
-                    enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
-                },
+                -- figure out what blink settings we want to permit
             },
         },
     },
