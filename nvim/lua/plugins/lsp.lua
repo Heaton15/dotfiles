@@ -19,6 +19,7 @@ return {
         events = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "soulis-1256/eagle.nvim",
+            "saghen/blink.cmp",
         },
         opts = {
             inlay_hints = {
@@ -47,12 +48,11 @@ return {
 
         config = function(_, opts)
             local servers = opts.servers
-            -- We don't have a reason for vim.tbl_deep_extend with the vim defaults
-            -- since we weren't using it in the original nvim config. We can
-            -- add that back in if we have problems.
+            local lspconfig = require("lspconfig")
 
-            for server, server_opts in pairs(servers) do
-                require("lspconfig")[server].setup(server_opts)
+            for server, config in pairs(servers) do
+                config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+                lspconfig[server].setup(config)
             end
 
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -66,40 +66,6 @@ return {
                     local function map(mode, l, r, desc)
                         vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
                     end
-
-                    -- Create a variable with the client capabilities that we can reference
-                    --local cap = client.server_capabilities
-
-                    ---- Highlight the symbol under the cursor
-                    ---- This is neat since the event will cause the LSP command to active
-                    --if cap.documentHighlightProvider then
-                    --    local lsp_highlight_cursor = vim.api.nvim_create_augroup("lsp_highlight_cursor", {})
-                    --    vim.api.nvim_create_autocmd("CursorHold", {
-                    --        callback = vim.lsp.buf.document_highlight,
-                    --        buffer = bufnr,
-                    --        group = lsp_highlight_cursor,
-                    --    })
-                    --    vim.api.nvim_create_autocmd("CursorMoved", {
-                    --        callback = vim.lsp.buf.clear_references,
-                    --        buffer = bufnr,
-                    --        group = lsp_highlight_cursor,
-                    --    })
-                    --end
-
-                    -- Not sure how code_lens and work for the LSP setup. Do some research into these if we want them.
-
-                    ---- Set up code lens support
-                    --if cap.code_lens then
-                    --    local lsp_code_lens = vim.api.nvim_create_augroup("lsp_code_lens", {})
-                    --    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-                    --        callback = function()
-                    --            vim.lsp.codelens.refresh()
-                    --        end,
-                    --        buffer = bufnr,
-                    --        group = lsp_code_lens,
-                    --    })
-                    --    map("n", "<leader>ccl", vim.lsp.codelens.run, "Run code lens")
-                    --end
 
                     -- Set up inlay hints
                     if opts.inlay_hints.enabled and vim.lsp.inlay_hint then
