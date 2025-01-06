@@ -47,6 +47,24 @@ return {
         },
 
         config = function(_, opts)
+            -- Update the signs for LSP information
+            local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+            local underlines = {
+                Error = { undercurl = false },
+                Warn  = { undercurl = false },
+                Hint  = { undercurl = false },
+                Info  = { undercurl = false }
+            }
+
+            for type, icon in pairs(signs) do
+                local hl = "DiagnosticSign" .. type
+                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+            end
+
+            -- Disable underlines for LSP info
+            for type, fields in pairs(underlines) do
+                vim.api.nvim_set_hl(0, "DiagnosticUnderline" .. type, { undercurl = fields.undercurl })
+            end
             local servers = opts.servers
             local lspconfig = require("lspconfig")
 
