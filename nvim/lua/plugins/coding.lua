@@ -42,7 +42,7 @@ return {
             completion = {
                 list = {
                     -- auto completes the LSP options
-                    selection = "auto_insert"
+                    selection = { auto_insert = true }
                 },
                 menu = {
                     max_height = 30,
