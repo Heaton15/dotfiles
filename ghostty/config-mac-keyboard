@@ -33,3 +33,6 @@ keybind = cmd+r=reload_config
 
 # Quick Terminal
 keybind = cmd+n=toggle_quick_terminal
+
+# Don't want to remove the visible-menu when using laptop
+macos-non-native-fullscreen = visible-menu

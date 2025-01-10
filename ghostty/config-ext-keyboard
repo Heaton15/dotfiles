@@ -34,6 +34,9 @@ keybind = cmd+r=reload_config
 # Quick Terminal
 keybind = alt+n=toggle_quick_terminal
 
+# Use non-native full screen to preserve transparency
+macos-non-native-fullscreen = true
+
 # Need to change tabs based on alt instead
 keybind = alt+1=goto_tab:1
 keybind = alt+2=goto_tab:2
