@@ -1,9 +1,3 @@
--- Neovim Configurations
--- vim.g   : let
--- vim.opt : global options
--- vim.wo  : window options
--- vim.bo  : buffer options
-
 -- Bootstrap lazy.nvim for plugin management
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
