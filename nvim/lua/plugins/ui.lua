@@ -106,7 +106,7 @@ return {
     },
     {
         "nvim-tree/nvim-tree.lua",
-        lazy = true,
+        lazy = false,
         config = function(_, opts)
             vim.keymap.set("n", "<C-1>", ":NvimTreeToggle <CR>", {silent=true, noremap=true})
             vim.keymap.set("n", "<C-2>", ":NvimTreeFindFile <CR>", {silent=true, noremap=true})
