@@ -1,0 +1,8 @@
+*links.txt*
+
+==============================================================================
+HELPFUL-LINKS                                                    *helpful-links*
+
+Documentation Practices: https://docs.divio.com/documentation-system/
+Coding Practices: https://backend.turing.edu/module1/lessons/four_pillars_of_oop
+==============================================================================
