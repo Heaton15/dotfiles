@@ -27,6 +27,8 @@ return {
                 "asm",
                 "zig",
                 "rust",
+                "javascript",
+                "typescript"
             },
             highlight = { enable = true },
             rainbow = { enable = true },

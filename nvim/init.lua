@@ -87,6 +87,20 @@ vim.opt.expandtab = true
 vim.opt.tabstop = indent
 vim.opt.softtabstop = indent
 vim.opt.shiftwidth = indent
+vim.opt.list = true
+vim.opt.listchars = {
+    -- Place a '#' in the last column when 'wrap' is off and the line continues beyond the right of the screen
+    extends = "#",
+    -- Place a '#' in the first column when 'wrap' is off and there is text preceding the character visible in the
+    -- first column
+    precedes = "#",
+    -- Show non-breaking space characters
+    nbsp = "¬",
+    -- Show tabs
+    tab = ".→",
+    -- Show trailing spaces
+    trail = "◊",
+}
 
 vim.wo.number = true
 vim.wo.relativenumber = true
