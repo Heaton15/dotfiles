@@ -3,6 +3,10 @@ if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
     builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
 fi
 
+if [[ -f "$HOME/.local/bin/uv_bash_complete.sh" ]]; then
+  source $HOME/.local/bin/uv_bash_complete.sh
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -43,7 +47,7 @@ fi
 
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --preview "cat {}"'
 
-alias vtags='/usr/bin/python2 ~/.vtags-3.01/vtags-3.01/vtags.py'
+alias vtags='/usr/bin/python3 ~/.vtags-3.01/vtags-3.01/vtags.py'
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
