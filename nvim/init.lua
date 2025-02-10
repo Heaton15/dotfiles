@@ -32,6 +32,7 @@ else
     vim.keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC <CR>")
 end
 
+vim.keymap.set("v", "<leader>y", "\"*y")
 vim.keymap.set("n", "<leader>eb", ":edit $HOME/.bashrc <CR>")
 vim.keymap.set("n", "<leader>q", ":qa! <CR>")
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
