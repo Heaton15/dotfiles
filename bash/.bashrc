@@ -64,3 +64,4 @@ fi
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.miniforge3/bin:$PATH
 export TMUX_TMPDIR=$HOME/.tmux/
+alias chisel-example="curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala"
