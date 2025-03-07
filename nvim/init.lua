@@ -153,6 +153,7 @@ set_ft(buf, ft_vlog, "verilog_systemverilog", [[tabstop=2 softtabstop=2 shiftwid
 set_ft(buf, { "*.xdc" }, "xdc")
 set_ft(buf, { "*.tex" }, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
 set_ft(buf, { "*.py" }, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent]])
+set_ft(buf, { "*.rs" }, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent formatoptions=cqnlj]])
 
 -- Allows vim-fugitive to fold changes when viewing
 set_ft({ "FileType" }, { "git" }, nil, [[setlocal foldmethod=syntax]])

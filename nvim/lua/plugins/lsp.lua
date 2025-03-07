@@ -15,6 +15,11 @@ return {
     },
 
     {
+        "mrcjkb/rustaceanvim",
+        lazy = false,
+    },
+
+    {
         "neovim/nvim-lspconfig",
         events = { "BufReadPre", "BufNewFile" },
         dependencies = {
@@ -23,7 +28,7 @@ return {
         },
         opts = {
             inlay_hints = {
-                enabled = true,
+                enabled = false,
             },
             -- Add the LSP servers and server customizations here
             servers = {
@@ -43,12 +48,12 @@ return {
                         },
                     },
                 },
-                ts_ls= {},
+                ts_ls = {},
             },
         },
 
         config = function(_, opts)
-            -- Update the signs for LSP information
+            ---- Update the signs for LSP information
             local signs = { Error = "", Warn = "", Hint = "", Info = "" }
             local underlines = {
                 Error = { undercurl = false },

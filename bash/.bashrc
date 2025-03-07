@@ -12,7 +12,7 @@ fi
 
 if [[ $(uname) == "Darwin" ]]; then
   eval "$(/usr/libexec/path_helper)"
-  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+  export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
   export PATH="/opt/homebrew/opt/scala@2.13/bin:$PATH"
   eval "$(/opt/homebrew/bin/brew shellenv)"
   export RISCV="/opt/homebrew/bin/"
@@ -65,3 +65,4 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.miniforge3/bin:$PATH
 export TMUX_TMPDIR=$HOME/.tmux/
 alias chisel-example="curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala"
+. "$HOME/.cargo/env"
