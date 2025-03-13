@@ -69,7 +69,6 @@ return {
     { "christoomey/vim-tmux-navigator" },
     { "junegunn/fzf.vim" },
     { "vhda/verilog_systemverilog.vim" },
-    { "vim-scripts/tcl.vim--smithfield" },
     { "https://github.com/tarikgraba/vim-lefdef.git" },
     { "kshenoy/vim-signature" },
     {
@@ -77,6 +76,7 @@ return {
         opts = {
             timeout = 3000,
             stages = "fade",
+            background_colour = "#000000",
             on_open = function(win)
                 vim.api.nvim_win_set_config(win, { focusable = false })
             end,

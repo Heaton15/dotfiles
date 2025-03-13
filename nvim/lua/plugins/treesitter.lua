@@ -28,7 +28,8 @@ return {
                 "zig",
                 "rust",
                 "javascript",
-                "typescript"
+                "typescript",
+                "tcl",
             },
             highlight = { enable = true },
             rainbow = { enable = true },

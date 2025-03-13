@@ -15,7 +15,7 @@ if [[ $(uname) == "Darwin" ]]; then
   export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
   export PATH="/opt/homebrew/opt/scala@2.13/bin:$PATH"
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  export RISCV="/opt/homebrew/bin/"
+  export RISCV="/opt/homebrew/"
   export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
   export SHELL="/opt/homebrew/bin/bash"
 
@@ -66,3 +66,7 @@ export PATH=$HOME/.miniforge3/bin:$PATH
 export TMUX_TMPDIR=$HOME/.tmux/
 alias chisel-example="curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala"
 . "$HOME/.cargo/env"
+if [[ -f /usr/share/bash-completion/bash_completion ]]; then source /usr/share/bash-completion/bash_completion; fi
+alias verif="module load verdi vcs"
+module load riscv-tools/riscv-tools-chipyard-el8-d834e62f
+module load firtool
