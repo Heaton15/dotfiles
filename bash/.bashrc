@@ -47,7 +47,7 @@ fi
 
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --preview "cat {}"'
 
-alias vtags='/usr/bin/python3 ~/.vtags-3.01/vtags-3.01/vtags.py'
+alias vtags='/usr/bin/python3 ~/.vtags-3.11/vtags.py'
 
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8

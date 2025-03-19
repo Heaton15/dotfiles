@@ -1,12 +1,11 @@
 vim.notify = require("notify")
-local vtags_version = "https://www.vim.org/scripts/download_script.php?src_id=26794" -- 3.01
-local vtags_3p10 = "https://www.vim.org/scripts/download_script.php?src_id=27765"    --3.10
-local version = "3.01"
+local vtags_version = "https://www.vim.org/scripts/download_script.php?src_id=28365" -- 3.11
+local version = "3.11"
 local dest = ".vtags-" .. version
 
 -- Curl down vtags and install it in the home directory
 
-local vtags_path = "$HOME/" .. dest .. "/vtags-" .. version .. "/vtags_vim_api.vim"
+local vtags_path = "$HOME/" .. dest .. "/vtags_vim_api.vim"
 if vim.fn.filereadable(vim.fn.expand(vtags_path)) == 0 then
     vim.notify("No Vtags Detected. ---Installing---", "INFO")
     os.execute("curl -o ~/.vtags.tar.gz " .. vtags_version)
