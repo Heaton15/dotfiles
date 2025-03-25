@@ -19,8 +19,8 @@ window-width = 1000
 # Options
 mouse-hide-while-typing = true
 copy-on-select = true
-clipboard-read = ask
-clipboard-write = ask
+clipboard-read = allow
+clipboard-write = allow
 
 # Makes the ghostty icon green
 macos-icon = custom-style
