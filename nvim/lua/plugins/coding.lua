@@ -49,9 +49,12 @@ return {
                 },
             },
 
+            cmdline = {
+                sources = {},
+            },
+
             sources = {
                 default = { 'lsp', 'path', 'buffer' },
-                cmdline = {},
             },
         },
         opts_extend = { "sources.default" }
