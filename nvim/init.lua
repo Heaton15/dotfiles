@@ -184,3 +184,4 @@ vim.keymap.set("n", "<leader>ctl", function()
     local toggle = not vim.diagnostic.config().virtual_lines
     vim.diagnostic.config({ virtual_lines = toggle })
 end, { desc = "Toggles diagnostic virtual lines" })
+vim.o.winborder = 'rounded'

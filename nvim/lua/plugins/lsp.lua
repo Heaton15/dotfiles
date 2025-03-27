@@ -120,9 +120,6 @@ return {
                     map("n", "glk", function() vim.diagnostic.jump({ count = -1 }) end, "Previous LSP Error")
                     map("n", "glwd", function() ts.diagnostics() end, "Display diagnostics in Telescope")
                     map("n", "glws", function() ts.lsp_workspace_symbols() end)
-                    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-                        border = "single",
-                    })
                 end,
             })
         end,
