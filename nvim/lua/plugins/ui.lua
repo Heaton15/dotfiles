@@ -36,24 +36,6 @@ return {
             vim.keymap.set("n", "<leader>co", require("telescope.builtin").git_branches)
         end,
     },
-    {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        name = "lsp_lines.nvim",
-        event = "VeryLazy",
-        keys = {
-            {
-                "<leader>ctl",
-                function()
-                    require("lsp_lines").toggle()
-                end,
-                desc = "Toggle lsp_lines",
-            },
-        },
-        config = function()
-            require("lsp_lines").setup()
-            vim.diagnostic.config({ virtual_text = false })
-        end,
-    },
     { "stevearc/dressing.nvim", event = "VeryLazy" },
     { "tpope/vim-rhubarb" },
     {
@@ -108,9 +90,9 @@ return {
         "nvim-tree/nvim-tree.lua",
         lazy = false,
         config = function(_, opts)
-            vim.keymap.set("n", "<C-1>", ":NvimTreeToggle <CR>", {silent=true, noremap=true})
-            vim.keymap.set("n", "<C-2>", ":NvimTreeFindFile <CR>", {silent=true, noremap=true})
-            vim.keymap.set("n", "<C-3>", ":NvimTreeCollapse <CR>", {silent=true, noremap=true})
+            vim.keymap.set("n", "<C-1>", ":NvimTreeToggle <CR>", { silent = true, noremap = true })
+            vim.keymap.set("n", "<C-2>", ":NvimTreeFindFile <CR>", { silent = true, noremap = true })
+            vim.keymap.set("n", "<C-3>", ":NvimTreeCollapse <CR>", { silent = true, noremap = true })
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
             require("nvim-tree").setup(opts)

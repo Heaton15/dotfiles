@@ -178,3 +178,9 @@ vim.opt_global.shortmess:remove("F")
 -- Load external vtags plugin and run
 -- Issues getting vtags working. python3 execute problems
 require("config.vtags")
+
+vim.diagnostic.config({ virtual_lines = true })
+vim.keymap.set("n", "<leader>ctl", function()
+    local toggle = not vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({ virtual_lines = toggle })
+end, { desc = "Toggles diagnostic virtual lines" })
