@@ -116,10 +116,10 @@ return {
                     map("n", "glR", ts.lsp_type_definitions, "Go to ")
                     map("n", "gldws", ts.lsp_dynamic_workspace_symbols, "Open dynamic workspace symbols")
                     map("n", "glds", ts.lsp_document_symbols, "Open document symbols")
-                    map("n", "glj", vim.diagnostic.goto_next, "Next LSP error")
-                    map("n", "glk", vim.diagnostic.goto_prev, "Previous LSP Error")
-                    -- map("n", "glwd", ts.diagnostics, opts)
-                    -- map("n", "glws", ts.lsp_workspace_symbols, opts)
+                    map("n", "glj", function() vim.diagnostic.jump({ count = 1 }) end, "Next LSP error")
+                    map("n", "glk", function() vim.diagnostic.jump({ count = -1 }) end, "Previous LSP Error")
+                    map("n", "glwd", function() ts.diagnostics() end, "Display diagnostics in Telescope")
+                    map("n", "glws", function() ts.lsp_workspace_symbols() end)
                     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
                         border = "single",
                     })
