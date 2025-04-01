@@ -35,7 +35,7 @@ return {
                 pyright = {},
                 clangd = {},
                 verible = {
-                    filetypes = { "verilog_systemverilog" },
+                    filetypes = { "verilog" },
                 },
                 lua_ls = {
                     settings = {

@@ -1,4 +1,3 @@
--- treesiter configurations
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -20,7 +19,7 @@ return {
                 "regex",
                 --"rst",
                 "scala",
-                --"verilog",
+                "verilog",
                 "yaml",
                 --"devicetree",
                 "cmake",

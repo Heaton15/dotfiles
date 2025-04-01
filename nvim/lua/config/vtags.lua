@@ -17,7 +17,7 @@ local vlog_group = vim.api.nvim_create_augroup("verilog_key_bindings", {})
 
 function vlog_bind(cmd, augroup)
     vim.api.nvim_create_autocmd("Filetype", {
-        pattern = "verilog_systemverilog",
+        pattern = "verilog",
         command = cmd,
         group = augroup,
     })
@@ -28,7 +28,7 @@ vlog_bind("map <leader><leader>a <Plug>VerilogEmacsAutoAdd", vlog_group)
 vlog_bind("map <leader>d <Plug>VerilogEmacsAutoDelete :redraw! <CR>", vlog_group)
 vlog_bind("map <leader><leader>d <Plug>VerilogEmacsAutoDelete", vlog_group)
 vlog_bind(
-    "nnoremap <buffer> <leader>v : py3 try_show_frame() <CR> <C-w>h <CR> : set filetype=verilog_systemverilog <CR>",
+    "nnoremap <buffer> <leader>v : py3 try_show_frame() <CR> <C-w>h <CR> : set filetype=verilog<CR>",
     vlog_group
 )
 vlog_bind(
