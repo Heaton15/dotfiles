@@ -28,11 +28,6 @@ return {
           max_height = 30,
         },
       },
-
-      cmdline = {
-        sources = {},
-      },
-
       sources = {
         default = { 'lsp', 'path', 'buffer' },
       },
@@ -133,7 +128,6 @@ return {
   },
   { "christoomey/vim-tmux-navigator" },
   { "junegunn/fzf.vim" },
-  { "vhda/verilog_systemverilog.vim" },
   { "https://github.com/tarikgraba/vim-lefdef.git" },
   { "kshenoy/vim-signature" },
   {
