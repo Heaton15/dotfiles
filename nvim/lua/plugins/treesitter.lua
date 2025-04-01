@@ -31,7 +31,7 @@ return {
                 "tcl",
             },
             highlight = { enable = true },
-            rainbow = { enable = true },
+            --rainbow = { enable = true },
             --indent = { enable = true },
         }
     end,
