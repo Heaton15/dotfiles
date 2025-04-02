@@ -54,7 +54,7 @@ return {
 
         config = function(_, opts)
             ---- Update the signs for LSP information
-            local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+            local signs = { Error = "🛑", Warn = "⚠️", Hint = "💡", Info = "🟢" }
             local underlines = {
                 Error = { undercurl = false },
                 Warn  = { undercurl = false },
