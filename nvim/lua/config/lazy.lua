@@ -28,7 +28,6 @@ vim.opt.foldmethod = "manual"
 vim.opt.virtualedit = "all"
 vim.opt.mouse = "a"
 vim.wo.wrap = true
-vim.opt.modelines = 0
 vim.opt.expandtab = true
 vim.opt.tabstop = indent
 vim.opt.softtabstop = indent
