@@ -1,7 +1,6 @@
 -- telescope
 local initlua = vim.fn.expand("$HOME/.config/nvim")
 
-vim.keymap.set("n", "<leader>h", require("telescope.builtin").help_tags)
 vim.keymap.set("n", "<leader>ev", ":Telescope find_files follow=true cwd=" .. initlua .. " <CR>")
 vim.keymap.set("v", "<leader>y", "\"*y")
 vim.keymap.set("n", "<leader>eb", ":edit $HOME/.bashrc <CR>")
