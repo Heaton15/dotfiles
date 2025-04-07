@@ -1,5 +1,35 @@
 return {
     {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            scroll = {
+                enabled = true,
+                config = {
+                    vim.keymap.set("n", "<C-e>", "8<C-e>"),
+                    vim.keymap.set("n", "<C-y>", "8<C-y>"),
+                },
+            },
+            picker = { enabled = true },
+            dashboard = { enabled = true },
+
+            bigfile = { enabled = false },
+            explorer = { enabled = false },
+            indent = { enabled = false },
+            input = { enabled = false },
+            notifier = { enabled = false },
+            quickfile = { enabled = false },
+            scope = { enabled = false },
+            statuscolumn = { enabled = false },
+            words = { enabled = false },
+        },
+        keys = {
+
+        },
+    },
+    {
         'saghen/blink.cmp',
         lazy = false,
         dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
@@ -83,7 +113,6 @@ return {
         },
         opts = {},
         config = function()
-            --vim.keymap.set("n", "<leader>h", require("telescope.builtin").help_tags)
             require("telescope").load_extension("fzf")
         end,
     },
@@ -103,12 +132,6 @@ return {
             if uname == "Darwin" then
                 vim.g.vimtex_view_method = "skim"
             end
-        end,
-    },
-    {
-        "karb94/neoscroll.nvim",
-        config = function()
-            require("neoscroll").setup({})
         end,
     },
     {
