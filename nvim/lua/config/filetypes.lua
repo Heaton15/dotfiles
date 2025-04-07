@@ -22,7 +22,7 @@ end
 -- autocmd assignments
 local buf = { "BufRead", "BufNewFile" }
 local ft_skill = { "*.ils", "*.cdsinit", "*.cdsenv", "cds.lib" }
-local ft_tcl = { "*.sdc", "*.xel" }
+local ft_tcl = { "*.sdc", "*.xel", "*.xdc"}
 local ft_vlog = { "*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams", "*.f" }
 local ft_sh = { "*.sh", "*.bash_aliases", "*.bashrc", "*.bash" }
 local ft_scala = { "*.mill", "*.scala" }
@@ -35,7 +35,6 @@ set_ft(buf, { "*.il" }, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoinde
 set_ft(buf, ft_skill, "skill")
 set_ft(buf, ft_tcl, "tcl")
 set_ft(buf, ft_vlog, "verilog", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=120]])
-set_ft(buf, { "*.xdc" }, "xdc")
 set_ft(buf, { "*.tex" }, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
 set_ft(buf, { "*.py" }, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent]])
 set_ft(buf, { "*.rs" }, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent formatoptions=cqnlj]])
