@@ -3,7 +3,7 @@ GIT      := 1
 NODE     := 0
 NVIM     := 1
 BASH     := 1
-PYTHON   := 1
+PYTHON   := 0
 SCALA    := 1
 TERMINAL := 0
 TMUX     := 1
@@ -39,7 +39,6 @@ NODE_PACKAGES := \
 
 PYTHON_PACKAGES := \
 	black \
-	schemdraw \
 	matplotlib \
 	numpy \
 	pynvim \

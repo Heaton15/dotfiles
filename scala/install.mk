@@ -1,7 +1,7 @@
 .PHONY: scala
 ALL_TARGETS += scala
 
-ARCH_TYPE := $(shell uname -a | awk '{print $$NF}')
+OS_TYPE := $(shell uname -a | cut -d' ' -f1)
 
 ifeq ($(SDKMAN_DIR),)
 $(error Please install sdkman: >>> \
@@ -9,16 +9,31 @@ $(error Please install sdkman: >>> \
 	<<<)
 endif
 
+DARWIN_ARM_CS := https://github.com/coursier/launchers/blob/master/cs-aarch64-apple-darwin.gz
+DARWIN_x86_64_CS := https://github.com/coursier/launchers/blob/master/cs-x86_64-apple-darwin.gz 
+LINUX_x86_64_CS := https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux
+
 ifeq ($(shell which cs 2> /dev/null),)
-    ifeq ($(ARCH_TYPE), arm64)
+	ifeq ($(OS_TYPE), Darwin)
+		ifeq ($(HOSTTYPE), aarch64)
         $(error Please install coursier: >>> \
-            curl -fL https://github.com/VirtusLab/coursier-m1/releases/latest/download/cs-aarch64-apple-darwin.gz | gunzip -c > ~/.local/bin/cs && chmod 755 ~/.local/bin/cs \
+            curl -fL ${DARWIN_ARM_CS} | gunzip -c > ~/.local/bin/cs && chmod 755 ~/.local/bin/cs \
 		 <<<)
-    else ifeq ($(ARCH_TYPE), x86_64)
+		endif
+		ifeq ($(HOSTTYPE), x86_64)
         $(error Please install coursier: >>> \
-			curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-apple-darwin.gz | gunzip -c > ~/.local/bin/cs && chmod 755 ~/.local/bin/cs \
+            curl -fL ${DARWIN_x86_64_CS} | gunzip -c > ~/.local/bin/cs && chmod 755 ~/.local/bin/cs \
 		 <<<)
-    endif
+		endif
+	endif
+
+	ifeq ($(OS_TYPE), Linux)
+		ifeq ($(HOSTTYPE), x86_64)
+        $(error Please install coursier: >>> \
+            curl -fL ${LINUX_x86_64_CS} > ~/.local/bin/cs && chmod 755 ~/.local/bin/cs \
+		 <<<)
+		endif
+	endif
 endif
 
 # TODO: Install zsh completions for coursier?
