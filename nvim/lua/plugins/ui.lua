@@ -14,7 +14,6 @@ return {
             },
             picker = { enabled = true },
             dashboard = { enabled = true },
-
             bigfile = { enabled = false },
             explorer = { enabled = false },
             indent = { enabled = false },
@@ -26,6 +25,42 @@ return {
             words = { enabled = false },
         },
         keys = {
+            { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find Files" },
+            { "<leader>fb", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+            { "<leader>ev", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+            { "<leader>fg", function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
+            { "<leader>fp", function() Snacks.picker.projects() end,                                desc = "Projects" },
+            { "<leader>fr", function() Snacks.picker.recent() end,                                  desc = "Recent" },
+            { "<leader>/",  function() Snacks.picker.grep() end,                                    desc = "Grep" },
+            { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
+            { "<leader>n",  function() Snacks.picker.notifications() end,                           desc = "Notification History" },
+            { "<leader>gb", function() Snacks.picker.git_branches() end,                            desc = "Git Branches" },
+            { "<leader>sh", function() Snacks.picker.help() end,                                    desc = "Help Pages" },
+            { "<leader>sM", function() Snacks.picker.man() end,                                     desc = "Man Pages" },
+            { "<leader>uC", function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
+            { "<leader>sb", function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
+            { "<leader>sB", function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
+            { "<leader>sw", function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
+            --{ "<leader>gL", function() Snacks.picker.git_log_line() end,                            desc = "Git Log Line" },
+            --{ "<leader>gs", function() Snacks.picker.git_status() end,                              desc = "Git Status" },
+            --{ "<leader>gS", function() Snacks.picker.git_stash() end,                               desc = "Git Stash" },
+            --{ "<leader>gd", function() Snacks.picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
+            --{ "<leader>gf", function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
+            -- search
+            { '<leader>s"', function() Snacks.picker.registers() end,                               desc = "Registers" },
+            { '<leader>s/', function() Snacks.picker.search_history() end,                          desc = "Search History" },
+            { "<leader>sa", function() Snacks.picker.autocmds() end,                                desc = "Autocmds" },
+            --{ "<leader>sd", function() Snacks.picker.diagnostics() end,                             desc = "Diagnostics" },
+            --{ "<leader>sD", function() Snacks.picker.diagnostics_buffer() end,                      desc = "Buffer Diagnostics" },
+            { "<leader>sH", function() Snacks.picker.highlights() end,                              desc = "Highlights" },
+            { "<leader>si", function() Snacks.picker.icons() end,                                   desc = "Icons" },
+            { "<leader>sj", function() Snacks.picker.jumps() end,                                   desc = "Jumps" },
+            { "<leader>sk", function() Snacks.picker.keymaps() end,                                 desc = "Keymaps" },
+            { "<leader>sm", function() Snacks.picker.marks() end,                                   desc = "Marks" },
+            { "<leader>sp", function() Snacks.picker.lazy() end,                                    desc = "Search for Plugin Spec" },
+            { "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
+            { "<leader>sR", function() Snacks.picker.resume() end,                                  desc = "Resume" },
+            { "<leader>su", function() Snacks.picker.undo() end,                                    desc = "Undo History" },
 
         },
     },
@@ -74,43 +109,6 @@ return {
             },
         },
         cmd = "Telescope",
-        keys = {
-            {
-                "<leader>ff",
-                function()
-                    require("telescope.builtin").find_files()
-                end,
-                desc = "Find files",
-            },
-            {
-                "<leader>fg",
-                function()
-                    require("telescope.builtin").live_grep()
-                end,
-                desc = "Live grep",
-            },
-            {
-                "<leader>fb",
-                function()
-                    require("telescope.builtin").buffers()
-                end,
-                desc = "Find buffers",
-            },
-            {
-                "<leader>h",
-                function()
-                    require("telescope.builtin").help_tags()
-                end,
-                desc = "Open help",
-            },
-            {
-                "<leader>co",
-                function()
-                    require("telescope.builtin").git_branches()
-                end,
-                desc = "Display git branches",
-            },
-        },
         opts = {},
         config = function()
             require("telescope").load_extension("fzf")
@@ -148,7 +146,7 @@ return {
             vim.keymap.set("n", "<leader>gdh", ":diffget //2")
             vim.keymap.set("n", "<leader>gdl", ":diffget //3")
             vim.keymap.set("n", "<leader>nc", "]c")
-            vim.keymap.set({ "n", "v" }, "<leader>gb", ":GBrowse <CR>")
+            vim.keymap.set({ "n", "v" }, "<leader>G", ":GBrowse <CR>")
         end,
     },
     { "stevearc/dressing.nvim", event = "VeryLazy" },
