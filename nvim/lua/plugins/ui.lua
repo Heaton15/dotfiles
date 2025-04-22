@@ -12,7 +12,16 @@ return {
                     vim.keymap.set("n", "<C-y>", "8<C-y>"),
                 },
             },
-            picker = { enabled = true },
+            picker = {
+                enabled = true,
+                sources = {
+                    diagnostics = {
+                        filter = { cwd = false },
+
+                    },
+                },
+
+            },
             dashboard = { enabled = true },
             bigfile = { enabled = false },
             explorer = { enabled = false },
@@ -50,8 +59,6 @@ return {
             { '<leader>s"', function() Snacks.picker.registers() end,                               desc = "Registers" },
             { '<leader>s/', function() Snacks.picker.search_history() end,                          desc = "Search History" },
             { "<leader>sa", function() Snacks.picker.autocmds() end,                                desc = "Autocmds" },
-            --{ "<leader>sd", function() Snacks.picker.diagnostics() end,                             desc = "Diagnostics" },
-            --{ "<leader>sD", function() Snacks.picker.diagnostics_buffer() end,                      desc = "Buffer Diagnostics" },
             { "<leader>sH", function() Snacks.picker.highlights() end,                              desc = "Highlights" },
             { "<leader>si", function() Snacks.picker.icons() end,                                   desc = "Icons" },
             { "<leader>sj", function() Snacks.picker.jumps() end,                                   desc = "Jumps" },

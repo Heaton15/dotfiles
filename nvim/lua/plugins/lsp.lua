@@ -54,20 +54,21 @@ return {
 
         config = function(_, opts)
             ---- Update the signs for LSP information
-            local signs = { Error = "🛑", Warn = "⚠️", Hint = "💡", Info = "🟢" }
+            --local signs = { Error = "🛑", Warn = "⚠️", Hint = "💡", Info = "🟢" }
+
+            --for type, icon in pairs(signs) do
+            --    local hl = "DiagnosticSign" .. type
+            --    vim.diagnostic.config({
+            --        signs = { text = { icon }, texthl = { hl }, numhl = { hl } },
+            --    })
+            --end
+
             local underlines = {
                 Error = { undercurl = false },
                 Warn  = { undercurl = false },
                 Hint  = { undercurl = false },
                 Info  = { undercurl = false }
             }
-
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.diagnostic.config({
-                    signs = { text = { icon }, texthl = { hl }, numhl = { hl } },
-                })
-            end
 
             -- Disable underlines for LSP info
             for type, fields in pairs(underlines) do
@@ -118,6 +119,8 @@ return {
                     map("n", "glR", ts.lsp_type_definitions, "Go to ")
                     map("n", "gldws", ts.lsp_dynamic_workspace_symbols, "Open dynamic workspace symbols")
                     map("n", "glds", ts.lsp_document_symbols, "Open document symbols")
+                    map("n", "<leader>sd", function() Snacks.picker.diagnostics() end, "Diagnostics")
+                    map("n", "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, "Buffer Diagnostics")
                     map("n", "glj", function() vim.diagnostic.jump({ count = 1 }) end, "Next LSP error")
                     map("n", "glk", function() vim.diagnostic.jump({ count = -1 }) end, "Previous LSP Error")
                     map("n", "glwd", function() ts.diagnostics() end, "Display diagnostics in Telescope")
