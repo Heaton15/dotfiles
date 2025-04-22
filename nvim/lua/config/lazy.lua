@@ -65,6 +65,8 @@ vim.cmd([[filetype plugin indent on]])
 vim.cmd([[set noea "set equalalways]])
 vim.cmd([[set backspace=indent,eol,start]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
+vim.cmd[[nmap <leader>hr :%!xxd<CR> :set filetype=xxd<CR>]]
+vim.cmd[[nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>]]
 
 -- Setup lazy.nvim
 require("lazy").setup({
