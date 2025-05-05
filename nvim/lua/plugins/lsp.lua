@@ -13,12 +13,6 @@ return {
             vim.o.mousemoveevent = true
         end,
     },
-
-    {
-        "mrcjkb/rustaceanvim",
-        lazy = false,
-    },
-
     {
         "neovim/nvim-lspconfig",
         events = { "BufReadPre", "BufNewFile" },
@@ -28,10 +22,11 @@ return {
         },
         opts = {
             inlay_hints = {
-                enabled = false,
+                enabled = true,
             },
             -- Add the LSP servers and server customizations here
             servers = {
+                rust_analyzer = {},
                 pyright = {},
                 clangd = {},
                 verible = {

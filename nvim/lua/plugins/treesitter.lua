@@ -26,6 +26,7 @@ return {
                 "asm",
                 "zig",
                 "rust",
+                "lalrpop",
                 "javascript",
                 "typescript",
                 "tcl",
