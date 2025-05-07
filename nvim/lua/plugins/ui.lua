@@ -20,7 +20,6 @@ return {
 
                     },
                 },
-
             },
             dashboard = { enabled = true },
             bigfile = { enabled = false },
@@ -44,6 +43,7 @@ return {
             { "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
             { "<leader>n",  function() Snacks.picker.notifications() end,                           desc = "Notification History" },
             { "<leader>gb", function() Snacks.picker.git_branches() end,                            desc = "Git Branches" },
+            { "<leader>gB", function() Snacks.picker.git_branches({ all = true, }) end,             desc = "Git Branches" },
             { "<leader>sh", function() Snacks.picker.help() end,                                    desc = "Help Pages" },
             { "<leader>sM", function() Snacks.picker.man() end,                                     desc = "Man Pages" },
             { "<leader>uC", function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
