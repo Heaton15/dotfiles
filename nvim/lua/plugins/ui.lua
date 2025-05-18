@@ -1,5 +1,16 @@
 return {
     {
+        "folke/lazydev.nvim", -- Adds lua paths to LuaLs for module detection with snacks and lazy
+        ft = "lua",
+        opts = {
+            library = {
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                { path = "snacks.nvim",        words = { "Snacks" } },
+                { path = "lazy.nvim",          words = { "LazyVim" } },
+            },
+        },
+    },
+    {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
@@ -77,6 +88,15 @@ return {
         dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
         version = '*',
         opts = {
+            signature = {
+                enabled = true,
+                window = {
+                    show_documentation = true,
+                },
+                trigger = {
+                    show_on_insert = true, -- When accepting a menu item, keep the signature up
+                },
+            },
             snippets = {
                 expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
                 active = function(filter)
@@ -93,15 +113,25 @@ return {
             },
             completion = {
                 list = {
-                    -- auto completes the LSP options
-                    selection = { auto_insert = true }
+                    -- ghost_text does a nice preemptive auto complete
+                    selection = { auto_insert = false }
                 },
                 menu = {
                     max_height = 30,
                 },
+                documentation = { auto_show = true },
+                ghost_text = { enabled = true },
             },
             sources = {
-                default = { 'lsp', 'path', 'buffer' },
+                default = { 'lsp', 'path', 'buffer', 'lazydev', 'snippets' },
+
+                providers = {
+                    lazydev = {
+                        name = "LazyDev",
+                        module = "lazydev.integrations.blink",
+                        score_offset = 100,
+                    },
+                },
             },
         },
         opts_extend = { "sources.default" }
