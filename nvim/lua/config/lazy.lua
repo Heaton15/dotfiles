@@ -14,6 +14,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     end
 end
 
+vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function()
+        vim.diagnostic.open_float(nil, { focusable = false, source = "if_many"})
+    end,
+})
+
 
 vim.opt.rtp:prepend(lazypath)
 
@@ -65,8 +71,8 @@ vim.cmd([[filetype plugin indent on]])
 vim.cmd([[set noea "set equalalways]])
 vim.cmd([[set backspace=indent,eol,start]])
 vim.cmd("set rtp+=~/dotfiles/myhelp/")
-vim.cmd[[nmap <leader>hr :%!xxd<CR> :set filetype=xxd<CR>]]
-vim.cmd[[nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>]]
+vim.cmd [[nmap <leader>hr :%!xxd<CR> :set filetype=xxd<CR>]]
+vim.cmd [[nmap <leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>]]
 
 -- Setup lazy.nvim
 require("lazy").setup({

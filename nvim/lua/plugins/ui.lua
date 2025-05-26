@@ -120,7 +120,9 @@ return {
                     max_height = 30,
                 },
                 documentation = { auto_show = true },
-                ghost_text = { enabled = true },
+                ghost_text = {
+                    enabled = false,
+                },
             },
             sources = {
                 default = { 'lsp', 'path', 'buffer', 'lazydev', 'snippets' },
