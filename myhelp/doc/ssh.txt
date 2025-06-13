@@ -4,6 +4,10 @@
                                                                   *ssh-help*
 You can configure the .ssh/config file to contain servers you are connecting to.
 
+ServerAliveInterval 60
+ServerAliveCountMax 2
+UserKnownHostsFile ~/.ssh/known_hosts
+
 Host gitlab
     HostName <insert web address / server name>
     ProxyCommand ssh <Host> -W %h %p
@@ -11,6 +15,7 @@ Host gitlab
 
 Host {HOST}
     HostName {serverName}
-    user logName
+    User logName
     Port 22
+    IdentityFile ~/.ssh/file_name
 ==============================================================================
