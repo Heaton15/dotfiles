@@ -23,7 +23,7 @@ end
 local buf = { "BufRead", "BufNewFile" }
 local ft_skill = { "*.ils", "*.cdsinit", "*.cdsenv", "cds.lib" }
 local ft_tcl = { "*.sdc", "*.xel", "*.xdc"}
-local ft_vlog = { "*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams", "*.f" }
+local ft_vlog = { "*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams"}
 local ft_sh = { "*.sh", "*.bash_aliases", "*.bashrc", "*.bash" }
 local ft_scala = { "*.mill", "*.scala" }
 
