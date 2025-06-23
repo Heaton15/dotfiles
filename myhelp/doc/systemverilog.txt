@@ -11,6 +11,10 @@ VERILOG-AUTOS                                                     *systemverilog
 ==============================================================================
 VERILOG-WEBSITE                                                   *verilog-website*
 https://verilogguide.readthedocs.io/en/latest/index.html
+https://www.autonomousvision.io/rtl-practice
+https://chipdev.io/question-list
+https://www.asic-world.com/systemverilog/tutorial.html
+https://www.systemverilog.io/
 
 ==============================================================================
 VERILOG-TASKS                                                     *systemverilog-tasks*
