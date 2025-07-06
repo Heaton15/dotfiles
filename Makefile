@@ -49,4 +49,8 @@ ifeq ($(RUST), 1)
 include rust/install.mk
 endif
 
+ifeq ($(ZELLIJ), 1)
+include zellij/install.mk
+endif
+
 all: $(ALL_TARGETS)
