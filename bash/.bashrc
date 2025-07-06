@@ -21,6 +21,11 @@ if [[ $(uname) == "Darwin" ]]; then
 
 fi
 
+if [[ -n "$WSLENV" ]]; then
+  export JAVA_HOME="/home/tim/.cache/coursier/jvm/openjdk-ri@1.17.0"
+  export PATH="$PATH:/home/tim/.cache/coursier/jvm/openjdk-ri@1.17.0/bin"
+fi
+
 
 ################Aliasing##################
 alias ls='ls --color=auto'
@@ -48,11 +53,6 @@ fi
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --preview "cat {}"'
 
 alias vtags='/usr/bin/python3 ~/.vtags-3.11/vtags.py'
-
-export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 set -o vi
 
 export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
