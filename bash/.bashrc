@@ -24,6 +24,7 @@ fi
 if [[ -n "$WSLENV" ]]; then
   export JAVA_HOME="/home/tim/.cache/coursier/jvm/openjdk-ri@1.17.0"
   export PATH="$PATH:/home/tim/.cache/coursier/jvm/openjdk-ri@1.17.0/bin"
+  export EDITOR=$(which nvim)
 fi
 
 
