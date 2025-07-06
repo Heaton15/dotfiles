@@ -1,6 +1,6 @@
-.PHONY: zellij
-ALL_TARGETS += zellij
+.PHONY: zellij-cfg
+ALL_TARGETS += zellij-cfg
 
-zellij:
+zellij-cfg:
 	./install_file.sh zellij/config.kdl ~/.config/zellij/config.kdl
 
