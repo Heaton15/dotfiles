@@ -43,6 +43,7 @@ alias .4="cd ../../../../"
 alias .5="cd ../../../../../"
 alias kb-mac="make -C $HOME/dotfiles/ ghostty"
 alias kb-ext="make -C $HOME/dotfiles/ ghostty-ext-keyboard"
+alias zj="zellij"
 #################PATH Updates##############
 
 if [[ -e "$HOME/.niobium_setup.sh" ]]; then

@@ -152,7 +152,7 @@ keybinds clear-defaults=true {
         bind "Ctrl j" { MoveFocus "down"; }
         bind "Ctrl k" { MoveFocus "up"; }
         bind "Ctrl l" { MoveFocusOrTab "right"; }
-        bind "Ctrl p" { NewPane; }
+        //bind "Ctrl n" { NewPane; }
         bind "Ctrl o" { MoveTab "right"; }
     }
     shared_except "locked" "renametab" "renamepane" {
@@ -240,6 +240,13 @@ plugins {
     }
 }
 
+// Use rounded corners
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
@@ -251,7 +258,7 @@ load_plugins {
 //   - true
 //   - false (Default)
 // 
-// simplified_ui true
+//simplified_ui false
  
  
 // Choose the base input mode of zellij.
@@ -299,8 +306,7 @@ theme "carbonfox"
 // Options:
 //   - true (default, enabled)
 //   - false
-// 
-// pane_frames false
+//pane_frames false
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
