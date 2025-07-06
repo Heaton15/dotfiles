@@ -36,9 +36,6 @@ ifeq ($(shell which cs 2> /dev/null),)
 	endif
 endif
 
-# TODO: Install zsh completions for coursier?
-# TODO: Install scalafix/scalafmt?
-
 scala:
 	cs update --quiet
 	./install_file.sh scala/scalafix.conf ~/.scalafix.conf
