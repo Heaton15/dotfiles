@@ -45,4 +45,8 @@ ifeq ($(GHOSTTY), 1)
 include ghostty/install.mk
 endif
 
+ifeq ($(RUST), 1)
+include rust/install.mk
+endif
+
 all: $(ALL_TARGETS)

@@ -8,6 +8,7 @@ SCALA    := 1
 TERMINAL := 0
 TMUX     := 1
 GHOSTTY  := 1
+RUST     := 1
 
 BREW_FORMULAE := \
 	bat \
@@ -43,3 +44,10 @@ PYTHON_PACKAGES := \
 	numpy \
 	pynvim \
 	scipy
+
+RUST_PACKAGES := \
+	watchexec-cli \
+	zellij \
+	ripgrep \
+	fd-find
+
