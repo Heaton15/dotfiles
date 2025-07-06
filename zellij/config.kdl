@@ -253,10 +253,6 @@ load_plugins {
 // 
 // simplified_ui true
  
-// Choose the theme that is specified in the themes section.
-// Default: default
-// 
-// theme "dracula"
  
 // Choose the base input mode of zellij.
 // Default: normal
@@ -284,8 +280,11 @@ default_mode "locked"
  
 // The folder in which Zellij will look for themes
 // (Requires restart)
-// 
-// theme_dir "/tmp"
+//theme_dir "/tmp"
+
+// Choose the theme that is specified in the themes section.
+// Default: default
+theme "carbonfox"
  
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
