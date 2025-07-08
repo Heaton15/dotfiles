@@ -29,13 +29,6 @@ vim.keymap.set("n", "<F5>", [[ :set norelativenumber! <CR> :set nonumber! <CR>]]
 vim.keymap.set("n", "<leader>l", ":redraw <CR>", { silent = true })
 vim.keymap.set("n", "<leader>ww", "<C-w>= <CR>", { silent = true })
 
--- tmux / vimux config
-vim.keymap.set("n", "<leader>vp", ":VimuxPromptCommand<CR>")
-vim.keymap.set("n", "<leader>vc", ":VimuxCloseRunner<CR>")
-vim.keymap.set("n", "<leader>vo", ":VimuxOpenRunner<CR>")
-vim.keymap.set("n", "<leader>vl", ":VimuxRunLastCommand<CR>")
-vim.keymap.set("n", "<leader>vi", ":VimuxInspectRunner<CR>")
-
 -- vim buffer navigation
 vim.g.tmux_navigator_no_mappings = 1
 vim.keymap.set("n", "<leader>wh", ":TmuxNavigateLeft <CR>", { silent = true })

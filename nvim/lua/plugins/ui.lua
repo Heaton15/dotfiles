@@ -160,7 +160,6 @@ return {
     },
     -- Provides icons for various file types
     { "nvim-tree/nvim-web-devicons", lazy = true },
-    { "preservim/vimux" },
     {
         "lervag/vimtex",
         lazy = false,
