@@ -50,6 +50,10 @@ if [[ -e "$HOME/.niobium_setup.sh" ]]; then
   source "$HOME/.niobium_setup.sh"
 fi
 
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # Configures fuzzy finder 
 
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --preview "cat {}"'
