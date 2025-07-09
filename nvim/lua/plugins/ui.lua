@@ -159,7 +159,6 @@ return {
         opts = {},
     },
     -- Provides icons for various file types
-    { "nvim-tree/nvim-web-devicons", lazy = true },
     {
         "lervag/vimtex",
         lazy = false,
@@ -248,4 +247,5 @@ return {
             require("nvim-tree").setup(opts)
         end,
     },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
 }
