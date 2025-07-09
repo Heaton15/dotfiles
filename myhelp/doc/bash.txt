@@ -1,5 +1,20 @@
 *bash.txt*
 ==============================================================================
+                                                              *bash-redirects*
+>    - stdout to file
+>>   - stdout to file (append)
+2>   - stderr to file
+2>>  - stderr to file (append)
+&>   - stdout/stderr to file
+&>>  - stdout/stderr to file (append)
+2>&1 - stderr to stdout
+1>&2 - stdout to stderr
+
+command > file 2>&1   - stdout/stderr to same file
+command &> /dev/null  - dump stdout/stderr to null
+==============================================================================
+
+==============================================================================
                                                                   *bash-flags*
 -e file - file exists?
 -d file - file is a dir?

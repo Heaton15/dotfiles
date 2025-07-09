@@ -29,7 +29,13 @@ fi
 
 
 ################Aliasing##################
-alias ls='ls --color=auto'
+# If we have GNU ls, use that over BSD ls
+if command -v gls &> /dev/null; then
+  alias ls='gls --color=auto'
+else
+  alias ls='ls --color=auto'
+fi
+
 alias vi='vim'
 alias ll='ls -la'
 alias clear='clear -x'
