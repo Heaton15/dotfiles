@@ -3,6 +3,10 @@ font-family = Hack Nerd Font Mono
 font-style = Regular
 font-size = 14
 font-thicken = true
+
+# This disables ligatures
+font-feature = -calt
+
 theme = carbonfox
 shell-integration = bash
 confirm-close-surface=false
