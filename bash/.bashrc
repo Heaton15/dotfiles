@@ -27,7 +27,6 @@ if [[ -n "$WSLENV" ]]; then
   export EDITOR=$(which nvim)
 fi
 
-
 ################Aliasing##################
 # If we have GNU ls, use that over BSD ls
 if command -v gls &> /dev/null; then
@@ -52,8 +51,8 @@ alias kb-ext="make -C $HOME/dotfiles/ ghostty-ext-keyboard"
 alias zj="zellij"
 #################PATH Updates##############
 
-if [[ -e "$HOME/.niobium_setup.sh" ]]; then
-  source "$HOME/.niobium_setup.sh"
+if [[ -e "$HOME/.inspire_setup.sh" ]]; then
+  source "$HOME/.inspire_setup.sh"
 fi
 
 export LC_CTYPE=en_US.UTF-8
@@ -74,7 +73,6 @@ if [[ -e "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
 fi
 
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.miniforge3/bin:$PATH
 export TMUX_TMPDIR=$HOME/.tmux/
 alias chisel-example="curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala"
 . "$HOME/.cargo/env"
