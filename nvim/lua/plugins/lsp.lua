@@ -85,13 +85,6 @@ return {
                     local client = vim.lsp.get_client_by_id(args.data.client_id)
                     assert(client, "LSP client was not found")
 
-                    -- verible supports both push / pull and needs the diagnosticProvider disabled
-                    -- see https://github.com/neovim/neovim/issues/29927 for a temporary fix
-                    if client.name == "verible" then
-                        client.server_capabilities.diagnosticProvider = nil
-                    end
-
-
                     local ts = require("telescope.builtin")
 
                     local function map(mode, l, r, desc)
