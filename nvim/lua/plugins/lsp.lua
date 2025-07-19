@@ -30,6 +30,7 @@ return {
                 pyright = {},
                 clangd = {},
                 verible = {
+                    cmd = {"verible-verilog-ls", "--lsp_enable_hover"},
                     filetypes = { "verilog" },
                 },
                 lua_ls = {
