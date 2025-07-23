@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# List of directories to search
+SEARCH_DIRS=("rtl/" "sim/")
+
+# File Extensions
+FILE_EXT=("sv" "v")  # Add or remove extensions as needed
+
+FILELIST_NAME="verible.filelist"
+
+# Loop through each directory and search for matching files
+FIRST_LOOP=1
+for dir in "${SEARCH_DIRS[@]}"; do
+    echo "Searching in directory: $dir"
+    for ext in "${FILE_EXT[@]}"; do
+        if [ "$FIRST_LOOP" -eq 1 ]; then
+            find "$dir" -type f -name "*.${ext}" > "$FILELIST_NAME"
+            FIRST_LOOP=0
+        else 
+            find "$dir" -type f -name "*.${ext}" >> "$FILELIST_NAME"
+        fi
+    done
+done
+

@@ -53,4 +53,8 @@ ifeq ($(ZELLIJ), 1)
 include zellij/install.mk
 endif
 
+ifeq ($(VERIBLE), 1)
+include verible/install.mk
+endif
+
 all: $(ALL_TARGETS)

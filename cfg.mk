@@ -10,6 +10,7 @@ TMUX     := 1
 GHOSTTY  := 1
 RUST     := 1
 ZELLIJ   := 1
+VERIBLE  := 1
 
 BREW_FORMULAE := \
 	bat \
