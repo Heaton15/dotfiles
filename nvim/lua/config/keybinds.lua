@@ -24,6 +24,7 @@ for i = 1, 9 do
 end
 
 vim.keymap.set("n", "<F5>", [[ :set norelativenumber! <CR> :set nonumber! <CR>]])
+vim.keymap.set("n", "<F6>", [[ :set nowrap! <CR>]])
 
 -- Window control in neovim
 vim.keymap.set("n", "<leader>l", ":redraw <CR>", { silent = true })
