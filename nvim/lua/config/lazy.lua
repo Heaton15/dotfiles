@@ -38,7 +38,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = indent
 vim.opt.softtabstop = indent
 vim.opt.shiftwidth = indent
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = {
     -- Place a '#' in the last column when 'wrap' is off and the line continues beyond the right of the screen
     extends = "#",
