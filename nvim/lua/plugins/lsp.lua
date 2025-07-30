@@ -4,15 +4,6 @@ return {
         "williamboman/mason.nvim",
         opts = {},
     },
-
-    {
-        "soulis-1256/eagle.nvim",
-        lazy = "VeryLazy",
-        config = function()
-            require("eagle").setup()
-            vim.o.mousemoveevent = true
-        end,
-    },
     {
         "neovim/nvim-lspconfig",
         events = { "BufReadPre", "BufNewFile" },

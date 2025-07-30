@@ -65,8 +65,8 @@ return {
 
             -- Chat commands
             vim.keymap.set("v", "<C-g>p", ":<C-u>'<,'>GpChatPaste popup<cr>", keymapOptions("Visual Chat Paste"))
-            vim.keymap.set("v", "<C-g>t", ":<C-u>'<,'>GpChatToggle<cr>", keymapOptions("Visual Toggle Chat"))
-            vim.keymap.set({ "n", "i" }, "<C-g>t", "<cmd>GpChatToggle<cr>", keymapOptions("Toggle Chat"))
+            vim.keymap.set("v", "<C-g>t", ":<C-u>'<,'>GpChatToggle popup<cr>", keymapOptions("Visual Toggle Chat"))
+            vim.keymap.set({ "n", "i" }, "<C-g>t", "<cmd>GpChatToggle popup<cr>", keymapOptions("Toggle Chat"))
             vim.keymap.set({ "n", "i" }, "<C-g><C-v>", "<cmd>GpChatNew vsplit<cr>", keymapOptions("New Chat vsplit"))
             vim.keymap.set("v", "<C-g><C-v>", ":<C-u>'<,'>GpChatNew vsplit<cr>", keymapOptions("Visual Chat New vsplit"))
 
