@@ -8,7 +8,6 @@ return {
         "neovim/nvim-lspconfig",
         events = { "BufReadPre", "BufNewFile" },
         dependencies = {
-            "soulis-1256/eagle.nvim",
             "saghen/blink.cmp",
         },
         opts = {
