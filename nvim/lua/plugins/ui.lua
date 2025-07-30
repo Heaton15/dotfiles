@@ -94,12 +94,12 @@ return {
             vim.keymap.set("v", "<C-g>gv", ":<C-u>'<,'>GpVnew<cr>", keymapOptions("Visual GpVnew"))
             vim.keymap.set("v", "<C-g>gt", ":<C-u>'<,'>GpTabnew<cr>", keymapOptions("Visual GpTabnew"))
 
-            local config = {
+            local conf = {
+                openai_api_key = os.getenv("OPENAI_API_KEY"),
 
                 providers = {
                     openai = {
                         endpoint = "https://api.openai.com/v1/chat/completions",
-                        secret = os.getenv("OPENAI_API_KEY"),
                     },
                 },
                 agents = {
@@ -107,13 +107,24 @@ return {
                         name = "ChatGPT3-5",
                         disable = true,
                     },
+                    {
+                        name = "ChatGPT4o-mini",
+                        chat = true,
+                        command = true,
+                        -- string with model name or table with model name and parameters
+                        model = { model = "gpt-4.1-mini", temperature = 1.1, top_p = 1 },
+                        -- system prompt (use this to specify the persona/role of the AI)
+                        system_prompt = "You are a SystemVerilog / RTL AI assistant.\n\n"
+                            .. "The user provided the additional info about how they would like you to respond:\n\n"
+                            .. "- If you're unsure don't guess and say you don't know instead.\n"
+                            .. "- Ask question if you need clarification to provide better answer.\n"
+                            .. "- Think deeply and carefully from first principles step by step.\n"
+                            .. "- Zoom out first to see the big picture and then zoom in to details.\n"
+                            .. "- Don't elide any code from your output if the answer requires coding.\n",
+                    },
                 },
-
-
-                openai_api_key = os.getenv("OPENAI_API_KEY")
-                -- For customization, refer to Install > Configuration in the Documentation/Readme
             }
-            require("gp").setup(config)
+            require("gp").setup(conf)
 
             -- Setup shortcuts here (see Usage > Shortcuts in the Documentation/Readme)
         end,
