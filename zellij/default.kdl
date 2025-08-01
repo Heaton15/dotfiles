@@ -1,24 +1,84 @@
 layout {
-    tab hide_floating_panes=true {
 
-        floating_panes {
-            pane {
-                x "10%"
-                y "10%"
-                width "80%"
-                height "80%"
-            }
+    pane_template name="large-float0" {
+        x "10%"
+        y "10%"
+        width "80%"
+        height "80%"
+    }
+
+    pane_template name="large-float1" {
+        x "11%"
+        y "11%"
+        width "80%"
+        height "80%"
+    }
+
+    pane_template name="large-float2" {
+        x "12%"
+        y "12%"
+        width "80%"
+        height "80%"
+    }
+
+    pane_template name="large-float3" {
+        x "13%"
+        y "13%"
+        width "80%"
+        height "80%"
+    }
+
+    pane_template name="large-float4" {
+        x "14%"
+        y "14%"
+        width "80%"
+        height "80%"
+    }
+
+    pane_template name="large-float5" {
+        x "15%"
+        y "15%"
+        width "80%"
+        height "80%"
+    }
+
+    swap_floating_layout {
+        floating_panes max_panes=1 {
+            large-float0
         }
 
-
-        pane size=1 borderless=true {
-            plugin location="tab-bar"
+        floating_panes max_panes=2 {
+            large-float0
+            large-float1
         }
 
-        pane
-        
-        pane size=1 borderless=true {
-            plugin location="status-bar"
+        floating_panes max_panes=3 {
+            large-float0
+            large-float1
+            large-float2
         }
+        floating_panes max_panes=4 {
+            large-float0
+            large-float1
+            large-float2
+            large-float4
+        }
+        floating_panes max_panes=5 {
+            large-float0
+            large-float1
+            large-float2
+            large-float4
+            large-float5
+        }
+    }
+
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+
+    pane
+    
+    pane size=1 borderless=true {
+        plugin location="status-bar"
     }
 }
