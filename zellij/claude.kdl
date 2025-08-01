@@ -55,7 +55,7 @@ layout {
     }
     
     pane split_direction="vertical" {
-        pane name="claude-code" size="20%"
+        pane command="claude" name="claude" size="20%"
         pane size="80%" focus=true
     }
     pane size=1 borderless=true {
