@@ -28,14 +28,6 @@ layout {
         height "80%"
     }
 
-    pane_template name="large-float4" {
-        x "14%"
-        y "14%"
-        width "80%"
-        height "80%"
-    }
-
-
     swap_floating_layout {
         floating_panes max_panes=1 {
             large-float0
@@ -56,13 +48,6 @@ layout {
             large-float1
             large-float2
             large-float3
-        }
-        floating_panes max_panes=5 {
-            large-float0
-            large-float1
-            large-float2
-            large-float3
-            large-float4
         }
     }
 
