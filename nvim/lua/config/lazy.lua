@@ -14,13 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     end
 end
 
-vim.api.nvim_create_autocmd("CursorHold", {
-    callback = function()
-        vim.diagnostic.open_float(nil, { focusable = false, source = "if_many"})
-    end,
-})
-
-
 vim.opt.rtp:prepend(lazypath)
 
 -- nvim options

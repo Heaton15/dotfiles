@@ -1,0 +1,24 @@
+layout {
+    tab hide_floating_panes=true {
+
+        floating_panes {
+            pane {
+                x "10%"
+                y "10%"
+                width "80%"
+                height "80%"
+            }
+        }
+
+
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+
+        pane
+        
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+}

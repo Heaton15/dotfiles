@@ -108,11 +108,11 @@ return {
                         disable = true,
                     },
                     {
-                        name = "ChatGPT4o-mini",
+                        name = "ChatGPT4o",
                         chat = true,
                         command = true,
                         -- string with model name or table with model name and parameters
-                        model = { model = "gpt-4.1-mini", temperature = 1.1, top_p = 1 },
+                        model = { model = "gpt-4.1", temperature = 1.1, top_p = 1 },
                         -- system prompt (use this to specify the persona/role of the AI)
                         system_prompt = "You are a SystemVerilog / RTL AI assistant.\n\n"
                             .. "The user provided the additional info about how they would like you to respond:\n\n"
