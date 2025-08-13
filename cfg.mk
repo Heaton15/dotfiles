@@ -51,5 +51,6 @@ RUST_PACKAGES := \
 	watchexec-cli \
 	zellij \
 	ripgrep \
-	fd-find
+	fd-find \
+	bender \
 
