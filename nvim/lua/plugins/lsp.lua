@@ -20,7 +20,10 @@ return {
                 pyright = {},
                 clangd = {},
                 verible = {
-                    cmd = {"verible-verilog-ls", "--lsp_enable_hover"},
+                    cmd = { "verible-verilog-ls",
+                        "--lsp_enable_hover",
+                        "--enum_assignment_statement_alignment=align"
+                    },
                     filetypes = { "verilog" },
                 },
                 lua_ls = {
