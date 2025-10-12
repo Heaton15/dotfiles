@@ -36,3 +36,4 @@ keybind = cmd+n=toggle_quick_terminal
 
 # Don't want to remove the visible-menu when using laptop
 macos-non-native-fullscreen = visible-menu
+keybind = shift+enter=text:\n
