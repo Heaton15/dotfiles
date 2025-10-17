@@ -188,14 +188,18 @@ return {
     },
     { "stevearc/dressing.nvim", event = "VeryLazy" },
     { "tpope/vim-rhubarb" },
+
+    --https://github.com/tommcdo/vim-fubitive.git
+    { "tommcdo/vim-fubitive",
+        dependencies = { "tpope/vim-fugitive" },
+        config = function()
+        end,
+
+    },
     {
         "shumphrey/fugitive-gitlab.vim",
         dependencies = { "tpope/vim-fugitive" },
         config = function()
-            vim.g.fugitive_gitlab_domains = {
-                "git@gitlab-ext.galois.com",
-                "https://gitlab-ext.galois.com",
-            }
         end,
     },
     { "christoomey/vim-tmux-navigator" },
