@@ -41,16 +41,17 @@ return {
             },
             -- Add the LSP servers and server customizations here
             servers = {
+                slang_server = {},
                 rust_analyzer = {},
                 pyright = {},
                 clangd = {},
-                verible = {
-                    cmd = { "verible-verilog-ls",
-                        "--lsp_enable_hover",
-                        "--enum_assignment_statement_alignment=align"
-                    },
-                    filetypes = { "verilog" },
-                },
+                --verible = {
+                --  cmd = { "verible-verilog-ls",
+                --    "--lsp_enable_hover",
+                --    "--enum_assignment_statement_alignment=align"
+                --  },
+                --  filetypes = { "verilog" },
+                --},
                 lua_ls = {
                     settings = {
                         Lua = {
