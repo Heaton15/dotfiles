@@ -7,6 +7,7 @@ if [[ -f "$HOME/.local/bin/uv_bash_complete.sh" ]]; then
   source $HOME/.local/bin/uv_bash_complete.sh
 fi
 
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -18,6 +19,10 @@ if [[ $(uname) == "Darwin" ]]; then
   export RISCV="/opt/homebrew/"
   export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
   export SHELL="/opt/homebrew/bin/bash"
+
+  # This is a workaround for Ghostty setting a TMPDIR that my user cannot read. 
+  # Need to look into why this is happening
+  export TMPDIR="$(getconf DARWIN_USER_TEMP_DIR)"
 
 fi
 
