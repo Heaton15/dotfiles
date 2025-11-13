@@ -11,6 +11,11 @@ return {
         },
     },
     {
+        "bngarren/checkmate.nvim",
+        ft = "markdown", -- Lazy loads for Markdown files matching patterns in 'files'
+        opts = {},
+    },
+    {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
@@ -190,7 +195,8 @@ return {
     { "tpope/vim-rhubarb" },
 
     --https://github.com/tommcdo/vim-fubitive.git
-    { "tommcdo/vim-fubitive",
+    {
+        "tommcdo/vim-fubitive",
         dependencies = { "tpope/vim-fugitive" },
         config = function()
         end,

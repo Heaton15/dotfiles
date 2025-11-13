@@ -211,7 +211,7 @@ return {
             formatters_by_ft = {
                 python = { "ruff_format" },
                 lua = { "stylua" },
-                verilog = {"verible"},
+                verilog = { "verible" },
             },
         },
         config = function(_, opts)

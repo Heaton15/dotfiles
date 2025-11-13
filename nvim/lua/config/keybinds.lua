@@ -3,6 +3,7 @@ local initlua = vim.fn.expand("$HOME/.config/nvim")
 
 vim.keymap.set("v", "<leader>y", "\"*y")
 vim.keymap.set("n", "<leader>eb", ":edit $HOME/.bashrc <CR>")
+vim.keymap.set("n", "<leader>to", ":edit $HOME/.todo.md <CR>")
 vim.keymap.set("n", "<leader>q", ":qa! <CR>")
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
