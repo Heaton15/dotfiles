@@ -99,7 +99,7 @@ return {
                     show_documentation = true,
                 },
                 trigger = {
-                    show_on_insert = true, -- When accepting a menu item, keep the signature up
+                    show_on_insert = false, -- <C-k> will open the help window
                 },
             },
             snippets = {

@@ -29,6 +29,7 @@ return {
                 "lalrpop",
                 "javascript",
                 "typescript",
+                "typst",
                 "tcl",
             },
             highlight = { enable = true },
