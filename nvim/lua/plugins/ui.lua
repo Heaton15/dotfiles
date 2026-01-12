@@ -191,7 +191,6 @@ return {
             vim.keymap.set({ "n", "v" }, "<leader>G", ":GBrowse <CR>")
         end,
     },
-    { "stevearc/dressing.nvim", event = "VeryLazy" },
     { "tpope/vim-rhubarb" },
 
     --https://github.com/tommcdo/vim-fubitive.git
@@ -201,12 +200,6 @@ return {
         config = function()
         end,
 
-    },
-    {
-        "shumphrey/fugitive-gitlab.vim",
-        dependencies = { "tpope/vim-fugitive" },
-        config = function()
-        end,
     },
     { "christoomey/vim-tmux-navigator" },
     { "junegunn/fzf.vim" },
@@ -227,11 +220,11 @@ return {
             max_width = function()
                 return math.floor(vim.o.columns * 0.75)
             end,
-            config = function(_, opts)
-                require("notify").setup(opts)
-                vim.notify = require("notify")
-            end,
         },
+        config = function(_, opts)
+            require("notify").setup(opts)
+            vim.notify = require("notify")
+        end,
     },
     {
         'akinsho/bufferline.nvim',
