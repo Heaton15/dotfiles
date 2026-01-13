@@ -56,8 +56,8 @@ alias kb-ext="make -C $HOME/dotfiles/ ghostty-ext-keyboard"
 alias zj="zellij"
 #################PATH Updates##############
 
-if [[ -e "$HOME/.inspire_setup.sh" ]]; then
-  source "$HOME/.inspire_setup.sh"
+if [[ -e "$HOME/.battelle_setup.sh" ]]; then
+  source "$HOME/.battelle_setup.sh"
 fi
 
 export LC_CTYPE=en_US.UTF-8
