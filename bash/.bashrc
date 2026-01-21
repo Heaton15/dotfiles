@@ -27,8 +27,7 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 if [[ -n "$WSLENV" ]]; then
-  export JAVA_HOME="/home/tim/.cache/coursier/jvm/openjdk-ri@1.17.0"
-  export PATH="$PATH:/home/tim/.cache/coursier/jvm/openjdk-ri@1.17.0/bin"
+  export PATH="$PATH:/home/tim/.local/share/coursier/bin"
   export EDITOR=$(which nvim)
 fi
 
@@ -58,11 +57,11 @@ alias zj="zellij"
 
 if [[ -e "$HOME/.battelle_setup.sh" ]]; then
   source "$HOME/.battelle_setup.sh"
-fi
+fi                                          
 
-export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+#export LC_CTYPE=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
 # Configures fuzzy finder 
 
