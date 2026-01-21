@@ -12,6 +12,7 @@ endif
 DARWIN_ARM_CS := https://github.com/coursier/launchers/blob/master/cs-aarch64-apple-darwin.gz
 DARWIN_x86_64_CS := https://github.com/coursier/launchers/blob/master/cs-x86_64-apple-darwin.gz 
 LINUX_x86_64_CS := https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux
+JAR_LAUNCHER_CS := https://github.com/coursier/launchers/raw/master/coursier
 
 ifeq ($(shell which cs 2> /dev/null),)
 	ifeq ($(OS_TYPE), Darwin)
