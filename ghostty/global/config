@@ -8,7 +8,8 @@ font-thicken = true
 font-feature = -calt
 
 theme = carbonfox
-shell-integration = bash
+maximize = true
+shell-integration = none
 confirm-close-surface=false
 cursor-color = 00afaf
 unfocused-split-opacity=0.5
