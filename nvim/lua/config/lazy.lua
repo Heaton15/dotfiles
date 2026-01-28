@@ -53,6 +53,7 @@ vim.bo.formatoptions = "crot"
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt_global.shortmess:remove("F")
+vim.g.clipboard = 'osc52'
 
 -- Keybinds Updates
 vim.g.mapleader = [[ ]]

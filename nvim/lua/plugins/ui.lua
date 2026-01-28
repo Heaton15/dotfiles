@@ -242,9 +242,9 @@ return {
         "nvim-tree/nvim-tree.lua",
         lazy = false,
         config = function(_, opts)
-            vim.keymap.set("n", "<C-1>", ":NvimTreeToggle <CR>", { silent = true, noremap = true })
-            vim.keymap.set("n", "<C-2>", ":NvimTreeFindFile <CR>", { silent = true, noremap = true })
-            vim.keymap.set("n", "<C-3>", ":NvimTreeCollapse <CR>", { silent = true, noremap = true })
+            vim.keymap.set("n", "<A-1>", ":NvimTreeToggle <CR>", { silent = true, noremap = true })
+            vim.keymap.set("n", "<A-2>", ":NvimTreeFindFile <CR>", { silent = true, noremap = true })
+            vim.keymap.set("n", "<A-3>", ":NvimTreeCollapse <CR>", { silent = true, noremap = true })
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
             require("nvim-tree").setup(opts)
