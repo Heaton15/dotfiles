@@ -21,15 +21,23 @@ return {
         lazy = false,
         ---@type snacks.Config
         opts = {
-            scroll = {
+            styles       = {
+                input = {
+                    backdrop = true,
+                    relative = "cursor",
+                }
+
+            },
+            scroll       = {
                 enabled = true,
                 config = {
                     vim.keymap.set("n", "<C-e>", "8<C-e>"),
                     vim.keymap.set("n", "<C-y>", "8<C-y>"),
                 },
             },
-            picker = {
+            picker       = {
                 enabled = true,
+                ui_select = true,
                 sources = {
                     diagnostics = {
                         filter = { cwd = false },
@@ -37,16 +45,19 @@ return {
                     },
                 },
             },
-            dashboard = { enabled = true },
-            bigfile = { enabled = false },
-            explorer = { enabled = false },
-            indent = { enabled = false },
-            input = { enabled = false },
-            notifier = { enabled = false },
-            quickfile = { enabled = false },
-            scope = { enabled = false },
+            dashboard    = { enabled = true },
+            bigfile      = { enabled = false },
+            explorer     = { enabled = false },
+            indent       = { enabled = false },
+            input        = {
+                enabled = true,
+                win = { style = "input" },
+            },
+            notifier     = { enabled = false },
+            quickfile    = { enabled = false },
+            scope        = { enabled = false },
             statuscolumn = { enabled = false },
-            words = { enabled = false },
+            words        = { enabled = false },
         },
         keys = {
             { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find Files" },
