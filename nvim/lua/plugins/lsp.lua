@@ -47,9 +47,28 @@ return {
             },
             -- Add the LSP servers and server customizations here
             servers = {
-                slang_server = {},
+                slang_server = {
+                    settings = {
+                        cmd = { "slang-server" },
+                        root_markers = { ".git", ".slang" },
+                        filetypes = {
+                            "systemverilog",
+                            "verilog",
+                        },
+                    },
+                },
                 rust_analyzer = {},
-                pyright = {},
+                pyright = {
+                    settings = {
+                        python = {
+                            analysis = {
+                                diagnosticMode = "workspace",
+                                autoSearchPaths = true,
+                                useLibraryCodeForTypes = true,
+                            },
+                        },
+                    },
+                },
                 clangd = {},
                 --verible = {
                 --  cmd = { "verible-verilog-ls",
@@ -69,7 +88,6 @@ return {
                         },
                     },
                 },
-                ts_ls = {},
             },
         },
 
@@ -99,6 +117,7 @@ return {
 
             for server, config in pairs(servers) do
                 config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+                vim.lsp.config(server, config)
                 vim.lsp.enable(server)
             end
 
