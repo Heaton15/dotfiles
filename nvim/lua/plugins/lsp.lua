@@ -59,6 +59,33 @@ return {
                 },
                 rust_analyzer = {},
                 pyright = {
+                    root_dir = function(bufnr, on_dir)
+                        local Path = require("plenary.path")
+                        local root_dir = nil
+                        local buf_path = Path:new(vim.api.nvim_buf_get_name(bufnr))
+                        local start_dir = Path:new(vim.fn.getcwd())
+
+                        if not buf_path:exists() then
+                            return
+                        end
+
+                        -- Iterate from the buffer location up to the launch location
+                        -- and set the root_dir as the most senior `pyproject.toml` file
+                        -- Note that this breaks some of the LSP support for other root_markers,
+                        -- but we only care about this one.
+                        for _, parent in ipairs(buf_path:parents()) do
+                            local hasToml = (Path:new(parent) / "pyproject.toml"):exists()
+
+                            if hasToml then
+                                root_dir = parent
+                            end
+
+                            if parent == start_dir.filename then
+                                on_dir(root_dir)
+                                return
+                            end
+                        end
+                    end,
                     settings = {
                         python = {
                             analysis = {
