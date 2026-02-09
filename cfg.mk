@@ -53,4 +53,5 @@ RUST_PACKAGES := \
 	ripgrep \
 	fd-find \
 	bender \
+	tree-sitter-cli \
 
