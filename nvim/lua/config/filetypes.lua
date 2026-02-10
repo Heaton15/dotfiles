@@ -28,7 +28,7 @@ local ft_sh = { "*.sh", "*.bash_aliases", "*.bashrc", "*.bash" }
 local ft_scala = { "*.mill", "*.scala" }
 
 -- Set certain commonly used files to a filetype
-set_ft(buf, ft_sh, "sh", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
+set_ft(buf, ft_sh, "bash", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 set_ft(buf, ft_scala, "scala", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 set_ft(buf, { "*.scs" }, "spectre")
 set_ft(buf, { "*.il" }, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoindent]])
