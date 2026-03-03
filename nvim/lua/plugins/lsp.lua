@@ -218,6 +218,9 @@ return {
                     inferredTypes = { enable = false },
                     typeParameters = { enable = false },
                 },
+                defaultBspToBuildTool = true,
+                startMcpServer = true,
+                mcpClient = "claude",
             }
 
             metals_config.root_patterns = { "build.sbt", "build.sc", "build.mill" }
