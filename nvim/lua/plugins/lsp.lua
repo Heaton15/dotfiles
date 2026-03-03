@@ -205,6 +205,16 @@ return {
             -- Keybinds
             vim.keymap.set("n", "<leader>mc", ":Telescope metals commands <CR>")
 
+
+            local Job = require("plenary.job")
+            local Path = require("plenary.path")
+
+            local maybeMillScript = (Path:new(Job:new({
+                command = "git",
+                args = { "rev-parse", "--show-toplevel" },
+                cwd = vim.fn.getcwd(),
+            }):sync()[1]) / "mill").filename
+
             -- This is where the metals setup exists
             local metals_config = require("metals").bare_config()
 
@@ -221,6 +231,9 @@ return {
                 defaultBspToBuildTool = true,
                 startMcpServer = true,
                 mcpClient = "claude",
+
+                -- If there is no mill script in the root directory, default back to ""
+                millScript = maybeMillScript or ""
             }
 
             metals_config.root_patterns = { "build.sbt", "build.sc", "build.mill" }
