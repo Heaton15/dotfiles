@@ -31,6 +31,7 @@ return {
             "typescript",
             "typst",
             "tcl",
+            "linkerscript",
         }
     end,
     config = function(_, opts)
