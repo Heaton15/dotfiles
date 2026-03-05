@@ -32,6 +32,7 @@ set_ft(buf, ft_sh, "bash", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 a
 set_ft(buf, ft_scala, "scala", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
 set_ft(buf, { "*.scs" }, "spectre")
 set_ft(buf, { "*.il" }, "skill", [[tabstop=4 softtabstop=4 textwidth=80 autoindent]])
+set_ft(buf, { "*.ld" }, "linkerscript")
 set_ft(buf, ft_skill, "skill")
 set_ft(buf, ft_tcl, "tcl")
 set_ft(buf, ft_vlog, "systemverilog", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=120]])
