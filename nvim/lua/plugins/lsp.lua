@@ -48,13 +48,11 @@ return {
             -- Add the LSP servers and server customizations here
             servers = {
                 slang_server = {
-                    settings = {
-                        cmd = { "slang-server" },
-                        root_markers = { ".git", ".slang" },
-                        filetypes = {
-                            "systemverilog",
-                            "verilog",
-                        },
+                    cmd = { "slang-server" },
+                    root_markers = { ".git", ".slang" },
+                    filetypes = {
+                        "systemverilog",
+                        "verilog",
                     },
                 },
                 rust_analyzer = {},
