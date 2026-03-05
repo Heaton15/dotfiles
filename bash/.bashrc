@@ -27,6 +27,9 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 if [[ -n "$WSLENV" ]]; then
+  export JAVA_HOME="/usr/lib/jvm/java-25-openjdk-amd64/"
+  export RISCV="$HOME/.local/bin/software/riscv-tools/latest-cy/chipyard/riscv-tools-chipyard-el8-291733d8"
+  export PATH="$RISCV/bin:$PATH"
   export PATH="$PATH:/home/tim/.local/share/coursier/bin"
   export EDITOR=$(which nvim)
 fi
@@ -61,6 +64,10 @@ fi
 
 if [[ -e "$HOME/.local_setup.sh" ]]; then
   source "$HOME/.local_setup.sh"
+fi
+
+if [[ -d "$HOME/chipyard" ]]; then
+  alias cy-env="eval $($HOME/chipyard/setup_env.sh)"
 fi
 
 if command -v fzf &> /dev/null; then
