@@ -272,6 +272,7 @@ return {
                 python = { "ruff_format" },
                 lua = { "stylua" },
                 verilog = { "verible" },
+                systemverilog = { "verible"},
             },
         },
         config = function(_, opts)
