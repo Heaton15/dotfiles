@@ -257,4 +257,9 @@ return {
         end,
     },
     { "nvim-tree/nvim-web-devicons", lazy = true },
+    {
+        "bngarren/checkmate.nvim",
+        ft = "markdown",
+        opts = {},
+    },
 }

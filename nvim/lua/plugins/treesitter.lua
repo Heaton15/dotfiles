@@ -32,6 +32,8 @@ return {
             "typst",
             "tcl",
             "linkerscript",
+            "markdown",
+            "markdown_inline",
         }
     end,
     config = function(_, opts)
