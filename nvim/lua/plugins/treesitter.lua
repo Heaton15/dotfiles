@@ -20,6 +20,7 @@ return {
             "rst",
             "scala",
             "systemverilog",
+            "vhdl",
             "yaml",
             "devicetree",
             "cmake",
