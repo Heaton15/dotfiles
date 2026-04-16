@@ -26,6 +26,7 @@ local ft_tcl = { "*.sdc", "*.xel", "*.xdc"}
 local ft_vlog = { "*.v", "*.vg", "*.vm", "*.vh", "*.sv", "*.vams"}
 local ft_sh = { "*.sh", "*.bash_aliases", "*.bashrc", "*.bash" }
 local ft_scala = { "*.mill", "*.scala" }
+local ft_txt = { "*.f"}
 
 -- Set certain commonly used files to a filetype
 set_ft(buf, ft_sh, "bash", [[tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 autoindent]])
@@ -40,6 +41,8 @@ set_ft(buf, {"*.core"}, "yaml")
 set_ft(buf, { "*.tex" }, nil, [[setlocal textwidth=80 spell spelllang=en_us]])
 set_ft(buf, { "*.py" }, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent]])
 set_ft(buf, { "*.rs" }, nil, [[set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 autoindent formatoptions=cqnlj]])
+set_ft(buf, ft_txt, "txt")
 
 -- Allows vim-fugitive to fold changes when viewing
 set_ft({ "FileType" }, { "git" }, nil, [[setlocal foldmethod=syntax]])
+

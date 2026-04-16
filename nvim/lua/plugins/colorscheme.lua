@@ -10,10 +10,10 @@ return {
     "EdenEast/nightfox.nvim",
     lazy = false,
     priority = 1000,
-    --dependencies = { 'xiyaowong/transparent.nvim' },
+    dependencies = { 'xiyaowong/transparent.nvim' },
     config = function()
       vim.cmd("colorscheme carbonfox")
-      --set_transparency()
+      set_transparency()
     end,
   },
 }
