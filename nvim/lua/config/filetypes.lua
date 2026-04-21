@@ -45,4 +45,4 @@ set_ft(buf, ft_txt, "txt")
 
 -- Allows vim-fugitive to fold changes when viewing
 set_ft({ "FileType" }, { "git" }, nil, [[setlocal foldmethod=syntax]])
-
+set_ft({ "FileType" }, { "sh"  }, nil, [[set ft=bash]])
