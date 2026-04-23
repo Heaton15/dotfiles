@@ -198,15 +198,6 @@ return {
         end,
     },
     { "tpope/vim-rhubarb" },
-
-    --https://github.com/tommcdo/vim-fubitive.git
-    {
-        "tommcdo/vim-fubitive",
-        dependencies = { "tpope/vim-fugitive" },
-        config = function()
-        end,
-
-    },
     { "christoomey/vim-tmux-navigator" },
     { "junegunn/fzf.vim" },
     { "https://github.com/tarikgraba/vim-lefdef.git" },
