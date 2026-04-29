@@ -34,7 +34,7 @@ if [[ -n "$WSLENV" ]]; then
   export EDITOR=$(which nvim)
 fi
 
-################Aliasing##################
+# Aliases
 # If we have GNU ls, use that over BSD ls
 if command -v gls &> /dev/null; then
   alias ls='gls --color=auto'
@@ -75,6 +75,16 @@ if command -v fzf &> /dev/null; then
   eval "$(fzf --bash)"
 fi
 
+if command -v starship &> /dev/null; then
+  eval "$(starship init bash)"
+else
+  export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
+fi
+
+if [[ -d "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
+
 #export LC_CTYPE=en_US.UTF-8
 #export LANG=en_US.UTF-8
 #export LC_ALL=en_US.UTF-8
@@ -86,8 +96,6 @@ export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border rounded --previe
 alias vtags='/usr/bin/python3 ~/.vtags-3.11/vtags.py'
 set -o vi
 
-export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
-
 if [[ -e "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
   source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
@@ -95,5 +103,4 @@ fi
 export PATH=$HOME/.local/bin:$PATH
 export TMUX_TMPDIR=$HOME/.tmux/
 alias chisel-example="curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala"
-. "$HOME/.cargo/env"
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then source /usr/share/bash-completion/bash_completion; fi
