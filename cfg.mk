@@ -11,6 +11,7 @@ GHOSTTY  := 1
 RUST     := 1
 ZELLIJ   := 1
 VERIBLE  := 1
+STARSHIP := 1
 
 BREW_FORMULAE := \
 	bat \
@@ -53,5 +54,5 @@ RUST_PACKAGES := \
 	ripgrep \
 	fd-find \
 	bender \
+	starship \
 	tree-sitter-cli \
-

@@ -57,4 +57,8 @@ ifeq ($(VERIBLE), 1)
 include verible/install.mk
 endif
 
+ifeq ($(STARSHIP), 1)
+include starship/install.mk
+endif
+
 all: $(ALL_TARGETS)
