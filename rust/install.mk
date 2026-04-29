@@ -1,8 +1,6 @@
 .PHONY: rust
 ALL_TARGETS += rust
 
-.PHONY: rust
-
 FORCE ?=
 
 $(RUST_PACKAGES):

@@ -13,6 +13,8 @@ ZELLIJ   := 1
 VERIBLE  := 1
 STARSHIP := 1
 
+OS_TYPE := $(shell uname -a | cut -d' ' -f1)
+
 BREW_FORMULAE := \
 	bat \
 	duf \
@@ -48,11 +50,19 @@ PYTHON_PACKAGES := \
 	pynvim \
 	scipy
 
+MAC_RUST_PACKAGES := \
+	starship \
+	bender \
+	zellij
+
 RUST_PACKAGES := \
 	watchexec-cli \
-	zellij \
 	ripgrep \
 	fd-find \
-	bender \
-	starship \
 	tree-sitter-cli \
+
+ifeq ($(OS_TYPE),Darwin)
+ALL_RUST_PACKAGES := $(RUST_PACKAGES)
+else
+ALL_RUST_PACKAGES := $(MAC_RUST_PACKAGES) $(RUST_PACKAGES)
+endif
