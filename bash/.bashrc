@@ -81,7 +81,7 @@ else
   export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
 fi
 
-if [[ -d "$HOME/.cargo/env" ]]; then
+if [[ -d "$HOME/.cargo/" ]]; then
   source "$HOME/.cargo/env"
 fi
 
