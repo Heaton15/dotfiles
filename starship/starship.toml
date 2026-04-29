@@ -15,7 +15,7 @@ $rust\
 $golang\
 $python\
 [](fg:lang_bg bg:background)\
-$character"""
+\n$character"""
 
 add_newline = false
 
@@ -134,6 +134,24 @@ format = '[[ $symbol( $version) ](fg:lang_fg bg:lang_bg)]($style)'
 symbol = ""
 style = "bg:lang_bg"
 format = '[[ $symbol( $version) (\($virtualenv\))](fg:lang_fg bg:lang_bg)]($style)'
+
+# Customize the claude-code profile
+[profiles]
+claude-code = "$claude_model$claude_context$claude_cost"
+
+# Configure individual modules
+[claude_model]
+format = "[$symbol$model]($style) "
+symbol = "🛸 "
+style = "bold blue"
+
+[claude_context]
+format = "[$gauge $percentage]($style) "
+gauge_width = 10
+
+[claude_cost]
+format = "[$symbol$cost]($style) "
+symbol = "💰 "
 
 [character]
 disabled = false
