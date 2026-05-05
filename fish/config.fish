@@ -71,7 +71,7 @@ if status is-interactive
     end
 
     if type -q fzf
-        eval $(fzf --fish)
+        fzf --fish | source
     end
     set -gx FZF_DEFAULT_OPTS "--height 60% --layout=reverse --border rounded"
 
