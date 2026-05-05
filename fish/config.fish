@@ -39,7 +39,6 @@ end
 
 function set_vi_binds
     fish_vi_key_bindings
-    bind -M insert \cf forward-char
 end
 
 if status is-interactive
@@ -110,7 +109,7 @@ if status is-interactive
     alias chisel-example="curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala"
 
     if test -e "$HOME/.battelle_setup.sh"
-        #source "$HOME/.battelle_setup.sh"
+        bass source "$HOME/.battelle_setup.sh"
     end
 
     if type -q fzf
