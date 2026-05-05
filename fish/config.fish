@@ -37,8 +37,14 @@ function carbonfox_colors
     set -g fish_pager_color_description $comment
 end
 
+function set_vi_binds
+    fish_vi_key_bindings
+    bind -M insert \cf forward-char
+end
+
 if status is-interactive
     carbonfox_colors
+    set_vi_binds
     function fish_mode_prompt
         switch $fish_bind_mode
             case default
@@ -51,7 +57,6 @@ if status is-interactive
                 echo '[V] '
         end
     end
-    fish_vi_key_bindings
 
     # Ghostty configuration 
     if test -n "$GHOSTTY_RESOURCES_DIR"
