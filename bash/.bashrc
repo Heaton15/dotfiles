@@ -75,11 +75,7 @@ if command -v fzf &> /dev/null; then
   eval "$(fzf --bash)"
 fi
 
-if command -v starship &> /dev/null; then
-  eval "$(starship init bash)"
-else
-  export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
-fi
+export PS1="\[\033[38;5;50m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]\[$(tput sgr0)\]: \[$(tput sgr0)\]"
 
 if [[ -d "$HOME/.cargo/" ]]; then
   source "$HOME/.cargo/env"

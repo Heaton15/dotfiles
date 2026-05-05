@@ -7,6 +7,7 @@ return {
             "vim",
             "vimdoc",
             "bash",
+            "fish",
             "c",
             "comment",
             "cpp",

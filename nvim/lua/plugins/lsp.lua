@@ -272,7 +272,8 @@ return {
                 python = { "ruff_format" },
                 lua = { "stylua" },
                 verilog = { "verible" },
-                systemverilog = { "verible"},
+                systemverilog = { "verible" },
+                fish = { "fish_indent" }
             },
         },
         config = function(_, opts)

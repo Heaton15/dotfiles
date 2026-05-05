@@ -41,6 +41,10 @@ ifeq ($(BASH), 1)
 include bash/install.mk
 endif
 
+ifeq ($(FISH), 1)
+include fish/install.mk
+endif
+
 ifeq ($(GHOSTTY), 1)
 include ghostty/install.mk
 endif

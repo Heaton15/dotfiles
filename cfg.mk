@@ -3,6 +3,7 @@ GIT      := 1
 NODE     := 0
 NVIM     := 1
 BASH     := 1
+FISH     := 1
 PYTHON   := 0
 SCALA    := 1
 TERMINAL := 0
