@@ -69,9 +69,9 @@ if status is-interactive
     # MAC Settings
     if string match -q Darwin (uname)
         eval "$(/opt/homebrew/bin/brew shellenv)"
-        fish_add_path -a /opt/homebrew/opt/openjdk/bin
-        fish_add_path -a "/opt/homebrew/opt/scala@2.13/bin:$PATH"
-        fish_add_path "/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+        fish_add_path -a "/opt/homebrew/opt/openjdk/bin"
+        fish_add_path -a "/opt/homebrew/opt/scala@2.13/bin/"
+        fish_add_path "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
         set -gx RISCV /opt/homebrew/
     end
 
