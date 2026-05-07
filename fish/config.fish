@@ -35,6 +35,14 @@ function carbonfox_colors
     set -g fish_pager_color_prefix $cyan
     set -g fish_pager_color_completion $foreground
     set -g fish_pager_color_description $comment
+
+    hydro_colors
+end
+
+function hydro_colors
+    set -g hydro_color_pwd cyan
+    set -g hydro_color_git purple
+    set -g hydro_color_prompt green
 end
 
 function set_vi_binds
