@@ -13,6 +13,7 @@ RUST     := 1
 ZELLIJ   := 1
 VERIBLE  := 1
 STARSHIP := 1
+EZA      := 1
 
 OS_TYPE := $(shell uname -a | cut -d' ' -f1)
 

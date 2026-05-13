@@ -1,0 +1,115 @@
+# Nightfox Eza Colors
+# Style: carbonfox
+# Based on IBM Carbon Design System
+# Upstream: https://github.com/edeneast/nightfox.nvim
+
+colourful: true
+
+filekinds:
+  normal: {foreground: "#f2f4f8"}
+  directory: {foreground: "#78a9ff"}
+  symlink: {foreground: "#33b1ff"}
+  pipe: {foreground: "#08bdba"}
+  block_device: {foreground: "#be95ff"}
+  char_device: {foreground: "#be95ff"}
+  socket: {foreground: "#3ddbd9"}
+  special: {foreground: "#ff7eb6"}
+  executable: {foreground: "#25be6a"}
+  mount_point: {foreground: "#78a9ff"}
+
+perms:
+  user_read: {foreground: "#78a9ff"}
+  user_write: {foreground: "#ee5396"}
+  user_execute_file: {foreground: "#25be6a"}
+  user_execute_other: {foreground: "#25be6a"}
+  group_read: {foreground: "#6e90cf"}
+  group_write: {foreground: "#c44679"}
+  group_execute: {foreground: "#1f9a56"}
+  other_read: {foreground: "#5a7fb3"}
+  other_write: {foreground: "#b33962"}
+  other_execute: {foreground: "#1a7d47"}
+  special_user_file: {foreground: "#3ddbd9"}
+  special_other: {foreground: "#3ddbd9"}
+  attribute: {foreground: "#be95ff"}
+
+size:
+  major: {foreground: "#78a9ff"}
+  minor: {foreground: "#78a9ff"}
+  number_byte: {foreground: "#25be6a"}
+  number_kilo: {foreground: "#33b1ff"}
+  number_mega: {foreground: "#08bdba"}
+  number_giga: {foreground: "#3ddbd9"}
+  number_huge: {foreground: "#ee5396"}
+  unit_byte: {foreground: "#b6b8bb"}
+  unit_kilo: {foreground: "#b6b8bb"}
+  unit_mega: {foreground: "#b6b8bb"}
+  unit_giga: {foreground: "#b6b8bb"}
+  unit_huge: {foreground: "#b6b8bb"}
+
+users:
+  user_you: {foreground: "#25be6a"}
+  user_root: {foreground: "#ee5396"}
+  user_other: {foreground: "#b6b8bb"}
+  group_yours: {foreground: "#33b1ff"}
+  group_other: {foreground: "#7b7c7e"}
+  group_root: {foreground: "#ee5396"}
+
+links:
+  normal: {foreground: "#33b1ff"}
+  multi_link_file: {foreground: "#be95ff"}
+
+git:
+  new: {foreground: "#25be6a"}
+  modified: {foreground: "#08bdba"}
+  deleted: {foreground: "#ee5396"}
+  renamed: {foreground: "#33b1ff"}
+  typechange: {foreground: "#be95ff"}
+  ignored: {foreground: "#7b7c7e"}
+  conflicted: {foreground: "#3ddbd9"}
+
+git_repo:
+  branch_main: {foreground: "#78a9ff"}
+  branch_other: {foreground: "#be95ff"}
+  git_clean: {foreground: "#25be6a"}
+  git_dirty: {foreground: "#ee5396"}
+
+security_context:
+  colon: {foreground: "#7b7c7e"}
+  user: {foreground: "#78a9ff"}
+  role: {foreground: "#25be6a"}
+  typ: {foreground: "#3ddbd9"}
+  range: {foreground: "#be95ff"}
+
+file_type:
+  image: {foreground: "#be95ff"}
+  video: {foreground: "#ff7eb6"}
+  music: {foreground: "#33b1ff"}
+  lossless: {foreground: "#78a9ff"}
+  crypto: {foreground: "#ee5396"}
+  document: {foreground: "#78a9ff"}
+  compressed: {foreground: "#3ddbd9"}
+  temp: {foreground: "#7b7c7e"}
+  compiled: {foreground: "#08bdba"}
+  build: {foreground: "#25be6a"}
+  source: {foreground: "#f2f4f8"}
+
+punctuation: {foreground: "#7b7c7e"}
+date: {foreground: "#33b1ff"}
+inode: {foreground: "#7b7c7e"}
+blocks: {foreground: "#7b7c7e"}
+header: {foreground: "#78a9ff"}
+octal: {foreground: "#3ddbd9"}
+flags: {foreground: "#be95ff"}
+
+symlink_path: {foreground: "#33b1ff"}
+control_char: {foreground: "#ee5396"}
+broken_symlink: {foreground: "#ee5396"}
+broken_path_overlay: {foreground: "#ee5396"}
+
+filenames:
+  # Custom filename-based overrides
+  # Cargo.toml: {icon: {glyph: 🦀}}
+
+extensions:
+  # Custom extension-based overrides
+  # rs: {filename: {foreground: Red}, icon: {glyph: 🦀}}

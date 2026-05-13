@@ -40,9 +40,9 @@ function carbonfox_colors
 end
 
 function hydro_colors
-    set -g hydro_color_pwd cyan
+    set -g hydro_color_pwd green
     set -g hydro_color_git purple
-    set -g hydro_color_prompt green
+    set -g hydro_color_prompt cyan
 end
 
 function set_vi_binds
@@ -92,7 +92,9 @@ if status is-interactive
     end
 
     # Use GNU ls over BSD when possible
-    if type -q gls
+    if type -q eza
+      alias ls="eza --color=auto"
+    else if type -q gls
         alias ls='gls --color=auto'
     else
         alias ls='ls --color=auto'
@@ -123,6 +125,7 @@ if status is-interactive
     if type -q fzf
         fzf --fish | source
     end
+
     set -gx FZF_DEFAULT_OPTS "--height 60% --layout=reverse --border rounded"
 
     if test -d "$HOME/.cargo/"

@@ -65,4 +65,8 @@ ifeq ($(STARSHIP), 1)
 include starship/install.mk
 endif
 
+ifeq ($(EZA), 1)
+include eza/install.mk
+endif
+
 all: $(ALL_TARGETS)
