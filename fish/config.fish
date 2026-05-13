@@ -94,6 +94,7 @@ if status is-interactive
     # Use GNU ls over BSD when possible
     if type -q eza
       alias ls="eza --color=auto"
+      set -gx EZA_CONFIG_DIR "$HOME/.config/eza"
     else if type -q gls
         alias ls='gls --color=auto'
     else
