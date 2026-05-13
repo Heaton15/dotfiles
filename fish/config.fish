@@ -91,9 +91,11 @@ if status is-interactive
         #export EDITOR=$(which nvim)
     end
 
-    # Use GNU ls over BSD when possible
+    alias ll='ls -la'
     if type -q eza
-      alias ls="eza --color=auto"
+      alias ls="eza --color=auto --group-directories-last"
+      alias ll="ls -T -L 1 -l"
+      alias lla="ls -T -L 1 -l -a"
       set -gx EZA_CONFIG_DIR "$HOME/.config/eza"
     else if type -q gls
         alias ls='gls --color=auto'
@@ -103,7 +105,6 @@ if status is-interactive
 
     # Aliases
     alias vi='vim'
-    alias ll='ls -la'
     alias clear='clear -x'
     alias ..="cd ../"
     alias ....="cd ../../"
