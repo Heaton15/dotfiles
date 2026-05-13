@@ -29,10 +29,6 @@ ifeq ($(PYTHON),1)
 include python/install.mk
 endif
 
-ifeq ($(SCALA),1)
-include scala/install.mk
-endif
-
 ifeq ($(TMUX),1)
 include tmux/install.mk
 endif
@@ -67,6 +63,10 @@ endif
 
 ifeq ($(EZA), 1)
 include eza/install.mk
+endif
+
+ifeq ($(SCALA),1)
+include scala/install.mk
 endif
 
 all: $(ALL_TARGETS)
