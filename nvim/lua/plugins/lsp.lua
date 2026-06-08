@@ -34,7 +34,9 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
-    opts = {},
+    opts = {
+      vim.keymap.set("n", "<leader>vv", ":SlangServer setTopLevel<CR> :SlangServer hierarchy <CR>")
+    },
   },
   {
     "neovim/nvim-lspconfig",

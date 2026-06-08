@@ -93,7 +93,7 @@ if status is-interactive
 
     alias ll='ls -la'
     if type -q eza
-      alias ls="eza --color=auto --group-directories-last"
+      alias ls="eza --color=auto"
       alias ll="ls -T -L 1 -l"
       alias lla="ls -T -L 1 -l -a"
       set -gx EZA_CONFIG_DIR "$HOME/.config/eza"

@@ -129,6 +129,7 @@ return {
                 },
                 menu = {
                     max_height = 30,
+                    direction_priority = { 's' },
                 },
                 documentation = { auto_show = true },
                 ghost_text = {
