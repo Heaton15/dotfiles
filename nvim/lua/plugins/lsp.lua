@@ -177,7 +177,7 @@ return {
 
           map("n", "gla", vim.lsp.buf.code_action, "Run code action")
           map("n", "gln", vim.lsp.buf.rename, "Rename")
-          map("n", "glx", client.stop, "Stop client")
+          map("n", "glx", function() client:stop() end, "Stop client")
           map("n", "gld", ts.lsp_definitions, "Go to definition")
           map("n", "glD", vim.lsp.buf.declaration, "Go to declaration")
           map("n", "glh", vim.lsp.buf.hover, "Hover")
