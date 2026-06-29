@@ -34,6 +34,7 @@ return {
             "typst",
             "tcl",
             "linkerscript",
+            "matlab",
             "markdown",
             "markdown_inline",
         }

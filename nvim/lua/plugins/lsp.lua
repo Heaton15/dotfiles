@@ -59,6 +59,7 @@ return {
           },
         },
         rust_analyzer = {},
+        matlab_ls = {},
         pyright = {
           root_dir = function(bufnr, on_dir)
             local Path = require("plenary.path")
