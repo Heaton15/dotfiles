@@ -43,6 +43,7 @@ function hydro_colors
     set -g hydro_color_pwd green
     set -g hydro_color_git purple
     set -g hydro_color_prompt cyan
+    set -g fish_prompt_pwd_dir_length 120
 end
 
 function set_vi_binds
