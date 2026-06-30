@@ -94,5 +94,6 @@ else
   else
     red "Failed to install neovim..."
     red "Neovim Release ${PPL}$NVIM_RELEASE${DEF} does not exist..."
+    exit 1
   fi
 fi
