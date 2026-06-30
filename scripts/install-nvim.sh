@@ -8,24 +8,42 @@ DEF='\e[0m'
 
 NEOVIM_TAG="0.12.3"
 
-while getopts "n:" opt; do
+function green() {
+  local msg="$1"
+  echo -e "${GRN}${msg}${DEF}"
+}
+
+function red() {
+  local msg="$1"
+  echo -e "${RED}${msg}${DEF}"
+}
+
+function blue() {
+  local msg="$1"
+  echo -e "${BLU}${msg}${DEF}"
+}
+
+function func_help() {
+  blue "help:"
+  blue "\t Args: [-n <neovim_tag>]"
+  blue "\t Usage: $0 -n 0.12.3" >&2
+}
+
+while getopts "n:h" opt; do
     case $opt in
         n)
-            NEOVIM_TAG="$OPTARG"
-            ;;
-        \?)
-            echo "Error: Invalid option -$OPTARG" >&2
-            echo "Usage: $0 -n <neovim tag>" >&2
-            echo "Example: $0 -n 0.12.3 " >&2
-            exit 1
-            ;;
+          NEOVIM_TAG="$OPTARG"
+          ;;
+        h)
+          func_help
+          exit 1
+          ;;
         :)
-            echo "Error: Option -$OPTARG requires an argument" >&2
-            exit 1
-            ;;
+          echo "Error: Option -$OPTARG requires an argument" >&2
+          exit 1
+          ;;
     esac
 done
-
 
 declare -A DISTRO_EXT=( ["Darwin"]="macos" ["Linux"]="linux" )
 declare -A ARCH_VARIATIONS=(["arm64"]="arm64" ["aarch64"]="arm64" ["x86_64"]="x86_64")
@@ -47,22 +65,6 @@ function backup_local_nvim() {
     blue "Neovim ($VERSION) Backed Up -> ${BACKUP_VERSION}"
   fi
 }
-
-function green() {
-  local msg="$1"
-  echo -e "${GRN}${msg}${DEF}"
-}
-
-function red() {
-  local msg="$1"
-  echo -e "${RED}${msg}${DEF}"
-}
-
-function blue() {
-  local msg="$1"
-  echo -e "${BLU}${msg}${DEF}"
-}
-
 
 if [[ "${OS_TYPE}" == "Darwin" ]]; then
   if ! command -v nvim > /dev/null 2>&1; then
