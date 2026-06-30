@@ -9,7 +9,7 @@ cargo_install:
 		exit 1; \
 	fi
 
-$(RUST_PACKAGES): cargo_install
+$(ALL_RUST_PACKAGES): cargo_install
 	cargo install --root "$$HOME/.local/" --locked $@ $(if $(FORCE),--force)
 
-rust: $(RUST_PACKAGES)
+rust: $(ALL_RUST_PACKAGES)
