@@ -28,7 +28,7 @@ done
 
 
 declare -A DISTRO_EXT=( ["Darwin"]="macos" ["Linux"]="linux" )
-declare -A ARM_VARIATIONS=( ["arm64"]="arm64" ["aarch64"]="arm64")
+declare -A ARCH_VARIATIONS=(["arm64"]="arm64" ["aarch64"]="arm64" ["x86_64"]="x86_64")
 OS_TYPE=$(uname)
 
 LOCAL_INSTALL="${HOME}/.local/bin/nvim"
@@ -78,13 +78,12 @@ else
   # Gives us the $ID variable, which contains simple OS information
   source /etc/os-release
 
-  NVIM_RELEASE="https://github.com/neovim/neovim/releases/download/v${NEOVIM_TAG}/nvim-${DISTRO_EXT[$OS_TYPE]}-${ARM_VARIATIONS[$(uname -m)]}.appimage"
+  NVIM_RELEASE="https://github.com/neovim/neovim/releases/download/v${NEOVIM_TAG}/nvim-${DISTRO_EXT[$OS_TYPE]}-${ARCH_VARIATIONS[$(uname -m)]}.appimage"
 
   for distro in ${LINUX_DISTROS_WITH_OLD_GLIB[@]}; do
     if [[ "${distro}" == "$ID" ]]; then
-      blue "Distro: ${distro} requires Neovim with and older glibc..."
       # The neovim url for older glibc releases changes the neovim/releases to neovim-releases
-      NVIM_RELEASE="https://github.com/neovim/neovim-releases/download/v${NEOVIM_TAG}/nvim-${DISTRO_EXT[$OS_TYPE]}-${ARM_VARIATIONS[$(uname -m)]}.appimage"
+      NVIM_RELEASE="https://github.com/neovim/neovim-releases/releases/download/v${NEOVIM_TAG}/nvim-${DISTRO_EXT[$OS_TYPE]}-${ARCH_VARIATIONS[$(uname -m)]}.appimage"
     fi
   done
   if $(wget --spider -q "$NVIM_RELEASE"); then
