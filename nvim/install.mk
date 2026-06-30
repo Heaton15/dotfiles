@@ -2,6 +2,7 @@
 ALL_TARGETS += nvim
 
 nvim:
+	./scripts/install-nvim.sh
 	./install_file.sh nvim/init.lua   	     ~/.config/nvim/init.lua
 	./install_dir.sh  nvim/lua/config        ~/.config/nvim/lua/config
 	./install_dir.sh  nvim/lua/plugins       ~/.config/nvim/lua/plugins
