@@ -42,7 +42,6 @@ BREW_FORMULAE := \
 
 NODE_PACKAGES := \
 	npm \
-	neovim \
 	pyright
 
 PYTHON_PACKAGES := \
@@ -53,7 +52,6 @@ PYTHON_PACKAGES := \
 	scipy
 
 MAC_RUST_PACKAGES := \
-	starship \
 	bender \
 	zellij
 
@@ -63,7 +61,7 @@ RUST_PACKAGES := \
 	fd-find \
 	tree-sitter-cli \
 
-ifeq ($(OS_TYPE),Darwin)
+ifeq ($(shell uname),Darwin)
 ALL_RUST_PACKAGES := $(RUST_PACKAGES)
 else
 ALL_RUST_PACKAGES := $(MAC_RUST_PACKAGES) $(RUST_PACKAGES)
