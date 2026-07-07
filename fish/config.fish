@@ -40,7 +40,7 @@ function carbonfox_colors
 end
 
 function hydro_colors
-    set -g hydro_color_pwd green
+    set -g hydro_color_pwd white
     set -g hydro_color_git purple
     set -g hydro_color_prompt cyan
     set -g fish_prompt_pwd_dir_length 120
