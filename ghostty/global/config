@@ -15,7 +15,7 @@ cursor-color = 00afaf
 unfocused-split-opacity=0.5
 
 # Terminal Blur
-background-opacity=0.8
+background-opacity=1.0
 background-blur-radius=20
 
 window-height = 1000

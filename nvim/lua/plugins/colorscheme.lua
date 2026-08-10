@@ -1,7 +1,7 @@
 local function set_transparency()
   vim.cmd([[TransparentDisable]])
   if vim.env.TERM == "xterm-ghostty" then
-    vim.cmd([[TransparentEnable]])
+    --vim.cmd([[TransparentEnable]])
   end
 end
 

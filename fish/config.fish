@@ -81,6 +81,7 @@ if status is-interactive
         fish_add_path -a "/opt/homebrew/opt/openjdk/bin"
         fish_add_path -a "/opt/homebrew/opt/scala@2.13/bin/"
         fish_add_path "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
+        fish_add_path "/Applications/klayout.app/Contents/MacOS"
         set -gx RISCV /opt/homebrew/
     end
 
