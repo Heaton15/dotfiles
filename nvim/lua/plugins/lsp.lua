@@ -26,16 +26,27 @@ return {
         }
     },
     {
-        "williamboman/mason.nvim",
-        opts = {},
-    },
-    {
         "hudson-trading/slang-server.nvim",
         dependencies = {
             "MunifTanjim/nui.nvim",
         },
         opts = {
             vim.keymap.set("n", "<leader>vv", ":SlangServer setTopLevel<CR> :SlangServer hierarchy <CR>")
+        },
+    },
+    {
+        "williamboman/mason.nvim",
+        opts = {},
+    },
+    {
+        "mason-org/mason-lspconfig.nvim",
+        opts = {
+            ensure_installed = { "lua_ls", "rust_analyzer", "slang_server", "pyright" },
+
+        },
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
         },
     },
     {
