@@ -51,18 +51,20 @@ PYTHON_PACKAGES := \
 	pynvim \
 	scipy
 
-MAC_RUST_PACKAGES := \
-	bender \
-	zellij
 
-RUST_PACKAGES := \
+MAC_RUST_PACKAGES := \
 	watchexec-cli \
 	ripgrep \
 	fd-find \
 	tree-sitter-cli \
+	viu \
+
+RUST_PACKAGES := \
+	bender \
+	zellij
 
 ifeq ($(shell uname),Darwin)
-ALL_RUST_PACKAGES := $(RUST_PACKAGES)
+ALL_RUST_PACKAGES := $(MAC_RUST_PACKAGES)
 else
 ALL_RUST_PACKAGES := $(MAC_RUST_PACKAGES) $(RUST_PACKAGES)
 endif
