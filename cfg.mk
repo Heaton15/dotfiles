@@ -60,8 +60,8 @@ MAC_RUST_PACKAGES := \
 	viu \
 
 RUST_PACKAGES := \
-	bender \
-	zellij
+	bender@0.29.1 \
+	zellij@0.44.0
 
 ifeq ($(shell uname),Darwin)
 ALL_RUST_PACKAGES := $(MAC_RUST_PACKAGES)
