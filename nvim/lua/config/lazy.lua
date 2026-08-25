@@ -21,7 +21,7 @@ local indent = 4
 
 vim.opt.visualbell = true
 vim.opt.termguicolors = true
-vim.opt.ttimeoutlen = 5
+vim.opt.ttimeoutlen = 100
 vim.opt.splitright = true
 vim.opt.foldmethod = "manual"
 vim.opt.virtualedit = "all"
