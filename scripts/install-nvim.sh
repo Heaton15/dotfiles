@@ -6,7 +6,7 @@ BLU='\e[34m'
 GRN='\e[32m'
 DEF='\e[0m'
 
-NEOVIM_TAG="0.12.5"
+NEOVIM_TAG="0.12.4"
 
 function green() {
   local msg="$1"
