@@ -4,15 +4,15 @@ return {
         dependencies = { "folke/snacks.nvim" },
         config = true,
         keys = {
-            { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
-            { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
-            { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
-            { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-            { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-            { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Add current buffer" },
-            { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
+            { "<leader>zc", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
+            { "<leader>zf", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
+            { "<leader>zr", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
+            { "<leader>zC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+            { "<leader>zm", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+            { "<leader>zb", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Add current buffer" },
+            { "<leader>zs", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
             {
-                "<leader>as",
+                "<leader>zs",
                 "<cmd>ClaudeCodeTreeAdd<cr>",
                 desc = "Add file",
                 ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
@@ -132,15 +132,6 @@ return {
         },
 
         config = function(_, opts)
-            ---- Update the signs for LSP information
-            --local signs = { Error = "🛑", Warn = "⚠️", Hint = "💡", Info = "🟢" }
-
-            --for type, icon in pairs(signs) do
-            --    local hl = "DiagnosticSign" .. type
-            --    vim.diagnostic.config({
-            --        signs = { text = { icon }, texthl = { hl }, numhl = { hl } },
-            --    })
-            --end
 
             local underlines = {
                 Error = { undercurl = false },
@@ -252,7 +243,6 @@ return {
             metals_config.root_patterns = { "build.sbt", "build.sc", "build.mill" }
 
             metals_config.find_root_dir = function(patterns, startpath)
-                local Path = require("plenary.path")
                 local root_dir = nil
                 local path = Path:new(startpath)
                 for _, parent in ipairs(path:parents()) do

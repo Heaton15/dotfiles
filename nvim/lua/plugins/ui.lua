@@ -104,8 +104,8 @@ return {
     {
         'saghen/blink.cmp',
         lazy = false,
-        dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
-        version = '*',
+        dependencies = { 'saghen/blink.lib', { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
+        version = 'v2',
         opts = {
             signature = {
                 enabled = true,
@@ -117,6 +117,7 @@ return {
                 },
             },
             snippets = {
+                preset = "luasnip",
                 expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
                 active = function(filter)
                     if filter and filter.direction then
@@ -125,6 +126,7 @@ return {
                     return require('luasnip').in_snippet()
                 end,
                 jump = function(direction) require('luasnip').jump(direction) end,
+
             },
             keymap = {
                 ["<C-n>"] = { "select_next", "snippet_forward" },
@@ -141,7 +143,7 @@ return {
                 },
                 documentation = { auto_show = true },
                 ghost_text = {
-                    enabled = false,
+                    enabled = true,
                 },
             },
             sources = {
@@ -157,6 +159,14 @@ return {
             },
         },
         opts_extend = { "sources.default" }
+    },
+
+    {
+        'saghen/blink.lib',
+        config = function()
+            require('blink.cmp').build():pwait()
+        end,
+
     },
     {
         "nvim-telescope/telescope.nvim",
