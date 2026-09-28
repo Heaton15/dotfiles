@@ -208,6 +208,7 @@ return {
             vim.keymap.set("n", "<leader>gf", ":Git fetch -p <CR>")
             vim.keymap.set("n", "<leader>gs", ":Git <CR> :only <CR>")
             vim.keymap.set("n", "<leader>gl", ":Git log --decorate <CR> :only <CR>")
+            vim.keymap.set("n", "<leader>gL", ":Git log --decorate --graph --oneline --all <CR>")
             vim.keymap.set("n", "<leader>go", ":Git log -p % <CR>")
             vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!")
             vim.keymap.set("n", "<leader>gdh", ":diffget //2")
