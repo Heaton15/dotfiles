@@ -104,8 +104,8 @@ return {
     {
         'saghen/blink.cmp',
         lazy = false,
-        dependencies = { 'saghen/blink.lib', { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
-        version = 'v2',
+        dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+        version = '*',
         opts = {
             signature = {
                 enabled = true,
@@ -143,7 +143,7 @@ return {
                 },
                 documentation = { auto_show = true },
                 ghost_text = {
-                    enabled = true,
+                    enabled = false,
                 },
             },
             sources = {
@@ -161,13 +161,13 @@ return {
         opts_extend = { "sources.default" }
     },
 
-    {
-        'saghen/blink.lib',
-        config = function()
-            require('blink.cmp').build():pwait()
-        end,
+    --{
+    --    'saghen/blink.lib',
+    --    config = function()
+    --        require('blink.cmp').build():pwait()
+    --    end,
 
-    },
+    --},
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
