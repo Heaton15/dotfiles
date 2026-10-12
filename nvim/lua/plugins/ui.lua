@@ -74,7 +74,7 @@ return {
             { "<leader>uC", function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
             { "<leader>sb", function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
             { "<leader>sB", function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
-            { "<leader>sw", function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word",   mode = { "n", "x" } },
+            { "<leader>sw", function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
             --{ "<leader>gL", function() Snacks.picker.git_log_line() end,                            desc = "Git Log Line" },
             --{ "<leader>gs", function() Snacks.picker.git_status() end,                              desc = "Git Status" },
             --{ "<leader>gS", function() Snacks.picker.git_stash() end,                               desc = "Git Stash" },
@@ -93,12 +93,6 @@ return {
             { "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
             { "<leader>sR", function() Snacks.picker.resume() end,                                  desc = "Resume" },
             { "<leader>su", function() Snacks.picker.undo() end,                                    desc = "Undo History" },
-            { "<leader>gi", function() Snacks.picker.gh_issue() end,                                desc = "GitHub Issues (open)" },
-            { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end,               desc = "GitHub Issues (all)" },
-            { "<leader>gp", function() Snacks.picker.gh_pr() end,                                   desc = "GitHub Pull Requests (open)" },
-            { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end,                  desc = "GitHub Pull Requests (all)" },
-
-
         },
     },
     {
@@ -268,4 +262,47 @@ return {
         end,
     },
     { "nvim-tree/nvim-web-devicons", lazy = true },
+    {
+        "pwntester/octo.nvim",
+        cmd = "Octo",
+        opts = {
+            picker = "snacks",
+            default_remote = { "origin" },
+            enable_builtin = true,
+        },
+        keys = {
+            {
+                "<leader>oi",
+                "<CMD>Octo issue list<CR>",
+                desc = "List GitHub Issues",
+            },
+            {
+                "<leader>op",
+                "<CMD>Octo pr list<CR>",
+                desc = "List GitHub PullRequests",
+            },
+            {
+                "<leader>od",
+                "<CMD>Octo discussion list<CR>",
+                desc = "List GitHub Discussions",
+            },
+            {
+                "<leader>on",
+                "<CMD>Octo notification list<CR>",
+                desc = "List GitHub Notifications",
+            },
+            {
+                "<leader>os",
+                function()
+                    require("octo.utils").create_base_search_command { include_current_repo = true }
+                end,
+                desc = "Search GitHub",
+            },
+        },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "folke/snacks.nvim",
+            "nvim-tree/nvim-web-devicons",
+        },
+    }
 }
