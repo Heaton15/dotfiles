@@ -121,6 +121,7 @@ if status is-interactive
     alias kb-ext="make -C $HOME/dotfiles/ ghostty-ext-keyboard"
     alias zj="zellij"
     alias spooky-claude="claude --allow-dangerously-skip-permissions --dangerously-skip-permissions"
+    alias spooky-copilot="copilot --yolo"
     alias chisel-example="curl -O -L https://github.com/chipsalliance/chisel/releases/latest/download/chisel-example.scala"
 
     if test -e "$HOME/.battelle_setup.sh"

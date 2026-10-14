@@ -57,6 +57,7 @@ alias kb-mac="make -C $HOME/dotfiles/ ghostty"
 alias kb-ext="make -C $HOME/dotfiles/ ghostty-ext-keyboard"
 alias zj="zellij"
 alias spooky-claude="claude --allow-dangerously-skip-permissions --dangerously-skip-permissions"
+alias spooky-copilot="copilot --yolo"
 #################PATH Updates##############
 
 if [[ -e "$HOME/.battelle_setup.sh" ]]; then
