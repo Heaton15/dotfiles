@@ -1,6 +1,6 @@
 BREW     := 0
 GIT      := 1
-NODE     := 0
+NVM      := 1
 NVIM     := 1
 BASH     := 1
 FISH     := 1
@@ -39,10 +39,6 @@ BREW_FORMULAE := \
 	tmux \
 	tokei \
 	zsh
-
-NODE_PACKAGES := \
-	npm \
-	pyright
 
 PYTHON_PACKAGES := \
 	black \

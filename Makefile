@@ -17,8 +17,8 @@ ifeq ($(GIT),1)
 include git/install.mk
 endif
 
-ifeq ($(NODE),1)
-include node/install.mk
+ifeq ($(NVM),1)
+include nvm/install.mk
 endif
 
 ifeq ($(NVIM),1)
