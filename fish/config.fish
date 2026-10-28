@@ -75,6 +75,10 @@ if status is-interactive
         source "$HOME/.local/bin/uv_bash_complete.sh"
     end
 
+    if type -q ghostty
+      alias ssh="ghostty +ssh --"
+    end
+
     # MAC Settings
     if string match -q Darwin (uname)
         eval "$(/opt/homebrew/bin/brew shellenv)"

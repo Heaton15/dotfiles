@@ -42,6 +42,10 @@ else
   alias ls='ls --color=auto'
 fi
 
+if command -v ghostty &> /dev/null; then
+  alias ssh="ghostty +ssh --"
+fi
+
 alias vi='vim'
 alias ll='ls -la'
 alias clear='clear -x'
