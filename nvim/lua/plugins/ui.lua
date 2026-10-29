@@ -287,5 +287,14 @@ return {
             "folke/snacks.nvim",
             "nvim-tree/nvim-web-devicons",
         },
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+        config = function(_, _)
+            vim.keymap.set("n", "<F2>", ":RenderMarkdown toggle <CR>")
+        end,
     }
 }
