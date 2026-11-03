@@ -87,7 +87,7 @@ if status is-interactive
         fish_add_path "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
         fish_add_path "/Applications/klayout.app/Contents/MacOS"
         set -gx SHELL "/opt/homebrew/bin/fish"
-        set -gx RISCV "/opt/homebrew/"
+        set -gx RISCV "/opt/homebrew/Cellar/riscv-gnu-toolchain/main"
     end
 
     if test -n WSLENV
