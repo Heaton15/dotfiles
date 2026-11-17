@@ -13,7 +13,7 @@ fi
 
 if [[ $(uname) == "Darwin" ]]; then
   eval "$(/usr/libexec/path_helper)"
-  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+  export PATH="/opt/homebrew/opt/openjdk@25/bin:$PATH"
   export PATH="/opt/homebrew/opt/scala@2.13/bin:$PATH"
   eval "$(/opt/homebrew/bin/brew shellenv)"
   export RISCV="/opt/homebrew"
