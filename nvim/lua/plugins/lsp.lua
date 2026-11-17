@@ -132,7 +132,6 @@ return {
         },
 
         config = function(_, opts)
-
             local underlines = {
                 Error = { undercurl = false },
                 Warn  = { undercurl = false },
@@ -226,11 +225,12 @@ return {
                 enableSemanticHighlighting = false,
                 excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
                 inlayHints = {
-                    hintsInPatternMatch = { enable = false },
+                    byNameParameters = { enable = true },
+                    hintsInPatternMatch = { enable = true },
                     implicitArguments = { enable = false },
                     implicitConversions = { enable = false },
-                    inferredTypes = { enable = false },
-                    typeParameters = { enable = false },
+                    inferredTypes = { enable = true },
+                    typeParameters = { enable = true },
                 },
                 defaultBspToBuildTool = true,
                 startMcpServer = true,
@@ -260,7 +260,7 @@ return {
 
             local lsp_metals = vim.api.nvim_create_augroup("lsp_metals", { clear = true })
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "scala, sbt" },
+                pattern = { "scala",    "sbt" },
                 callback = function()
                     require("metals").initialize_or_attach(metals_config)
                 end,

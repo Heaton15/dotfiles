@@ -16,7 +16,7 @@ if [[ $(uname) == "Darwin" ]]; then
   export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
   export PATH="/opt/homebrew/opt/scala@2.13/bin:$PATH"
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  export RISCV="/opt/homebrew/Cellar/riscv-gnu-toolchain/main"
+  export RISCV="/opt/homebrew"
   export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
   export SHELL="/opt/homebrew/bin/bash"
 
